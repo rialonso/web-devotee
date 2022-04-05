@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "web-devotee"
+    }
+  },
+  "defaultProject": "web-devotee",
+  "cli": {
+    "analytics": "648cfce3-d45b-4e7b-bd7a-258e8b5ee507"
+  }
 }
