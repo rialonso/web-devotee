@@ -11,19 +11,7 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('src/app/pages/initial-page/initial-page.module').then(m => m.InitialPageModule),
   },
-  // initial page
-  // login.
-  // create account
-  // reset password
-  // logged initial page
-  // perfil
-  // edit profile
-  // user page id modal
-  // matches
-  // chat
-  // filtros
-  // devotee plus
-  // support
+
 ];
 
 @NgModule({

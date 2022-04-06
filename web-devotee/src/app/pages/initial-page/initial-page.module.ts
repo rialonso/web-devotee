@@ -8,6 +8,9 @@ import { InitialPageRoutingModule } from './initial-page-rounting.module';
     CommonModule,
     InitialPageRoutingModule,
   ],
-  declarations: [InitialPageComponent]
+  declarations: [InitialPageComponent],
+  exports: [
+    InitialPageRoutingModule,
+  ]
 })
 export class InitialPageModule { }
