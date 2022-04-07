@@ -8,3 +8,20 @@ $blue-dark: #2E4664;
 $magenta-soft: #F97688;
 
 $gradient: linear-gradient(90deg, #F57DA1 0%, #F66863 100%) 0% 0% no-repeat padding-box;
+
+.color-black {
+  color: $black;
+}
+.color-white {
+  color: $white;
+}
+.color-magenta-soft {
+  color: $blue-dark;
+}
+.color-magenta-soft {
+  color: $magenta-soft;
+}
+// backjground colors
+.bg-color-blue-dark {
+  background-color: $blue-dark;
+}

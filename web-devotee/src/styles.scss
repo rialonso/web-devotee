@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+@font-face {
+  font-family: Booster-next-regular;
+  src: url(assets/fonts/BoosterNextFY-Regular.otf) format("opentype");
+}
+@font-face {
+  font-family: Booster-next-bold;
+  src: url(assets/fonts/BoosterNextFY-Bold.otf) format("opentype");
+}
+@font-face {
+  font-family: Booster-next-black;
+  src: url(assets/fonts/BoosterNextFY-Black.otf) format("opentype");
+}
+@font-face {
+  font-family: Booster-next-medium;
+  src: url(assets/fonts/BoosterNextFY-Medium.otf) format("opentype");
+}
