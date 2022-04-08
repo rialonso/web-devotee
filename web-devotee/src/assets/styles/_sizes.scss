@@ -1,5 +1,6 @@
 $padding-default-mobile: 15px;
 
 .padding-default-mobile {
+  box-sizing: border-box;
   padding: $padding-default-mobile;
 }

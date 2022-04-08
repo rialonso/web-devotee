@@ -9,10 +9,17 @@
   font-size: 100%;
   vertical-align: baseline;
 }
+
 .dp-flex-all-center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+p {
+  font-family: 'Booster-next-regular';
+}
+h2 {
+  font-family: 'Booster-next-bold';
 }
 @font-face {
   font-family: Booster-next-regular;

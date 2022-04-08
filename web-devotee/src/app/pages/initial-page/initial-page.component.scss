@@ -1,7 +1,6 @@
 @import '_breakpoints';
 #container-initial-page {
-  height: 100vh;
-  width: 100vw;
+
   .container-photos-cards {
     width: 100%;
     height: 100%;
@@ -20,7 +19,7 @@
     }
   }
   .content-initial-page {
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -29,6 +28,8 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    position: sticky;
+    top: 0;
     .content-logo-header {
       display: flex;
       justify-content: space-between;
