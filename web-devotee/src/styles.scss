@@ -1,10 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+@import '_sizes';
+@import '_colors';
+@import '_fonts';
+@import '_breakpoints';
 * {
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
   vertical-align: baseline;
+}
+.dp-flex-all-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 @font-face {
   font-family: Booster-next-regular;

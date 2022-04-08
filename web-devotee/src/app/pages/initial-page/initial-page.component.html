@@ -1,16 +1,23 @@
 <div id="container-initial-page" class="bg-color-blue-dark">
-  <section class="content-initial-page">
-    <div class="container-logo">
-      <img src="/assets/images/logo.png" alt="Logo Devotee" srcset="">
-      <span class="font-booster-next-regular color-white">Devotee</span>
-    </div>
-    <div class="container-actions">
-      asasa
-      <router-outlet></router-outlet>
-    </div>
-  </section>
-  <section>
+  <div class="container-photos-cards">
+    <section class="content-initial-page">
+      <div class="container-logo-text padding-default-mobile">
+        <section class="content-logo-header">
+          <img src="/assets/images/logo.png" alt="Logo Devotee" srcset="">
+          <span class="font-booster-next-bold color-white title-logo">Devotee</span>
+          <span class="sign-in-mobile color-magenta-soft font-booster-next-bold">Entrar</span>
+        </section>
+        <p  class="font-booster-next-regular color-white">O maior aplicativo de relacionamento feito para pessoas especiais</p>
 
-    FOOTer
-  </section>
+      </div>
+      <div class="container-actions padding-default-mobile">
+        <router-outlet></router-outlet>
+      </div>
+    </section>
+    <section >
+
+      <app-footer></app-footer>
+    </section>
+  </div>
+
 </div>

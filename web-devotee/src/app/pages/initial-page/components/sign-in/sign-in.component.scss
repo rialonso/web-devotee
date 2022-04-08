@@ -1,0 +1,9 @@
+@import '_colors';
+@import '_buttons';
+#container-sign-in {
+  .container-buttons-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
