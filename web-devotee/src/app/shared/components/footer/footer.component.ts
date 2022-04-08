@@ -1,3 +1,4 @@
+import { TranslateService } from './../../../core/services/translate/translate.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  dataTexts;
+  buttonsDownload;
+  constructor(
+    private translateService: TranslateService,
+    ) {
 
+    }
   ngOnInit() {
+    this.dataTexts = this.translateService.textTranslate;
+    this.buttonsDownload = this.dataTexts.buttonsDownload;
   }
 
 }

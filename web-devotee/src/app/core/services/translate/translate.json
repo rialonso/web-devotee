@@ -1,0 +1,34 @@
+{
+  "pt": {
+    "firstPage": {
+     "title": "O maior aplicativo de relacionamento feito para pessoas especiais"
+    },
+    "policyPrivacy":"Política de Privacidade",
+    "termsOfUse":"Termos de Uso",
+    "copyright":"Devotee. Todos direitos reservados.",
+    "getApp":"Baixe o aplicativo!",
+    "buttonsDownload": {
+      "btnPlayStore":"/assets/images/playstore.svg",
+      "btnAppStore":"/assets/images/appstore.svg",
+      "altPlaySotre":"Botão Play Store",
+      "altAppStore":"Botão Apple Store"
+    }
+
+  },
+  "us": {
+    "firstPage": {
+      "title": "The best relationship app made for special people"
+    },
+    "policyPrivacy":"Privacy Policy",
+    "termsOfUse":"Terms of use",
+    "copyright":"Devotee. All rights reserved.",
+    "getApp":"Get the app",
+    "buttonsDownload": {
+      "btnPlayStore":"/assets/images/playstore-en.svg",
+      "btnAppStore":"/assets/images/appstore-en.svg",
+      "altPlaySotre":"Button Play Store",
+      "altAppStore":"Button Apple Store"
+    }
+
+  }
+}
