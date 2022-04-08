@@ -1,4 +1,6 @@
 @import '_colors';
+@import '_sizes';
+@import '_breakpoints';
 $opacity-70: 70%;
 footer{
   p{
@@ -64,7 +66,7 @@ footer{
       color: $white;
   }
 }
-@media only screen and (min-width:280px) {
+@media only screen and (min-width: $epecific-mobile) {
   footer{
     .terms-policy{
       font-size: 0.8rem;
@@ -75,7 +77,7 @@ footer{
 
   }
 }
-@media only screen and (min-width:700px) {
+@media only screen and (min-width:$min-tablet) {
   .logo{
     padding-bottom: 0;
   }
@@ -100,7 +102,7 @@ footer{
     ;
   }
 }
-@media only screen and (min-width:800px) {
+@media only screen and (min-width:$max-mobile) {
   header{
     padding-right: 4rem;
   }
@@ -129,7 +131,7 @@ footer{
 
   }
 }
-@media only screen and (min-width:1250px) {
+@media only screen and (min-width:$min-desk) {
   footer{
     .copyright {
       display: flex;
@@ -137,8 +139,8 @@ footer{
       align-items: flex-end;
     }
     .container-footer {
-      max-width: 1200px;
-      width: 1200px;
+      max-width: $max-width-contents;
+      width: $max-width-contents;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-areas:

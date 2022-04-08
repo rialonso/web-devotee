@@ -1,6 +1,9 @@
 @import '_breakpoints';
+@import '_sizes';
 #container-initial-page {
-
+  @media screen and(min-width: $min-tablet){
+    height: 100vh;
+  }
   .container-photos-cards {
     width: 100%;
     height: 100%;
@@ -23,6 +26,15 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @media screen and(min-width: $min-tablet){
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      max-width: $max-width-contents;
+      width: 100%;
+      margin: auto;
+    }
   }
   .container-logo-text {
     display: flex;
@@ -30,16 +42,31 @@
     gap: 15px;
     position: sticky;
     top: 0;
+    @media screen and(min-width: $min-tablet){
+      flex: 1;
+    }
     .content-logo-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      @media screen and(min-width: $min-tablet){
+        justify-content: initial;
+      }
     }
     img {
       display: none;
+      @media screen and(min-width: $min-tablet){
+        display: initial;
+        max-width: 115px;
+        width: 100%;
+        height: auto;
+      }
     }
     .title-logo {
       font-size: 2rem;
+      @media screen and(min-width: $min-tablet){
+        font-size: 5rem;
+      }
     }
     p {
       font-size: 1.3rem;
@@ -52,5 +79,11 @@
     }
   }
 
+ .container-actions {
+  @media screen and(min-width: $min-tablet){
+    flex: 1;
+    max-width: 500px;
+  }
 
+ }
 }
