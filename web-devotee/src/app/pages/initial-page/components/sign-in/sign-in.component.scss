@@ -1,9 +1,44 @@
 @import '_colors';
 @import '_buttons';
+@import '_breakpoints';
 #container-sign-in {
+  .content-sign-in {
+    padding: 20px;
+    background-color: $white;
+    border-radius: 10px;
+    @media screen and(max-width: $max-mobile){
+      display: none;
+    }
+    &-mobile {
+      @media screen and(max-width: $max-mobile){
+
+        display: initial;
+        background-color: #FFFFFF;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        right: 0;
+        box-sizing: border-box;
+      }
+
+    }
+    .content-header-sign-in {
+      display: flex;
+      justify-content: space-between;
+      .return-first-pg-mobile {
+        @media screen and(min-width: $min-tablet){
+          display: none;
+        }
+      }
+    }
+  }
   .container-buttons-mobile {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    @media screen and(min-width: $min-tablet){
+      display: none;
+    }
   }
 }

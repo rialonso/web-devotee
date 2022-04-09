@@ -1,9 +1,16 @@
 <div id="container-sign-in">
+  <section class="content-sign-in" [class.content-sign-in-mobile]="openMobileSignIn">
+    <div class="content-header-sign-in">
+      <section class="return-first-pg-mobile">voltar</section>
+      <a class="color-blue-dark font-booster-next-bold f-size-24">Entrar</a>
+      <a class="color-magenta-soft">Esqueci minha senha</a>
+    </div>
+  </section>
   <div class="container-buttons-mobile">
     <button class="button-primary">
       Começar cadastro!
     </button>
-    <button class="button-secondary">
+    <button class="button-secondary" (click)="clickopenMobileSignIn()">
       Já possui conta
     </button>
   </div>
