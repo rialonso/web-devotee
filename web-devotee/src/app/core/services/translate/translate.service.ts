@@ -8,32 +8,36 @@ export class TranslateService {
   textTranslate: string;
   dataFormatation: string;
 constructor() { }
-  veriyLanguage(){
+  veriyLanguage(): void {
     let userLang = navigator.language;
     this.selectLanguage(userLang);
   }
-  getDataTranslate(){
+  getDataTranslate(): any {
     return Object.entries(data);
   }
-  selectLanguage(language){
+  selectLanguage(language): void {
     let data = this.getDataTranslate();
+
+
     switch (language) {
       case 'pt-BR':
-        this.traductionLanguage(data[0][1]['pt']);
+        this.traductionLanguage(data[0][1]);
+        console.log(data[0]);
         this.dataFormatation = 'pt';
         break;
       case 'en-US':
-        this.traductionLanguage(data[0][1]['us']);
+        this.traductionLanguage(data[1][1]);
+        console.log(data[0]);
         this.dataFormatation = 'us';
         break;
 
       default:
-        this.traductionLanguage(data[0][1]['us']);
+        this.traductionLanguage(data[1][1]);
         this.dataFormatation = 'us';
         break;
     }
   }
-  traductionLanguage(dataLanguage){
-    this.textTranslate = dataLanguage
+  traductionLanguage(dataLanguage): void{
+    this.textTranslate = dataLanguage;
 }
 }

@@ -21,6 +21,14 @@ p, a {
 h2 {
   font-family: 'Booster-next-bold';
 }
+
+.content-header-sign-in {
+  mat-icon {
+    svg {
+      fill: $white;
+    }
+}
+}
 @font-face {
   font-family: Booster-next-regular;
   src: url(assets/fonts/BoosterNextFY-Regular.otf) format("opentype");
@@ -37,3 +45,6 @@ h2 {
   font-family: Booster-next-medium;
   src: url(assets/fonts/BoosterNextFY-Medium.otf) format("opentype");
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

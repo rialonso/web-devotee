@@ -10,11 +10,8 @@ export class InitialPageComponent implements OnInit {
   dataTexts;
   constructor(
     private translateService: TranslateService
-    ) {
-
-    }
-
-  ngOnInit() {
+    ) {}
+  ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
   }
 

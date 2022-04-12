@@ -1,10 +1,23 @@
 <div id="container-sign-in">
   <section class="content-sign-in" [class.content-sign-in-mobile]="openMobileSignIn">
     <div class="content-header-sign-in">
-      <section class="return-first-pg-mobile">voltar</section>
-      <a class="color-blue-dark font-booster-next-bold f-size-24">Entrar</a>
+      <div class="title-sign-return">
+        <mat-icon svgIcon="navigate_before"></mat-icon>
+        <a class="color-blue-dark font-booster-next-bold f-size-24">Entrar</a>
+      </div>
       <a class="color-magenta-soft">Esqueci minha senha</a>
     </div>
+    <form class="example-form">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Favorite food</mat-label>
+        <input matInput placeholder="Ex. Pizza" value="Sushi">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Leave a comment</mat-label>
+        <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+      </mat-form-field>
+    </form>
   </section>
   <div class="container-buttons-mobile">
     <button class="button-primary">

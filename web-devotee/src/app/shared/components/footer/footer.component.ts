@@ -15,7 +15,7 @@ export class FooterComponent implements OnInit {
     ) {
 
     }
-  ngOnInit() {
+  ngOnInit(): void {
     this.dataTexts = this.translateService.textTranslate;
     this.buttonsDownload = this.dataTexts.buttonsDownload;
   }
