@@ -1,18 +1,21 @@
 <div id="container-initial-page" class="bg-color-blue-dark">
   <div class="container-photos-cards">
     <section class="content-initial-page">
-      <div class="container-logo-text padding-default-mobile">
-        <section class="content-logo-header">
-          <img src="/assets/images/logo.png" alt="Logo Devotee" srcset="">
-          <span class="font-booster-next-bold color-white title-logo">Devotee</span>
-          <span class="sign-in-mobile color-magenta-soft font-booster-next-bold">Entrar</span>
-        </section>
-        <p  class="font-booster-next-regular color-white">{{ dataTexts?.firstPage?.title }}</p>
+      <div class="initial-page-define-size">
+        <div class="container-logo-text padding-default-mobile">
+          <section class="content-logo-header">
+            <img src="/assets/images/logo.png" alt="Logo Devotee" srcset="">
+            <span class="font-booster-next-bold color-white title-logo">Devotee</span>
+            <span class="sign-in-mobile color-magenta-soft font-booster-next-bold">Entrar</span>
+          </section>
+          <p  class="font-booster-next-regular color-white">{{ dataTexts?.firstPage?.title }}</p>
 
+        </div>
+        <div class="container-actions padding-default-mobile">
+          <router-outlet></router-outlet>
+        </div>
       </div>
-      <div class="container-actions padding-default-mobile">
-        <router-outlet></router-outlet>
-      </div>
+
     </section>
       <app-footer></app-footer>
   </div>

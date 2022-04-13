@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+  <g id="qr_code" transform="translate(-3 -3)">
+    <path id="Caminho_54" data-name="Caminho 54" d="M3,11h8V3H3ZM5,5H9V9H5Z" fill="#7d7b78"/>
+    <path id="Caminho_55" data-name="Caminho 55" d="M3,21h8V13H3Zm2-6H9v4H5Z" fill="#7d7b78"/>
+    <path id="Caminho_56" data-name="Caminho 56" d="M13,3v8h8V3Zm6,6H15V5h4Z" fill="#7d7b78"/>
+    <rect id="Retângulo_11" data-name="Retângulo 11" width="2" height="2" transform="translate(19 19)" fill="#7d7b78"/>
+    <rect id="Retângulo_12" data-name="Retângulo 12" width="2" height="2" transform="translate(13 13)" fill="#7d7b78"/>
+    <rect id="Retângulo_13" data-name="Retângulo 13" width="2" height="2" transform="translate(15 15)" fill="#7d7b78"/>
+    <rect id="Retângulo_14" data-name="Retângulo 14" width="2" height="2" transform="translate(13 17)" fill="#7d7b78"/>
+    <rect id="Retângulo_15" data-name="Retângulo 15" width="2" height="2" transform="translate(15 19)" fill="#7d7b78"/>
+    <rect id="Retângulo_16" data-name="Retângulo 16" width="2" height="2" transform="translate(17 17)" fill="#7d7b78"/>
+    <rect id="Retângulo_17" data-name="Retângulo 17" width="2" height="2" transform="translate(17 13)" fill="#7d7b78"/>
+    <rect id="Retângulo_18" data-name="Retângulo 18" width="2" height="2" transform="translate(19 15)" fill="#7d7b78"/>
+  </g>
+</svg>

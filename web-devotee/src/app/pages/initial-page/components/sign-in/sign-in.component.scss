@@ -1,11 +1,12 @@
 @import '_colors';
 @import '_buttons';
 @import '_breakpoints';
+@import '_sizes';
 #container-sign-in {
   .content-sign-in {
-    padding: 40px;
+    padding: $s-40px;
     background-color: $white;
-    border-radius: 10px;
+    border-radius: $s-10px;
     @media screen and(max-width: $max-mobile){
       display: none;
     }
@@ -14,9 +15,9 @@
 
         display: initial;
         background-color: #FFFFFF;
-        height: 100vh;
-        width: 100%;
-        max-width: 100vw;
+        height: $s-100vh;
+        width: $s-100per;
+        max-width: $s-100vw;
         position: fixed;
         top: 0;
         right: 0;
@@ -36,7 +37,7 @@
         background-color: $gray-soft;
         width: 35px;
         height: 35px;
-        border-radius: 100%;
+        border-radius: $s-100per;
         svg {
           fill: $white;
         }
@@ -52,17 +53,30 @@
     }
     #sign-in {
       display: flex;
-      width: 100%;
+      width: $s-100per;
       flex-direction: column;
-      margin-top: 20px;
+      margin-top: $s-20px;
     }
   }
-  .container-buttons-mobile {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    @media screen and(min-width: $min-tablet){
-      display: none;
+  .container-buttons- {
+    &mobile {
+      display: flex;
+      flex-direction: column;
+      gap: $s-10px;
+      @media screen and(min-width: $min-tablet){
+        display: none;
+      }
     }
+    &others {
+      display: flex;
+      flex-direction: row;
+      gap: $s-10px;
+    }
+  }
+  .others-logins {
+    text-align: center;
+  }
+  .infos-about-app {
+    text-align: center;
   }
 }

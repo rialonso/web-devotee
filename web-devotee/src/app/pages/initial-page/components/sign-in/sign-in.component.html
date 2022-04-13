@@ -17,7 +17,29 @@
         <mat-label>senha</mat-label>
         <input matInput placeholder="Digite sua senha">
       </mat-form-field>
+      <button class="button-primary mb-15px">
+        Continuar
+      </button>
     </form>
+    <button class="button-third">
+      Cadastrar
+    </button>
+    <div class="others-logins mt-15px">
+      <p class="color-blue-dark">ou</p>
+      <div class="container-buttons-others">
+        <div class="button-icon-text">
+          <span>Continuar com</span>
+          <mat-icon svgIcon="icon_qr_code" class="size-18"></mat-icon>
+        </div>
+        <div class="button-icon-text">
+          <mat-icon svgIcon="logo_google" class="size-18"></mat-icon>
+          <span>Continuar com Google</span>
+        </div>
+      </div>
+    </div>
+    <p class="infos-about-app color-blue-dark mt-15px">
+      Ao continuar, você concorda com nossos <span class="font-booster-next-bold ">{{dataTexts.policyPrivacy}}</span> e <span class="font-booster-next-bold ">{{dataTexts.termsOfUse}}</span>.
+    </p>
   </section>
   <div class="container-buttons-mobile">
     <button class="button-primary">

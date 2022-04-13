@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from 'src/app/core/services/translate/translate.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignInComponent implements OnInit {
   openMobileSignIn = true;
-  constructor() { }
+  dataTexts;
+
+  constructor(
+    private translateService: TranslateService
+  ) { }
 
   ngOnInit(): void {
+    this.dataTexts = this.translateService?.textTranslate;
   }
   clickopenMobileSignIn(): void {
     this.openMobileSignIn = !this.openMobileSignIn;

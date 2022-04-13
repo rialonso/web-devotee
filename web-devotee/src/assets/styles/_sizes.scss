@@ -1,7 +1,22 @@
 $padding-default-mobile: 15px;
 $max-width-contents: 1370px;
+$s-10px: 10px;
+$s-15px: 15px;
+$s-20px: 20px;
+$s-40px: 40px;
+//sizes views
+$s-100vh: 100vh;
+$s-100vw: 100vw;
 
+//sizes percent
+$s-100per: 100%;
 .padding-default-mobile {
   box-sizing: border-box;
   padding: $padding-default-mobile;
+}
+.mt-15px {
+  margin-top: 15px;
+}
+.mb-15px {
+  margin-bottom: 15px;
 }
