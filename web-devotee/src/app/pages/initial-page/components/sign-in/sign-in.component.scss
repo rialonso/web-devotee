@@ -3,7 +3,7 @@
 @import '_breakpoints';
 #container-sign-in {
   .content-sign-in {
-    padding: 20px;
+    padding: 40px;
     background-color: $white;
     border-radius: 10px;
     @media screen and(max-width: $max-mobile){
@@ -49,6 +49,12 @@
           display: none;
         }
       }
+    }
+    #sign-in {
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      margin-top: 20px;
     }
   }
   .container-buttons-mobile {
