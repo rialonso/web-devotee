@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    @media screen and(min-width: $min-desk){
+    @media screen and(min-width: $min-desk) {
       background-position: 75% -93%;
       background-size: 116rem auto;
     }
@@ -30,7 +30,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      @media screen and(min-width: $min-tablet){
+      height: 100%;
+      @media screen and(min-width: $min-tablet) {
         flex-direction: row;
         justify-content: space-between;
         height: 60vh;
@@ -47,26 +48,26 @@
     gap: 15px;
     position: sticky;
     top: 0;
-    @media screen and(min-width: $min-tablet){
+    @media screen and(min-width: $min-tablet) {
       flex: 1;
     }
     .content-logo-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      @media screen and(min-width: $min-tablet){
+      @media screen and(min-width: $min-tablet) {
         justify-content: initial;
       }
     }
     img {
       display: none;
-      @media screen and(min-width: $min-tablet){
+      @media screen and(min-width: $min-tablet) {
         display: initial;
         max-width: 100px;
         width: 100%;
         height: auto;
       }
-      @media screen and(min-width: $min-tablet){
+      @media screen and(min-width: $min-tablet) {
         display: initial;
         max-width: 115px;
         width: 100%;
@@ -75,10 +76,10 @@
     }
     .title-logo {
       font-size: 2rem;
-      @media screen and(min-width: $min-tablet){
+      @media screen and(min-width: $min-tablet) {
         font-size: 4rem;
       }
-      @media screen and(min-width: $min-desk){
+      @media screen and(min-width: $min-desk) {
         font-size: 5rem;
       }
     }
@@ -87,14 +88,14 @@
     }
     .sign-in-mobile {
       margin-top: 10px;
-      @media screen and(min-width: $min-tablet){
+      @media screen and(min-width: $min-tablet) {
         display: none;
       }
     }
   }
 
  .container-actions {
-  @media screen and(min-width: $min-tablet){
+  @media screen and(min-width: $min-tablet) {
     flex: 1;
     max-width: 500px;
   }
