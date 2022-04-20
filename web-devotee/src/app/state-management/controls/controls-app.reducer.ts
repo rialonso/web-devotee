@@ -6,8 +6,8 @@ export const initialState: IControlsApp = INITIAL_STATE_CONTROLS_APP;
 
 export const controlsAppReducer = createReducer(
   initialState,
-  on(new AddControlApp().creatAction(), (state,  payload) => ({
+  on(new AddControlApp().creatAction(), (state,  action: any) => ({
     ...state,
-    ...payload
+    ...action.payload
   }))
 );

@@ -2,51 +2,59 @@
   <section class="content-sign-in" [class.content-sign-in-mobile]="openMobileSignIn">
     <div class="content-header-sign-in">
       <div class="title-sign-return">
-        <mat-icon svgIcon="navigate_before" (click)="clickopenMobileSignIn()"></mat-icon>
-        <a class="color-blue-dark font-booster-next-bold f-size-24" >Entrar</a>
+        <mat-icon svgIcon="navigate_before" (click)="clickopenMobileSignIn(false)"></mat-icon>
+        <a class="color-blue-dark font-booster-next-bold f-size-24" >{{dataTexts.login}}</a>
       </div>
-      <a class="color-magenta-soft">Esqueci minha senha</a>
+      <a class="color-magenta-soft">{{dataTexts.signin.rememberPassword}}</a>
     </div>
     <form id="sign-in" class="example-form">
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>e-mail</mat-label>
+        <mat-label>E-mail</mat-label>
         <input matInput placeholder="Digite seu email">
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>senha</mat-label>
+        <mat-label>{{dataTexts.signin.password}}</mat-label>
         <input matInput placeholder="Digite sua senha">
       </mat-form-field>
       <button class="button-primary mb-15px">
-        Continuar
+        {{dataTexts.buttonsSignin.btnContinue}}
       </button>
     </form>
     <button class="button-third">
-      Cadastrar
+      {{dataTexts.buttonsSignin.btnRegister}}
     </button>
     <div class="others-logins mt-15px">
       <p class="color-blue-dark">ou</p>
       <div class="container-buttons-others">
         <div class="button-icon-text">
-          <span>Continuar com</span>
+          <span>{{dataTexts.buttonsSignin.btnQrCode}}</span>
           <mat-icon svgIcon="icon_qr_code" class="size-18"></mat-icon>
         </div>
         <div class="button-icon-text">
           <mat-icon svgIcon="logo_google" class="size-18"></mat-icon>
-          <span>Continuar com Google</span>
+          <span>{{dataTexts.buttonsSignin.btnGoogle}}</span>
         </div>
       </div>
     </div>
     <p class="infos-about-app color-blue-dark mt-15px">
-      Ao continuar, você concorda com nossos <span class="font-booster-next-bold ">{{dataTexts.policyPrivacy}}</span> e <span class="font-booster-next-bold ">{{dataTexts.termsOfUse}}</span>.
+      {{dataTexts.txtPrivacyAndTerms}}
+      <span class="font-booster-next-bold ">
+        {{dataTexts.policyPrivacy}}
+      </span>
+      {{dataTexts.and}}
+      <span class="font-booster-next-bold ">
+        {{dataTexts.termsOfUse}}
+      </span>.
     </p>
   </section>
   <div class="container-buttons-mobile">
     <button class="button-primary">
-      Começar cadastro!
+      {{dataTexts.signin.register}}
     </button>
-    <button class="button-secondary" (click)="clickopenMobileSignIn()">
-      Já possui conta
+    <button class="button-secondary" (click)="clickopenMobileSignIn(true)">
+      {{dataTexts.signin.alreadyAccount}}
     </button>
   </div>
 </div>
+

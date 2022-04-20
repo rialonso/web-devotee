@@ -1,4 +1,4 @@
 export interface IPayload {
-  type?: string;
-  payload?: any;
+  key?: string;
+  value?: any;
 }

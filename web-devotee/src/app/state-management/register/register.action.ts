@@ -11,7 +11,7 @@ import { IRegisterData } from './register.state';
 
 export class AddData implements CustomAction {
   type = RegisterEnum.addData;
-  constructor(public payload?: IRegisterData){}
+  constructor(public payload?: any){}
   creatAction(): ActionCreator {
     return createAction(this.type);
   }

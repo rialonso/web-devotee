@@ -3,32 +3,60 @@
     "firstPage": {
      "title": "O maior aplicativo de relacionamento feito para pessoas especiais"
     },
-    "policyPrivacy":"Política de Privacidade",
-    "termsOfUse":"Termos de Uso",
-    "copyright":"Devotee. Todos direitos reservados.",
-    "getApp":"Baixe o aplicativo!",
+    "policyPrivacy": "Política de Privacidade",
+    "termsOfUse": "Termos de Uso",
+    "copyright": "Devotee. Todos direitos reservados.",
+    "getApp": "Baixe o aplicativo!",
+    "txtPrivacyAndTerms": "Ao continuar, você concorda com nossos",
+    "and": "e",
     "buttonsDownload": {
-      "btnPlayStore":"/assets/images/playstore.svg",
-      "btnAppStore":"/assets/images/appstore.svg",
-      "altPlaySotre":"Botão Play Store",
-      "altAppStore":"Botão Apple Store"
+      "btnPlayStore": "/assets/images/playstore.svg",
+      "btnAppStore": "/assets/images/appstore.svg",
+      "altPlaySotre": "Botão Play Store",
+      "altAppStore": "Botão Apple Store"
+    },
+    "login": "Entrar",
+    "signin": {
+      "register": "Começar cadastro!",
+      "alreadyAccount": "Já possui conta",
+      "rememberPassword": "Esqueci minha senha",
+      "password": "Senha"
+    },
+    "buttonsSignin": {
+      "btnContinue": "Continuar",
+      "btnRegister": "Cadastrar",
+      "btnQrCode": "Continuar com",
+      "btnGoogle": "Continuar com Google"
     }
-
   },
   "us": {
     "firstPage": {
       "title": "The best relationship app made for special people"
     },
-    "policyPrivacy":"Privacy Policy",
-    "termsOfUse":"Terms of use",
-    "copyright":"Devotee. All rights reserved.",
-    "getApp":"Get the app",
+    "policyPrivacy": "Privacy Policy",
+    "termsOfUse": "Terms of use",
+    "copyright": "Devotee. All rights reserved.",
+    "getApp": "Get the app",
+    "txtPrivacyAndTerms": "by continuing you agree with",
+    "and": "and",
     "buttonsDownload": {
-      "btnPlayStore":"/assets/images/playstore-en.svg",
-      "btnAppStore":"/assets/images/appstore-en.svg",
-      "altPlaySotre":"Button Play Store",
-      "altAppStore":"Button Apple Store"
+      "btnPlayStore": "/assets/images/playstore-en.svg",
+      "btnAppStore": "/assets/images/appstore-en.svg",
+      "altPlaySotre": "Button Play Store",
+      "altAppStore": "Button Apple Store"
+    },
+    "login": "Login",
+    "signin": {
+      "register": "Register",
+      "alreadyAccount": "already have an account",
+      "rememberPassword": "Remember my password",
+      "password": "Password"
+    },
+    "buttonsSignin": {
+      "btnContinue": "Continue",
+      "btnRegister": "Register",
+      "btnQrCode": "Continue with",
+      "btnGoogle": "Continue with Google"
     }
-
   }
 }

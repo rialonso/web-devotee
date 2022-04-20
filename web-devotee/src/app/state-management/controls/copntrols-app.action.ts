@@ -8,7 +8,6 @@ import { ControlsEnum } from './register.enum';
 
 export class AddControlApp implements CustomAction {
   type = ControlsEnum.addControlsApp;
-  key = ControlsEnum.addControlsApp;
   constructor(public payload?: IControlsApp){}
   creatAction(): ActionCreator {
     return createAction(this.type);

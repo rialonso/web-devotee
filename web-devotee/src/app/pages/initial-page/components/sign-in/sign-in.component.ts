@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { State, Store } from '@ngrx/store';
+import { ReplaySubject } from 'rxjs';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
+import { IAppState } from 'src/app/state-management/app.model';
+import { takeUntil } from 'rxjs/operators';
+import { AddControlApp } from 'src/app/state-management/controls/copntrols-app.action';
 
 @Component({
   selector: 'app-sign-in',
@@ -7,18 +12,30 @@ import { TranslateService } from 'src/app/core/services/translate/translate.serv
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent implements OnInit {
-  openMobileSignIn = true;
+  openMobileSignIn = false;
   dataTexts;
 
+  destroy$ = new ReplaySubject();
   constructor(
+    protected state: State<IAppState>,
+    protected store: Store<IAppState>,
     private translateService: TranslateService
-  ) { }
+  ) {
+    this.store.select('controlsApp')
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((controlsApp: any) => {
+        this.changeOpenMenuMobile(controlsApp.openSingIn);
+      });
+  }
 
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
   }
-  clickopenMobileSignIn(): void {
-    this.openMobileSignIn = !this.openMobileSignIn;
+  changeOpenMenuMobile(actionClicked: boolean): void {
+    this.openMobileSignIn = actionClicked;
   }
-
+  clickopenMobileSignIn(openSignIn: boolean): void {
+    this.store.dispatch(new AddControlApp({ openSingIn: openSignIn }));
+    console.log(this.state.getValue());
+  }
 }
