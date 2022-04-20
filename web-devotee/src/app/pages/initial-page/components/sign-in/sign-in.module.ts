@@ -11,7 +11,6 @@ import { MatIconModule } from '@angular/material/icon';
   imports: [
     CommonModule,
     SignInRoutingModule,
-    MatIconModule,
     SharedModule,
   ],
   declarations: [SignInComponent],

@@ -10,6 +10,10 @@ const routes: Routes = [
       path: 'login',
       loadChildren: () => import('src/app/pages/initial-page/components/sign-in/sign-in.module').then(m => m.SignInModule)
     },
+    {
+      path: 'recuperar',
+      loadChildren: () => import('src/app/pages/initial-page/components/remember-password/remember-password.module').then(m => m.RememberPasswordModule)
+    },
   ]},
 ];
 

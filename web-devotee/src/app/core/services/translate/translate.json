@@ -27,6 +27,12 @@
       "btnRegister": "Cadastrar",
       "btnQrCode": "Continuar com",
       "btnGoogle": "Continuar com Google"
+    },
+    "rememberPasswordPg": {
+      "title": "Esqueci minha senha",
+      "text": "Enviaremos um e-mail com as instruções para você recuperar sua senha. Insira seu e-mail abaixo.",
+      "btnRecover": "Recuperar senha",
+      "btnBack": "Voltar"
     }
   },
   "us": {
@@ -57,6 +63,12 @@
       "btnRegister": "Register",
       "btnQrCode": "Continue with",
       "btnGoogle": "Continue with Google"
+    },
+    "rememberPasswordPg": {
+      "title": "Forgot my password",
+      "text": "We will send a email for you with to instructions to recover password. Put your e-mail below",
+      "btnRecover": "Recover password",
+      "btnBack": "Back"
     }
   }
 }

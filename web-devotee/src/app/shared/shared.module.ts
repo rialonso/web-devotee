@@ -4,6 +4,7 @@ import { IconModule } from './components/custom-icons/icon.module';
 import { HttpClientModule } from '@angular/common/http';
 import {MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -15,6 +16,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HttpClientModule,
     MatInputModule,
     MatFormFieldModule,
+    MatIconModule,
   ],
   exports: [
     FooterComponent,
@@ -22,6 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HttpClientModule,
     MatInputModule,
     MatFormFieldModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: []
