@@ -3,6 +3,7 @@ import { State, Store } from '@ngrx/store';
 import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
+import { RouteService } from 'src/app/shared/functions/route.service';
 import { IAppState } from 'src/app/state-management/app.model';
 
 @Component({
@@ -19,7 +20,8 @@ export class RememberPasswordComponent implements OnInit {
   constructor(
     protected state: State<IAppState>,
     protected store: Store<IAppState>,
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    public routeService: RouteService,
   ) {
     this.store.select('controlsApp')
     .pipe(takeUntil(this.destroy$))
@@ -33,5 +35,8 @@ export class RememberPasswordComponent implements OnInit {
   }
   changeOpenMenuMobile(actionClicked: boolean): void {
     this.openMobileSignIn = actionClicked;
+  }
+  navigateTo() {
+    this.routeService.navigateToURL('/login')
   }
 }

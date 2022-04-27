@@ -27,7 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "./src/assets/styles/theme/devotee.theme.css",
+              "./src/assets/styles/theme/devotee.theme.scss",
               "src/styles.scss",
               "src/assets/styles/_fonts.scss"
             ],
@@ -104,7 +104,7 @@
               "src/assets"
             ],
             "styles": [
-              "./src/assets/styles/theme/devotee.theme.css",
+              "./src/assets/styles/devotee.theme.scss",
               "src/styles.scss"
             ],
             "scripts": []

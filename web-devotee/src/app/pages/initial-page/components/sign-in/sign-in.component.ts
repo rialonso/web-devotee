@@ -6,6 +6,7 @@ import { IAppState } from 'src/app/state-management/app.model';
 import { takeUntil } from 'rxjs/operators';
 import { AddControlApp } from 'src/app/state-management/controls/copntrols-app.action';
 import { Router } from '@angular/router';
+import { RouteService } from 'src/app/shared/functions/route.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -22,6 +23,7 @@ export class SignInComponent implements OnInit {
     protected store: Store<IAppState>,
     private translateService: TranslateService,
     private router: Router,
+    public routeService: RouteService
   ) {
     this.store.select('controlsApp')
       .pipe(takeUntil(this.destroy$))
@@ -38,9 +40,8 @@ export class SignInComponent implements OnInit {
   }
   clickopenMobileSignIn(openSignIn: boolean): void {
     this.store.dispatch(new AddControlApp({ openSingIn: openSignIn }));
-    console.log(this.state.getValue());
   }
   navigateTo(): void {
-    this.router.navigate(['/recuperar']);
+    this.routeService.navigateToURL('/recuperar');
   }
 }
