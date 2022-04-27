@@ -20,7 +20,7 @@ footer{
     }
     .logo-text{
       color: $white;
-      font-size:28px;
+      font-size:2rem;
       font-weight: normal;
       margin-left: 8px;
   }
@@ -28,10 +28,10 @@ footer{
   .terms-policy{
       display: flex;
       justify-content: center;
-      font-size: 1rem;
       gap: 15px;
       .policy, .terms{
         opacity: $opacity-70;
+        font-size: 1rem;
         &:hover{
           opacity: 100%;
           cursor: pointer;
@@ -62,15 +62,12 @@ footer{
   #copyright{
       opacity: $opacity-70;
       margin-top: 1rem;
-      font-size: 0.8rem;
+      font-size: 1rem;
       color: $white;
   }
 }
 @media only screen and (min-width: $epecific-mobile) {
   footer{
-    .terms-policy{
-      font-size: 0.8rem;
-    }
     .logo-terms{
       grid-area: logo-terms;
     }

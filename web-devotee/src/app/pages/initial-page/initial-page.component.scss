@@ -20,6 +20,10 @@
       background-position: 75% -93%;
       background-size: 116rem auto;
     }
+    @media screen and(min-width: $max-desk) {
+      background-position: calc(100%) calc(100% - -20em);
+      background-size: 150rem auto;
+    }
   }
   .content-initial-page {
     height: 100vh;
