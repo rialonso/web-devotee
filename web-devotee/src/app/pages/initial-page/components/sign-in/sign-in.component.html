@@ -12,12 +12,12 @@
     <form id="sign-in" class="example-form">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>E-mail</mat-label>
-        <input matInput placeholder="Digite seu email">
+        <input matInput placeholder="Digite seu email" type="email">
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>{{dataTexts.signin.password}}</mat-label>
-        <input matInput placeholder="Digite sua senha">
+        <input matInput placeholder="Digite sua senha" type="password">
       </mat-form-field>
       <button class="button primary mb-15px">
         {{dataTexts.buttonsSignin.btnContinue}}
@@ -26,10 +26,10 @@
     <button class="button third">
       {{dataTexts.buttonsSignin.btnRegister}}
     </button>
-    <div class="others-logins mt-15px">
-      <p class="color-blue-dark">ou</p>
+    <div class="others-logins">
+      <p class="color-blue-dark mtb-15px">{{dataTexts.or}}</p>
       <div class="container-buttons-others">
-        <div class="button icon-text">
+        <div class="button icon-text" id="btn-qrcode">
           <span>{{dataTexts.buttonsSignin.btnQrCode}}</span>
           <mat-icon svgIcon="icon_qr_code" class="size-18"></mat-icon>
         </div>

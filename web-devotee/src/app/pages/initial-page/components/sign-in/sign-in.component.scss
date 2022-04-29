@@ -51,6 +51,11 @@
     }
   }
 }
+#btn-qrcode {
+  @media screen and(max-width: $min-tablet){
+    display: none;
+  }
+}
 .others-logins {
   text-align: center;
 }

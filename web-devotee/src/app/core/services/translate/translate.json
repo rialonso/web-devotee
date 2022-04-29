@@ -9,6 +9,7 @@
     "getApp": "Baixe o aplicativo!",
     "txtPrivacyAndTerms": "Ao continuar, você concorda com nossos",
     "and": "e",
+    "or": "ou",
     "buttonsDownload": {
       "btnPlayStore": "/assets/images/playstore.svg",
       "btnAppStore": "/assets/images/appstore.svg",
@@ -45,6 +46,7 @@
     "getApp": "Get the app",
     "txtPrivacyAndTerms": "by continuing you agree with",
     "and": "and",
+    "or": "or",
     "buttonsDownload": {
       "btnPlayStore": "/assets/images/playstore-en.svg",
       "btnAppStore": "/assets/images/appstore-en.svg",

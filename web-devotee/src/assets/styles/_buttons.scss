@@ -1,6 +1,7 @@
 @import '_colors';
+@import '_sizes';
 .button{
-  padding: 10px;
+  padding: $s-10px;
   border-radius: 60px;
   width: 100%;
   font-size: 19px;
@@ -34,8 +35,9 @@
   &.icon-text {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    padding: 10px;
+    align-items: center;
+    gap: $s-10px;
+    padding: $s-10px;
     border-radius: 60px;
     border: 1px solid $gray-soft;
     background: $white;

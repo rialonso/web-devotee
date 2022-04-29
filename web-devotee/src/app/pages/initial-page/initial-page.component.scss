@@ -1,7 +1,7 @@
 @import '_breakpoints';
 @import '_sizes';
 #container-initial-page {
-  @media screen and(min-width: $min-tablet){
+  @media screen and(min-width: $min-tablet) and (min-height: 800px){
     height: 100vh;
   }
   .container-photos-cards {

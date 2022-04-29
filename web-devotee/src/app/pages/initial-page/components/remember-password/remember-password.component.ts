@@ -38,7 +38,7 @@ export class RememberPasswordComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
-    if (!this.routeService.verifyOpenSingIn())
+    if (!this.routeService.verifyOpenSingIn() && window.innerWidth < 768)
       this.navigateTo();
 
   }
