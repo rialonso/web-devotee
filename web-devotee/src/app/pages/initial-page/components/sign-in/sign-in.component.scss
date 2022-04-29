@@ -2,81 +2,56 @@
 @import '_buttons';
 @import '_breakpoints';
 @import '_sizes';
-#container-sign-in {
-  .content-sign-in {
-    padding: $s-40px;
-    background-color: $white;
-    border-radius: $s-10px;
-    @media screen and(max-width: $max-mobile){
-      display: none;
-    }
-    &-mobile {
-      @media screen and(max-width: $max-mobile){
-
-        display: initial;
-        background-color: #FFFFFF;
-        height: $s-100vh;
-        width: $s-100per;
-        max-width: $s-100vw;
-        position: fixed;
-        top: 0;
-        right: 0;
-        box-sizing: border-box;
-      }
-
-    }
-    .content-header-sign-in {
-      display: flex;
-      justify-content: space-between;
-      .title-sign-return {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-      }
-      mat-icon {
-        background-color: $gray-soft;
-        width: 35px;
-        height: 35px;
-        border-radius: $s-100per;
-        svg {
-          fill: $white;
-        }
-        @media screen and(min-width: $min-tablet){
-          display: none;
-        }
-      }
-      .return-first-pg-mobile {
-        @media screen and(min-width: $min-tablet){
-          display: none;
-        }
-      }
-    }
-    #sign-in {
-      display: flex;
-      width: $s-100per;
-      flex-direction: column;
-      margin-top: $s-20px;
-    }
-  }
-  .container-buttons- {
-    &mobile {
+.content-sign-in {
+  .content-header-sign-in {
+    display: flex;
+    justify-content: space-between;
+    .title-sign-return {
       display: flex;
       flex-direction: column;
-      gap: $s-10px;
+      gap: 30px;
+    }
+    mat-icon {
+      background-color: $gray-soft;
+      width: 35px;
+      height: 35px;
+      border-radius: $s-100per;
       @media screen and(min-width: $min-tablet){
         display: none;
       }
     }
-    &others {
-      display: flex;
-      flex-direction: row;
-      gap: $s-10px;
+    .return-first-pg-mobile {
+      @media screen and(min-width: $min-tablet){
+        display: none;
+      }
     }
   }
-  .others-logins {
-    text-align: center;
-  }
-  .infos-about-app {
-    text-align: center;
+  #sign-in {
+    display: flex;
+    width: $s-100per;
+    flex-direction: column;
+    margin-top: $s-20px;
   }
 }
+.container-buttons- {
+  &mobile {
+    display: flex;
+    flex-direction: column;
+    gap: $s-10px;
+    @media screen and(min-width: $min-tablet){
+      display: none;
+    }
+  }
+  &others {
+    display: flex;
+    flex-direction: row;
+    gap: $s-10px;
+  }
+}
+.others-logins {
+  text-align: center;
+}
+.infos-about-app {
+  text-align: center;
+}
+

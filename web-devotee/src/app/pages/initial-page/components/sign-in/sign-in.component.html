@@ -1,11 +1,13 @@
-<div id="container-sign-in">
-  <section class="content-sign-in" [class.content-sign-in-mobile]="openMobileSignIn">
+<div id="container-sign-in" class="container-default-cards-initial-page">
+  <section class="content-sign-in content-deafult-cards-initial-page" [class.content-deafult-cards-initial-page-mobile]="openMobileSignIn">
     <div class="content-header-sign-in">
       <div class="title-sign-return">
         <mat-icon svgIcon="navigate_before" (click)="clickopenMobileSignIn(false)"></mat-icon>
         <a class="color-blue-dark font-booster-next-bold f-size-24" >{{dataTexts.login}}</a>
       </div>
-      <a class="color-magenta-soft cursor-pointer" (click)="navigateTo()">{{dataTexts.signin.rememberPassword}}</a>
+      <div>
+        <a class="color-magenta-soft cursor-pointer" (click)="navigateTo()">{{dataTexts.signin.rememberPassword}}</a>
+      </div>
     </div>
     <form id="sign-in" class="example-form">
       <mat-form-field class="example-full-width" appearance="fill">

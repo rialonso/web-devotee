@@ -23,13 +23,44 @@ h2 {
   font-family: 'Booster-next-bold';
 }
 
-.content-header-sign-in {
+.content-header-sign-in,
+.content-header-remember  {
   mat-icon {
     svg {
       fill: $white;
     }
 }
 }
+
+.container-default-cards-initial-page {
+  .content-deafult-cards-initial-page {
+    padding: $s-40px;
+    background-color: $white;
+    border-radius: $s-10px;
+    @media screen and(max-width: $max-mobile){
+      display: none;
+    }
+    &-mobile {
+      @media screen and(max-width: $max-mobile){
+
+        display: initial;
+        background-color: #FFFFFF;
+        height: $s-100vh;
+        width: $s-100per;
+        max-width: $s-100vw;
+        position: fixed;
+        top: 0;
+        right: 0;
+        box-sizing: border-box;
+      }
+
+    }
+  }
+}
+
+
+
+
 @font-face {
   font-family: Booster-next-regular;
   src: url(assets/fonts/BoosterNextFY-Regular.otf) format("opentype");
