@@ -19,21 +19,21 @@
         <mat-label>{{dataTexts.signin.password}}</mat-label>
         <input matInput placeholder="Digite sua senha">
       </mat-form-field>
-      <button class="button-primary mb-15px">
+      <button class="button primary mb-15px">
         {{dataTexts.buttonsSignin.btnContinue}}
       </button>
     </form>
-    <button class="button-third">
+    <button class="button third">
       {{dataTexts.buttonsSignin.btnRegister}}
     </button>
     <div class="others-logins mt-15px">
       <p class="color-blue-dark">ou</p>
       <div class="container-buttons-others">
-        <div class="button-icon-text">
+        <div class="button icon-text">
           <span>{{dataTexts.buttonsSignin.btnQrCode}}</span>
           <mat-icon svgIcon="icon_qr_code" class="size-18"></mat-icon>
         </div>
-        <div class="button-icon-text">
+        <div class="button icon-text">
           <mat-icon svgIcon="logo_google" class="size-18"></mat-icon>
           <span>{{dataTexts.buttonsSignin.btnGoogle}}</span>
         </div>
@@ -51,10 +51,10 @@
     </p>
   </section>
   <div class="container-buttons-mobile">
-    <button class="button-primary">
+    <button class="button primary">
       {{dataTexts.signin.register}}
     </button>
-    <button class="button-secondary" (click)="clickopenMobileSignIn(true)">
+    <button class="button secondary" (click)="clickopenMobileSignIn(true)">
       {{dataTexts.signin.alreadyAccount}}
     </button>
   </div>

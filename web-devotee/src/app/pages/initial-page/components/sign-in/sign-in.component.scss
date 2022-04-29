@@ -44,8 +44,11 @@
   }
   &others {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: $s-10px;
+    @media screen and(min-width: $min-tablet){
+      flex-direction: row;
+    }
   }
 }
 .others-logins {

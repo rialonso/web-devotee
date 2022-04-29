@@ -1,52 +1,37 @@
 @import '_colors';
-.button- {
-  &primary {
-    padding: 10px;
-    border-radius: 60px;
+.button{
+  padding: 10px;
+  border-radius: 60px;
+  width: 100%;
+  font-size: 19px;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-family: 'Booster-next-bold' "Roboto", "Helvetica Neue", sans-serif;
+  &.primary {
     background: $principal-gradient;
-    width: 100%;
     color: $white;
-    font-size: 19px;
-    cursor: pointer;
-    font-family: 'Booster-next-bold' "Roboto", "Helvetica Neue", sans-serif;
-    // div {
-    //   padding: 10px;
-    //   width: 100%;
-    //   height: 100%;
-    //   box-sizing: border-box;
-    // }
     &:hover {
       background: $principal-gradient-hover;
       // background: $black;
       // opacity: 0.2;
     }
   }
-  &secondary {
-    padding: 10px;
-    border-radius: 60px;
+  &.secondary {
     background: $magenta-soft-20;
-    width: 100%;
     color: $magenta-soft;
-    font-size: 19px;
-    cursor: pointer;
     &:hover {
       background: $magenta-soft-30;
     }
   }
-  &third {
-    padding: 10px;
-    border-radius: 60px;
+  &.third {
     border: 1px solid $magenta-soft;
     background: $white;
-    width: 100%;
     color: $magenta-soft;
-    font-size: 19px;
-    cursor: pointer;
     &:hover {
       background: $gray-ultra-soft;
     }
   }
-  &icon-text {
+  &.icon-text {
     display: flex;
     justify-content: center;
     gap: 10px;
