@@ -5,7 +5,7 @@ import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { routesApplication } from 'src/app/shared/enum/routes.enum';
-import { RouteService } from 'src/app/shared/functions/route.service';
+import { RouteService } from 'src/app/shared/functions/routes/route.service';
 import { IAppState } from 'src/app/state-management/app.model';
 
 @Component({

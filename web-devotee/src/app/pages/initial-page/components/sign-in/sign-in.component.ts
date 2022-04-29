@@ -6,7 +6,7 @@ import { IAppState } from 'src/app/state-management/app.model';
 import { takeUntil } from 'rxjs/operators';
 import { AddControlApp } from 'src/app/state-management/controls/copntrols-app.action';
 import { Router } from '@angular/router';
-import { RouteService } from 'src/app/shared/functions/route.service';
+import { RouteService } from 'src/app/shared/functions/routes/route.service';
 
 @Component({
   selector: 'app-sign-in',
