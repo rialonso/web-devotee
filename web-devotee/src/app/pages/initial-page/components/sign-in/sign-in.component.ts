@@ -7,6 +7,8 @@ import { takeUntil } from 'rxjs/operators';
 import { AddControlApp } from 'src/app/state-management/controls/copntrols-app.action';
 import { Router } from '@angular/router';
 import { RouteService } from 'src/app/shared/functions/routes/route.service';
+import { HttpService } from 'src/app/core/services/generics-http/httpService.service';
+import { SignInService } from 'src/app/core/services/sign-in/sign-in.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -23,7 +25,9 @@ export class SignInComponent implements OnInit {
     protected store: Store<IAppState>,
     private translateService: TranslateService,
     private router: Router,
+    private signInService: SignInService,
     public routeService: RouteService
+
   ) {
     this.store.select('controlsApp')
       .pipe(takeUntil(this.destroy$))
@@ -34,6 +38,10 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
+    this.signInService.post({email: 'murilo0933@hotmail.com', password: '12345678'}).subscribe(res => {
+      console.log(res);
+
+    })
   }
   changeOpenMenuMobile(actionClicked: boolean): void {
     this.openMobileSignIn = actionClicked;
