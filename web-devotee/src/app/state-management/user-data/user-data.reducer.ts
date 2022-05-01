@@ -1,12 +1,13 @@
 import { createReducer, on } from '@ngrx/store';
-import { INITAL_STATE_REGISTER_USER, IRegisterUser } from 'src/app/shared/model/register/register.model.';
-import { AddData } from './register.action';
+import { AddUserDataAll } from './user-data.action';
+import { IUserData, INITIAL_STATE_USER_DATA } from './user-data.state';
 
-export const initialState: IRegisterUser = INITAL_STATE_REGISTER_USER;
+export const initialState: IUserData.RootObject = INITIAL_STATE_USER_DATA;
 
-export const registerReducer = createReducer(
+export const userDataReducer = createReducer(
   initialState,
-  on(new AddData().creatAction(), (state,  payload ) => ({
+  on(new AddUserDataAll().creatAction(), (state,  payload) => ({
+
     ...state,
     ...payload
   }))

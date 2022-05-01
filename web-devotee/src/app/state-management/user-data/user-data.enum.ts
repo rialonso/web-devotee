@@ -1,3 +1,3 @@
-export enum RegisterEnum {
-  addData = '[register] add data'
+export enum UserDataEnum {
+  addDataAll = '[userData] add all data'
 }

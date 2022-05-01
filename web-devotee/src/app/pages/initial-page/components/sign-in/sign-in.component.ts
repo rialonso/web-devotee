@@ -41,7 +41,6 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
     this.initiForm();
-
   }
   changeOpenMenuMobile(actionClicked: boolean): void {
     this.openMobileSignIn = actionClicked;
@@ -55,6 +54,7 @@ export class SignInComponent implements OnInit {
   async signIn() {
     if (this.formGroup.valid) {
       const signInData = await this.signInService.post(this.formGroup.value).toPromise();
+      console.log(this.state.getValue());
 
     }
   }
