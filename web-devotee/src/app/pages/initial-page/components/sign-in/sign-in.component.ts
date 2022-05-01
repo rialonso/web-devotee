@@ -41,10 +41,7 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
     this.initiForm();
-    this.signInService.post({email: 'murilo0933@hotmail.com', password: '12345678'}).subscribe(res => {
-      console.log(res);
 
-    })
   }
   changeOpenMenuMobile(actionClicked: boolean): void {
     this.openMobileSignIn = actionClicked;
@@ -54,6 +51,9 @@ export class SignInComponent implements OnInit {
   }
   navigateTo(): void {
     this.routeService.navigateToURL('/recuperar');
+  }
+  async signIn() {
+    const signInData = await this.signInService.post(this.formGroup.value).toPromise();
   }
   private initiForm() {
     this.formGroup = this.formBuilder.group({

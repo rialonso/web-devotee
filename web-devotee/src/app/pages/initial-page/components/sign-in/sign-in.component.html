@@ -27,7 +27,9 @@
           placeholder="Digite sua senha"
           type="password">
       </mat-form-field>
-      <button class="button primary mb-15px">
+      <button
+        class="button primary mb-15px"
+        (click)="signIn()">
         {{dataTexts.buttonsSignin.btnContinue}}
       </button>
     </form>
