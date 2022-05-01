@@ -9,15 +9,23 @@
         <a class="color-magenta-soft cursor-pointer" (click)="navigateTo()">{{dataTexts.signin.rememberPassword}}</a>
       </div>
     </div>
-    <form id="sign-in" class="example-form">
+    <form [formGroup]="formGroup" id="sign-in" class="example-form">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>E-mail</mat-label>
-        <input matInput placeholder="Digite seu email" type="email">
+        <input
+          formControlName="email"
+          matInput
+          placeholder="Digite seu email"
+          type="email">
       </mat-form-field>
 
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>{{dataTexts.signin.password}}</mat-label>
-        <input matInput placeholder="Digite sua senha" type="password">
+        <input
+          formControlName="password"
+          matInput
+          placeholder="Digite sua senha"
+          type="password">
       </mat-form-field>
       <button class="button primary mb-15px">
         {{dataTexts.buttonsSignin.btnContinue}}

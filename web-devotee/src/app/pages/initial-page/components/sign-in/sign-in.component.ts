@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { RouteService } from 'src/app/shared/functions/routes/route.service';
 import { HttpService } from 'src/app/core/services/generics-http/httpService.service';
 import { SignInService } from 'src/app/core/services/sign-in/sign-in.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',
@@ -18,15 +19,16 @@ import { SignInService } from 'src/app/core/services/sign-in/sign-in.service';
 export class SignInComponent implements OnInit {
   openMobileSignIn = false;
   dataTexts;
-
+  formGroup: FormGroup;
   destroy$ = new ReplaySubject();
   constructor(
+    public routeService: RouteService,
     protected state: State<IAppState>,
     protected store: Store<IAppState>,
     private translateService: TranslateService,
     private router: Router,
     private signInService: SignInService,
-    public routeService: RouteService
+    private formBuilder: FormBuilder,
 
   ) {
     this.store.select('controlsApp')
@@ -38,6 +40,7 @@ export class SignInComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
+    this.initiForm();
     this.signInService.post({email: 'murilo0933@hotmail.com', password: '12345678'}).subscribe(res => {
       console.log(res);
 
@@ -51,5 +54,22 @@ export class SignInComponent implements OnInit {
   }
   navigateTo(): void {
     this.routeService.navigateToURL('/recuperar');
+  }
+  private initiForm() {
+    this.formGroup = this.formBuilder.group({
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email
+        ]
+      ],
+      password: [
+        '',
+        [
+          Validators.required,
+        ]
+      ]
+    })
   }
 }

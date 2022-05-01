@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   urls: {
-
+    login: 'http://54.207.143.191/api/login'
   }
 };
 

@@ -6,6 +6,7 @@ import {MatInputModule} from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { DialogsModule } from './components/dialogs/dialogs.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { DialogsModule } from './components/dialogs/dialogs.module';
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
+    ReactiveFormsModule,
   ],
   exports: [
     FooterComponent,
@@ -26,6 +28,7 @@ import { DialogsModule } from './components/dialogs/dialogs.module';
     MatInputModule,
     MatFormFieldModule,
     MatIconModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: []
