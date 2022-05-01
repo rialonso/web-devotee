@@ -15,7 +15,7 @@ export class SignInService extends HttpService<ISignIn>{
       new SignInSerializer());
   }
 }
-export class SignInSerializer {
+class SignInSerializer {
   fromJson(signInData: any): ISignIn {
     const Signin = new ISignIn();
     return signInData;

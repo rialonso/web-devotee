@@ -34,6 +34,14 @@
       "text": "Enviaremos um e-mail com as instruções para você recuperar sua senha. Insira seu e-mail abaixo.",
       "btnRecover": "Recuperar senha",
       "btnBack": "Voltar"
+    },
+    "inputsErrors": {
+      "requireds" : {
+        "inputRequired": "Campo obrigatório",
+        "required": "obrigatório",
+        "emailIs": "E-mail é",
+        "passwordIs": "Senha é"
+      }
     }
   },
   "us": {
@@ -71,6 +79,14 @@
       "text": "We will send a email for you with to instructions to recover password. Put your e-mail below",
       "btnRecover": "Recover password",
       "btnBack": "Back"
+    },
+    "inputsErrors": {
+      "requireds" : {
+        "inputRequired": "Input is required",
+        "required": "required",
+        "emailIs": "E-mail is",
+        "passwordIs": "Password is"
+      }
     }
   }
 }

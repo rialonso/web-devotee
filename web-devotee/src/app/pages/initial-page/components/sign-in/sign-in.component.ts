@@ -53,7 +53,10 @@ export class SignInComponent implements OnInit {
     this.routeService.navigateToURL('/recuperar');
   }
   async signIn() {
-    const signInData = await this.signInService.post(this.formGroup.value).toPromise();
+    if (this.formGroup.valid) {
+      const signInData = await this.signInService.post(this.formGroup.value).toPromise();
+
+    }
   }
   private initiForm() {
     this.formGroup = this.formBuilder.group({
