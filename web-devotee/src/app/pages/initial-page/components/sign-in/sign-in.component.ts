@@ -10,6 +10,9 @@ import { RouteService } from 'src/app/shared/functions/routes/route.service';
 import { HttpService } from 'src/app/core/services/generics-http/httpService.service';
 import { SignInService } from 'src/app/core/services/sign-in/sign-in.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AddAllDataUser } from 'src/app/state-management/user-data/user-data.action';
+import { StateManagementFuncService } from 'src/app/shared/functions/state-management/state-management-func.service';
+import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 
 @Component({
   selector: 'app-sign-in',
@@ -29,6 +32,7 @@ export class SignInComponent implements OnInit {
     private router: Router,
     private signInService: SignInService,
     private formBuilder: FormBuilder,
+    private stateManagementFuncServices: StateManagementFuncService,
 
   ) {
     this.store.select('controlsApp')
@@ -54,8 +58,7 @@ export class SignInComponent implements OnInit {
   async signIn() {
     if (this.formGroup.valid) {
       const signInData = await this.signInService.post(this.formGroup.value).toPromise();
-      console.log(this.state.getValue());
-
+      this.stateManagementFuncServices.funcAddAllDataUser(signInData);
     }
   }
   private initiForm() {

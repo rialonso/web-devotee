@@ -7,7 +7,7 @@ import { UserDataEnum } from './user-data.enum';
 //     props<{ email: IRegisterUser }>()
 //   );
 
-export class AddUserDataAll implements CustomAction {
+export class AddAllDataUser implements CustomAction {
   type = UserDataEnum.addDataAll;
   constructor(public payload?: any){}
   creatAction(): ActionCreator {

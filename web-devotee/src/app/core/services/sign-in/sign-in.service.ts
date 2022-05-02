@@ -5,7 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { State, Store } from '@ngrx/store';
 import { IAppState } from 'src/app/state-management/app.model';
-import { AddUserDataAll } from 'src/app/state-management/user-data/user-data.action';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 
 @Injectable({
@@ -29,8 +28,7 @@ class SignInSerializer {
     ) {}
   fromJson(signInData: IUserData.RootObject | any): ISignIn {
     const Signin = new ISignIn();
-    if(signInData) {
-      this.store?.dispatch(new AddUserDataAll(signInData));
+    if(signInData != undefined ) {
       return signInData;
     }
 
