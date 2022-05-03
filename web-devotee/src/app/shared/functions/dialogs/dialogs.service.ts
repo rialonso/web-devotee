@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog} from '@angular/material/dialog';
+import { LoginQrCodeComponent } from '../../components/dialogs/login-qr-code/login-qr-code.component';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +8,14 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 export class DialogsService {
 
 constructor(
-  public dialog: MatDialog
 ) { }
-
+  openQrCodeSignIn() {
+    // this.dialog.open(
+    //   LoginQrCodeComponent,
+    //   {
+    //     width: 'calc(100% - 50px)',
+    //     maxWidth: '100vw'
+    //   }
+    // )
+  }
 }

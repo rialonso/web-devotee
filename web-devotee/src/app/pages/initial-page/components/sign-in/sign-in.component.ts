@@ -13,6 +13,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AddAllDataUser } from 'src/app/state-management/user-data/user-data.action';
 import { StateManagementFuncService } from 'src/app/shared/functions/state-management/state-management-func.service';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
+import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginQrCodeComponent } from 'src/app/shared/components/dialogs/login-qr-code/login-qr-code.component';
 
 @Component({
   selector: 'app-sign-in',
@@ -33,6 +36,8 @@ export class SignInComponent implements OnInit {
     private signInService: SignInService,
     private formBuilder: FormBuilder,
     private stateManagementFuncServices: StateManagementFuncService,
+    private dialogService: DialogsService,
+    private dialog: MatDialog
 
   ) {
     this.store.select('controlsApp')
@@ -54,6 +59,15 @@ export class SignInComponent implements OnInit {
   }
   navigateTo(): void {
     this.routeService.navigateToURL('/recuperar');
+  }
+  openQrSignIn() {
+    this.dialog.open(
+      LoginQrCodeComponent,
+      {
+        width: 'calc(100% - 50px)',
+        maxWidth: '100vw'
+      }
+    )
   }
   async signIn() {
     if (this.formGroup.valid) {

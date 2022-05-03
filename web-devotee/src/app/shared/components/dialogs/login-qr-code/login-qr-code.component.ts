@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 
 @Component({
@@ -9,12 +10,16 @@ import { TranslateService } from 'src/app/core/services/translate/translate.serv
 export class LoginQrCodeComponent implements OnInit {
   dataTexts;
   constructor(
-    private translateService: TranslateService
+    private translateService: TranslateService,
+    private matDialogRef: MatDialogRef<LoginQrCodeComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
 
   ngOnInit() {
     this.dataTexts = this.translateService?.textTranslate;
 
   }
-
+  onNoClick(){
+    this.matDialogRef.close();
+  }
 }
