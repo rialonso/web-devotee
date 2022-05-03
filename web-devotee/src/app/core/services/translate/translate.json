@@ -42,6 +42,25 @@
         "emailIs": "E-mail é",
         "passwordIs": "Senha é"
       }
+    },
+    "qrSignIn": {
+      "qrTitle":"Para fazer o Login com QR Code:",
+      "qrSubTitleFirst":"Abra o Devotee no seu celular",
+      "qrSubTitleSecond":{
+        "qrFirstTouch":"Toque em",
+        "qrSecondPerfil":"Perfil",
+        "qrThirdSelect":"e selecione",
+        "qrFourthDevotee":"Devotee Web"
+      },
+      "qrSubTitleThird":{
+        "qrFirstTouch":"Toque em",
+        "qrSecondBold":"Escanear código"
+      },
+      "qrSubTitleFouth":"Aponte seu celular para essa tela para capturar o código",
+      "qrCreateAccount":{
+        "qrNotAccount":"Ainda não tem cadastro?",
+        "qrCreateAccount":"Cadastre-se"
+      }
     }
   },
   "us": {
@@ -86,6 +105,25 @@
         "required": "required",
         "emailIs": "E-mail is",
         "passwordIs": "Password is"
+      }
+    },
+    "qrSignIn": {
+      "qrTitle":"To Login with QR Code:",
+      "qrSubTitleFirst":"Open Devotee on your phone",
+      "qrSubTitleSecond":{
+        "qrFirstTouch":"Touch",
+        "qrSecondPerfil":"Profile",
+        "qrThirdSelect":"and select",
+        "qrFourthDevotee":"Devotee Web"
+      },
+      "qrSubTitleThird":{
+        "qrFirstTouch":"Touch",
+        "qrSecondBold":"Scan code"
+      },
+      "qrSubTitleFouth":"Point your phone at this screen to capture the code",
+      "qrCreateAccount":{
+        "qrNotAccount":"Don't have a registration yet?",
+        "qrCreateAccount":"Register"
       }
     }
   }
