@@ -10,14 +10,17 @@ export class FooterComponent implements OnInit {
 
   dataTexts;
   buttonsDownload;
+  copyright: string;
   constructor(
     private translateService: TranslateService,
     ) {
-
+      this.dataTexts = this.translateService.textTranslate;
+      this.buttonsDownload = this.dataTexts.buttonsDownload;
+      this.copyright = ` Copyright © ${new Date().getFullYear()} ${this.dataTexts.copyright}`;
     }
   ngOnInit(): void {
-    this.dataTexts = this.translateService.textTranslate;
-    this.buttonsDownload = this.dataTexts.buttonsDownload;
+
+
   }
 
 }
