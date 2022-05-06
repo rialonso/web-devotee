@@ -2,6 +2,7 @@
 @import '_buttons';
 @import '_breakpoints';
 @import '_sizes';
+@import '_mixins';
 .content-sign-in {
   .content-header-sign-in {
     display: flex;
@@ -16,12 +17,12 @@
       width: 35px;
       height: 35px;
       border-radius: $s-100per;
-      @media screen and(min-width: $min-tablet){
+      @include min-tablet {
         display: none;
       }
     }
     .return-first-pg-mobile {
-      @media screen and(min-width: $min-tablet){
+      @include min-tablet {
         display: none;
       }
     }
@@ -38,7 +39,7 @@
     display: flex;
     flex-direction: column;
     gap: $s-10px;
-    @media screen and(min-width: $min-tablet){
+    @include min-tablet {
       display: none;
     }
   }
@@ -46,13 +47,14 @@
     display: flex;
     flex-direction: column;
     gap: $s-10px;
-    @media screen and(min-width: $min-tablet){
+    @include min-tablet {
       flex-direction: row;
     }
   }
 }
 #btn-qrcode {
-  @media screen and(max-width: $min-tablet){
+  display: none;
+  @include min-tablet {
     display: none;
   }
 }

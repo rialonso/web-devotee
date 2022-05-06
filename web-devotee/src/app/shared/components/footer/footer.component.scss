@@ -1,5 +1,6 @@
 @import '_colors';
 @import '_sizes';
+@import '_mixins';
 @import '_breakpoints';
 $opacity-70: 70%;
 footer{
@@ -74,7 +75,7 @@ footer{
 
   }
 }
-@media only screen and (min-width:$min-tablet) {
+@include min-tablet {
   .logo{
     padding-bottom: 0;
   }
@@ -99,7 +100,7 @@ footer{
     ;
   }
 }
-@media only screen and (min-width:$max-mobile) {
+@include max-mobile {
   header{
     padding-right: 4rem;
   }
@@ -128,7 +129,7 @@ footer{
 
   }
 }
-@media only screen and (min-width:$min-desk) {
+@include min-desk {
   footer{
     .copyright {
       display: flex;
