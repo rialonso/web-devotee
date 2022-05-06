@@ -55,7 +55,7 @@
 #btn-qrcode {
   display: none;
   @include min-tablet {
-    display: none;
+    display: initial;
   }
 }
 .others-logins {
