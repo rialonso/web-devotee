@@ -14,6 +14,10 @@ const routes: Routes = [
       path: 'recuperar',
       loadChildren: () => import('src/app/pages/initial-page/components/remember-password/remember-password.module').then(m => m.RememberPasswordModule)
     },
+    {
+      path: 'registro',
+      loadChildren: () => import('src/app/pages/initial-page/components/register/register.module').then(m => m.RegisterModule)
+    },
   ]},
 ];
 
