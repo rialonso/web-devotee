@@ -65,7 +65,7 @@ export class SignInComponent implements OnInit {
       LoginQrCodeComponent,
       {
         width: 'calc(100% - 50px)',
-        maxWidth: '100vw'
+        maxWidth: '900px'
       }
     )
   }

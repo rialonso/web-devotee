@@ -1,4 +1,5 @@
 @import '_colors';
+@import '_mixins';
 .close {
   display: flex;
   top: 15px;
@@ -60,33 +61,23 @@
   }
 }
 .download-app{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-size: 1.1rem;
-    .buttons-download{
-      :first-child{
-        margin-right: 10px;
-      }
-  }
-}
-@media only screen and (min-width:700px) {
-  .qr-title{
-    font-size: 2rem;
-    margin: 10px 0 ;
-  }
-  .qr-subtitle{
-    margin: 10px 0;
-    font-size: 1.1rem;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.1rem;
   .buttons-download{
+    display: flex;
+    :first-child{
+      margin-right: 10px;
+    }
     img{
       height: 30px;
     }
   }
 }
-@media only screen and (min-width:1024px) {
+
+@include medium-tablet {
   .create-account{
     text-align: center;
     font-size: 1.1rem;
@@ -98,24 +89,24 @@
     }
   }
 }
-@media only screen and (min-width:1250px) {
+@include min-tablet {
 
-  .container-modal-qr{
+  .container-modal-qr {
     padding-left: 70px;
-    .container-itens-qr{
+    .container-itens-qr {
       display: grid;
       grid-template-columns: 2fr 1fr;
       grid-template-areas:
       "text-qr qr-code-image "
       "create-buttons create-buttons"
       ;
-      .container-img-qr{
+      .container-img-qr {
         grid-area: qr-code-image;
         img{
           max-width: 220px;
         }
       }
-      .container-creat-buttons{
+      .container-creat-buttons {
         grid-area: create-buttons;
         display: grid;
         grid-template-columns: 3fr 1fr;
@@ -123,32 +114,35 @@
           display: flex;
           align-items: flex-start;
         }
-        .create-account{
+        .create-account {
           display: flex;
           text-align: center;
           font-size: 1.5rem;
         }
       }
-      .text-qr{
+      .text-qr {
         display: flex;
         flex-direction: column;
         justify-content: center;
         grid-area: text-qr;
       }
-      .download-app{
+      .download-app {
         font-size: 1.5rem;
-      }
-      .buttons-download{
-        img{
-          height: 30px;
-        }
       }
     }
 
   }
+  .qr-title{
+    font-size: 2rem;
+    margin: 10px 0 ;
+  }
+  .qr-subtitle{
+    margin: 10px 0;
+    font-size: 1.1rem;
+  }
 }
-.qr-subtitle{
-  img{
+.qr-subtitle {
+  img {
     width: 20px;
     margin: 0 5px;
   }

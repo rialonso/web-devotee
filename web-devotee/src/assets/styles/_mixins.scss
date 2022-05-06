@@ -1,0 +1,28 @@
+@import '_breakpoints';
+@mixin min-mobile {
+  @media (min-width: $min-mobile) { @content; }
+}
+@mixin max-mobile {
+  @media (min-width: $max-desk) { @content; }
+}
+//TABLET
+@mixin min-tablet {
+  @media (min-width: $min-tablet) { @content; }
+}
+@mixin medium-tablet {
+  @media (min-width: $medium-tablet) { @content; }
+}
+@mixin max-tablet {
+  @media (min-width: $max-tablet) { @content; }
+}
+
+//DESKTOP
+@mixin min-desk {
+  @media (min-width: $min-desk) { @content; }
+}
+@mixin medium-desk {
+  @media (min-width: $medium-desk) { @content; }
+}
+@mixin max-desk {
+  @media (min-width: $max-desk) { @content; }
+}
