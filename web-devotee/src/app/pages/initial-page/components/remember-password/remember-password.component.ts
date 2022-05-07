@@ -4,8 +4,10 @@ import { State, Store } from '@ngrx/store';
 import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
+import { IHeaderCardsInitialPage } from 'src/app/shared/components/header-cards-initial-page/model/header-cards.data';
 import { routesApplication } from 'src/app/shared/enum/routes.enum';
 import { RouteService } from 'src/app/shared/functions/routes/route.service';
+import { MHeaderCardsInitialPage } from 'src/app/shared/model/header-cards-initial-page/header-cards-initial-page.enum';
 import { IAppState } from 'src/app/state-management/app.model';
 
 @Component({
@@ -17,6 +19,7 @@ export class RememberPasswordComponent implements OnInit {
   openMobileSignIn = false;
 
   dataTexts;
+  dataCardInitialPage: IHeaderCardsInitialPage;
   destroy$ = new ReplaySubject();
 
   constructor(
@@ -40,13 +43,27 @@ export class RememberPasswordComponent implements OnInit {
     this.dataTexts = this.translateService?.textTranslate;
     if (!this.routeService.verifyOpenSingIn() && window.innerWidth < 768)
       this.navigateTo();
-
+    this.generateDataHeaderCard();
   }
   changeOpenMenuMobile(actionClicked: boolean): void {
     this.openMobileSignIn = actionClicked;
   }
-
   navigateTo() {
     this.routeService.navigateToURL(routesApplication.LOGIN);
+  }
+  generateDataHeaderCard() {
+    const dataTextHeaderCard = this.dataTexts.rememberPasswordPg;
+    this.dataCardInitialPage =
+      new MHeaderCardsInitialPage(
+        {
+          id: 'titleHeaderCardRememberPassword',
+          label: dataTextHeaderCard.title
+        },
+        {
+          id: 'textHeaderCardRememberPassword',
+          label: dataTextHeaderCard.text
+        }
+      );
+
   }
 }

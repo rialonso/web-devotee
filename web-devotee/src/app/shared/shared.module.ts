@@ -7,11 +7,14 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { DialogsModule } from './components/dialogs/dialogs.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HeaderCardsInitialPageComponent } from './components/header-cards-initial-page/header-cards-initial-page.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [
     FooterComponent,
+    HeaderCardsInitialPageComponent,
   ],
   imports: [
     IconModule,
@@ -20,6 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatIconModule,
     ReactiveFormsModule,
+    CommonModule,
   ],
   exports: [
     FooterComponent,
@@ -29,6 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatIconModule,
     ReactiveFormsModule,
+    HeaderCardsInitialPageComponent,
+    CommonModule,
   ],
   providers: [],
   bootstrap: []
