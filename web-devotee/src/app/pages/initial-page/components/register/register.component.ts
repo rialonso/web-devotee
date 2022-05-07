@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { State, Store } from '@ngrx/store';
 import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -16,15 +17,23 @@ import { IAppState } from 'src/app/state-management/app.model';
 })
 export class RegisterComponent implements OnInit {
   openMobileSignIn = false;
+  hide = true;
+
+  formGroup: FormGroup;
+
   dataCardInitialPage: IHeaderCardsInitialPage;
+
   enumRoute = EnumRoutesApplication;
   dataTexts
+
+
   destroy$ = new ReplaySubject();
   constructor(
     protected store: Store<IAppState>,
     protected state: State<IAppState>,
     private translateService: TranslateService,
     private routerService: RouteService,
+    private formBuilder: FormBuilder,
   ) {
     this.store.select('controlsApp')
     .pipe(takeUntil(this.destroy$))
@@ -52,5 +61,20 @@ export class RegisterComponent implements OnInit {
   }
   navigateTo(route){
     this.routerService.navigateToURL(route);
+  }
+  initForm() {
+    this.formGroup = this.formBuilder.group({
+      email: [
+        '',
+        [
+          Validators.required,
+          Validators.email
+        ]
+      ],
+      password: [
+        Validators.required,
+        Validators.minLength(8),
+      ]
+    });
   }
 }
