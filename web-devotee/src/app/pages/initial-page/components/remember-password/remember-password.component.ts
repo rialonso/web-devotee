@@ -5,7 +5,7 @@ import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { IHeaderCardsInitialPage } from 'src/app/shared/components/header-cards-initial-page/model/header-cards.data';
-import { routesApplication } from 'src/app/shared/enum/routes.enum';
+import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { RouteService } from 'src/app/shared/functions/routes/route.service';
 import { MHeaderCardsInitialPage } from 'src/app/shared/model/header-cards-initial-page/header-cards-initial-page.enum';
 import { IAppState } from 'src/app/state-management/app.model';
@@ -49,7 +49,7 @@ export class RememberPasswordComponent implements OnInit {
     this.openMobileSignIn = actionClicked;
   }
   navigateTo() {
-    this.routeService.navigateToURL(routesApplication.LOGIN);
+    this.routeService.navigateToURL(EnumRoutesApplication.LOGIN);
   }
   generateDataHeaderCard() {
     const dataTextHeaderCard = this.dataTexts.rememberPasswordPg;

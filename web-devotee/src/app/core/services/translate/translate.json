@@ -35,6 +35,17 @@
       "btnRecover": "Recuperar senha",
       "btnBack": "Voltar"
     },
+    "registerPg": {
+      "title": "Cadastrar"
+    },
+    "buttons": {
+      "btnContinue": "Continuar",
+      "btnRegister": "Cadastrar",
+      "btnRecover": "Recuperar senha",
+      "btnBack": "Voltar",
+      "btnQrCode": "Continuar com",
+      "btnGoogle": "Continuar com Google"
+    },
     "inputsErrors": {
       "requireds" : {
         "inputRequired": "Campo obrigatório",
@@ -98,6 +109,17 @@
       "text": "We will send a email for you with to instructions to recover password. Put your e-mail below",
       "btnRecover": "Recover password",
       "btnBack": "Back"
+    },
+    "registerPg": {
+      "title": "Register"
+    },
+    "buttons": {
+      "btnContinue": "Continue",
+      "btnRegister": "Register",
+      "btnRecover": "Recover password",
+      "btnBack": "Back",
+      "btnQrCode": "Continue with",
+      "btnGoogle": "Continue with Google"
     },
     "inputsErrors": {
       "requireds" : {

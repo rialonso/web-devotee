@@ -16,6 +16,7 @@ import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginQrCodeComponent } from 'src/app/shared/components/dialogs/login-qr-code/login-qr-code.component';
+import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 
 @Component({
   selector: 'app-sign-in',
@@ -24,8 +25,11 @@ import { LoginQrCodeComponent } from 'src/app/shared/components/dialogs/login-qr
 })
 export class SignInComponent implements OnInit {
   openMobileSignIn = false;
+
   dataTexts;
+  routesEnum = EnumRoutesApplication;
   formGroup: FormGroup;
+
   destroy$ = new ReplaySubject();
   constructor(
     public routeService: RouteService,
@@ -57,8 +61,8 @@ export class SignInComponent implements OnInit {
   clickopenMobileSignIn(openSignIn: boolean): void {
     this.store.dispatch(new AddControlApp({ openSingIn: openSignIn }));
   }
-  navigateTo(): void {
-    this.routeService.navigateToURL('/recuperar');
+  navigateTo(route): void {
+    this.routeService.navigateToURL(route);
   }
   openQrSignIn() {
     this.dialog.open(

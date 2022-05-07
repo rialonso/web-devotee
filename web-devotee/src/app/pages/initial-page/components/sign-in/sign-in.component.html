@@ -6,7 +6,7 @@
         <a class="color-blue-dark font-booster-next-bold f-size-24" >{{dataTexts.login}}</a>
       </div>
       <div>
-        <a class="color-magenta-soft cursor-pointer" (click)="navigateTo()">{{dataTexts.signin.rememberPassword}}</a>
+        <a class="color-magenta-soft cursor-pointer" (click)="navigateTo(routesEnum.REMEMBER)">{{dataTexts.signin.rememberPassword}}</a>
       </div>
     </div>
     <form [formGroup]="formGroup" id="sign-in" class="example-form">
@@ -39,7 +39,7 @@
         {{dataTexts.buttonsSignin.btnContinue}}
       </button>
     </form>
-    <button class="button third">
+    <button class="button third" (click)="navigateTo(routesEnum.REGISTER)">
       {{dataTexts.buttonsSignin.btnRegister}}
     </button>
     <div class="others-logins">

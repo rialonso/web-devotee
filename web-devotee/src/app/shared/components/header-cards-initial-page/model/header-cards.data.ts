@@ -1,6 +1,6 @@
 export interface IHeaderCardsInitialPage {
   title: titleHeader;
-  text: textHeader;
+  text?: textHeader;
 }
 export interface titleHeader {
   id: string,

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { State, Store } from '@ngrx/store';
 import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { TranslateService } from 'src/app/core/services/translate/translate.service';
+import { IHeaderCardsInitialPage } from 'src/app/shared/components/header-cards-initial-page/model/header-cards.data';
+import { MHeaderCardsInitialPage } from 'src/app/shared/model/header-cards-initial-page/header-cards-initial-page.enum';
 import { IAppState } from 'src/app/state-management/app.model';
 
 @Component({
@@ -11,11 +14,14 @@ import { IAppState } from 'src/app/state-management/app.model';
 })
 export class RegisterComponent implements OnInit {
   openMobileSignIn = false;
+  dataCardInitialPage: IHeaderCardsInitialPage;
 
+  dataTexts
   destroy$ = new ReplaySubject();
   constructor(
     protected store: Store<IAppState>,
     protected state: State<IAppState>,
+    private translateService: TranslateService,
   ) {
     this.store.select('controlsApp')
     .pipe(takeUntil(this.destroy$))
@@ -25,8 +31,21 @@ export class RegisterComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.dataTexts = this.translateService?.textTranslate;
+    this.generateDataHeaderCard();
   }
   changeOpenMenuMobile(actionClicked: boolean): void {
     this.openMobileSignIn = actionClicked;
+  }
+  generateDataHeaderCard() {
+    const dataTextHeaderCard = this.dataTexts.registerPg;
+    this.dataCardInitialPage =
+      new MHeaderCardsInitialPage(
+        {
+          id: 'titleHeaderCardRegister',
+          label: dataTextHeaderCard.title
+        },
+      );
+
   }
 }
