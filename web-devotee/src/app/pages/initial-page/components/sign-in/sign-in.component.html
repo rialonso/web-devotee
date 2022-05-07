@@ -15,7 +15,7 @@
         <input
           formControlName="email"
           matInput
-          placeholder="Digite seu email"
+          [placeholder]="dataTexts.placeholders.email"
           type="email">
           <mat-error *ngIf="formGroup.controls.email.hasError('required')">
             {{dataTexts.inputsErrors.requireds.inputRequired}}
@@ -27,7 +27,7 @@
         <input
           formControlName="password"
           matInput
-          placeholder="Digite sua senha"
+          [placeholder]="dataTexts.placeholders.password"
           type="password">
           <mat-error *ngIf="formGroup.controls.password.hasError('required')">
             {{dataTexts.inputsErrors.requireds.inputRequired}}

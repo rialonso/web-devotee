@@ -4,6 +4,8 @@ import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { IHeaderCardsInitialPage } from 'src/app/shared/components/header-cards-initial-page/model/header-cards.data';
+import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
+import { RouteService } from 'src/app/shared/functions/routes/route.service';
 import { MHeaderCardsInitialPage } from 'src/app/shared/model/header-cards-initial-page/header-cards-initial-page.enum';
 import { IAppState } from 'src/app/state-management/app.model';
 
@@ -15,13 +17,14 @@ import { IAppState } from 'src/app/state-management/app.model';
 export class RegisterComponent implements OnInit {
   openMobileSignIn = false;
   dataCardInitialPage: IHeaderCardsInitialPage;
-
+  enumRoute = EnumRoutesApplication;
   dataTexts
   destroy$ = new ReplaySubject();
   constructor(
     protected store: Store<IAppState>,
     protected state: State<IAppState>,
     private translateService: TranslateService,
+    private routerService: RouteService,
   ) {
     this.store.select('controlsApp')
     .pipe(takeUntil(this.destroy$))
@@ -46,6 +49,8 @@ export class RegisterComponent implements OnInit {
           label: dataTextHeaderCard.title
         },
       );
-
+  }
+  navigateTo(route){
+    this.routerService.navigateToURL(route);
   }
 }

@@ -23,6 +23,10 @@
       "rememberPassword": "Esqueci minha senha",
       "password": "Senha"
     },
+    "placeholders": {
+      "password": "Digite sua senha",
+      "email": "Digite seu email"
+    },
     "buttonsSignin": {
       "btnContinue": "Continuar",
       "btnRegister": "Cadastrar",
@@ -97,6 +101,10 @@
       "alreadyAccount": "already have an account",
       "rememberPassword": "Remember my password",
       "password": "Password"
+    },
+    "placeholders": {
+      "password": "Type your password",
+      "email": "Type your email"
     },
     "buttonsSignin": {
       "btnContinue": "Continue",

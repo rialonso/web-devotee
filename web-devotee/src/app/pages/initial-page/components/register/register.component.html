@@ -1,5 +1,31 @@
 <div id="container-register" class="container-default-cards-initial-page">
   <section class="content-sign-in content-deafult-cards-initial-page" [class.content-deafult-cards-initial-page-mobile]="openMobileSignIn">
     <app-header-cards-initial-page [data]="dataCardInitialPage"></app-header-cards-initial-page>
+    <form id="register">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>E-mail</mat-label>
+        <input matInput [placeholder]="dataTexts.placeholders.email" type="email">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>{{dataTexts.signin.password}}</mat-label>
+        <input matInput [placeholder]="dataTexts.placeholders.password" type="password">
+      </mat-form-field>
+      <button class="button primary mtb-15px">
+        {{dataTexts.buttons.btnContinue}}
+      </button>
+    </form>
+    <button class="button third" (click)="navigateTo(enumRoute.LOGIN)">
+      {{dataTexts.buttons.btnBack}}
+    </button>
+    <p class="infos-about-app color-blue-dark mt-15px">
+      {{dataTexts.txtPrivacyAndTerms}}
+      <span class="font-booster-next-bold ">
+        {{dataTexts.policyPrivacy}}
+      </span>
+      {{dataTexts.and}}
+      <span class="font-booster-next-bold ">
+        {{dataTexts.termsOfUse}}
+      </span>.
+    </p>
   </section>
 </div>
