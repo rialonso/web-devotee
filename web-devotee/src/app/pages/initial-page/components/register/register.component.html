@@ -9,7 +9,13 @@
       <mat-form-field appearance="fill">
         <mat-label>{{dataTexts.signin.password}}</mat-label>
         <input formControlName="password" matInput [type]="hide ? 'password' : 'text'">
-        <div mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <div
+          mat-icon-button
+          matSuffix
+          (click)="hide = !hide"
+          [attr.aria-label]="'Hide password'"
+          [attr.aria-pressed]="hide"
+          class="cursor-pointer">
           <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
         </div>
       </mat-form-field>

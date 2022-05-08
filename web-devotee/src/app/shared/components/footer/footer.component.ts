@@ -1,5 +1,5 @@
 import { TranslateService } from './../../../core/services/translate/translate.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./footer.component.scss']
 })
 export class FooterComponent implements OnInit {
+  @Input() backgroudColor: string;
 
   dataTexts;
   buttonsDownload;

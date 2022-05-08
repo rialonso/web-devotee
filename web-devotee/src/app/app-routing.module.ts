@@ -11,6 +11,10 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('src/app/pages/initial-page/initial-page.module').then(m => m.InitialPageModule),
   },
+  {
+    path: 'rules',
+    loadChildren: () => import('src/app/pages/etical-rules/etical-rules.module').then(m => m.EticalRulesModule),
+  },
 
 ];
 
