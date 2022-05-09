@@ -1,5 +1,5 @@
-$font-booster-next: Booster-next-regular;
-$font-booster-next-bold: Booster-next-bold;
+$font-booster-next: "Booster-next-regular";
+$font-booster-next-bold: "Booster-next-bold";
 
 .font-booster-next-regular {
   font-family:  $font-booster-next;
@@ -14,4 +14,7 @@ $font-booster-next-bold: Booster-next-bold;
 }
 .f-size-16 {
   font-size: 16px;
+}
+.f-w-700 {
+  font-weight: 700;
 }

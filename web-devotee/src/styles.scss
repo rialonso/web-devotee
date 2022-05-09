@@ -16,13 +16,15 @@
   justify-content: center;
   align-items: center;
 }
+.dp-flex-column-all-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 p, a {
   font-family: 'Booster-next-regular';
 }
-h2 {
-  font-family: 'Booster-next-bold';
-}
-
 .content-header-sign-in,
 .content-header-remember  {
   mat-icon {
@@ -84,4 +86,4 @@ h2 {
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: "Booster-next-regular", "Helvetica Neue", sans-serif; }
