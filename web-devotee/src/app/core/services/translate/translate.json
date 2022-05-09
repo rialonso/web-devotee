@@ -61,20 +61,38 @@
     "qrSignIn": {
       "qrTitle":"Para fazer o Login com QR Code:",
       "qrSubTitleFirst":"Abra o Devotee no seu celular",
-      "qrSubTitleSecond":{
+      "qrSubTitleSecond": {
         "qrFirstTouch":"Toque em",
         "qrSecondPerfil":"Perfil",
         "qrThirdSelect":"e selecione",
         "qrFourthDevotee":"Devotee Web"
       },
-      "qrSubTitleThird":{
+      "qrSubTitleThird": {
         "qrFirstTouch":"Toque em",
         "qrSecondBold":"Escanear código"
       },
       "qrSubTitleFouth":"Aponte seu celular para essa tela para capturar o código",
-      "qrCreateAccount":{
+      "qrCreateAccount": {
         "qrNotAccount":"Ainda não tem cadastro?",
         "qrCreateAccount":"Cadastre-se"
+      }
+    },
+    "eticalRules": {
+      "welcome": "Bem-vindo(a) ao",
+      "followRules": "Siga as regras abaixo",
+      "rules": {
+        "firstRule": {
+          "title": "Seja você mesmo",
+          "text": "Use suas próprias fotos, idade e biografia."
+        },
+        "secondRule": {
+          "title": "Esteja seguro",
+          "text": "Não repasse suas informações pessoais de forma rápida."
+        },
+        "thirdRule": {
+          "title": "Respeite os outros",
+          "text": "Respeite outras pessoas e trate a todos como você gostaria de ser tratado"
+        }
       }
     }
   },
@@ -154,6 +172,24 @@
       "qrCreateAccount":{
         "qrNotAccount":"Don't have a registration yet?",
         "qrCreateAccount":"Register"
+      }
+    },
+    "eticalRules": {
+      "welcome": "Welcome to",
+      "followRules": "Follow the rules below",
+      "rules": {
+        "firstRule": {
+          "title": "Be Yourself",
+          "text": "Use their own pictures, age ande biography."
+        },
+        "secondRule": {
+          "title": "Be safe",
+          "text": "Don't pass your information quickly"
+        },
+        "thirdRule": {
+          "title": "Respect all users",
+          "text": "Respect all peoples and treat everyone as you would like to be treated"
+        }
       }
     }
   }
