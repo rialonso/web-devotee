@@ -17,6 +17,14 @@
         }
       }
     }
+    #etical-rules {
+      margin-top: $s-15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: $s-20px;
+    }
   }
   app-footer {
     width: $s-100vw;
