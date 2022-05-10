@@ -6,9 +6,11 @@
   border: 1px solid $gray-soft;
   border-radius: 10px;
   display: flex;
-  width: 500px;
+  min-width: 280px;
+  width: 100%;
   gap: $s-10px;
   padding: $s-15px;
+  box-sizing: border-box;
   mat-icon {
     width: $s-20px;
   }

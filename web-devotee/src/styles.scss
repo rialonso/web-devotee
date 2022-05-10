@@ -10,7 +10,9 @@
   font-size: 100%;
   vertical-align: baseline;
 }
-
+.dp-flex {
+  display: flex;
+}
 .dp-flex-all-center {
   display: flex;
   justify-content: center;
@@ -66,7 +68,13 @@ p, a {
 }
 
 
-
+@for $i from 1 to 5
+{
+  .flex-#{$i}
+  {
+    flex: $i;
+  }
+}
 
 @font-face {
   font-family: Booster-next-regular;

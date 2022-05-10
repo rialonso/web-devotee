@@ -9,7 +9,18 @@
   </header>
   <main id="etical-rules">
     <h3 class="color-blue-dark">Siga as regras abaixo</h3>
-    <app-card-img-title-text></app-card-img-title-text>
+    <app-card-img-title-text [data]="firstRule"></app-card-img-title-text>
+    <app-card-img-title-text [data]="secondRule"></app-card-img-title-text>
+    <app-card-img-title-text [data]="thirdRule"></app-card-img-title-text>
+    <div class="container-buttons dp-flex">
+      <button class="button secondary flex-1">
+        {{dataTexts.buttons.btnBack}}
+      </button>
+      <button class="button primary flex-1">
+        {{dataTexts.buttons.btnContinue}}
+      </button>
+
+    </div>
   </main>
 </div>
 <app-footer [backgroudColor]="'bg-color-blue-dark'"></app-footer>
