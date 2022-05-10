@@ -8,6 +8,9 @@
   align-items: center;
   flex-direction: column;
   .content-etical-rules {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     height: $s-100per;
     .logo-devote {
       gap: $s-20px;
@@ -24,10 +27,14 @@
       margin-top: $s-15px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       gap: $s-20px;
       padding: $s-20px $s-15px;
+      .content-rules {
+        gap: $s-20px;
+        margin: $s-40px 0;
+      }
       app-card-img-title-text {
         width: 100%;
       }
