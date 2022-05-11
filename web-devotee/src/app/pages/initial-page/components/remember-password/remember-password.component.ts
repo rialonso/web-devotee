@@ -9,6 +9,7 @@ import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { RouteService } from 'src/app/shared/functions/routes/route.service';
 import { MHeaderCardsInitialPage } from 'src/app/shared/model/header-cards-initial-page/header-cards-initial-page.enum';
 import { IAppState } from 'src/app/state-management/app.model';
+import { AddControlApp } from 'src/app/state-management/controls/copntrols-app.action';
 
 @Component({
   selector: 'app-remember-password',
@@ -42,7 +43,7 @@ export class RememberPasswordComponent implements OnInit {
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
     if (!this.routeService.verifyOpenSingIn() && window.innerWidth < 768)
-      this.navigateTo();
+      this.store.dispatch(new AddControlApp({ openSingIn: true }));
     this.generateDataHeaderCard();
   }
   changeOpenMenuMobile(actionClicked: boolean): void {

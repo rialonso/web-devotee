@@ -1,6 +1,6 @@
 <div class="content-header-cards-initial-page">
   <div class="title-sign-return">
-    <mat-icon svgIcon="navigate_before" (click)="navigateTo()"></mat-icon>
+    <mat-icon svgIcon="navigate_before" (click)="emitClick()"></mat-icon>
     <a class="color-blue-dark font-booster-next-bold f-size-24" >{{data.title.label || 'Titulo'}}</a>
   </div>
   <p *ngIf="data.text" class="color-blue-dark">{{data.text.label}}</p>

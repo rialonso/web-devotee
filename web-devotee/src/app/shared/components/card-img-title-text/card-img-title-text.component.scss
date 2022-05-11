@@ -6,7 +6,8 @@
   border: 1px solid $gray-soft;
   border-radius: 10px;
   display: flex;
-  min-width: 280px;
+  min-width: 260px;
+  max-width: 500px;
   width: 100%;
   gap: $s-10px;
   padding: $s-15px;

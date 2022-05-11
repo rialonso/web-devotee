@@ -9,6 +9,7 @@ import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { RouteService } from 'src/app/shared/functions/routes/route.service';
 import { MHeaderCardsInitialPage } from 'src/app/shared/model/header-cards-initial-page/header-cards-initial-page.enum';
 import { IAppState } from 'src/app/state-management/app.model';
+import { AddControlApp } from 'src/app/state-management/controls/copntrols-app.action';
 
 @Component({
   selector: 'app-register',
@@ -44,7 +45,11 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.dataTexts = this.translateService?.textTranslate;
+    this.initForm();
     this.generateDataHeaderCard();
+    if (window.innerWidth < 768)
+      this.store.dispatch(new AddControlApp({ openSingIn: true }));
+
   }
   changeOpenMenuMobile(actionClicked: boolean): void {
     this.openMobileSignIn = actionClicked;
@@ -72,8 +77,11 @@ export class RegisterComponent implements OnInit {
         ]
       ],
       password: [
-        Validators.required,
-        Validators.minLength(8),
+        '',
+        [
+          Validators.required,
+          Validators.minLength(8),
+        ]
       ]
     });
   }

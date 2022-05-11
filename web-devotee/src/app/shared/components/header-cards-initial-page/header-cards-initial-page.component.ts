@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IHeaderCardsInitialPage } from './model/header-cards.data';
 
 @Component({
@@ -8,13 +8,14 @@ import { IHeaderCardsInitialPage } from './model/header-cards.data';
 })
 export class HeaderCardsInitialPageComponent implements OnInit {
   @Input() data: IHeaderCardsInitialPage;
+  @Output() headerBtnClick = new EventEmitter();
   constructor() { }
 
   ngOnInit() {
     console.log(this.data);
 
   }
-  navigateTo(): void {
-
+  emitClick(): void {
+    this.headerBtnClick.emit(true);
   }
 }

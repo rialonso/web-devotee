@@ -1,7 +1,7 @@
 <div id="container-register" class="container-default-cards-initial-page">
   <section class="content-sign-in content-deafult-cards-initial-page" [class.content-deafult-cards-initial-page-mobile]="openMobileSignIn">
-    <app-header-cards-initial-page [data]="dataCardInitialPage"></app-header-cards-initial-page>
-    <form id="register">
+    <app-header-cards-initial-page [data]="dataCardInitialPage" (headerBtnClick)="navigateTo(enumRoute.LOGIN)"></app-header-cards-initial-page>
+    <form [formGroup]="formGroup" id="register">
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>E-mail</mat-label>
         <input formControlName="email" matInput [placeholder]="dataTexts.placeholders.email" type="email">
