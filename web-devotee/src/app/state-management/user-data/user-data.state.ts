@@ -10,7 +10,7 @@ export declare module IUserData {
       order: number;
   }
 
-  export interface Data {
+  export interface IData {
       id: number;
       stripe_id: string;
       subscriptions_id: string;
@@ -63,8 +63,8 @@ export declare module IUserData {
 
   export interface RootObject {
       status: boolean;
-      data: Data;
-      access_token: string;
+      data: IData;
+      access_token?: string;
   }
 
 

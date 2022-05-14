@@ -4,8 +4,9 @@
 
 export const environment = {
   production: false,
+  api:'http://54.207.143.191/',
   urls: {
-    login: 'http://54.207.143.191/api/login'
+    login: 'api/login'
   }
 };
 

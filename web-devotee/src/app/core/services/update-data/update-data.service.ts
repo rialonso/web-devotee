@@ -10,7 +10,7 @@ import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 @Injectable({
   providedIn: 'root'
 })
-export class SignInService extends HttpService<ISignIn>{
+export class UpdateDataService extends HttpService<any>{
   constructor(
     httpClient: HttpClient,
 
@@ -19,16 +19,15 @@ export class SignInService extends HttpService<ISignIn>{
       httpClient,
       environment.api,
       environment.urls.login,
-      new SignInSerializer());
+      new UpdateDataSerializer());
   }
 }
-class SignInSerializer {
+class UpdateDataSerializer {
   constructor (
     private store?: Store<IAppState>,
     private state?: State<IAppState>
     ) {}
-  fromJson(signInData: IUserData.RootObject | any): ISignIn {
-    const Signin = new ISignIn();
+  fromJson(signInData: IUserData.RootObject | any): any {
     if(signInData != undefined ) {
       return signInData;
     }

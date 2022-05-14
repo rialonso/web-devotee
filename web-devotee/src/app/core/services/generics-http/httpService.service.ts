@@ -12,6 +12,7 @@ export class HttpService <T extends Resource> {
   options = {}
   constructor(
     private httpClient: HttpClient,
+    private api: string,
     private url: string,
     private serializer: Serializer,
 
@@ -26,12 +27,17 @@ export class HttpService <T extends Resource> {
   }
   get(): Observable<T> {
     return this.httpClient
-      .get(`${this.url}`, this.options)
+      .get(`${this.api}${this.url}`, this.options)
       .pipe(map((data: any) => this.serializer.fromJson(data) as T));
   }
-  post(item: T): Observable<T> {
-    return this.httpClient
-      .post(`${this.url}`,this.serializer.fromJson(item), this.options )
+  post(item?: T, id?: number): Observable<T> {
+    if (id) {
+      return this.httpClient
+      .post(`${this.api}${this.url}${id}`,this.serializer.fromJson(item), this.options )
       .pipe(map((data: any) => this.serializer.fromJson(data) as T));
+    }
+    return this.httpClient
+    .post(`${this.api}${this.url}`,this.serializer.fromJson(item), this.options )
+    .pipe(map((data: any) => this.serializer.fromJson(data) as T));
   }
 }
