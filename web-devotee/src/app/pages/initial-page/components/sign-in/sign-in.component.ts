@@ -29,7 +29,7 @@ export class SignInComponent implements OnInit {
   dataTexts;
   routesEnum = EnumRoutesApplication;
   formGroup: FormGroup;
-
+  showErrorCredentials = false;
   destroy$ = new ReplaySubject();
   constructor(
     public routeService: RouteService,
@@ -75,8 +75,12 @@ export class SignInComponent implements OnInit {
   }
   async signIn() {
     if (this.formGroup.valid) {
-      const signInData = await this.signInService.post(this.formGroup.value).toPromise();
-      this.stateManagementFuncServices.funcAddAllDataUser(signInData);
+      const signInData: any = await this.signInService.post(this.formGroup.value).toPromise();
+      console.log(signInData);
+
+      signInData?.status
+        ? this.stateManagementFuncServices.funcAddAllDataUser(signInData)
+        : this.showErrorCredentials = !signInData.status;
     }
   }
   private initiForm() {

@@ -67,7 +67,15 @@ p, a {
 .infos-about-app {
   text-align: center;
 }
-
+.text {
+  &.error {
+    color: $red-error;
+    min-height: 20px;
+  }
+  &.center {
+    text-align: center;
+  }
+}
 
 @for $i from 1 to 5
 {

@@ -1,7 +1,8 @@
-export interface IRegisterData {
+export interface IRegisterUser {
   email: string;
-
+  password: string;
 }
-export const INITIAL_STATE_PRE_REGISTER_DATA: IRegisterData = {
+export const INITIAL_STAT_REGISTER_USER: IRegisterUser = {
   email: '',
+  password: '',
 }

@@ -25,19 +25,21 @@ export class HttpService <T extends Resource> {
       })
   }
   }
-  get(): Observable<T> {
+  get(id?: any): Observable<T> {
     return this.httpClient
-      .get(`${this.api}${this.url}`, this.options)
+      .get(this.returnUrl(id), this.options)
       .pipe(map((data: any) => this.serializer.fromJson(data) as T));
   }
-  post(item?: T, id?: number): Observable<T> {
-    if (id) {
-      return this.httpClient
-      .post(`${this.api}${this.url}${id}`,this.serializer.fromJson(item), this.options )
-      .pipe(map((data: any) => this.serializer.fromJson(data) as T));
-    }
+  post(item?: T, id?: any): Observable<T> {
     return this.httpClient
-    .post(`${this.api}${this.url}`,this.serializer.fromJson(item), this.options )
-    .pipe(map((data: any) => this.serializer.fromJson(data) as T));
+      .post(this.returnUrl(id),this.serializer.fromJson(item), this.options )
+      .pipe(map((data: any) => this.serializer.fromJson(data) as T));
+  }
+  private returnUrl(id?: any) {
+    const apiURL = `${this.api}${this.url}`;
+    if (id) {
+      return `${apiURL}/${id}`;
+    }
+    return apiURL;
   }
 }

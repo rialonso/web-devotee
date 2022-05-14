@@ -9,7 +9,13 @@
         <a class="color-magenta-soft cursor-pointer" (click)="navigateTo(routesEnum.REMEMBER)">{{dataTexts.signin.rememberPassword}}</a>
       </div>
     </div>
+
     <form [formGroup]="formGroup" id="sign-in" class="example-form">
+      <div class="text error center" >
+        <p *ngIf="showErrorCredentials">
+          {{dataTexts.errors.credentials}}
+        </p>
+      </div>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>E-mail</mat-label>
         <input

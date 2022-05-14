@@ -1,8 +1,8 @@
+import { IRegisterUser, INITIAL_STAT_REGISTER_USER } from './register.state';
 import { createReducer, on } from '@ngrx/store';
-import { INITAL_STATE_REGISTER_USER, IRegisterUser } from 'src/app/shared/model/register/register.model.';
 import { AddData } from './register.action';
 
-export const initialState: IRegisterUser = INITAL_STATE_REGISTER_USER;
+export const initialState: IRegisterUser = INITIAL_STAT_REGISTER_USER;
 
 export const registerReducer = createReducer(
   initialState,

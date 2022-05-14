@@ -94,6 +94,9 @@
           "text": "Respeite outras pessoas e trate a todos como você gostaria de ser tratado"
         }
       }
+    },
+    "errors": {
+      "credentials": "Credenciais incorretas"
     }
   },
   "us": {
@@ -191,6 +194,9 @@
           "text": "Respect all peoples and treat everyone as you would like to be treated"
         }
       }
+    },
+    "errors": {
+      "credentials": "Incorrect credentials"
     }
   }
 }
