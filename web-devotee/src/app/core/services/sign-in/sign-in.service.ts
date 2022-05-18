@@ -27,14 +27,14 @@ class SignInSerializer {
     private store?: Store<IAppState>,
     private state?: State<IAppState>
     ) {}
-  fromJson(signInData: IUserData.RootObject | any): ISignIn {
+  fromJson(signInData: ISignIn): ISignIn {
     if(signInData != undefined ) {
       return signInData;
     }
 
   }
 
-  toJson(signInData: ISignIn): any {
+  toJson(signInData: IUserData.RootObject): any {
     return signInData;
   }
 }

@@ -4,8 +4,8 @@ import { ISignIn } from 'src/app/shared/model/sign-in/sign-in.state';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { State, Store } from '@ngrx/store';
-import { IAppState } from 'src/app/state-management/app.model';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
+import { IRegisterUser } from 'src/app/state-management/register/register.state';
 
 @Injectable({
   providedIn: 'root'
@@ -24,14 +24,14 @@ export class RegisterService extends HttpService<any>{
 }
 class RegisterUserSerializer {
   constructor () {}
-  fromJson(signInData: IUserData.RootObject | any): any {
-    if(signInData != undefined ) {
-      return signInData;
+  fromJson(registerRequest: IRegisterUser | any): any {
+    if(registerRequest != undefined ) {
+      return registerRequest;
     }
 
   }
 
-  toJson(signInData: ISignIn): any {
-    return signInData;
+  toJson(registerResponse: IUserData.RootObject): any {
+    return registerResponse;
   }
 }
