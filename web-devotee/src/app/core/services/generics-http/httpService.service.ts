@@ -28,12 +28,12 @@ export class HttpService <T extends Resource> {
   get(id?: any): Observable<T> {
     return this.httpClient
       .get(this.returnUrl(id), this.options)
-      .pipe(map((data: any) => this.serializer.fromJson(data) as T));
+      .pipe(map((data: any) => this.serializer.toJson(data) as T));
   }
   post(item?: T, id?: any): Observable<T> {
     return this.httpClient
       .post(this.returnUrl(id),this.serializer.fromJson(item), this.options )
-      .pipe(map((data: any) => this.serializer.fromJson(data) as T));
+      .pipe(map((data: any) => this.serializer.toJson(data) as T));
   }
   private returnUrl(id?: any) {
     const apiURL = `${this.api}${this.url}`;
