@@ -1,4 +1,4 @@
-export interface IRegisterUser {
+export class IRegisterUser {
   email: string;
   password: string;
 	account_type: string; // selecao
@@ -9,7 +9,7 @@ export interface IRegisterUser {
 	target_gender: string; // homem; mulher e todos
 	relationship_type: string; // nao perguntar default all types: sexo; amizade; namoro e todos
 	target_account_type: string; // i do know
-	profile_picture: Array<string>;
+	profile_picture: Array<string>; // array de pictures
 	automatic_location: boolean; // caso boolean mostrar campos para cadastro de localizacao cidade estado
 	lat: number;
 	lng: number;
@@ -18,17 +18,17 @@ export interface IRegisterUser {
 	notification_like: boolean; // pergunta unica
 	occupation: string; // decidir se mostrar no cadastro
 	about: string;// decidir se mostrar no cadastro
-	address_description: string;
+	address_description: string; // "Mogi das Cruzes - São Paulo"
 	age_min: number; // no cadastro nao perguntar trazer por default 18
 	age_max: number; // no cadastro nao perguntar trazer por default 50
 	max_distance: number; // nao pergunta default 10km
-	show_as_gender: string;
-	tiic: boolean; // default
-	show_me: boolean; // default
-	prejudice: boolean;  // default
-	show_age: boolean;  // default
-	show_distance: boolean;  // default
-	things_i_use: string;  // default
-	illicit_drugs: string;  // default
+	show_as_gender: string; // string male, woman, trans
+	tiic: boolean; // default false
+	show_me: boolean; // default true
+	prejudice: boolean;  // default false
+	show_age: boolean;  // default true
+	show_distance: boolean;  // default true
+	things_i_use: string;  // default null
+	illicit_drugs: string;  // default null
 }
 export const INITIAL_STAT_REGISTER_USER: IRegisterUser = null
