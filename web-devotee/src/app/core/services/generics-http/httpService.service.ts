@@ -1,7 +1,7 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { Resource } from 'src/app/shared/model/serializer/resource.model';
 import { Serializer } from 'src/app/shared/model/serializer/serializer.model';
 
@@ -28,7 +28,10 @@ export class HttpService <T extends Resource> {
   get(id?: any): Observable<T> {
     return this.httpClient
       .get(this.returnUrl(id), this.options)
-      .pipe(map((data: any) => this.serializer.toJson(data) as T));
+      .pipe(
+        map((data: any) => this.serializer.toJson(data) as T),
+
+        );
   }
   post(item?: T, id?: any): Observable<T> {
     return this.httpClient

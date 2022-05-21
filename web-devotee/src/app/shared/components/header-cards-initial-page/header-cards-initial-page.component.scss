@@ -4,12 +4,9 @@
 
 
 .content-header-cards-initial-page {
-  .title-sign-return {
-    display: flex;
-    flex-direction: column;
-    gap: $s-35px;
-    margin-bottom: $s-35px;
-  }
+  display: flex;
+  flex-direction: column;
+  gap: $s-35px;
   mat-icon {
     background-color: $gray-soft;
     width: $s-35px;

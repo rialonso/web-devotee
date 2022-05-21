@@ -96,7 +96,8 @@
       }
     },
     "errors": {
-      "credentials": "Credenciais incorretas"
+      "credentials": "Credenciais incorretas",
+      "existingEmail": "Email já está em uso."
     }
   },
   "us": {
@@ -196,7 +197,8 @@
       }
     },
     "errors": {
-      "credentials": "Incorrect credentials"
+      "credentials": "Incorrect credentials",
+      "existingEmail": "Email already used."
     }
   }
 }

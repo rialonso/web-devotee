@@ -2,9 +2,19 @@
   <section class="content-sign-in content-deafult-cards-initial-page" [class.content-deafult-cards-initial-page-mobile]="openMobileSignIn">
     <app-header-cards-initial-page [data]="dataCardInitialPage" (headerBtnClick)="navigateTo(enumRoute.LOGIN)"></app-header-cards-initial-page>
     <form [formGroup]="formGroup" id="register">
+      <div class="text error center mt-15px" >
+        <p *ngIf="showErrorCredentials.showError">
+          {{showErrorCredentials.menssage}}
+        </p>
+      </div>
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>E-mail</mat-label>
-        <input formControlName="email" matInput [placeholder]="dataTexts.placeholders.email" type="email">
+        <input
+          formControlName="email"
+          matInput
+          [placeholder]="dataTexts.placeholders.email"
+          type="email"
+          (blur)="verifyEmail()">
       </mat-form-field>
       <mat-form-field appearance="fill">
         <mat-label>{{dataTexts.signin.password}}</mat-label>

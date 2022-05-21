@@ -25,14 +25,14 @@ export class VerifyEmailService extends HttpService<any>{
 }
 class RegisterUserSerializer {
   constructor () {}
-  fromJson(registerRequest: string): any {
+  fromJson(registerRequest: string): string {
     if(registerRequest != undefined ) {
       return registerRequest;
     }
 
   }
 
-  toJson(registerResponse: VerifyEmail.Response): any {
+  toJson(registerResponse: VerifyEmail.Response): VerifyEmail.Response {
     return registerResponse;
   }
 }

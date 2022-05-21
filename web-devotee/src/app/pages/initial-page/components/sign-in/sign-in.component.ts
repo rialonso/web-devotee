@@ -1,3 +1,4 @@
+import { INIT_DATA_ERRORS } from './../../../../shared/enum/errors/errors.enum';
 import { Component, OnInit } from '@angular/core';
 import { State, Store } from '@ngrx/store';
 import { ReplaySubject } from 'rxjs';
@@ -17,6 +18,8 @@ import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service
 import { MatDialog } from '@angular/material/dialog';
 import { LoginQrCodeComponent } from 'src/app/shared/components/dialogs/login-qr-code/login-qr-code.component';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
+import { VerifyEmailService } from 'src/app/core/services/verify-email/verify-email.service';
+import { MErrors } from 'src/app/shared/model/errors/errors.model';
 
 @Component({
   selector: 'app-sign-in',
@@ -29,19 +32,19 @@ export class SignInComponent implements OnInit {
   dataTexts;
   routesEnum = EnumRoutesApplication;
   formGroup: FormGroup;
-  showErrorCredentials = false;
+  showErrorCredentials: MErrors = INIT_DATA_ERRORS;
   destroy$ = new ReplaySubject();
   constructor(
     public routeService: RouteService,
     protected state: State<IAppState>,
     protected store: Store<IAppState>,
     private translateService: TranslateService,
-    private router: Router,
     private signInService: SignInService,
     private formBuilder: FormBuilder,
     private stateManagementFuncServices: StateManagementFuncService,
     private dialogService: DialogsService,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private verifyEmailService: VerifyEmailService,
 
   ) {
     this.store.select('controlsApp')
@@ -76,13 +79,16 @@ export class SignInComponent implements OnInit {
   async signIn() {
     if (this.formGroup.valid) {
       const signInData: any = await this.signInService.post(this.formGroup.value).toPromise();
-      console.log(signInData);
-
       signInData?.status
         ? this.stateManagementFuncServices.funcAddAllDataUser(signInData)
-        : this.showErrorCredentials = !signInData.status;
+        : this.showErrorCredentials
+        = new MErrors(
+          !signInData.status,
+           this.dataTexts.errors.credentials
+        )
     }
   }
+
   private initiForm() {
     this.formGroup = this.formBuilder.group({
       email: [

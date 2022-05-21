@@ -1,12 +1,15 @@
+import { INIT_DATA_ERRORS } from './../../../../shared/enum/errors/errors.enum';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { State, Store } from '@ngrx/store';
 import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
+import { VerifyEmailService } from 'src/app/core/services/verify-email/verify-email.service';
 import { IHeaderCardsInitialPage } from 'src/app/shared/components/header-cards-initial-page/model/header-cards.data';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { RouteService } from 'src/app/shared/functions/routes/route.service';
+import { MErrors } from 'src/app/shared/model/errors/errors.model';
 import { MHeaderCardsInitialPage } from 'src/app/shared/model/header-cards-initial-page/header-cards-initial-page.enum';
 import { IAppState } from 'src/app/state-management/app.model';
 import { AddControlApp } from 'src/app/state-management/controls/copntrols-app.action';
@@ -27,6 +30,7 @@ export class RegisterComponent implements OnInit {
   enumRoute = EnumRoutesApplication;
   dataTexts
 
+  showErrorCredentials: MErrors = INIT_DATA_ERRORS;
 
   destroy$ = new ReplaySubject();
   constructor(
@@ -35,6 +39,7 @@ export class RegisterComponent implements OnInit {
     private translateService: TranslateService,
     private routerService: RouteService,
     private formBuilder: FormBuilder,
+    private verifyEmailService: VerifyEmailService
   ) {
     this.store.select('controlsApp')
     .pipe(takeUntil(this.destroy$))
@@ -84,5 +89,21 @@ export class RegisterComponent implements OnInit {
         ]
       ]
     });
+  }
+  async verifyEmail() {
+    const email = this.formGroup.get('email');
+    if (email.valid) {
+      this.verifyEmailService.post({email: email.value}).subscribe(
+        responseVerifyEmail => {},
+        responseVerifyEmail => {
+        if (responseVerifyEmail.error.errors.email[0] === "Email já está em uso.") {
+          this.showErrorCredentials
+          = new MErrors(
+            true,
+            this.dataTexts.errors.existingEmail
+          )
+        }
+      });
+    }
   }
 }
