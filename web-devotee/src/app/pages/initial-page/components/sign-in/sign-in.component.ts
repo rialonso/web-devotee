@@ -6,19 +6,14 @@ import { TranslateService } from 'src/app/core/services/translate/translate.serv
 import { IAppState } from 'src/app/state-management/app.model';
 import { takeUntil } from 'rxjs/operators';
 import { AddControlApp } from 'src/app/state-management/controls/copntrols-app.action';
-import { Router } from '@angular/router';
 import { RouteService } from 'src/app/shared/functions/routes/route.service';
-import { HttpService } from 'src/app/core/services/generics-http/httpService.service';
 import { SignInService } from 'src/app/core/services/sign-in/sign-in.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AddAllDataUser } from 'src/app/state-management/user-data/user-data.action';
 import { StateManagementFuncService } from 'src/app/shared/functions/state-management/state-management-func.service';
-import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginQrCodeComponent } from 'src/app/shared/components/dialogs/login-qr-code/login-qr-code.component';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
-import { VerifyEmailService } from 'src/app/core/services/verify-email/verify-email.service';
 import { MErrors } from 'src/app/shared/model/errors/errors.model';
 
 @Component({
@@ -44,8 +39,6 @@ export class SignInComponent implements OnInit {
     private stateManagementFuncServices: StateManagementFuncService,
     private dialogService: DialogsService,
     private dialog: MatDialog,
-    private verifyEmailService: VerifyEmailService,
-
   ) {
     this.store.select('controlsApp')
       .pipe(takeUntil(this.destroy$))

@@ -21,7 +21,8 @@ export class HttpService <T extends Resource> {
       responseType: 'json',
       headers: new HttpHeaders({
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
+          'Authorization': `Bearer ${localStorage?.getItem('access_token') || ''}`,
       })
   }
   }

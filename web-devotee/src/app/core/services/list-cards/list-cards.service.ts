@@ -10,7 +10,7 @@ import { IRegisterUser } from 'src/app/state-management/register/register.state'
 @Injectable({
   providedIn: 'root'
 })
-export class RegisterService extends HttpService<any>{
+export class ListCardsService extends HttpService<any>{
   constructor(
     httpClient: HttpClient,
 
@@ -18,20 +18,20 @@ export class RegisterService extends HttpService<any>{
     super(
       httpClient,
       environment.api,
-      environment.urls.registerUser,
+      environment.urls.listCards,
       new RegisterUserSerializer());
   }
 }
 class RegisterUserSerializer {
   constructor () {}
-  fromJson(registerRequest: IRegisterUser): IRegisterUser {
+  fromJson(registerRequest: IRegisterUser): any {
     if(registerRequest != undefined ) {
       return registerRequest;
     }
 
   }
 
-  toJson(registerResponse: IUserData.RootObject): IUserData.RootObject {
+  toJson(registerResponse: any): any {
     return registerResponse;
   }
 }
