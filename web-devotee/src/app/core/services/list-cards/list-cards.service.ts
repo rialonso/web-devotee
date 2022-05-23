@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { State, Store } from '@ngrx/store';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { IRegisterUser } from 'src/app/state-management/register/register.state';
+import { IListCards } from 'src/app/state-management/list-cards/list-cards.state';
 
 @Injectable({
   providedIn: 'root'
@@ -19,19 +20,19 @@ export class ListCardsService extends HttpService<any>{
       httpClient,
       environment.api,
       environment.urls.listCards,
-      new RegisterUserSerializer());
+      new ListCardsSerializer());
   }
 }
-class RegisterUserSerializer {
+class ListCardsSerializer {
   constructor () {}
-  fromJson(registerRequest: IRegisterUser): any {
+  fromJson(registerRequest: IListCards.RootObject): IListCards.RootObject {
     if(registerRequest != undefined ) {
       return registerRequest;
     }
 
   }
 
-  toJson(registerResponse: any): any {
+  toJson(registerResponse: IListCards.RootObject): IListCards.RootObject {
     return registerResponse;
   }
 }

@@ -1,6 +1,6 @@
 export declare module IUserData {
 
-  export interface ProfilePicture {
+  export class ProfilePicture {
       id: number;
       user_id: number;
       path: string;
@@ -10,7 +10,7 @@ export declare module IUserData {
       order: number;
   }
 
-  export interface IData {
+  export class IData {
       id: number;
       stripe_id: string;
       subscriptions_id: string;
@@ -61,7 +61,7 @@ export declare module IUserData {
       profile_picture: ProfilePicture[];
   }
 
-  export interface RootObject {
+  export class RootObject {
       status: boolean;
       data: IData;
       access_token?: string;
