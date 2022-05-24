@@ -31,4 +31,4 @@ export class IRegisterUser {
 	things_i_use: string;  // default null
 	illicit_drugs: string;  // default null
 }
-export const INITIAL_STAT_REGISTER_USER: IRegisterUser = null
+export const INITIAL_STATE_REGISTER_USER: IRegisterUser = null

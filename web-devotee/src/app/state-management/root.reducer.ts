@@ -1,3 +1,4 @@
+import { listCardsReducer } from './list-cards/list-cards.reducer';
 import { userDataReducer } from './user-data/user-data.reducer';
 import { registerReducer } from './register/register.reducer';
 import {ActionReducerMap} from '@ngrx/store';
@@ -8,4 +9,5 @@ export const rootReducer: ActionReducerMap<IAppState> = {
   registerData: registerReducer,
   controlsApp: controlsAppReducer,
   userData: userDataReducer,
+  listCards: listCardsReducer,
 }
