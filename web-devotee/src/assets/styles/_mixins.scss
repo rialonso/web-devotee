@@ -26,3 +26,10 @@
 @mixin max-desk {
   @media (min-width: $max-desk) { @content; }
 }
+
+@mixin dp-flex-alignment($direction: row, $align: center, $justify: center) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align;
+  justify-content: $justify;
+}

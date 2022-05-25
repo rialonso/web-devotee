@@ -1,0 +1,19 @@
+@import '_custom';
+
+#container-continue-register {
+  background-color: $blue-dark;
+  padding: 20px;
+  header {
+    @include dp-flex-alignment();
+    gap: 15px;
+    .logo {
+      width: 30px;
+      height: auto;
+    }
+    p {
+      color: $white;
+      font-size: 25px;
+    }
+  }
+
+}
