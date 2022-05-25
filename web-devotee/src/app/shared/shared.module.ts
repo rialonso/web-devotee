@@ -1,3 +1,4 @@
+import { MatCardModule } from '@angular/material/card';
 import { CardImgTitleTextComponent } from './components/card-img-title-text/card-img-title-text.component';
 import { NgModule } from '@angular/core';
 import { FooterComponent } from './components/footer/footer.component';
@@ -15,6 +16,7 @@ const components = [
   FooterComponent,
   HeaderCardsInitialPageComponent,
   CardImgTitleTextComponent,
+
 ]
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ const components = [
     MatIconModule,
     ReactiveFormsModule,
     CommonModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: []
