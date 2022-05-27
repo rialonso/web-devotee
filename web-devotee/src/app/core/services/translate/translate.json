@@ -25,7 +25,8 @@
     },
     "placeholders": {
       "password": "Digite sua senha",
-      "email": "Digite seu email"
+      "email": "Digite seu email",
+      "name": "Digite seu nome"
     },
     "buttonsSignin": {
       "btnContinue": "Continuar",
@@ -51,8 +52,52 @@
       "btnGoogle": "Continuar com Google"
     },
     "inputs": {
-      "inputName":"Nome",
-      "inputPhone":"Telefone",
+      "genericErrors": {
+        "inputRequired": "Campo obrigatório"
+      },
+      "name": {
+        "label": "Nome",
+        "placeHolder": "Digite seu nome",
+        "errors" : {
+          "specialCharacters": "Digite seu nome sem caracteres especiais"
+        }
+      },
+      "email": {
+        "label": "E-mail",
+        "placeHolder": "Digite seu e-mail",
+        "errors" : {
+          "emailIs": "E-mail é",
+          "invalidEmail": "Digite um e-mail válido"
+        }
+      },
+      "phone": {
+        "label": "Telefone",
+        "placeHolder": "Digite seu telefone (opcional)",
+        "errors" : {
+          "invalidNumber": "Digite um telefone válido"
+        }
+      },
+      "profession": {
+        "label": "Profissão",
+        "placeHolder": "Digite sua Profissão",
+        "errors" : {
+          "specialCharacters": "Digite sua profissão sem caracteres especiais"
+        }
+      },
+      "gender": {
+        "label": "Gênero",
+        "placeHolder": "Selecione seu gênero",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "sexualOrientation": {
+        "label": "Orientação sexual",
+        "placeHolder": "Selecione seu orientação sexual",
+        "errors" : {
+          "none": "none"
+        }
+      },
       "inputProfession":"Profissão",
       "inputGenre":"Gênero",
       "inputOrientation":"Orientação sexual",
@@ -153,7 +198,8 @@
     },
     "placeholders": {
       "password": "Type your password",
-      "email": "Type your email"
+      "email": "Type your email",
+      "name": "Type your name"
     },
     "buttonsSignin": {
       "btnContinue": "Continue",
@@ -179,10 +225,52 @@
       "btnGoogle": "Continue with Google"
     },
     "inputs": {
-      "inputName":"Name",
-      "inputPhone":"Phone",
-      "inputProfession":"Profession",
-      "inputGenre":"Genre",
+      "genericErrors": {
+        "inputRequired": "Input is required"
+      },
+      "name": {
+        "label": "Name",
+        "placeHolder": "Type your name",
+        "errors" : {
+          "specialCharacters": "Enter your name without special characters"
+        }
+      },
+      "email": {
+        "label": "E-mail",
+        "placeHolder": "Enter your e-mail",
+        "errors" : {
+          "emailIs": "E-mail is",
+          "invalidEmail": "Enter a valid e-mail"
+        }
+      },
+      "phone": {
+        "label": "Phone number",
+        "placeHolder": "Enter your phone number (optional)",
+        "errors" : {
+          "invalidNumber": "Enter a valid phone"
+        }
+      },
+      "profession": {
+        "label": "Profession",
+        "placeHolder": "Enter your profession",
+        "errors" : {
+          "specialCharacters": "Enter your profession without special characters"
+        }
+      },
+      "gender": {
+        "label": "gender",
+        "placeHolder": "Enter your gender",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "sexualOrientation": {
+        "label": "Sexual orientation",
+        "placeHolder": "Enter your sexual orientation",
+        "errors" : {
+          "none": "none"
+        }
+      },
       "inputOrientation":"Sexual orientation",
       "inputMoreAboutYou":"Tell me more about yourself",
       "inputSelectCID":"Select CID",

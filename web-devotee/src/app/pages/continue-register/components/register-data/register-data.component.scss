@@ -9,22 +9,30 @@
   margin: 20px;
   @include min-tablet {
     width: 100%;
-    margin: auto;
+    margin: 40px auto;
   }
   mat-card {
     border-radius: 10px;
+    @include min-tablet {
+      padding: 40px;
+    }
     mat-card-title {
       color: $blue-dark;
       margin: 20px 0;
     }
   }
-  .container-title-register {
+  mat-card.container-title-register {
     background-color: $blue-dark;
     border-radius: 10px;
-    padding: 20px;
-    color: $white;
-    font-size: 24px;
     margin-bottom: 20px;
+    @include min-tablet {
+      padding: 20px 40px;
+    }
+    mat-card-title {
+      color: $white;
+      font-size: 24px;
+      margin: 0;
+    }
   }
   .content-register-data {
     .container-profile-image {
@@ -90,23 +98,35 @@
       }
     }
     .more-pictures {
-      @include dp-flex-alignment();
+      @include dp-flex-alignment(row, center, space-between);
       gap: 20px;
+
       .more-photos {
         @include dp-flex-alignment();
         background-color: $gray-medium-soft;
         border: 1px solid $gray-soft;
-        max-width: 150px;
+        max-width: 180px;
         border-radius: 8px;
         &:hover {
           border: 1px solid $blue-dark;
         }
         mat-icon {
-          width: 55px;
+          width: 100%;
+          max-width: 30px;
           height: auto;
           padding: 20px;
+          @include min-tablet {
+            max-width: 55px;
+          }
         }
       }
+    }
+
+  }
+  .container-data-person {
+    .content-data-person {
+
+      padding: 15px;
     }
 
   }

@@ -1,7 +1,7 @@
 <div id="container-register-data">
-  <div class="container-title-register">
-    {{dataTexts.iamEspecialAndDevotee.headerYourProfile}}
-  </div>
+  <mat-card class="container-title-register">
+    <mat-card-title>{{dataTexts.iamEspecialAndDevotee.headerYourProfile}}</mat-card-title>
+  </mat-card>
   <mat-card>
     <main class="content-register-data">
       <form >
@@ -57,6 +57,44 @@
         </section>
         <section class="container-data-person">
           <mat-card-title>{{dataTexts.iamEspecialAndDevotee.titleAboutYourself}}</mat-card-title>
+          <div class="container-default-inputs-orientation content-data-person">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>{{dataTexts.inputs.name.label}}</mat-label>
+              <input
+                matInput
+                [placeholder]="dataTexts.inputs.name.placeHolder"
+                type="name"
+                autocomplete="name"
+                >
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>{{dataTexts.inputs.email.label}}</mat-label>
+              <input
+                matInput
+                [placeholder]="dataTexts.inputs.email.placeHolder"
+                type="email"
+                >
+            </mat-form-field>
+          </div>
+          <div class="container-default-inputs-orientation content-data-person">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>{{dataTexts.inputs.phone.label}}</mat-label>
+              <input
+                matInput
+                [placeholder]="dataTexts.inputs.phone.placeHolder"
+                type="tel"
+                >
+            </mat-form-field>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>{{dataTexts.inputs.profession.label}}</mat-label>
+              <input
+                matInput
+                [placeholder]="dataTexts.inputs.profession.placeHolder"
+                type="text"
+                autocomplete="work"
+                >
+            </mat-form-field>
+          </div>
         </section>
       </form>
     </main>

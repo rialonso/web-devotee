@@ -3,12 +3,24 @@
 @import '_fonts';
 @import '_breakpoints';
 @import '_material-components';
+@import '_mixins';
+
 * {
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
   vertical-align: baseline;
+}
+.container-default-inputs-orientation {
+  gap: 30px;
+  @include dp-flex-alignment(column);
+  @include min-tablet {
+    @include dp-flex-alignment();
+  }
+  mat-form-field {
+    width: 100%;
+  }
 }
 .dp-flex {
   display: flex;
