@@ -1,25 +1,63 @@
 <div id="container-register-data">
   <div class="container-title-register">
-    Seu perfil
+    {{dataTexts.iamEspecialAndDevotee.headerYourProfile}}
   </div>
   <mat-card>
     <main class="content-register-data">
-      <form class="container-profile-image">
-        <mat-card-title>Foto de perfil</mat-card-title>
-        <div class="content-picture">
-          <div class="photo-principal">
-            <label for="avatar" class="avatar cursor-pointer">
-              <mat-icon class="profile-img">person</mat-icon>
-            </label>
-            <input
-              type="file"
-              id="avatar"
-              name="avatar"
-              accept="image/png, image/jpeg"
-              class="input-file input-photo-principal">
+      <form >
+        <section class="container-profile-image">
+          <mat-card-title>{{dataTexts.iamEspecialAndDevotee.titleProfilePicture}}</mat-card-title>
+          <div class="content-picture">
+            <div class="photo-principal">
+              <label for="avatar" class="avatar cursor-pointer">
+                <mat-icon class="profile-img">person</mat-icon>
+              </label>
+              <input
+                type="file"
+                id="avatar"
+                name="avatar"
+                accept="image/png, image/jpeg"
+                class="input-file input-photo-principal">
+            </div>
           </div>
-        </div>
+        </section>
+        <section class="container-others-pictures">
+          <mat-card-title>{{dataTexts.iamEspecialAndDevotee.titleMorePictures}}</mat-card-title>
+          <div class="more-pictures">
+            <div class="more-photos flex-1 cursor-pointer">
+              <label for="more-photos-1" class="cursor-pointer">
+                <mat-icon svgIcon="camera_add_picture"></mat-icon>
+              </label>
 
+              <input
+                type="file"
+                id="more-photos-1" name="more-photos-1"
+                accept="image/png, image/jpeg" class="input-file input-photo-principal">
+            </div>
+            <div class="more-photos flex-1 cursor-pointer">
+              <label for="more-photos-2" class="cursor-pointer">
+                <mat-icon svgIcon="camera_add_picture"></mat-icon>
+              </label>
+
+              <input
+                type="file"
+                id="more-photos-2" name="more-photos-2"
+                accept="image/png, image/jpeg" class="input-file input-photo-principal">
+            </div>
+            <div class="more-photos flex-1 cursor-pointer" >
+              <label for="more-photos-3" class="cursor-pointer">
+                <mat-icon svgIcon="camera_add_picture"></mat-icon>
+              </label>
+              <input
+                type="file"
+                id="more-photos-3" name="more-photos-3"
+                accept="image/png, image/jpeg" class="input-file input-photo-principal">
+            </div>
+          </div>
+        </section>
+        <section class="container-data-person">
+          <mat-card-title>{{dataTexts.iamEspecialAndDevotee.titleAboutYourself}}</mat-card-title>
+        </section>
       </form>
     </main>
   </mat-card>

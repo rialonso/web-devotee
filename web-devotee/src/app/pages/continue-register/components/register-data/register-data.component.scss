@@ -15,6 +15,7 @@
     border-radius: 10px;
     mat-card-title {
       color: $blue-dark;
+      margin: 20px 0;
     }
   }
   .container-title-register {
@@ -57,11 +58,14 @@
             border-radius: 8px;
             max-height: 68px;
           }
-          .profile-img::after{
+          .profile-img {
+            &::after, &::before{
+              display: block;
+              position: absolute;
+            }
+            &::after{
             content:"add_a_photo";
             font-size: 20px;
-            display: block;
-            position: absolute;
             bottom: -10px;
             right: -10px;
             width: 20px;
@@ -69,10 +73,8 @@
             border-radius: 100%;
             z-index: 3;
           }
-          .profile-img::before{
+          &::before{
             content:"";
-            display: block;
-            position: absolute;
             bottom: -15px;
             right: -15px;
             width: 30px;
@@ -80,10 +82,33 @@
             border-radius: 100%;
             background: $gray-medium-soft;
             z-index: 1;
+            border: 1px solid $gray-soft;
+
           }
+        }
         }
       }
     }
+    .more-pictures {
+      @include dp-flex-alignment();
+      gap: 20px;
+      .more-photos {
+        @include dp-flex-alignment();
+        background-color: $gray-medium-soft;
+        border: 1px solid $gray-soft;
+        max-width: 150px;
+        border-radius: 8px;
+        &:hover {
+          border: 1px solid $blue-dark;
+        }
+        mat-icon {
+          width: 55px;
+          height: auto;
+          padding: 20px;
+        }
+      }
+    }
+
   }
   .input-file{
     display: none;

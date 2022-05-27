@@ -50,13 +50,32 @@
       "btnQrCode": "Continuar com",
       "btnGoogle": "Continuar com Google"
     },
+    "inputs": {
+      "inputName":"Nome",
+      "inputPhone":"Telefone",
+      "inputProfession":"Profissão",
+      "inputGenre":"Gênero",
+      "inputOrientation":"Orientação sexual",
+      "inputMoreAboutYou":"Conte mais sobre você",
+      "inputSelectCID":"Selecione o CID",
+      "inputSurgery":"Cirurgias",
+      "inputHospitals":"Hospitáis",
+      "inputMedicines":"Procedimentos médicos"
+    },
     "inputsErrors": {
       "requireds" : {
         "inputRequired": "Campo obrigatório",
         "required": "obrigatório",
         "emailIs": "E-mail é",
-        "passwordIs": "Senha é"
+        "passwordIs": "Senha é",
+        "errorInvalidEmail":"Insira um email valido"
       }
+    },
+    "checks": {
+      "checkBirthDisability":"Deficiência desde nascença",
+      "checkHaveTIIC":"Tenho TIIC",
+      "checkImpairedFertility":"Comprometimento da fertilidade",
+      "checkOvercomingExample":"Sou um exemplo de superação"
     },
     "qrSignIn": {
       "qrTitle":"Para fazer o Login com QR Code:",
@@ -98,6 +117,14 @@
     "errors": {
       "credentials": "Credenciais incorretas",
       "existingEmail": "Email já está em uso."
+    },
+    "iamEspecialAndDevotee":{
+      "headerYourProfile":"Seu Perfil",
+      "titleProfilePicture":"Foto de perfil",
+      "titleMorePictures":"Adicione mais fotos suas",
+      "titleAboutYourself":"Sobre você",
+      "titleAboutYourDisability":"Sobre sua deficiência",
+      "btnNext":"Proximo"
     }
   },
   "us": {
@@ -151,13 +178,32 @@
       "btnQrCode": "Continue with",
       "btnGoogle": "Continue with Google"
     },
+    "inputs": {
+      "inputName":"Name",
+      "inputPhone":"Phone",
+      "inputProfession":"Profession",
+      "inputGenre":"Genre",
+      "inputOrientation":"Sexual orientation",
+      "inputMoreAboutYou":"Tell me more about yourself",
+      "inputSelectCID":"Select CID",
+      "inputSurgery":"Surgerys",
+      "inputHospitals":"Hospitals",
+      "inputMedicines":"Medical procedures"
+    },
     "inputsErrors": {
       "requireds" : {
         "inputRequired": "Input is required",
         "required": "required",
         "emailIs": "E-mail is",
-        "passwordIs": "Password is"
+        "passwordIs": "Password is",
+        "errorInvalidEmail":"enter a valid email"
       }
+    },
+    "checks": {
+      "checkBirthDisability":"Disability from birth",
+      "checkHaveTIIC":"I`ve TIIC",
+      "checkImpairedFertility":"Fertility impairment",
+      "checkOvercomingExample":"I am an example of overcoming"
     },
     "qrSignIn": {
       "qrTitle":"To Login with QR Code:",
@@ -199,6 +245,14 @@
     "errors": {
       "credentials": "Incorrect credentials",
       "existingEmail": "Email already used."
+    },
+    "iamEspecialAndDevotee":{
+      "headerYourProfile":"Your profile",
+      "titleProfilePicture":"Profile picture",
+      "titleMorePictures":"Add more pictures",
+      "titleAboutYourself":"About yourself",
+      "titleAboutYourDisability":"About or disability",
+      "btnNext":"Proximo"
     }
   }
 }
