@@ -55,6 +55,22 @@
       "genericErrors": {
         "inputRequired": "Campo obrigatório"
       },
+      "searchs" : {
+        "iIcd": {
+          "label": "Pesquisar CID`s",
+          "placeholder": "comece a digitar para pesquisar"
+        },
+        "medicalProcedures" : {
+          "label": "Digite para pesquisar cirurgias",
+          "placeholder": "start typing to search"
+        },
+        "hospitals" : {
+          "label": "Digite para pesquisar hospitais"
+        },
+        "medicines" : {
+          "label": "Digite para pesquisar medicamentos"
+        }
+      },
       "name": {
         "label": "Nome",
         "placeHolder": "Digite seu nome",
@@ -72,7 +88,7 @@
       },
       "phone": {
         "label": "Telefone",
-        "placeHolder": "Digite seu telefone (opcional)",
+        "placeHolder": "Digite seu telefone",
         "errors" : {
           "invalidNumber": "Digite um telefone válido"
         }
@@ -99,17 +115,40 @@
         }
       },
       "moreAboutYourself": {
-        "label": "Conte mais sobre você (opcional)",
+        "label": "Conte mais sobre você",
         "placeHolder": "Conte mais sobre você...",
         "errors" : {
           "none": "none"
         }
       },
-      "inputMoreAboutYou":"Conte mais sobre você",
-      "inputSelectCID":"Selecione o CID",
-      "inputSurgery":"Cirurgias",
-      "inputHospitals":"Hospitáis",
-      "inputMedicines":"Procedimentos médicos"
+      "selectICD": {
+        "label": "Classificação Internacional de Doenças (CID)",
+        "placeHolder": "Selecion as CIDs",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "selectMedicalProcedures": {
+        "label": "Procedimentos medicos",
+        "placeHolder": "Cirurgia, transplante...",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "selectMedications": {
+        "label": "Medicações que utilizo",
+        "placeHolder": "Medicações ou drogas",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "selectHospitals": {
+        "label": "Hospitais que frequento",
+        "placeHolder": "Hospitals que frequento",
+        "errors" : {
+          "none": "none"
+        }
+      }
     },
     "inputsErrors": {
       "requireds" : {
@@ -232,6 +271,22 @@
       "genericErrors": {
         "inputRequired": "Input is required"
       },
+      "searchs" : {
+        "iIcd": {
+          "label": "Search ICD`s",
+          "placeholder": "start typing to search"
+        },
+        "medicalProcedures" : {
+          "label": "type to search surgerys",
+          "placeholder": "start typing to search"
+        },
+        "hospitals" : {
+          "label": "type to search hospitals"
+        },
+        "medicines" : {
+          "label": "type to search medicines"
+        }
+      },
       "name": {
         "label": "Name",
         "placeHolder": "Type your name",
@@ -249,7 +304,7 @@
       },
       "phone": {
         "label": "Phone number",
-        "placeHolder": "Enter your phone number (optional)",
+        "placeHolder": "Enter your phone number",
         "errors" : {
           "invalidNumber": "Enter a valid phone"
         }
@@ -276,15 +331,40 @@
         }
       },
       "moreAboutYourself": {
-        "label": "Tell more about yourself (optional)",
+        "label": "Tell more about yourself",
         "placeHolder": "Tell more about yourself",
         "errors" : {
           "none": "none"
         }
       },
-      "inputMoreAboutYou":"Tell me more about yourself",
-      "inputSelectCID":"Select CID",
-      "inputSurgery":"Surgerys",
+      "selectICD": {
+        "label": "Internetional classification of diseases (ICD)",
+        "placeHolder": "Select the ICDs",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "selectMedicalProcedures": {
+        "label": "Medical procedures",
+        "placeHolder": "Surgery, transplant...",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "selectMedications": {
+        "label": "Medications i take",
+        "placeHolder": "Medications or drugs",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "selectHospitals": {
+        "label": "Hospitals i go",
+        "placeHolder": "Medical center i go",
+        "errors" : {
+          "none": "none"
+        }
+      },
       "inputHospitals":"Hospitals",
       "inputMedicines":"Medical procedures"
     },

@@ -9,7 +9,8 @@ import { IAppState } from 'src/app/state-management/app.model';
   styleUrls: ['./register-data.component.scss']
 })
 export class RegisterDataComponent implements OnInit {
-  dataTexts
+  dataTexts;
+
   constructor(
     protected store: Store,
     protected state: State<IAppState>,

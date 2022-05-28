@@ -96,7 +96,9 @@ p, a {
     flex: $i;
   }
 }
-
+.input-search-list {
+  padding: 0 10px;
+}
 @font-face {
   font-family: Booster-next-regular;
   src: url(assets/fonts/BoosterNextFY-Regular.otf) format("opentype");

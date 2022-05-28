@@ -40,7 +40,7 @@
         display: flex;
         margin: 0 auto;
         position: relative;
-        width:100px;
+        width:160px;
         height: 100px;
         background-color: $gray-medium-soft;
         border: 1px solid $gray-soft;
@@ -55,7 +55,7 @@
         @include dp-flex-alignment();
       }
       .photo-principal{
-        max-width: 100px;
+        max-width: 160px;
         mat-icon{
           display: flex;
           justify-content: center;
@@ -133,3 +133,4 @@
     display: none;
   }
 }
+
