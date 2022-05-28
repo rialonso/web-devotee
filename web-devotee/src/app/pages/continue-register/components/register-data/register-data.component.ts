@@ -2,6 +2,7 @@ import { State, Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { IAppState } from 'src/app/state-management/app.model';
+import { ImagesTypes } from './enum/images-type.enum';
 
 @Component({
   selector: 'app-register-data',
@@ -22,5 +23,13 @@ export class RegisterDataComponent implements OnInit {
 
   ngOnInit() {
   }
+  selectedImage(files: File, imageType: ImagesTypes) {
+    if (files && files[0]) {
+      const reader = new FileReader();
+      reader.readAsDataURL(files[0]);
+      reader.onload = (evt) => {
 
+      }
+    }
+  }
 }
