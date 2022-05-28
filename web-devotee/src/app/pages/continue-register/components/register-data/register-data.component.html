@@ -95,6 +95,32 @@
                 >
             </mat-form-field>
           </div>
+          <div class="container-default-inputs-orientation content-data-person">
+            <mat-form-field appearance="fill">
+              <mat-label>{{ dataTexts.inputs.gender.label }}</mat-label>
+              <mat-select>
+                <mat-option value="volvo">Volvo</mat-option>
+                <mat-option value="saab">Saab</mat-option>
+                <mat-option value="mercedes">Mercedes</mat-option>
+                <mat-option value="audi">Audi</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ dataTexts.inputs.sexualOrientation.label }}</mat-label>
+              <mat-select>
+                <mat-option value="volvo">Volvo</mat-option>
+                <mat-option value="saab">Saab</mat-option>
+                <mat-option value="mercedes">Mercedes</mat-option>
+                <mat-option value="audi">Audi</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+          <div class="container-default-inputs-orientation content-data-person">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>{{ dataTexts.inputs.moreAboutYourself.label }}</mat-label>
+              <textarea matInput [placeholder]="dataTexts.inputs.moreAboutYourself.placeHolder"></textarea>
+            </mat-form-field>
+          </div>
         </section>
       </form>
     </main>

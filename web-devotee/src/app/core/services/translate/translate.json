@@ -98,9 +98,13 @@
           "none": "none"
         }
       },
-      "inputProfession":"Profissão",
-      "inputGenre":"Gênero",
-      "inputOrientation":"Orientação sexual",
+      "moreAboutYourself": {
+        "label": "Conte mais sobre você (opcional)",
+        "placeHolder": "Conte mais sobre você...",
+        "errors" : {
+          "none": "none"
+        }
+      },
       "inputMoreAboutYou":"Conte mais sobre você",
       "inputSelectCID":"Selecione o CID",
       "inputSurgery":"Cirurgias",
@@ -271,7 +275,13 @@
           "none": "none"
         }
       },
-      "inputOrientation":"Sexual orientation",
+      "moreAboutYourself": {
+        "label": "Tell more about yourself (optional)",
+        "placeHolder": "Tell more about yourself",
+        "errors" : {
+          "none": "none"
+        }
+      },
       "inputMoreAboutYou":"Tell me more about yourself",
       "inputSelectCID":"Select CID",
       "inputSurgery":"Surgerys",
