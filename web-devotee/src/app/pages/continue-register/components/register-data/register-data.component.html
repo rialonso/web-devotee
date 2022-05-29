@@ -10,14 +10,19 @@
           <div class="content-picture">
             <div class="photo-principal">
               <label for="avatar" class="avatar cursor-pointer">
-                <mat-icon class="profile-img">person</mat-icon>
+                <mat-icon class="profile-img" *ngIf="!imagesURL?.profileURL">person</mat-icon>
+                <mat-icon class="profile-img" *ngIf="imagesURL?.profileURL">
+                  <img class="" src={{imagesURL?.profileURL}} alt="">
+                </mat-icon>
+
               </label>
               <input
                 type="file"
                 id="avatar"
                 name="avatar"
                 accept="image/png, image/jpeg"
-                class="input-file input-photo-principal">
+                class="input-file input-photo-principal"
+                (change)="selectedImage($event.target.files, imagesTypes.PROFILE_URL)">
             </div>
           </div>
         </section>
@@ -26,32 +31,50 @@
           <div class="more-pictures">
             <div class="more-photos flex-1 cursor-pointer">
               <label for="more-photos-1" class="cursor-pointer">
-                <mat-icon svgIcon="camera_add_picture"></mat-icon>
+                <mat-icon svgIcon="camera_add_picture" *ngIf="!imagesURL?.firstImage"></mat-icon>
+                <div *ngIf="imagesURL?.firstImage">
+                  <img class="" src={{imagesURL?.firstImage}} alt="">
+                </div>
               </label>
 
               <input
                 type="file"
-                id="more-photos-1" name="more-photos-1"
-                accept="image/png, image/jpeg" class="input-file input-photo-principal">
+                id="more-photos-1"
+                name="more-photos-1"
+                accept="image/png, image/jpeg"
+                class="input-file input-photo-principal"
+                (change)="selectedImage($event.target.files, imagesTypes.FIRST_IMAGE)">
             </div>
             <div class="more-photos flex-1 cursor-pointer">
               <label for="more-photos-2" class="cursor-pointer">
-                <mat-icon svgIcon="camera_add_picture"></mat-icon>
+                <mat-icon class="profile-img" svgIcon="camera_add_picture" *ngIf="!imagesURL?.secondImage"></mat-icon>
+                <div class="profile-img" *ngIf="imagesURL?.secondImage">
+                  <img class="" src={{imagesURL?.secondImage}} alt="">
+                </div>
               </label>
 
               <input
                 type="file"
-                id="more-photos-2" name="more-photos-2"
-                accept="image/png, image/jpeg" class="input-file input-photo-principal">
+                id="more-photos-2"
+                name="more-photos-2"
+                accept="image/png, image/jpeg"
+                class="input-file input-photo-principal"
+                (change)="selectedImage($event.target.files, imagesTypes.SECOND_IMAGE)">
             </div>
             <div class="more-photos flex-1 cursor-pointer" >
               <label for="more-photos-3" class="cursor-pointer">
-                <mat-icon svgIcon="camera_add_picture"></mat-icon>
+                <mat-icon class="profile-img" svgIcon="camera_add_picture" *ngIf="!imagesURL?.thirdImage"></mat-icon>
+                <div class="profile-img" *ngIf="imagesURL?.thirdImage">
+                  <img class="" src={{imagesURL?.thirdImage}} alt="">
+                </div>
               </label>
               <input
                 type="file"
-                id="more-photos-3" name="more-photos-3"
-                accept="image/png, image/jpeg" class="input-file input-photo-principal">
+                id="more-photos-3"
+                name="more-photos-3"
+                accept="image/png, image/jpeg"
+                class="input-file input-photo-principal"
+                (change)="selectedImage($event.target.files, imagesTypes.THIRD_IMAGE)">
             </div>
           </div>
         </section>

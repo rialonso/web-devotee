@@ -11,7 +11,8 @@ import { ImagesTypes } from './enum/images-type.enum';
 })
 export class RegisterDataComponent implements OnInit {
   dataTexts;
-
+  imagesURL;
+  imagesTypes = ImagesTypes
   constructor(
     protected store: Store,
     protected state: State<IAppState>,
@@ -20,7 +21,6 @@ export class RegisterDataComponent implements OnInit {
     this.dataTexts = this.translateService?.textTranslate;
 
   }
-
   ngOnInit() {
   }
   selectedImage(files: File, imageType: ImagesTypes) {
@@ -28,8 +28,32 @@ export class RegisterDataComponent implements OnInit {
       const reader = new FileReader();
       reader.readAsDataURL(files[0]);
       reader.onload = (evt) => {
+        switch (imageType) {
+          case ImagesTypes.PROFILE_URL:
+            this.addImagesURL(ImagesTypes.PROFILE_URL, evt.target.result)
+            break;
+          case ImagesTypes.FIRST_IMAGE:
+            this.addImagesURL(ImagesTypes.FIRST_IMAGE, evt.target.result)
 
-      }
+            break;
+          case ImagesTypes.SECOND_IMAGE:
+            this.addImagesURL(ImagesTypes.SECOND_IMAGE, evt.target.result)
+
+            break;
+          case ImagesTypes.THIRD_IMAGE:
+            this.addImagesURL(ImagesTypes.THIRD_IMAGE, evt.target.result)
+
+            break;
+          default:
+            break;
+        }
+      };
+    }
+  }
+  addImagesURL(key, value) {
+    this.imagesURL = {
+      ...this.imagesURL,
+      [key]: value
     }
   }
 }

@@ -49,6 +49,34 @@
         font-size: 120px;
         &:hover {
           border: 1px solid $blue-dark;
+          &::before{
+            border: 1px solid $blue-dark;
+          }
+        }
+        &::after, &::before{
+          display: block;
+          position: absolute;
+        }
+        &::after{
+        content:"add_a_photo";
+        font-size: 20px;
+        bottom: -10px;
+        right: -10px;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        z-index: 3;
+        }
+        &::before{
+          content:"";
+          bottom: -15px;
+          right: -15px;
+          width: 30px;
+          height: 30px;
+          border-radius: 100%;
+          background: $gray-medium-soft;
+          z-index: 1;
+          border: 1px solid $gray-soft;
         }
       }
       .content-picture {
@@ -62,38 +90,11 @@
         }
         .avatar{
           img{
-            width: auto;
+            display: block;
+            width: 100%;
+            height: 100%;
             border-radius: 8px;
-            max-height: 68px;
           }
-          .profile-img {
-            &::after, &::before{
-              display: block;
-              position: absolute;
-            }
-            &::after{
-            content:"add_a_photo";
-            font-size: 20px;
-            bottom: -10px;
-            right: -10px;
-            width: 20px;
-            height: 20px;
-            border-radius: 100%;
-            z-index: 3;
-          }
-          &::before{
-            content:"";
-            bottom: -15px;
-            right: -15px;
-            width: 30px;
-            height: 30px;
-            border-radius: 100%;
-            background: $gray-medium-soft;
-            z-index: 1;
-            border: 1px solid $gray-soft;
-
-          }
-        }
         }
       }
     }
@@ -105,10 +106,19 @@
         @include dp-flex-alignment();
         background-color: $gray-medium-soft;
         border: 1px solid $gray-soft;
-        max-width: 180px;
         border-radius: 8px;
+        height: 100px;
+        @include min-tablet {
+          max-width: 180px;
+        }
         &:hover {
           border: 1px solid $blue-dark;
+        }
+        img{
+          width: 100%;
+          height: 100%;
+          border-radius: 8px;
+          display: block;
         }
         mat-icon {
           width: 100%;
