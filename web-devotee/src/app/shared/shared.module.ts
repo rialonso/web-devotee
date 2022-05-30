@@ -13,6 +13,7 @@ import { HeaderCardsInitialPageComponent } from './components/header-cards-initi
 import { CommonModule } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
 
 const components = [
   FooterComponent,
@@ -26,6 +27,7 @@ const angularMaterialModules = [
   MatAutocompleteModule,
   MatSelectModule,
   MatCardModule,
+  MatButtonModule,
 ]
 @NgModule({
   declarations: [

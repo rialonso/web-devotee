@@ -4,7 +4,7 @@
   </mat-card>
   <mat-card>
     <main class="content-register-data">
-      <form >
+      <form [formGroup]="formGroup">
         <section class="container-profile-image">
           <mat-card-title>{{dataTexts.iamEspecialAndDevotee.titleProfilePicture}}</mat-card-title>
           <div class="content-picture">
@@ -88,6 +88,7 @@
                 [placeholder]="dataTexts.inputs.name.placeHolder"
                 type="name"
                 autocomplete="name"
+                formControlName="name"
                 >
             </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
@@ -96,18 +97,11 @@
                 matInput
                 [placeholder]="dataTexts.inputs.email.placeHolder"
                 type="email"
+                formControlName="email"
                 >
             </mat-form-field>
           </div>
           <div class="container-default-inputs-orientation content-data-person">
-            <mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>{{dataTexts.inputs.phone.label}}</mat-label>
-              <input
-                matInput
-                [placeholder]="dataTexts.inputs.phone.placeHolder"
-                type="tel"
-                >
-            </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>{{dataTexts.inputs.profession.label}}</mat-label>
               <input
@@ -115,13 +109,14 @@
                 [placeholder]="dataTexts.inputs.profession.placeHolder"
                 type="text"
                 autocomplete="work"
+                formControlName="occupation"
                 >
             </mat-form-field>
           </div>
           <div class="container-default-inputs-orientation content-data-person">
             <mat-form-field appearance="fill">
               <mat-label>{{ dataTexts.inputs.gender.label }}</mat-label>
-              <mat-select>
+              <mat-select formControlName="gender">
                 <mat-option value="volvo">Volvo</mat-option>
                 <mat-option value="saab">Saab</mat-option>
                 <mat-option value="mercedes">Mercedes</mat-option>
@@ -130,7 +125,7 @@
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label>{{ dataTexts.inputs.sexualOrientation.label }}</mat-label>
-              <mat-select>
+              <mat-select formControlName="sexual_orientation">
                 <mat-option value="volvo">Volvo</mat-option>
                 <mat-option value="saab">Saab</mat-option>
                 <mat-option value="mercedes">Mercedes</mat-option>
@@ -141,7 +136,11 @@
           <div class="container-default-inputs-orientation content-data-person">
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>{{ dataTexts.inputs.moreAboutYourself.label }}</mat-label>
-              <textarea matInput [placeholder]="dataTexts.inputs.moreAboutYourself.placeHolder"></textarea>
+              <textarea
+                matInput
+                [placeholder]="dataTexts.inputs.moreAboutYourself.placeHolder"
+                formControlName="about">
+              </textarea>
             </mat-form-field>
           </div>
         </section>
@@ -227,5 +226,8 @@
       </form>
     </main>
   </mat-card>
-
+  <section class="contianer-btns">
+    <button mat-stroked-button color="primary">Voltar</button>
+    <button mat-flat-button color="primary">Proximo</button>
+  </section>
 </div>

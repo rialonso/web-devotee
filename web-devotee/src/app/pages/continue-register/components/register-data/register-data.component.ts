@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { IAppState } from 'src/app/state-management/app.model';
 import { ImagesTypes } from './enum/images-type.enum';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register-data',
@@ -12,19 +13,68 @@ import { ImagesTypes } from './enum/images-type.enum';
 export class RegisterDataComponent implements OnInit {
   dataTexts;
   imagesURL;
-  imagesTypes = ImagesTypes
+  imagesTypes = ImagesTypes;
+
+  formGroup: FormGroup;
   constructor(
     protected store: Store,
     protected state: State<IAppState>,
     private translateService: TranslateService,
+    private formBuilder: FormBuilder,
   ) {
     this.dataTexts = this.translateService?.textTranslate;
 
   }
   ngOnInit() {
+    this.initForm();
+  }
+  private initForm() {
+    this.formGroup = this.formBuilder.group({
+      profile_picture: this.formBuilder.array([]),
+      name: [
+        '',
+        [
+          Validators.required,
+        ]
+      ],
+      email: [
+        '',
+        [
+          Validators.required,
+        ]
+      ],
+      occupation: [
+        '',
+        [
+          Validators.required,
+        ]
+      ],
+      gender: [
+        '',
+        [
+          Validators.required,
+        ]
+      ],
+      sexual_orientation: [
+        '',
+        [
+          Validators.required,
+        ]
+      ],
+      about: [
+        '',
+        [
+          Validators.required,
+        ]
+      ]
+    })
   }
   selectedImage(files: File, imageType: ImagesTypes) {
+    const controlPictures = this.formGroup.get('profile_picture');
     if (files && files[0]) {
+      (controlPictures as FormArray).push(this.formBuilder.group(files[0]));
+      console.log(controlPictures.value, files[0]);
+
       const reader = new FileReader();
       reader.readAsDataURL(files[0]);
       reader.onload = (evt) => {
@@ -34,15 +84,12 @@ export class RegisterDataComponent implements OnInit {
             break;
           case ImagesTypes.FIRST_IMAGE:
             this.addImagesURL(ImagesTypes.FIRST_IMAGE, evt.target.result)
-
             break;
           case ImagesTypes.SECOND_IMAGE:
             this.addImagesURL(ImagesTypes.SECOND_IMAGE, evt.target.result)
-
             break;
           case ImagesTypes.THIRD_IMAGE:
             this.addImagesURL(ImagesTypes.THIRD_IMAGE, evt.target.result)
-
             break;
           default:
             break;
