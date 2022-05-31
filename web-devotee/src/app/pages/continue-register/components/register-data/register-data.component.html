@@ -90,6 +90,12 @@
                 autocomplete="name"
                 formControlName="name"
                 >
+                <mat-error *ngIf="controlsForm.name.hasError(errorsEnum.REQUIRED)">
+                  {{ dataTexts.inputs.genericErrors.inputRequired }}
+                </mat-error>
+                <mat-error *ngIf="controlsForm.name.hasError(errorsEnum.SPECIAL_CHARACTERES)">
+                  {{ dataTexts.inputs.name.errors.specialCharacters }}
+                </mat-error>
             </mat-form-field>
             <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>{{dataTexts.inputs.email.label}}</mat-label>
@@ -227,7 +233,7 @@
     </main>
   </mat-card>
   <section class="contianer-btns">
-    <button mat-stroked-button color="primary">Voltar</button>
+    <button class="button-stroke-primary" mat-stroked-button color="primary">Voltar</button>
     <button mat-flat-button color="primary">Proximo</button>
   </section>
 </div>

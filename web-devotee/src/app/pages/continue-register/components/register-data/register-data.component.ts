@@ -4,6 +4,9 @@ import { TranslateService } from 'src/app/core/services/translate/translate.serv
 import { IAppState } from 'src/app/state-management/app.model';
 import { ImagesTypes } from './enum/images-type.enum';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { nameValidatorSpecialCharacteres } from 'src/app/shared/validators/name/name-special-characteres.validator';
+import { nameValidatorFormatInvalid } from 'src/app/shared/validators/name/name-format-invalid.validator';
+import { ErrorsEnum } from 'src/app/shared/enum/errors/errors.enum';
 
 @Component({
   selector: 'app-register-data',
@@ -14,7 +17,7 @@ export class RegisterDataComponent implements OnInit {
   dataTexts;
   imagesURL;
   imagesTypes = ImagesTypes;
-
+  errorsEnum = ErrorsEnum;
   formGroup: FormGroup;
   constructor(
     protected store: Store,
@@ -35,6 +38,7 @@ export class RegisterDataComponent implements OnInit {
         '',
         [
           Validators.required,
+          nameValidatorSpecialCharacteres,
         ]
       ],
       email: [
@@ -103,4 +107,6 @@ export class RegisterDataComponent implements OnInit {
       [key]: value
     }
   }
+  get controlsForm() { return this.formGroup.controls; }
+
 }

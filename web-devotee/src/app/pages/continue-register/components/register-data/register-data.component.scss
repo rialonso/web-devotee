@@ -140,8 +140,25 @@
     }
 
   }
+  .contianer-btns {
+    gap: 20px;
+    margin: 20px 0;
+    width: 100%;
+    @include dp-flex-alignment(column);
+    @include min-tablet {
+      @include dp-flex-alignment(row, flex-start, flex-start);
+    }
+    button {
+      max-width: 150px;
+      width: 100%;
+      font-size: 18px;
+      line-height: 40px;
+    }
+
+  }
   .input-file{
     display: none;
   }
+
 }
 
