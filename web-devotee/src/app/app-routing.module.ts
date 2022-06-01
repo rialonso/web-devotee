@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('src/app/pages/etical-rules/etical-rules.module').then(m => m.EticalRulesModule),
   },
   {
-    path: 'registro',
+    path: 'register',
     loadChildren: () => import('src/app/pages/continue-register/continue-register.module').then(m => m.ContinueRegisterModule),
   },
 

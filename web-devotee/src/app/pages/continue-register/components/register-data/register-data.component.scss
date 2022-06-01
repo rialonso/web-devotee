@@ -18,8 +18,12 @@
     }
     mat-card-title {
       color: $blue-dark;
-      margin: 20px 0;
+      margin-top: 20px;
     }
+  }
+  .container-register-default {
+    @include dp-flex-alignment(column, initial, initial);
+    gap: 20px;
   }
   mat-card.container-title-register {
     background-color: $blue-dark;
@@ -149,10 +153,13 @@
       @include dp-flex-alignment(row, flex-start, flex-start);
     }
     button {
-      max-width: 150px;
       width: 100%;
       font-size: 18px;
       line-height: 40px;
+      border-radius: 10px;
+      @include min-tablet {
+        max-width: 150px;
+      }
     }
 
   }

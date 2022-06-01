@@ -13,7 +13,7 @@
   vertical-align: baseline;
 }
 .container-default-inputs-orientation {
-  gap: 30px;
+  gap: 20px;
   @include dp-flex-alignment(column);
   @include min-tablet {
     @include dp-flex-alignment();
