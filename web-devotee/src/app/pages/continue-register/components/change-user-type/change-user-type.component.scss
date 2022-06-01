@@ -1,0 +1,25 @@
+
+@import '_custom';
+:host {
+  width: 100vw;
+}
+.container-checks {
+  display: none;
+}
+#container-change-user-type {
+  .content-change-user-type {
+    @include dp-flex-alignment(column, stretch);
+    gap: 20px;
+    @include min-tablet {
+      @include dp-flex-alignment(row, stretch);
+    }
+    .container-type-data-default {
+      @include dp-flex-alignment(row, flex-start, flex-start);
+      gap: 20px;
+      cursor: pointer;
+      mat-icon {
+        font-size: 30px;
+      }
+    }
+  }
+}

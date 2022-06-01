@@ -1,5 +1,51 @@
-<div class="1container-change-user-type">
+<div id="container-change-user-type" class="container-default-cards-register">
   <mat-card class="container-title-register">
     <mat-card-title>{{dataTexts.changeUserType.headerYourProfile}}</mat-card-title>
   </mat-card>
+  <div class="content-change-user-type">
+    <mat-card class="container-type-data-default flex-1">
+      <section class="container-icon-type">
+        <mat-icon class="color-magenta-soft">accessible</mat-icon>
+      </section>
+      <section class="container-title-text">
+        <h2 class="font-booster-next-bold color-blue-dark">{{dataTexts.changeUserType.iam.devotee.title}}</h2>
+        <p class="color-blue-dark">{{dataTexts.changeUserType.iam.devotee.text}}</p>
+      </section>
+    </mat-card>
+    <mat-card class="container-type-data-default flex-1">
+      <section class="container-icon-type">
+        <mat-icon class="color-magenta-soft">accessible</mat-icon>
+      </section>
+      <section class="container-title-text">
+        <h2 class="font-booster-next-bold color-blue-dark">{{dataTexts.changeUserType.iam.special.title}}</h2>
+        <p class="color-blue-dark">{{dataTexts.changeUserType.iam.special.text}}</p>
+      </section>
+    </mat-card>
+    <mat-card class="container-type-data-default flex-1">
+      <section class="container-icon-type">
+        <mat-icon class="color-magenta-soft">accessible</mat-icon>
+      </section>
+      <section class="container-title-text">
+        <h2 class="font-booster-next-bold color-blue-dark">{{dataTexts.changeUserType.iam.curious.title}}</h2>
+        <p class="color-blue-dark">{{dataTexts.changeUserType.iam.curious.text}}</p>
+      </section>
+    </mat-card>
+  </div>
+  <section class="contianer-btns">
+    <button class="button-stroke-primary" mat-stroked-button color="primary">Voltar</button>
+  </section>
 </div>
+<form class="container-checks">
+  <div class="checks">
+    <div>
+      <input type="radio" id="devotee" name="who-are-you" value="devotee">
+    </div>
+
+    <div>
+      <input type="radio" id="especial" name="who-are-you" value="special">
+    </div>
+    <div>
+      <input type="radio" id="curious" name="who-are-you" value="curious">
+    </div>
+  </div>
+</form>

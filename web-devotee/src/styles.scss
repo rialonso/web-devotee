@@ -99,28 +99,54 @@ p, a {
 .input-search-list {
   padding: 0 10px;
 }
-mat-card {
-  &.container-title-register {
-    background-color: $blue-dark;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    @include min-tablet {
-      padding: 20px 40px;
+.container-default-cards-register {
+  max-width: 800px;
+  margin: 20px;
+  @include min-tablet {
+    width: 100%;
+    margin: 40px auto;
+  }
+  mat-card {
+    &.container-title-register {
+      background-color: $blue-dark;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      @include min-tablet {
+        padding: 20px 40px;
+      }
+      mat-card-title {
+        color: $white;
+        font-size: 24px;
+        margin: 0;
+      }
     }
-    mat-card-title {
-      color: $white;
-      font-size: 24px;
-      margin: 0;
+    &.container-type-data-default {
+      border-radius: 10px;
+      @include min-tablet {
+        padding: 20px;
+      }
+      mat-card-title {
+        color: $blue-dark;
+        margin-top: 30px;
+      }
     }
   }
-  &.container-data-default {
+}
+.contianer-btns {
+  gap: 20px;
+  margin: 20px 0;
+  width: 100%;
+  @include dp-flex-alignment(column);
+  @include min-tablet {
+    @include dp-flex-alignment(row, flex-start, flex-start);
+  }
+  button {
+    width: 100%;
+    font-size: 18px;
+    line-height: 40px;
     border-radius: 10px;
     @include min-tablet {
-      padding: 40px;
-    }
-    mat-card-title {
-      color: $blue-dark;
-      margin-top: 30px;
+      max-width: 150px;
     }
   }
 }
