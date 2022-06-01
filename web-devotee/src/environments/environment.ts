@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api:'http://54.207.143.191/',
+  api:'https://dev-apiv2.devotee.com.br/',
   urls: {
     login: 'api/login',
     registerUser: 'api/users',

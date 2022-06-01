@@ -79,8 +79,6 @@ export class RegisterDataComponent implements OnInit {
     const controlPictures = this.formGroup.get('profile_picture');
     if (files && files[0]) {
       (controlPictures as FormArray).push(this.formBuilder.group(files[0]));
-      console.log(controlPictures.value, files[0]);
-
       const reader = new FileReader();
       reader.readAsDataURL(files[0]);
       reader.onload = (evt) => {
