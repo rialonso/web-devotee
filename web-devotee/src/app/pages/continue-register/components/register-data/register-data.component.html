@@ -2,11 +2,11 @@
   <mat-card class="container-title-register">
     <mat-card-title>{{dataTexts.iamEspecialAndDevotee.headerYourProfile}}</mat-card-title>
   </mat-card>
-  <mat-card>
+  <mat-card class="container-data-default">
     <main class="content-register-data">
       <form [formGroup]="formGroup">
-        <section class="container-profile-image">
-          <mat-card-title>{{dataTexts.iamEspecialAndDevotee.titleProfilePicture}}</mat-card-title>
+        <section class="container-profile-image container-register-default">
+          <mat-card-title class="m-0">{{dataTexts.iamEspecialAndDevotee.titleProfilePicture}}</mat-card-title>
           <div class="content-picture">
             <div class="photo-principal">
               <label for="avatar" class="avatar cursor-pointer">
@@ -26,7 +26,7 @@
             </div>
           </div>
         </section>
-        <section class="container-others-pictures">
+        <section class="container-others-pictures container-register-default">
           <mat-card-title>{{dataTexts.iamEspecialAndDevotee.titleMorePictures}}</mat-card-title>
           <div class="more-pictures">
             <div class="more-photos flex-1 cursor-pointer">

@@ -208,7 +208,24 @@
       "credentials": "Credenciais incorretas",
       "existingEmail": "Email já está em uso."
     },
-    "iamEspecialAndDevotee":{
+    "changeUserType": {
+      "headerYourProfile":"Quem é você?",
+      "iam": {
+        "devotee": {
+          "title": "Devotee",
+          "text": "Não tenho deficiência. Com interesse em pessoas especiais."
+        },
+        "special": {
+          "title": "Especial",
+          "text": "Tenho deficiência. Com interesse em pessoas especiais ou devotees."
+        },
+        "curious": {
+          "title": "Curioso",
+          "text": "Não tenho interesse em relações, apenas navegando em perfis de outras pessoas"
+        }
+      }
+    },
+    "iamEspecialAndDevotee": {
       "headerYourProfile":"Seu Perfil",
       "titleProfilePicture":"Foto de perfil",
       "titleMorePictures":"Adicione mais fotos suas",
@@ -216,6 +233,7 @@
       "titleAboutYourDisability":"Sobre sua deficiência",
       "btnNext":"Proximo"
     }
+
   },
   "us": {
     "firstPage": {
@@ -434,6 +452,23 @@
       "titleAboutYourself":"About yourself",
       "titleAboutYourDisability":"About or disability",
       "btnNext":"Proximo"
+    },
+    "changeUserType":{
+      "headerYourProfile":"Who are you",
+      "iam": {
+        "devotee": {
+          "title": "Devotee",
+          "text": "Someone without any disability looking for a relationship"
+        },
+        "special": {
+          "title": "Especial",
+          "text": "Someone with a disability looking for a relationship"
+        },
+        "curious": {
+          "title": "Curioso",
+          "text": "Someone that is not looking for a relationship, just browsing other people's profiles"
+        }
+      }
     }
   }
 }

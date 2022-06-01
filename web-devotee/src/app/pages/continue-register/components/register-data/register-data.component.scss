@@ -11,33 +11,11 @@
     width: 100%;
     margin: 40px auto;
   }
-  mat-card {
-    border-radius: 10px;
-    @include min-tablet {
-      padding: 40px;
-    }
-    mat-card-title {
-      color: $blue-dark;
-      margin-top: 20px;
-    }
-  }
   .container-register-default {
     @include dp-flex-alignment(column, initial, initial);
     gap: 20px;
   }
-  mat-card.container-title-register {
-    background-color: $blue-dark;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    @include min-tablet {
-      padding: 20px 40px;
-    }
-    mat-card-title {
-      color: $white;
-      font-size: 24px;
-      margin: 0;
-    }
-  }
+
   .content-register-data {
     .container-profile-image {
       .profile-img{
