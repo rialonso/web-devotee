@@ -75,7 +75,9 @@
         "label": "Nome",
         "placeHolder": "Digite seu nome",
         "errors" : {
-          "specialCharacters": "Digite seu nome sem caracteres especiais"
+          "specialCharacters": "Digite seu nome sem caracteres especiais",
+          "invalidFormatName": "Digite nome e sobrenome"
+
         }
       },
       "email": {
@@ -291,7 +293,8 @@
         "label": "Name",
         "placeHolder": "Type your name",
         "errors" : {
-          "specialCharacters": "Enter your name without special characters"
+          "specialCharacters": "Enter your name without special characters",
+          "invalidFormatName": "Enter your name and surname"
         }
       },
       "email": {

@@ -7,6 +7,8 @@ export const INIT_DATA_ERRORS: MErrors = {
 
 export enum ErrorsEnum {
   REQUIRED = 'required',
+  EMAIL = 'email',
+  INVALID_EMAIL = 'invalidEmail',
   SPECIAL_CHARACTERES = 'containSpecialCharacters',
   FORMAT_INVALID = 'formatInvalid'
 }

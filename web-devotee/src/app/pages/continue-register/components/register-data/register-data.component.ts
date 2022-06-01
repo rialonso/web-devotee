@@ -39,12 +39,14 @@ export class RegisterDataComponent implements OnInit {
         [
           Validators.required,
           nameValidatorSpecialCharacteres,
+          nameValidatorFormatInvalid,
         ]
       ],
       email: [
         '',
         [
           Validators.required,
+          Validators.email
         ]
       ],
       occupation: [
