@@ -14,11 +14,20 @@
       @include dp-flex-alignment(row, stretch);
     }
     .container-type-data-default {
-      @include dp-flex-alignment(row, flex-start, flex-start);
+      @include dp-flex-alignment(row, initial, flex-start);
       gap: 20px;
       cursor: pointer;
+      .card-type-data-default {
+        @include dp-flex-alignment(row, flex-start, flex-start);
+        gap: 20px;
+        cursor: pointer;
+      }
       mat-icon {
         font-size: 30px;
+      }
+      .container-title-check {
+        @include dp-flex-alignment(row, center, space-between);
+        gap: 10px;
       }
     }
   }
