@@ -14,6 +14,7 @@ import { CommonModule } from '@angular/common';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
 
 const components = [
   FooterComponent,
@@ -28,6 +29,7 @@ const angularMaterialModules = [
   MatSelectModule,
   MatCardModule,
   MatButtonModule,
+  MatDialogModule,
 ]
 @NgModule({
   declarations: [

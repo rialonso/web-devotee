@@ -37,8 +37,8 @@ export class SignInComponent implements OnInit {
     private signInService: SignInService,
     private formBuilder: FormBuilder,
     private stateManagementFuncServices: StateManagementFuncService,
-    private dialogService: DialogsService,
-    private dialog: MatDialog,
+    private dialogsService: DialogsService,
+
   ) {
     this.store.select('controlsApp')
       .pipe(takeUntil(this.destroy$))
@@ -61,13 +61,7 @@ export class SignInComponent implements OnInit {
     this.routeService.navigateToURL(route);
   }
   openQrSignIn() {
-    this.dialog.open(
-      LoginQrCodeComponent,
-      {
-        width: 'calc(100% - 50px)',
-        maxWidth: '900px'
-      }
-    )
+    this.dialogsService.openQrCodeSignIn();
   }
   async signIn() {
     if (this.formGroup.valid) {

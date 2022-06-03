@@ -10,6 +10,7 @@ import { ErrorsEnum } from 'src/app/shared/enum/errors/errors.enum';
 import { EnumUserType } from 'src/app/shared/enum/user-types/user-type.enum';
 import { RouteService } from 'src/app/shared/functions/routes/route.service';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
+import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
 
 @Component({
   selector: 'app-register-data',
@@ -34,6 +35,7 @@ export class RegisterDataComponent implements OnInit {
     private translateService: TranslateService,
     private formBuilder: FormBuilder,
     private routeService: RouteService,
+    private dialogsService: DialogsService,
   ) {
     this.dataTexts = this.translateService?.textTranslate;
 
@@ -41,7 +43,7 @@ export class RegisterDataComponent implements OnInit {
   ngOnInit() {
     this.initForm();
     console.log(this.state.getValue()?.registerData);
-
+    this.openModalActivateLocation();
     if (this.state.getValue()?.registerData?.account_type === EnumUserType.SPECIAL) {
         this.specialAccount = true;
       this.addControlsTypeSpecial();
@@ -139,5 +141,8 @@ export class RegisterDataComponent implements OnInit {
   }
   navigateTo(route: EnumRoutesApplication) {
     this.routeService.navigateToURL(route);
+  }
+  openModalActivateLocation() {
+    this.dialogsService.openActivateLocation();
   }
 }
