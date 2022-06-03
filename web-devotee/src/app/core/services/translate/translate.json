@@ -232,8 +232,39 @@
       "titleAboutYourself":"Sobre você",
       "titleAboutYourDisability":"Sobre sua deficiência",
       "btnNext":"Proximo"
-    }
-
+    },
+    "genders": [
+      {
+        "label": "Masculino",
+        "value": "male"
+      },
+      {
+        "label": "Feminino",
+        "value": "female"
+      },
+      {
+        "label": "Trans",
+        "value": "trans"
+      },
+      {
+        "label": "Outro",
+        "value": "other"
+      }
+    ],
+    "sexualOrientations": [
+      {
+        "label": "Heterossexual",
+        "value": "heterosexual"
+      },
+      {
+        "label": "Homossexual",
+        "value": "homosexual"
+      },
+      {
+        "label": "Bissexual",
+        "value": "bisexual"
+      }
+    ]
   },
   "us": {
     "firstPage": {
@@ -469,6 +500,38 @@
           "text": "Someone that is not looking for a relationship, just browsing other people's profiles"
         }
       }
-    }
+    },
+    "genders": [
+      {
+        "label": "Male",
+        "value": "male"
+      },
+      {
+        "label": "Female",
+        "value": "female"
+      },
+      {
+        "label": "Trans",
+        "value": "trans"
+      },
+      {
+        "label": "Other",
+        "value": "other"
+      }
+    ],
+    "sexualOrientations": [
+      {
+        "label": "Heterosexual",
+        "value": "heterosexual"
+      },
+      {
+        "label": "Homosexual",
+        "value": "homosexual"
+      },
+      {
+        "label": "Bisexual",
+        "value": "bisexual"
+      }
+    ]
   }
 }

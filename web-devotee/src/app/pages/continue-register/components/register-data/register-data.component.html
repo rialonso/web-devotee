@@ -139,20 +139,32 @@
             <mat-form-field appearance="fill">
               <mat-label>{{ dataTexts.inputs.gender.label }}</mat-label>
               <mat-select formControlName="gender">
-                <mat-option value="volvo">Volvo</mat-option>
-                <mat-option value="saab">Saab</mat-option>
-                <mat-option value="mercedes">Mercedes</mat-option>
-                <mat-option value="audi">Audi</mat-option>
+                <mat-option
+                  *ngFor="
+                    let gender
+                    of dataTexts.genders"
+                  [value]="gender.value">
+                  {{gender.label}}
+                </mat-option>
               </mat-select>
+              <mat-error *ngIf="controlsForm.gender.hasError(errorsEnum.REQUIRED)">
+                {{ dataTexts.inputs.genericErrors.inputRequired }}
+              </mat-error>
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label>{{ dataTexts.inputs.sexualOrientation.label }}</mat-label>
               <mat-select formControlName="sexual_orientation">
-                <mat-option value="volvo">Volvo</mat-option>
-                <mat-option value="saab">Saab</mat-option>
-                <mat-option value="mercedes">Mercedes</mat-option>
-                <mat-option value="audi">Audi</mat-option>
+                <mat-option
+                  *ngFor="
+                    let sexualOrientation
+                    of dataTexts.sexualOrientations"
+                  [value]="sexualOrientation.value">
+                  {{sexualOrientation.label}}
+                </mat-option>
               </mat-select>
+              <mat-error *ngIf="controlsForm.sexual_orientation.hasError(errorsEnum.REQUIRED)">
+                {{ dataTexts.inputs.genericErrors.inputRequired }}
+              </mat-error>
             </mat-form-field>
           </div>
           <div class="container-default-inputs-orientation content-data-person">
@@ -163,10 +175,13 @@
                 [placeholder]="dataTexts.inputs.moreAboutYourself.placeHolder"
                 formControlName="about">
               </textarea>
+              <mat-error *ngIf="controlsForm.about.hasError(errorsEnum.REQUIRED)">
+                {{ dataTexts.inputs.genericErrors.inputRequired }}
+              </mat-error>
             </mat-form-field>
           </div>
         </section>
-        <section class="container-data-disability container-register-default">
+        <section *ngIf="specialAccount" class="container-data-disability container-register-default">
           <mat-card-title>{{dataTexts.iamEspecialAndDevotee.titleAboutYourDisability}}</mat-card-title>
           <div class="container-default-inputs-orientation content-data-person">
             <mat-form-field appearance="fill">
@@ -249,7 +264,17 @@
     </main>
   </mat-card>
   <section class="contianer-btns">
-    <button class="button-stroke-primary" mat-stroked-button color="primary">Voltar</button>
-    <button mat-flat-button color="primary">Proximo</button>
+    <button
+      class="button-stroke-primary"
+      mat-stroked-button
+      color="primary">
+      {{ dataTexts.buttons.btnBack }}
+    </button>
+    <button
+      mat-flat-button
+      color="primary"
+      [disabled]="formGroup.invalid">
+      {{ dataTexts.buttons.btnContinue }}
+    </button>
   </section>
 </div>

@@ -7,6 +7,7 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { nameValidatorSpecialCharacteres } from 'src/app/shared/validators/name/name-special-characteres.validator';
 import { nameValidatorFormatInvalid } from 'src/app/shared/validators/name/name-format-invalid.validator';
 import { ErrorsEnum } from 'src/app/shared/enum/errors/errors.enum';
+import { EnumUserType } from 'src/app/shared/enum/user-types/user-type.enum';
 
 @Component({
   selector: 'app-register-data',
@@ -16,9 +17,12 @@ import { ErrorsEnum } from 'src/app/shared/enum/errors/errors.enum';
 export class RegisterDataComponent implements OnInit {
   dataTexts;
   imagesURL;
+  genderList;
+  sexualOrientationList;
   imagesTypes = ImagesTypes;
   errorsEnum = ErrorsEnum;
   formGroup: FormGroup;
+  specialAccount = false;
   constructor(
     protected store: Store,
     protected state: State<IAppState>,
@@ -30,6 +34,12 @@ export class RegisterDataComponent implements OnInit {
   }
   ngOnInit() {
     this.initForm();
+    if (
+      this.state.getValue()?.registerData?.account_type
+      === EnumUserType.SPECIAL) {
+        this.specialAccount = true;
+      this.addControlsTypeSpecial();
+    }
   }
   private initForm() {
     this.formGroup = this.formBuilder.group({
@@ -50,10 +60,7 @@ export class RegisterDataComponent implements OnInit {
         ]
       ],
       occupation: [
-        '',
-        [
-          Validators.required,
-        ]
+        ''
       ],
       gender: [
         '',
@@ -73,8 +80,10 @@ export class RegisterDataComponent implements OnInit {
           Validators.required,
         ]
       ]
+
     })
   }
+
   selectedImage(files: File, imageType: ImagesTypes) {
     const controlPictures = this.formGroup.get('profile_picture');
     if (files && files[0]) {
@@ -108,5 +117,18 @@ export class RegisterDataComponent implements OnInit {
     }
   }
   get controlsForm() { return this.formGroup.controls; }
-
+  addControlsTypeSpecial(): void {
+    const controlsSpecial = [
+      'my_cids',
+      'my_hospitals',
+      'my_drugs',
+      'medical_procedures',
+    ]
+    controlsSpecial.forEach((value: string) => {
+      this.formGroup
+        .addControl(
+          value,
+          this.formBuilder.control('', Validators.required));
+    });
+  }
 }
