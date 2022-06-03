@@ -7,7 +7,7 @@ import { RegisterEnum } from './register.enum';
 //     props<{ email: IRegisterUser }>()
 //   );
 
-export class AddData implements CustomAction {
+export class AddDataRegister implements CustomAction {
   type = RegisterEnum.addData;
   constructor(public payload?: any){}
   creatAction(): ActionCreator {

@@ -15,6 +15,7 @@
     }
     mat-card {
       border-radius: 10px;
+      width: 100%;
     }
     label {
       &.container-type-data-default {
@@ -35,9 +36,12 @@
       mat-icon {
         font-size: 30px;
       }
-      .container-title-check {
-        @include dp-flex-alignment(row, center, space-between);
-        gap: 10px;
+      .container-title-text {
+        width: 100%;
+        .container-title-check {
+          @include dp-flex-alignment(row, center, space-between);
+          gap: 10px;
+        }
       }
     }
   }

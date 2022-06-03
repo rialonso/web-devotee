@@ -8,6 +8,8 @@ import { nameValidatorSpecialCharacteres } from 'src/app/shared/validators/name/
 import { nameValidatorFormatInvalid } from 'src/app/shared/validators/name/name-format-invalid.validator';
 import { ErrorsEnum } from 'src/app/shared/enum/errors/errors.enum';
 import { EnumUserType } from 'src/app/shared/enum/user-types/user-type.enum';
+import { RouteService } from 'src/app/shared/functions/routes/route.service';
+import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 
 @Component({
   selector: 'app-register-data',
@@ -19,8 +21,11 @@ export class RegisterDataComponent implements OnInit {
   imagesURL;
   genderList;
   sexualOrientationList;
+
   imagesTypes = ImagesTypes;
   errorsEnum = ErrorsEnum;
+  enumRouterApp = EnumRoutesApplication;
+
   formGroup: FormGroup;
   specialAccount = false;
   constructor(
@@ -28,15 +33,16 @@ export class RegisterDataComponent implements OnInit {
     protected state: State<IAppState>,
     private translateService: TranslateService,
     private formBuilder: FormBuilder,
+    private routeService: RouteService,
   ) {
     this.dataTexts = this.translateService?.textTranslate;
 
   }
   ngOnInit() {
     this.initForm();
-    if (
-      this.state.getValue()?.registerData?.account_type
-      === EnumUserType.SPECIAL) {
+    console.log(this.state.getValue()?.registerData);
+
+    if (this.state.getValue()?.registerData?.account_type === EnumUserType.SPECIAL) {
         this.specialAccount = true;
       this.addControlsTypeSpecial();
     }
@@ -130,5 +136,8 @@ export class RegisterDataComponent implements OnInit {
           value,
           this.formBuilder.control('', Validators.required));
     });
+  }
+  navigateTo(route: EnumRoutesApplication) {
+    this.routeService.navigateToURL(route);
   }
 }
