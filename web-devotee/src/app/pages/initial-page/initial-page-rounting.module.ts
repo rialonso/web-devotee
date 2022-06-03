@@ -15,7 +15,7 @@ const routes: Routes = [
       loadChildren: () => import('src/app/pages/initial-page/components/remember-password/remember-password.module').then(m => m.RememberPasswordModule)
     },
     {
-      path: 'pre-registro',
+      path: 'pre-register',
       loadChildren: () => import('src/app/pages/initial-page/components/register/register.module').then(m => m.RegisterModule)
     },
   ]},

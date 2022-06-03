@@ -2,9 +2,14 @@
   <mat-card class="container-title-register">
     <mat-card-title>{{dataTexts.changeUserType.headerYourProfile}}</mat-card-title>
   </mat-card>
-  <form class="content-change-user-type">
-    <label class="container-type-data-default flex-1" for="devotee">
-      <mat-card class="card-type-data-default">
+  <form [formGroup]="formGroup" class="content-change-user-type">
+    <label
+      class="container-type-data-default flex-1"
+      for="devotee"
+      >
+      <mat-card
+        class="card-type-data-default"
+        [class.border-checked]="userTypeChanged === enumUserType.DEVOTEE">
         <section class="container-icon-type">
           <mat-icon class="color-magenta-soft">accessible</mat-icon>
         </section>
@@ -12,15 +17,27 @@
           <div class="container-title-check">
             <h2 class="font-booster-next-bold color-blue-dark">{{dataTexts.changeUserType.iam.devotee.title}}</h2>
             <label >
-              <input type="radio" id="devotee" name="who-are-you" value="devotee" class="option-input radio">
+              <input
+                type="radio"
+                id="devotee"
+                name="account_type"
+                [value]="enumUserType.DEVOTEE"
+                class="option-input radio"
+                formControlName="account_type"
+                (change)="changeUserType(enumUserType.DEVOTEE)">
             </label>
           </div>
           <p class="color-blue-dark">{{dataTexts.changeUserType.iam.devotee.text}}</p>
         </section>
       </mat-card>
     </label>
-    <label class="container-type-data-default flex-1" for="especial">
-      <mat-card class="card-type-data-default">
+    <label
+      class="container-type-data-default flex-1"
+      for="especial"
+      >
+      <mat-card
+        class="card-type-data-default"
+        [class.border-checked]="userTypeChanged === enumUserType.SPECIAL">
         <section class="container-icon-type">
           <mat-icon class="color-magenta-soft">accessible</mat-icon>
         </section>
@@ -28,15 +45,26 @@
           <div class="container-title-check">
             <h2 class="font-booster-next-bold color-blue-dark">{{dataTexts.changeUserType.iam.special.title}}</h2>
             <label >
-              <input type="radio" id="especial" name="who-are-you" value="especial" class="option-input radio">
+              <input
+                #radioDevotee
+                type="radio"
+                id="especial"
+                name="account_type"
+                [value]="enumUserType.SPECIAL"
+                class="option-input radio"
+                formControlName="account_type"
+                (change)="changeUserType(enumUserType.SPECIAL)">
             </label>
           </div>
           <p class="color-blue-dark">{{dataTexts.changeUserType.iam.special.text}}</p>
         </section>
       </mat-card>
     </label>
-    <label class="container-type-data-default flex-1" for="curious">
-      <mat-card class="card-type-data-default" >
+    <label
+      class="container-type-data-default flex-1"
+      for="curious"
+      >
+      <mat-card class="card-type-data-default" [class.border-checked]="userTypeChanged === enumUserType.CURIOUS">
         <section class="container-icon-type">
           <mat-icon class="color-magenta-soft">accessible</mat-icon>
         </section>
@@ -44,7 +72,14 @@
           <div class="container-title-check">
             <h2 class="font-booster-next-bold color-blue-dark">{{dataTexts.changeUserType.iam.curious.title}}</h2>
             <label >
-              <input type="radio" id="curious" name="who-are-you" value="curious" class="option-input radio">
+              <input
+                type="radio"
+                id="curious"
+                name="account_type"
+                [value]="enumUserType.CURIOUS"
+                class="option-input radio"
+                formControlName="account_type"
+                (change)="changeUserType(enumUserType.CURIOUS)">
             </label>
           </div>
           <p class="color-blue-dark">{{dataTexts.changeUserType.iam.curious.text}}</p>
@@ -53,20 +88,20 @@
     </label>
   </form>
   <section class="contianer-btns">
-    <button class="button-stroke-primary" mat-stroked-button color="primary">Voltar</button>
+    <button
+      class="button-stroke-primary"
+      mat-stroked-button
+      color="primary">
+      {{ dataTexts.buttons.btnBack }}
+    </button>
+    <button
+      mat-flat-button
+      color="primary"
+      [disabled]="formGroup.invalid"
+      (click)="navigateTo(enumRouteApp.REGISTER_USER_DATA)">
+
+      {{ dataTexts.buttons.btnContinue }}
+    </button>
+
   </section>
 </div>
-<form class="container-checks">
-  <div class="checks">
-    <div>
-      <input type="radio" id="devotee" name="who-are-you" value="devotee">
-    </div>
-
-    <div>
-      <input type="radio" id="especial" name="who-are-you" value="special">
-    </div>
-    <div>
-      <input type="radio" id="curious" name="who-are-you" value="curious">
-    </div>
-  </div>
-</form>

@@ -13,7 +13,17 @@
     @include min-tablet {
       @include dp-flex-alignment(row, stretch);
     }
+    mat-card {
+      border-radius: 10px;
+    }
+    label {
+      &.container-type-data-default {
+        min-height: 170px;
+
+      }
+    }
     .container-type-data-default {
+
       @include dp-flex-alignment(row, initial, flex-start);
       gap: 20px;
       cursor: pointer;
@@ -31,4 +41,8 @@
       }
     }
   }
+}
+.border-checked {
+  border: 1px solid $magenta-soft;
+  border-radius: 10px;
 }
