@@ -264,7 +264,15 @@
         "label": "Bissexual",
         "value": "bisexual"
       }
-    ]
+    ],
+    "activateLocation": {
+      "title": "Ative sua localização",
+      "textInfo": "Voçê pecisa ativar sua localização para usar o Devotee",
+      "buttons": {
+        "addManually": "Adicionar manualmente",
+        "activateLocation": "Ative a localização"
+      }
+    }
   },
   "us": {
     "firstPage": {
@@ -532,6 +540,14 @@
         "label": "Bisexual",
         "value": "bisexual"
       }
-    ]
+    ],
+    "activateLocation": {
+      "title": "Activate your location",
+      "textInfo": "You need to enable your location in order to use Devotee",
+      "buttons": {
+        "addManually": "Add manually",
+        "activateLocation": "Activate location"
+      }
+    }
   }
 }

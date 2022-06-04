@@ -1,11 +1,30 @@
 <div id="container-dialog-activate-location">
-  <section class="container-icon">
+  <div class="contianer-close">
+    <mat-icon class="mat-18">
+      close
+    </mat-icon>
+  </div>
+  <div class="container-icon-infos">
+    <section class="container-icon">
+      <mat-icon class="mat-18">
+        location_on
+      </mat-icon>
+    </section>
+    <section class="container-text-activate-location">
+      <h2 class="font-booster-next-bold">{{ dataTexts.activateLocation.title }}</h2>
+      <p>{{ dataTexts.activateLocation.textInfo }}</p>
+    </section>
+  </div>
 
-  </section>
-  <section class="container-text-activate-location">
-    ASKAKAKS
-  </section>
   <footer class="container-footer-activate-location">
-
+      <button
+      class="button-stroke-primary"
+      mat-stroked-button
+      color="primary">
+        {{dataTexts.activateLocation.buttons.addManually}}
+      </button>
+      <button class="button primary ">
+        {{dataTexts.activateLocation.buttons.activateLocation}}
+      </button>
   </footer>
 </div>

@@ -150,6 +150,16 @@ p, a {
     }
   }
 }
+.contianer-close {
+  width: 100%;
+  @include dp-flex-alignment(row, flex-end, flex-end);
+  color: $magenta-soft;
+  mat-icon {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+  }
+}
 @font-face {
   font-family: Booster-next-regular;
   src: url(assets/fonts/BoosterNextFY-Regular.otf) format("opentype");
