@@ -142,7 +142,13 @@ export class RegisterDataComponent implements OnInit {
     this.routeService.navigateToURL(route);
   }
   openModalActivateLocation() {
-    this.dialogsService.openActivateLocation();
+    this.dialogsService
+      .openActivateLocation()
+      .afterClosed()
+      .subscribe( c => {
+      console.log(c);
+
+    });
   }
   continueRegister() {
     this.openModalActivateLocation();

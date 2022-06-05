@@ -62,6 +62,6 @@ export class DialogsService {
     const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
       size.matches ? modal.updateSize('100vw', '100vh'): undefined ;
     });
+    return modal;
   }
-
 }

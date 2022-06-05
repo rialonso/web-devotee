@@ -1,9 +1,9 @@
 <div id="container-dialog-activate-location">
-  <div class="contianer-close">
+  <!-- <div class="contianer-close">
     <mat-icon class="mat-18 cursor-pointer" (click)="closeModal()">
       close
     </mat-icon>
-  </div>
+  </div> -->
   <div class="container-icon-infos">
     <section class="container-icon">
       <mat-icon class="mat-18">
@@ -25,7 +25,8 @@
       </button>
       <button
       mat-button
-      class="button primary">
+      class="button primary"
+      (click)="activateLocation()">
         {{dataTexts.activateLocation.buttons.activateLocation}}
       </button>
   </footer>
