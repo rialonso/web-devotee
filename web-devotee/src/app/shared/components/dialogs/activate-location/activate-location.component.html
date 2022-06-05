@@ -1,6 +1,6 @@
 <div id="container-dialog-activate-location">
   <div class="contianer-close">
-    <mat-icon class="mat-18" (click)="closeModal()">
+    <mat-icon class="mat-18 cursor-pointer" (click)="closeModal()">
       close
     </mat-icon>
   </div>
@@ -18,12 +18,14 @@
 
   <footer class="container-footer-activate-location">
       <button
-      class="button-stroke-primary"
+      class="button stroke-primary"
       mat-stroked-button
       color="primary">
         {{dataTexts.activateLocation.buttons.addManually}}
       </button>
-      <button class="button primary ">
+      <button
+      mat-button
+      class="button primary">
         {{dataTexts.activateLocation.buttons.activateLocation}}
       </button>
   </footer>

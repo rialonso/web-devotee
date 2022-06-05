@@ -42,7 +42,6 @@ export class RegisterDataComponent implements OnInit {
   }
   ngOnInit() {
     this.initForm();
-    console.log(this.state.getValue()?.registerData);
     this.openModalActivateLocation();
     if (this.state.getValue()?.registerData?.account_type === EnumUserType.SPECIAL) {
         this.specialAccount = true;
@@ -144,5 +143,8 @@ export class RegisterDataComponent implements OnInit {
   }
   openModalActivateLocation() {
     this.dialogsService.openActivateLocation();
+  }
+  continueRegister() {
+    this.openModalActivateLocation();
   }
 }

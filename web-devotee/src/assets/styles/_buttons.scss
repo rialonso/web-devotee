@@ -1,10 +1,13 @@
 @import '_colors';
 @import '_sizes';
+@import '_mixins';
+
 .button{
   padding: $s-10px;
   border-radius: 60px;
   width: 100%;
-  font-size: 19px;
+  font-size: 15px;
+  line-height: 20px;
   cursor: pointer;
   box-sizing: border-box;
   font-family: 'Booster-next-bold' "Roboto", "Helvetica Neue", sans-serif;
@@ -32,6 +35,10 @@
       background: $gray-ultra-soft;
     }
   }
+  &.stroke-primary {
+    background-color: #fff;
+    border: 1px solid $blue-dark;
+  }
   &.icon-text {
     display: flex;
     justify-content: center;
@@ -52,6 +59,16 @@
       width: 18px;
       height: 18px;
     }
+  }
+}
+.contianer-close {
+  width: 100%;
+  @include dp-flex-alignment(row, flex-end, flex-end);
+  color: $magenta-soft;
+  mat-icon {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
   }
 }
 .option-input {

@@ -274,7 +274,8 @@
     <button
       mat-flat-button
       color="primary"
-      [disabled]="formGroup.invalid">
+      [disabled]="formGroup.invalid"
+      (click)="continueRegister()">
       {{ dataTexts.buttons.btnContinue }}
     </button>
   </section>
