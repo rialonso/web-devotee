@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { State, Store } from '@ngrx/store';
 import { LocationService } from 'src/app/core/services/location.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
+import { RouteService } from 'src/app/shared/functions/routes/route.service';
 import { MLocation } from 'src/app/shared/model/location/location.model';
 import { IAppState } from 'src/app/state-management/app.model';
 import { AddDataRegister } from 'src/app/state-management/register/register.action';
@@ -21,6 +22,7 @@ export class ActivateLocationComponent implements OnInit {
     private matDialogRef: MatDialogRef<ActivateLocationComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private locationService: LocationService,
+    private routeService: RouteService,
 
   ) {
     matDialogRef.disableClose = true;
@@ -38,9 +40,10 @@ export class ActivateLocationComponent implements OnInit {
     this.locationService
       .getCurrentLocation()
       .then((response: MLocation) => {
-        console.log(response);
-
         this.store.dispatch(new AddDataRegister(response));
-      })
+      });
+  }
+  addManually() {
+
   }
 }
