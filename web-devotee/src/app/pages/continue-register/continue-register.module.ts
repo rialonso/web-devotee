@@ -6,14 +6,12 @@ import { ContinueRegisterRoutingModule } from './continue-register-rounting.modu
 import { SharedModule } from 'src/app/shared/shared.module';
 import { RegisterDataComponent } from './components/register-data/register-data.component';
 import { ChangeUserTypeComponent } from './components/change-user-type/change-user-type.component';
-import { ManuallyLocationComponent } from './components/manually-location/manually-location.component';
 
 @NgModule({
   declarations: [
     ContinueRegisterComponent,
     RegisterDataComponent,
     ChangeUserTypeComponent,
-    ManuallyLocationComponent,
   ],
   imports: [
     CommonModule,

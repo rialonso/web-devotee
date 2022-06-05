@@ -4,23 +4,47 @@
       close
     </mat-icon>
   </div> -->
+
   <div class="container-icon-infos">
     <section class="container-icon">
       <mat-icon class="mat-18">
         location_on
       </mat-icon>
     </section>
-    <section class="container-text-activate-location">
+    <section *ngIf="!showAddManually" class="container-text-activate-location">
       <h2 class="font-booster-next-bold">{{ dataTexts.activateLocation.title }}</h2>
       <p>{{ dataTexts.activateLocation.textInfo }}</p>
     </section>
+    <section *ngIf="showAddManually" class="container-text-activate-location">
+      <h2 class="font-booster-next-bold">{{ dataTexts.manuallyLocation.title }}</h2>
+      <p>{{ dataTexts.manuallyLocation.textInfo }}</p>
+    </section>
   </div>
-
-  <footer class="container-footer-activate-location">
+  <form *ngIf="showAddManually" [formGroup]="formGroup" class="contianer-search-street">
+    <mat-form-field class="example-full-width width-100-per" appearance="fill">
+      <mat-label>{{dataTexts.inputs.address.label}}</mat-label>
+      <input type="text"
+             [placeholder]="dataTexts.inputs.address.placeHolder"
+             aria-label="Number"
+             matInput
+             formControlName="address_description"
+             [matAutocomplete]="auto">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngFor="let option of filteredStreets | async" [value]="option">
+          {{option}}
+        </mat-option>
+      </mat-autocomplete>
+      <mat-error *ngIf="formGroup.controls.address_description.hasError(errorsEnum.REQUIRED)">
+        {{ dataTexts.inputs.genericErrors.inputRequired }}
+      </mat-error>
+    </mat-form-field>
+  </form>
+  <footer class="container-footer-activate-location" *ngIf="!showAddManually">
       <button
       class="button stroke-primary"
       mat-stroked-button
-      color="primary">
+      color="primary"
+      (click)="addManually()">
         {{dataTexts.activateLocation.buttons.addManually}}
       </button>
       <button
@@ -30,4 +54,5 @@
         {{dataTexts.activateLocation.buttons.activateLocation}}
       </button>
   </footer>
+
 </div>

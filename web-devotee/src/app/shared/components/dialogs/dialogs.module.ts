@@ -9,14 +9,15 @@ import { ActivateLocationComponent } from './activate-location/activate-location
 @NgModule({
   declarations: [
     LoginQrCodeComponent,
-    ActivateLocationComponent
+    ActivateLocationComponent,
   ],
   imports: [
     SharedModule,
   ],
   exports: [
     LoginQrCodeComponent,
-    ActivateLocationComponent
+    ActivateLocationComponent,
+
   ],
   providers: [],
   bootstrap: []

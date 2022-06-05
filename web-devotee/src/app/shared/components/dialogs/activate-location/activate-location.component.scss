@@ -21,6 +21,9 @@
     gap: 20px;
     height: 100%;
   }
+  .contianer-search-street {
+    width: 100%
+  }
   .container-text-activate-location {
     @include dp-flex-alignment(column);
     color: $blue-dark;

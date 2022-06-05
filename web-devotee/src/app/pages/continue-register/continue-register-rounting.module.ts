@@ -17,6 +17,7 @@ const routes: Routes = [
         path: 'user-data',
         component: RegisterDataComponent,
       }
+
     ]
   },
 ];

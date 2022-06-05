@@ -1,9 +1,12 @@
 import { Component, OnInit, Inject } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { State, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { startWith, map } from 'rxjs/operators';
 import { LocationService } from 'src/app/core/services/location.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
-import { RouteService } from 'src/app/shared/functions/routes/route.service';
+import { ErrorsEnum } from 'src/app/shared/enum/errors/errors.enum';
 import { MLocation } from 'src/app/shared/model/location/location.model';
 import { IAppState } from 'src/app/state-management/app.model';
 import { AddDataRegister } from 'src/app/state-management/register/register.action';
@@ -15,6 +18,12 @@ import { AddDataRegister } from 'src/app/state-management/register/register.acti
 })
 export class ActivateLocationComponent implements OnInit {
   dataTexts
+
+  showAddManually = false;
+  errorsEnum = ErrorsEnum;
+  formGroup: FormGroup;
+  options: string[] = ['One', 'Two', 'Three'];
+  filteredStreets: Observable<string[]>;
   constructor(
     protected store: Store<IAppState>,
     protected state: State<IAppState>,
@@ -22,7 +31,7 @@ export class ActivateLocationComponent implements OnInit {
     private matDialogRef: MatDialogRef<ActivateLocationComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private locationService: LocationService,
-    private routeService: RouteService,
+    private formBuilder: FormBuilder,
 
   ) {
     matDialogRef.disableClose = true;
@@ -30,6 +39,26 @@ export class ActivateLocationComponent implements OnInit {
 
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
+    this.initForm();
+    this.filteredStreets = this.formGroup.get('address_description')?.valueChanges.pipe(
+      startWith(''),
+      map(value => this._filter(value || '')),
+    );
+  }
+  initForm() {
+    this.formGroup = this.formBuilder.group({
+      address_description: [
+        '',
+        [
+          Validators.required,
+        ]
+      ]
+    })
+
+  }
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
   closeModal() {
     this.matDialogRef.close(c => {
@@ -44,6 +73,6 @@ export class ActivateLocationComponent implements OnInit {
       });
   }
   addManually() {
-
+    this.showAddManually = true;
   }
 }

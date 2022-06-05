@@ -123,6 +123,13 @@
           "none": "none"
         }
       },
+      "address": {
+        "label": "Endereço, Rua, Avenida, etc",
+        "placeHolder": "Enter your location",
+        "errors" : {
+          "none": "none"
+        }
+      },
       "selectICD": {
         "label": "Classificação Internacional de Doenças (CID)",
         "placeHolder": "Selecion as CIDs",
@@ -272,6 +279,10 @@
         "addManually": "Adicionar manualmente",
         "activateLocation": "Ative a localização"
       }
+    },
+    "manuallyLocation": {
+      "title": "Digite sua localização",
+      "textInfo": "Para continuar digite sua localização"
     }
   },
   "us": {
@@ -393,6 +404,13 @@
       "moreAboutYourself": {
         "label": "Tell more about yourself",
         "placeHolder": "Tell more about yourself",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "address": {
+        "label": "Address, Street, Avenue, etc",
+        "placeHolder": "Enter your location",
         "errors" : {
           "none": "none"
         }
@@ -548,6 +566,10 @@
         "addManually": "Add manually",
         "activateLocation": "Activate location"
       }
+    },
+    "manuallyLocation": {
+      "title": "Enter you location",
+      "textInfo": "type your location to continue"
     }
   }
 }
