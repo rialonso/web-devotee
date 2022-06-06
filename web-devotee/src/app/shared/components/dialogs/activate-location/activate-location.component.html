@@ -5,7 +5,7 @@
     </mat-icon>
   </div> -->
 
-  <div class="container-icon-infos">
+  <div class="container-icon-infos width-100-per">
     <section class="container-icon">
       <mat-icon class="mat-18">
         location_on
@@ -19,26 +19,42 @@
       <h2 class="font-booster-next-bold">{{ dataTexts.manuallyLocation.title }}</h2>
       <p>{{ dataTexts.manuallyLocation.textInfo }}</p>
     </section>
+    <form *ngIf="showAddManually" [formGroup]="formGroup" class="contianer-search-street width-100-per">
+      <mat-form-field class="example-full-width width-100-per" appearance="fill">
+        <mat-label>{{dataTexts.inputs.address.label}}</mat-label>
+        <input type="text"
+               [placeholder]="dataTexts.inputs.address.placeHolder"
+               aria-label="Number"
+               matInput
+               formControlName="address_description"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of filteredStreets | async" [value]="option">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+        <mat-error *ngIf="formGroup.controls.address_description.hasError(errorsEnum.REQUIRED)">
+          {{ dataTexts.inputs.genericErrors.inputRequired }}
+        </mat-error>
+      </mat-form-field>
+    </form>
   </div>
-  <form *ngIf="showAddManually" [formGroup]="formGroup" class="contianer-search-street">
-    <mat-form-field class="example-full-width width-100-per" appearance="fill">
-      <mat-label>{{dataTexts.inputs.address.label}}</mat-label>
-      <input type="text"
-             [placeholder]="dataTexts.inputs.address.placeHolder"
-             aria-label="Number"
-             matInput
-             formControlName="address_description"
-             [matAutocomplete]="auto">
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of filteredStreets | async" [value]="option">
-          {{option}}
-        </mat-option>
-      </mat-autocomplete>
-      <mat-error *ngIf="formGroup.controls.address_description.hasError(errorsEnum.REQUIRED)">
-        {{ dataTexts.inputs.genericErrors.inputRequired }}
-      </mat-error>
-    </mat-form-field>
-  </form>
+
+  <footer class="container-footer-activate-location" *ngIf="showAddManually">
+    <button
+    class="button stroke-primary"
+    mat-stroked-button
+    color="primary"
+    (click)="returnModal()">
+      {{dataTexts.buttons.btnBack}}
+    </button>
+    <button
+    mat-button
+    class="button primary"
+    >
+      {{dataTexts.buttons.btnContinue}}
+    </button>
+</footer>
   <footer class="container-footer-activate-location" *ngIf="!showAddManually">
       <button
       class="button stroke-primary"

@@ -5,6 +5,7 @@ import { State, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { LocationService } from 'src/app/core/services/location.service';
+import { SnackBarService } from 'src/app/core/services/snack-bar/snack-bar.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { ErrorsEnum } from 'src/app/shared/enum/errors/errors.enum';
 import { MLocation } from 'src/app/shared/model/location/location.model';
@@ -24,6 +25,7 @@ export class ActivateLocationComponent implements OnInit {
   formGroup: FormGroup;
   options: string[] = ['One', 'Two', 'Three'];
   filteredStreets: Observable<string[]>;
+
   constructor(
     protected store: Store<IAppState>,
     protected state: State<IAppState>,
@@ -32,7 +34,7 @@ export class ActivateLocationComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any,
     private locationService: LocationService,
     private formBuilder: FormBuilder,
-
+    private snackBarService: SnackBarService,
   ) {
     matDialogRef.disableClose = true;
    }
@@ -70,9 +72,20 @@ export class ActivateLocationComponent implements OnInit {
       .getCurrentLocation()
       .then((response: MLocation) => {
         this.store.dispatch(new AddDataRegister(response));
+      })
+      .catch(reject => {
+        const snackBarLocationBlocked = this.dataTexts.snacksBars.locationBlocked
+        this.snackBarService
+          .openSnackbarLocationBlocked(
+            snackBarLocationBlocked.mensage,
+            snackBarLocationBlocked.button);
+        this.addManually();
       });
   }
   addManually() {
     this.showAddManually = true;
+  }
+  returnModal() {
+    this.showAddManually = false;
   }
 }

@@ -109,6 +109,13 @@
           "none": "none"
         }
       },
+      "wasBorn": {
+        "label": "Como nasceu",
+        "placeHolder": "Selecione gênero",
+        "errors" : {
+          "none": "none"
+        }
+      },
       "sexualOrientation": {
         "label": "Orientação sexual",
         "placeHolder": "Selecione seu orientação sexual",
@@ -283,6 +290,12 @@
     "manuallyLocation": {
       "title": "Digite sua localização",
       "textInfo": "Para continuar digite sua localização"
+    },
+    "snacksBars": {
+      "locationBlocked": {
+        "mensage": "Insira sua localização, pois a localização automática foi recusada",
+        "button": "entendi"
+      }
     }
   },
   "us": {
@@ -390,6 +403,13 @@
       "gender": {
         "label": "gender",
         "placeHolder": "Enter your gender",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "wasBorn": {
+        "label": "How was born",
+        "placeHolder": "Select gender",
         "errors" : {
           "none": "none"
         }
@@ -570,6 +590,12 @@
     "manuallyLocation": {
       "title": "Enter you location",
       "textInfo": "type your location to continue"
+    },
+    "snacksBars": {
+      "locationBlocked": {
+        "mensage": "Put your address, because automatic location has been blocked",
+        "button": "understand"
+      }
     }
   }
 }

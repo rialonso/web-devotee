@@ -42,7 +42,6 @@ export class RegisterDataComponent implements OnInit {
   }
   ngOnInit() {
     this.initForm();
-    this.openModalActivateLocation();
     if (this.state.getValue()?.registerData?.account_type === EnumUserType.SPECIAL) {
         this.specialAccount = true;
       this.addControlsTypeSpecial();
@@ -70,6 +69,12 @@ export class RegisterDataComponent implements OnInit {
         ''
       ],
       gender: [
+        '',
+        [
+          Validators.required,
+        ]
+      ],
+      show_as_gender: [
         '',
         [
           Validators.required,
@@ -152,5 +157,9 @@ export class RegisterDataComponent implements OnInit {
   }
   continueRegister() {
     this.openModalActivateLocation();
+  }
+  genderChanged(value) {
+    console.log(value);
+
   }
 }

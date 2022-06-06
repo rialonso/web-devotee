@@ -138,7 +138,7 @@
           <div class="container-default-inputs-orientation content-data-person">
             <mat-form-field appearance="fill">
               <mat-label>{{ dataTexts.inputs.gender.label }}</mat-label>
-              <mat-select formControlName="gender">
+              <mat-select formControlName="gender" (valueChange)="genderChanged($event)">
                 <mat-option
                   *ngFor="
                     let gender
@@ -148,6 +148,21 @@
                 </mat-option>
               </mat-select>
               <mat-error *ngIf="controlsForm.gender.hasError(errorsEnum.REQUIRED)">
+                {{ dataTexts.inputs.genericErrors.inputRequired }}
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>{{ dataTexts.inputs.wasBorn.label }}</mat-label>
+              <mat-select formControlName="show_as_gender">
+                <mat-option
+                  *ngFor="
+                    let gender
+                    of dataTexts.genders"
+                  [value]="gender.value">
+                  {{gender.label}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="controlsForm.show_as_gender.hasError(errorsEnum.REQUIRED)">
                 {{ dataTexts.inputs.genericErrors.inputRequired }}
               </mat-error>
             </mat-form-field>

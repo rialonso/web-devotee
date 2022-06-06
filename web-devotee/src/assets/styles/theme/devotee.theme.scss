@@ -3057,9 +3057,10 @@ td.mat-footer-cell {
 }
 
 .mat-snack-bar-container {
-  color: rgba(255, 255, 255, .7);
-  background: #323232;
-  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)
+  color:  $blue-dark;
+  background: $white;
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+  max-width: 45vw;
 }
 
 .mat-simple-snackbar-action {
