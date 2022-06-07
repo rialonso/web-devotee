@@ -17,5 +17,35 @@
       font-size: 25px;
     }
   }
+  .container-menu-logged{
+    @include dp-flex-alignment(row, center, flex-end);
+    gap: 30px;
+    @include min-tablet {
+      gap: 40px;
+    }
+    div{
+      max-width: 30px;
+      max-height: 30px;
+    }
+    mat-icon{
+      cursor: pointer;
+    }
+    .icon-menu-logged{
+      color: #fff;
+      opacity: 0.7;
+      @include min-tablet {
+        font-size: 35px;
+      }
+      &:hover{
+        cursor: pointer;
+      }
+      &:active{
+        outline: 0;
+      }
+    }
+    .icon-route-is-active{
+      opacity: 1;
 
+    }
+  }
 }

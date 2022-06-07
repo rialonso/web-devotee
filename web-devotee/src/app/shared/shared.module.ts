@@ -17,6 +17,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HeaderLoggedComponent } from './components/header-logged/header-logged.component';
+import { RouterModule } from '@angular/router';
 
 const components = [
   FooterComponent,
@@ -45,6 +46,7 @@ const angularMaterialModules = [
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
+    RouterModule,
 
   ],
   exports: [
@@ -54,6 +56,8 @@ const angularMaterialModules = [
     HttpClientModule,
     ReactiveFormsModule,
     CommonModule,
+    RouterModule,
+
   ],
   providers: [],
   bootstrap: []
