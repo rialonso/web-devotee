@@ -16,11 +16,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HeaderLoggedComponent } from './components/header-logged/header-logged.component';
 
 const components = [
   FooterComponent,
   HeaderCardsInitialPageComponent,
   CardImgTitleTextComponent,
+  HeaderLoggedComponent,
 ]
 const angularMaterialModules = [
   MatInputModule,

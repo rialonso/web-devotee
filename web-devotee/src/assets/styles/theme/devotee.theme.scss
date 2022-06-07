@@ -1253,7 +1253,8 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-stroked-button:not(.mat-button-disabled) {
-  border-color: rgba(0, 0, 0, .12)
+  border: .5px solid $blue-dark;
+
 }
 
 .mat-flat-button,

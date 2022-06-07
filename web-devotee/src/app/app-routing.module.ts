@@ -19,6 +19,10 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('src/app/pages/continue-register/continue-register.module').then(m => m.ContinueRegisterModule),
   },
+  {
+    path: '',
+    loadChildren: () => import('src/app/pages/logged/logged.module').then(m => m.LoggedModule),
+  }
 
 ];
 

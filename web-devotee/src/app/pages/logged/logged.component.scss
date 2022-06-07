@@ -1,0 +1,5 @@
+@import '_custom';
+#container-logged {
+  @include dp-flex-alignment(column, initial, initial);
+  height: 100%;
+}

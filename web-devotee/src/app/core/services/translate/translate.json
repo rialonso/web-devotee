@@ -296,6 +296,18 @@
         "mensage": "Insira sua localização, pois a localização automática foi recusada",
         "button": "entendi"
       }
+    },
+    "userConfigurations": {
+      "headerYourProfile": "Configurações",
+      "features": {
+        "myProfile": "Meu perfil",
+        "editProfile": "Editar perfil",
+        "preferences": "Preferências",
+        "changePassword": "Alterar senha",
+        "deleteAccount": "Deletar perfil",
+        "logout": "Sair"
+
+      }
     }
   },
   "us": {
@@ -595,6 +607,18 @@
       "locationBlocked": {
         "mensage": "Put your address, because automatic location has been blocked",
         "button": "understand"
+      }
+    },
+    "userConfigurations": {
+      "headerYourProfile": "Settings",
+      "features": {
+        "myProfile": "My profile",
+        "editProfile": "Edit profile",
+        "preferences": "Prenfereces",
+        "changePassword": "Change password",
+        "deleteAccount": "Delete profile",
+        "logout": "Logout"
+
       }
     }
   }

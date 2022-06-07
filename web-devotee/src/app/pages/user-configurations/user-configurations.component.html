@@ -1,0 +1,42 @@
+<div id="container-user-settings" class="container-default-cards-register">
+  <main>
+    <mat-card class="container-title-register">
+      <mat-card-title>{{dataTexts.userConfigurations.headerYourProfile}}</mat-card-title>
+    </mat-card>
+    <section class="container-cards-settings">
+      <mat-card class="card-settings">
+        <mat-icon>person</mat-icon>
+        <mat-card-title>{{dataTexts.userConfigurations.features.myProfile}}</mat-card-title>
+      </mat-card>
+      <mat-card class="card-settings">
+        <mat-icon>edit</mat-icon>
+        <mat-card-title>{{dataTexts.userConfigurations.features.editProfile}}</mat-card-title>
+      </mat-card>
+      <mat-card class="card-settings" >
+        <mat-icon>filter_alt</mat-icon>
+        <mat-card-title>{{dataTexts.userConfigurations.features.preferences}}</mat-card-title>
+      </mat-card>
+      <mat-card class="card-settings"  >
+        <mat-icon>security</mat-icon>
+        <mat-card-title>{{dataTexts.userConfigurations.features.changePassword}}</mat-card-title>
+      </mat-card>
+      <mat-card class="card-settings">
+        <mat-icon>delete</mat-icon>
+        <mat-card-title>{{dataTexts.userConfigurations.features.deleteAccount}}</mat-card-title>
+      </mat-card>
+      <mat-card class="card-settings" >
+        <mat-icon>power_settings_new</mat-icon>
+        <mat-card-title>{{dataTexts.userConfigurations.features.logout}}</mat-card-title>
+      </mat-card>
+    </section>
+  </main>
+  <section class="contianer-btns">
+    <button
+      class="button-stroke-primary"
+      mat-stroked-button
+      color="primary"
+     >
+      {{ dataTexts.buttons.btnBack }}
+    </button>
+  </section>
+</div>

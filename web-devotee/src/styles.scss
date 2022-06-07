@@ -101,7 +101,7 @@ p, a {
 }
 .container-default-cards-register {
   max-width: 800px;
-  margin: 20px;
+  margin: 30px 20px;
   @include min-tablet {
     width: 100%;
     margin: 40px auto;
@@ -160,6 +160,11 @@ p, a {
     height: 30px;
   }
 }
+.container-default {
+  max-width: $max-width-contents;
+  margin: auto;
+}
+
 @font-face {
   font-family: Booster-next-regular;
   src: url(assets/fonts/BoosterNextFY-Regular.otf) format("opentype");
