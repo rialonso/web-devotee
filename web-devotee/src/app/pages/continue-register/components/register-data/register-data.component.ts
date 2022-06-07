@@ -29,6 +29,7 @@ export class RegisterDataComponent implements OnInit {
 
   formGroup: FormGroup;
   specialAccount = false;
+  showWasBorn = false;
   constructor(
     protected store: Store,
     protected state: State<IAppState>,
@@ -151,7 +152,6 @@ export class RegisterDataComponent implements OnInit {
       .openActivateLocation()
       .afterClosed()
       .subscribe( c => {
-      console.log(c);
 
     });
   }
@@ -160,6 +160,12 @@ export class RegisterDataComponent implements OnInit {
   }
   genderChanged(value) {
     console.log(value);
-
+    if (value === 'trans') {
+      this.showWasBorn = true;
+      return this.showWasBorn;
+    }
+    this.formGroup.get('show_as_gender').setValue(value);
+    this.showWasBorn = false;
+    return this.showWasBorn;
   }
 }

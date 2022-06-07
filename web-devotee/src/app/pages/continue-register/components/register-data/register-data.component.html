@@ -151,7 +151,7 @@
                 {{ dataTexts.inputs.genericErrors.inputRequired }}
               </mat-error>
             </mat-form-field>
-            <mat-form-field appearance="fill">
+            <mat-form-field appearance="fill" *ngIf="showWasBorn">
               <mat-label>{{ dataTexts.inputs.wasBorn.label }}</mat-label>
               <mat-select formControlName="show_as_gender">
                 <mat-option
