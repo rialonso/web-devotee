@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ActivateLocationComponent } from '../../components/dialogs/activate-location/activate-location.component';
 import { LoginQrCodeComponent } from '../../components/dialogs/login-qr-code/login-qr-code.component';
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
+import { ProfileComponent } from '../../components/dialogs/profile/profile.component';
 
 @Injectable({
   providedIn: 'root'
@@ -58,6 +59,20 @@ export class DialogsService {
         width: 'calc(100% - 50px)',
         maxWidth: '450px'
       }
+    );
+    const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
+      size.matches ? modal.updateSize('100vw', '100vh'): undefined ;
+    });
+    return modal;
+  }
+  openProfile() {
+    const modal =  this.dialog.open(
+      ProfileComponent,
+      {
+        width: 'calc(100% - 50px)',
+        maxWidth: '1100px',
+        panelClass: 'profile-container'
+      },
     );
     const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
       size.matches ? modal.updateSize('100vw', '100vh'): undefined ;

@@ -308,6 +308,16 @@
         "logout": "Sair"
 
       }
+    },
+    "profileUser": {
+      "titleAboutMe": "Sobre mim",
+      "personalInfo": "Informações pessoais",
+      "myDisability": "Minha deficiência",
+      "ICDS": "CIDs",
+      "medicalProcedures": "Procedimentos médicos",
+      "medicines": "Medicamentos",
+      "hospitals": "Hospitais",
+      "titlePictures": "Fots"
     }
   },
   "us": {
@@ -372,7 +382,7 @@
           "placeholder": "start typing to search"
         },
         "medicalProcedures" : {
-          "label": "type to search surgerys",
+          "label": "type to search medical procedures",
           "placeholder": "start typing to search"
         },
         "hospitals" : {
@@ -620,6 +630,16 @@
         "logout": "Logout"
 
       }
+    },
+    "profileUser": {
+      "titleAboutMe": "About me",
+      "personalInfo": "Personal information",
+      "myDisability": "My disability",
+      "ICDS": "ICDs",
+      "medicalProcedures": "Medical procedures",
+      "medicines": "Medicines",
+      "hospitals": "Hospitals",
+      "titlePictures": "Pictures"
     }
   }
 }

@@ -4,11 +4,11 @@
       <mat-card-title>{{dataTexts.userConfigurations.headerYourProfile}}</mat-card-title>
     </mat-card>
     <section class="container-cards-settings">
-      <mat-card class="card-settings">
+      <mat-card class="card-settings" (click)="viewMyProfile()">
         <mat-icon>person</mat-icon>
         <mat-card-title>{{dataTexts.userConfigurations.features.myProfile}}</mat-card-title>
       </mat-card>
-      <mat-card class="card-settings">
+      <mat-card class="card-settings" >
         <mat-icon>edit</mat-icon>
         <mat-card-title>{{dataTexts.userConfigurations.features.editProfile}}</mat-card-title>
       </mat-card>

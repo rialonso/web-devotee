@@ -164,7 +164,15 @@ p, a {
   max-width: $max-width-contents;
   margin: auto;
 }
-
+.profile-container {
+  @include min-tablet {
+    max-height: 650px;
+    margin: 20px;
+  }
+  mat-dialog-container {
+    background-color: $gray-ultra-light-soft;
+  }
+}
 @font-face {
   font-family: Booster-next-regular;
   src: url(assets/fonts/BoosterNextFY-Regular.otf) format("opentype");

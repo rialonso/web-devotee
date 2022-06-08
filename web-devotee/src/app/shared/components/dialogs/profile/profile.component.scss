@@ -1,0 +1,118 @@
+@import '_custom';
+
+#container-profile {
+
+  .container-header{
+    @include dp-flex-alignment(column);
+    mat-icon {
+      color: $gray-icons;
+    }
+    .container-profile-image{
+      border-radius: 100%;
+      background-color: $gray-medium-soft;
+      border: 1px solid $gray-soft;
+      width: 80px;
+      height: 80px;
+      padding: 20px;
+      @include dp-flex-alignment();
+      img{
+        width: 100%;
+        height: 80px;
+        max-width: 80px;
+        max-height: 80px;
+        border-radius: 100%;
+      }
+      mat-icon {
+        font-size: 40px;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .container-person-name {
+      margin-top: 10px;
+      @include dp-flex-alignment();
+      gap: 10px;
+    }
+    .user-type {
+      font-size: 14px;
+      line-height: 10px;
+    }
+    .description-about {
+      margin-top: 20px;
+    }
+  }
+  .container-user-data {
+    @include dp-flex-alignment(column-reverse);
+    gap: 10px;
+    @include min-tablet {
+      @include dp-flex-alignment(row, flex-start);
+
+    }
+    .content-profile-data {
+      @include dp-flex-alignment(column, flex-start, flex-start);
+      gap: 20px;
+
+      .content-personal-information {
+        padding-left: 5px;
+      }
+      h3, h4 {
+        color: $blue-dark;
+        font-family: $font-booster-next-bold;
+      }
+      .container-default-infos-disability {
+        @include dp-flex-alignment(column, flex-start, flex-start);
+        gap: 20px
+      }
+      .container-default-infos {
+        @include dp-flex-alignment(column, flex-start, flex-start);
+        gap: 2px;
+
+        .container-default-personal-info {
+          @include dp-flex-alignment(row, center, flex-start);
+          gap: 5px;
+          color: $blue-dark;
+        }
+      }
+      .disability-list {
+        @include dp-flex-alignment(row, center, flex-start);
+        gap: 3px;
+        margin-left: 20px;
+      }
+      .check-circle{
+        color: $magenta-soft-80;
+      }
+    }
+    .content-data-pictures {
+      @include dp-flex-alignment(row, center, flex-start);
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+    .container-profile-image{
+      border-radius: 10px;
+      background-color: $gray-medium-soft;
+      border: 1px solid $gray-soft;
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      max-width: 150px;
+      max-height: 150px;
+      @include dp-flex-alignment();
+      @include min-tablet {
+        max-width: 100px;
+        max-height: 100px;
+      }
+      img{
+        width: 100%;
+        max-width: 150px;
+        max-height: 150px;
+        border-radius: 10px;
+
+      }
+      mat-icon {
+        font-size: 40px;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
