@@ -10,7 +10,7 @@ import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 @Injectable({
   providedIn: 'root'
 })
-export class SignInService extends HttpService<ISignIn>{
+export class SignInService extends HttpService<any>{
   constructor(
     httpClient: HttpClient,
 

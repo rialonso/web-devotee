@@ -15,6 +15,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LoginQrCodeComponent } from 'src/app/shared/components/dialogs/login-qr-code/login-qr-code.component';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { ModelErrors } from 'src/app/shared/model/errors/errors.model';
+import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 
 @Component({
   selector: 'app-sign-in',
@@ -65,14 +66,14 @@ export class SignInComponent implements OnInit {
   }
   async signIn() {
     if (this.formGroup.valid) {
-      const signInData: any = await this.signInService.post(this.formGroup.value).toPromise();
+      const signInData: IUserData.RootObject = await this.signInService.post(this.formGroup.value).toPromise();
       signInData?.status
         ? this.stateManagementFuncServices.funcAddAllDataUser(signInData)
         : this.showErrorCredentials
         = new ModelErrors(
           !signInData.status,
            this.dataTexts.errors.credentials
-        )
+        );
     }
   }
 
