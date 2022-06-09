@@ -13,6 +13,7 @@ export class ProfileComponent implements OnInit {
   dataTexts
   languageApp;
   enumLanguage = EnumLanguages;
+  age;
   constructor(
     private matDialogRef: MatDialogRef<ProfileComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IUserData.IData,
@@ -24,10 +25,23 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.languageApp = this.translateService.dataFormatation;
+    this.transformAge();
   }
   closeModal() {
     this.matDialogRef.close(c => {
 
     });
+  }
+  transformAge() {
+    const birthdate = this.data.birthdate.replace(/-/g, '')
+    const year = Number(birthdate.substr(0, 4));
+    const today = new Date();
+    const month = Number(birthdate.substr(4, 2)) - 1;
+    const day = Number(birthdate.substr(6, 2));
+    let age = today.getFullYear() - year;
+    if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
+      age--;
+    }
+    this.age = age;
   }
 }
