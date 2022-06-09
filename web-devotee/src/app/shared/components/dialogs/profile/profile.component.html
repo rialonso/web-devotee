@@ -4,184 +4,187 @@
       close
     </mat-icon>
   </div>
-  <section class="container-header">
-    <div class="container-profile-image">
-      <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
-      <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
-        <mat-icon>
-          no_photography
-        </mat-icon>
+  <div>
+    <section class="container-header">
+      <div class="container-profile-image">
+        <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+        <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
+          <mat-icon>
+            no_photography
+          </mat-icon>
+        </div>
       </div>
-    </div>
-    <div class="container-person-name">
-      <div class="name-age color-blue-dark font-booster-next-bold">
-        <span class="first-name">Nome,</span>
+      <div class="container-person-name">
+        <div class="name-age color-blue-dark font-booster-next-bold">
+          <span class="first-name">Nome,</span>
+          <span>
+            22
+          </span>
+        </div>
         <span>
-          22
+          <mat-icon>report</mat-icon>
         </span>
       </div>
-      <span>
-        <mat-icon>report</mat-icon>
-      </span>
-    </div>
-    <p class="user-type color-blue-dark">
-      userTYPE
-    </p>
-    <p class="description-about color-blue-dark">
-      "description"
-    </p>
-  </section>
-  <div class="container-user-data">
-    <section class="container-about-me width-100-per container-default-cards-register flex-1">
-      <mat-card class="container-title-register">
-        <mat-card-title>{{dataTexts.profileUser.titleAboutMe}}</mat-card-title>
-      </mat-card>
-      <mat-card class="container-type-data-default">
-        <main class="content-profile-data">
-          <section class="container-personal-information">
-            <h3> {{dataTexts.profileUser.personalInfo}}</h3>
-            <div class="content-personal-information">
-              <div class="container-default-infos">
-                <!-- <div class="container-default-personal-info">
-                  <mat-icon>call</mat-icon> <span>(11)9 1111-1111</span>
-                </div> -->
-                <div class="container-default-personal-info">
-                  <mat-icon>work</mat-icon>
-                  <span>Profissao</span>
-                </div>
-                <div class="container-default-personal-info">
-                  <mat-icon>person_pin</mat-icon>
-                  <span>
-                    Female
-                  </span>
-                </div>
-                <div class="container-default-personal-info">
-                  <mat-icon>loyalty</mat-icon>
-                  <span>Sexual orientation</span>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="container-personal-information">
-            <h3> {{dataTexts.profileUser.myDisability}}</h3>
-            <div class="content-personal-information">
-              <div class="container-default-infos-disability">
-                <section class="my-disability container-default-infos">
+      <p class="user-type color-blue-dark">
+        userTYPE
+      </p>
+      <p class="description-about color-blue-dark">
+        "description"
+      </p>
+    </section>
+    <div class="container-user-data">
+      <section class="container-about-me width-100-per container-default-cards-register flex-1">
+        <mat-card class="container-title-register">
+          <mat-card-title>{{dataTexts.profileUser.titleAboutMe}}</mat-card-title>
+        </mat-card>
+        <mat-card class="container-type-data-default">
+          <main class="content-profile-data">
+            <section class="container-personal-information">
+              <h3> {{dataTexts.profileUser.personalInfo}}</h3>
+              <div class="content-personal-information">
+                <div class="container-default-infos">
+                  <!-- <div class="container-default-personal-info">
+                    <mat-icon>call</mat-icon> <span>(11)9 1111-1111</span>
+                  </div> -->
                   <div class="container-default-personal-info">
-                    <mat-icon class="check-circle">check_circle</mat-icon>
-                    <span>(11)9 1111-1111</span>
-                  </div>
-                  <div class="container-default-personal-info">
-                    <mat-icon class="check-circle">check_circle</mat-icon>
+                    <mat-icon>work</mat-icon>
                     <span>Profissao</span>
                   </div>
                   <div class="container-default-personal-info">
-                    <mat-icon class="check-circle">check_circle</mat-icon>
+                    <mat-icon>person_pin</mat-icon>
                     <span>
                       Female
                     </span>
                   </div>
                   <div class="container-default-personal-info">
-                    <mat-icon class="check-circle">check_circle</mat-icon>
+                    <mat-icon>loyalty</mat-icon>
                     <span>Sexual orientation</span>
                   </div>
-                </section>
-                <!-- CIDS -->
-                <section class="container-default-infos">
-                  <div class="container-default-personal-info">
-                    <mat-icon>healing</mat-icon>
-                    <h4> {{dataTexts.profileUser.ICDS}} </h4>
-                  </div>
-                  <div class="color-blue-dark disability-list">
-                    <span class="bullet">•</span><span>CID NAME</span>
-                  </div>
-                </section>
-                <!-- PROCEDIMENTOS MEDICOS -->
-                <section class="container-default-infos">
-                  <div class="container-default-personal-info">
-                    <mat-icon>content_cut</mat-icon>
-                    <h4> {{dataTexts.profileUser.medicalProcedures}} </h4>
-                  </div>
-                  <div class="color-blue-dark disability-list">
-                    <span class="bullet">•</span><span>procedimento medico</span>
-                  </div>
-                </section>
-                <!-- REMEDIO -->
-                <section class="container-default-infos">
-                  <div class="container-default-personal-info">
-                    <mat-icon>local_pharmacy</mat-icon>
-                    <h4> {{dataTexts.profileUser.medicines}} </h4>
-                  </div>
-                  <div class="color-blue-dark disability-list">
-                    <span class="bullet">•</span><span>medicines</span>
-                  </div>
-                </section>
-                <!-- Hostpitais -->
-                <section class="container-default-infos">
-                  <div class="container-default-personal-info">
-                    <mat-icon>medical_services</mat-icon>
-                    <h4> {{dataTexts.profileUser.hospitals}} </h4>
-                  </div>
-                  <div class="color-blue-dark disability-list">
-                    <span class="bullet">•</span><span>hosp</span>
-                  </div>
-                </section>
+                </div>
+              </div>
+            </section>
+
+            <section class="container-personal-information">
+              <h3> {{dataTexts.profileUser.myDisability}}</h3>
+              <div class="content-personal-information">
+                <div class="container-default-infos-disability">
+                  <section class="my-disability container-default-infos">
+                    <div class="container-default-personal-info">
+                      <mat-icon class="check-circle">check_circle</mat-icon>
+                      <span>(11)9 1111-1111</span>
+                    </div>
+                    <div class="container-default-personal-info">
+                      <mat-icon class="check-circle">check_circle</mat-icon>
+                      <span>Profissao</span>
+                    </div>
+                    <div class="container-default-personal-info">
+                      <mat-icon class="check-circle">check_circle</mat-icon>
+                      <span>
+                        Female
+                      </span>
+                    </div>
+                    <div class="container-default-personal-info">
+                      <mat-icon class="check-circle">check_circle</mat-icon>
+                      <span>Sexual orientation</span>
+                    </div>
+                  </section>
+                  <!-- CIDS -->
+                  <section class="container-default-infos">
+                    <div class="container-default-personal-info">
+                      <mat-icon>healing</mat-icon>
+                      <h4> {{dataTexts.profileUser.ICDS}} </h4>
+                    </div>
+                    <div class="color-blue-dark disability-list">
+                      <span class="bullet">•</span><span>CID NAME</span>
+                    </div>
+                  </section>
+                  <!-- PROCEDIMENTOS MEDICOS -->
+                  <section class="container-default-infos">
+                    <div class="container-default-personal-info">
+                      <mat-icon>content_cut</mat-icon>
+                      <h4> {{dataTexts.profileUser.medicalProcedures}} </h4>
+                    </div>
+                    <div class="color-blue-dark disability-list">
+                      <span class="bullet">•</span><span>procedimento medico</span>
+                    </div>
+                  </section>
+                  <!-- REMEDIO -->
+                  <section class="container-default-infos">
+                    <div class="container-default-personal-info">
+                      <mat-icon>local_pharmacy</mat-icon>
+                      <h4> {{dataTexts.profileUser.medicines}} </h4>
+                    </div>
+                    <div class="color-blue-dark disability-list">
+                      <span class="bullet">•</span><span>medicines</span>
+                    </div>
+                  </section>
+                  <!-- Hostpitais -->
+                  <section class="container-default-infos">
+                    <div class="container-default-personal-info">
+                      <mat-icon>medical_services</mat-icon>
+                      <h4> {{dataTexts.profileUser.hospitals}} </h4>
+                    </div>
+                    <div class="color-blue-dark disability-list">
+                      <span class="bullet">•</span><span>hosp</span>
+                    </div>
+                  </section>
+                </div>
+              </div>
+            </section>
+          </main>
+        </mat-card>
+      </section>
+      <section class="container-pictures width-100-per container-default-cards-register flex-2">
+        <mat-card class="container-title-register">
+          <mat-card-title>{{dataTexts.profileUser.titlePictures}}</mat-card-title>
+        </mat-card>
+        <mat-card class="container-type-data-default">
+          <main class="content-data-pictures">
+            <div class="container-profile-image">
+              <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+              <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
+                <mat-icon>
+                  no_photography
+                </mat-icon>
               </div>
             </div>
-          </section>
-        </main>
-      </mat-card>
-    </section>
-    <section class="container-pictures width-100-per container-default-cards-register flex-2">
-      <mat-card class="container-title-register">
-        <mat-card-title>{{dataTexts.profileUser.titlePictures}}</mat-card-title>
-      </mat-card>
-      <mat-card class="container-type-data-default">
-        <main class="content-data-pictures">
-          <div class="container-profile-image">
-            <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
-            <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
-              <mat-icon>
-                no_photography
-              </mat-icon>
+            <div class="container-profile-image">
+              <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+              <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
+                <mat-icon>
+                  no_photography
+                </mat-icon>
+              </div>
             </div>
-          </div>
-          <div class="container-profile-image">
-            <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
-            <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
-              <mat-icon>
-                no_photography
-              </mat-icon>
+            <div class="container-profile-image">
+              <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+              <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
+                <mat-icon>
+                  no_photography
+                </mat-icon>
+              </div>
             </div>
-          </div>
-          <div class="container-profile-image">
-            <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
-            <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
-              <mat-icon>
-                no_photography
-              </mat-icon>
+            <div class="container-profile-image">
+              <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+              <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
+                <mat-icon>
+                  no_photography
+                </mat-icon>
+              </div>
             </div>
-          </div>
-          <div class="container-profile-image">
-            <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
-            <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
-              <mat-icon>
-                no_photography
-              </mat-icon>
+            <div class="container-profile-image">
+              <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+              <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
+                <mat-icon>
+                  no_photography
+                </mat-icon>
+              </div>
             </div>
-          </div>
-          <div class="container-profile-image">
-            <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
-            <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
-              <mat-icon>
-                no_photography
-              </mat-icon>
-            </div>
-          </div>
-        </main>
-      </mat-card>
-    </section>
+          </main>
+        </mat-card>
+      </section>
+    </div>
   </div>
+
 
 </div>
