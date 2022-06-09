@@ -7,7 +7,7 @@
   <div>
     <section class="container-header">
       <div class="container-profile-image">
-        <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+        <img #profileImg [src]="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
         <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
           <mat-icon>
             no_photography
@@ -16,9 +16,9 @@
       </div>
       <div class="container-person-name">
         <div class="name-age color-blue-dark font-booster-next-bold">
-          <span class="first-name">Nome,</span>
+          <span class="first-name">{{ data.name }},</span>
           <span>
-            22
+            {{ data.show_age }}
           </span>
         </div>
         <span>
@@ -26,10 +26,10 @@
         </span>
       </div>
       <p class="user-type color-blue-dark">
-        userTYPE
+        {{ data.account_type }}
       </p>
       <p class="description-about color-blue-dark">
-        "description"
+        "{{ data.about }}"
       </p>
     </section>
     <div class="container-user-data">
@@ -46,87 +46,103 @@
                   <!-- <div class="container-default-personal-info">
                     <mat-icon>call</mat-icon> <span>(11)9 1111-1111</span>
                   </div> -->
-                  <div class="container-default-personal-info">
+                  <div
+                    class="container-default-personal-info"
+                    *ngIf="data.occupation">
                     <mat-icon>work</mat-icon>
-                    <span>Profissao</span>
+                    <span>{{ data.occupation }}</span>
                   </div>
-                  <div class="container-default-personal-info">
+                  <div
+                    class="container-default-personal-info"
+                    *ngIf="data.gender">
                     <mat-icon>person_pin</mat-icon>
                     <span>
-                      Female
+                      {{ data.gender }}
                     </span>
                   </div>
-                  <div class="container-default-personal-info">
+                  <div
+                    class="container-default-personal-info"
+                    *ngIf="data.sexual_orientation"
+                    >
                     <mat-icon>loyalty</mat-icon>
-                    <span>Sexual orientation</span>
+                    <span>{{ data.sexual_orientation }}</span>
                   </div>
                 </div>
               </div>
             </section>
 
             <section class="container-personal-information">
-              <h3> {{dataTexts.profileUser.myDisability}}</h3>
+              <h3 *ngIf="data.tiic || data.prejudice"> {{dataTexts.profileUser.myDisability}}</h3>
               <div class="content-personal-information">
                 <div class="container-default-infos-disability">
                   <section class="my-disability container-default-infos">
-                    <div class="container-default-personal-info">
+                    <div class="container-default-personal-info" *ngIf="data.tiic">
                       <mat-icon class="check-circle">check_circle</mat-icon>
-                      <span>(11)9 1111-1111</span>
+                      <span>{{ dataTexts.profileUser.haveBIID }}</span>
                     </div>
-                    <div class="container-default-personal-info">
+                    <div class="container-default-personal-info" *ngIf="data.prejudice">
                       <mat-icon class="check-circle">check_circle</mat-icon>
-                      <span>Profissao</span>
-                    </div>
-                    <div class="container-default-personal-info">
-                      <mat-icon class="check-circle">check_circle</mat-icon>
-                      <span>
-                        Female
-                      </span>
-                    </div>
-                    <div class="container-default-personal-info">
-                      <mat-icon class="check-circle">check_circle</mat-icon>
-                      <span>Sexual orientation</span>
+                      <span>{{ dataTexts.profileUser.prejudice }}</span>
                     </div>
                   </section>
                   <!-- CIDS -->
-                  <section class="container-default-infos">
+                  <section class="container-default-infos" *ngIf="data.my_cids.length > 0">
                     <div class="container-default-personal-info">
                       <mat-icon>healing</mat-icon>
                       <h4> {{dataTexts.profileUser.ICDS}} </h4>
                     </div>
-                    <div class="color-blue-dark disability-list">
-                      <span class="bullet">•</span><span>CID NAME</span>
+                    <div
+                      class="color-blue-dark disability-list"
+                      *ngFor="let dataCid of data.my_cids">
+                      <span class="bullet">•</span>
+                      <span *ngIf="languageApp === enumLanguage.PT">{{dataCid.cid.description}}</span>
+                      <span *ngIf="languageApp === enumLanguage.US">{{dataCid.cid.description_en}}</span>
                     </div>
                   </section>
                   <!-- PROCEDIMENTOS MEDICOS -->
-                  <section class="container-default-infos">
+                  <section class="container-default-infos" *ngIf="data.medical_procedures.length > 0">
                     <div class="container-default-personal-info">
                       <mat-icon>content_cut</mat-icon>
                       <h4> {{dataTexts.profileUser.medicalProcedures}} </h4>
                     </div>
-                    <div class="color-blue-dark disability-list">
-                      <span class="bullet">•</span><span>procedimento medico</span>
+                    <div
+                      class="color-blue-dark disability-list"
+                      *ngFor="let dataMedical of data.medical_procedures">
+                      <span class="bullet">•</span>
+                      <span *ngIf="languageApp === enumLanguage.PT">{{dataMedical.medical_procedures.name}}</span>
+                      <span *ngIf="languageApp === enumLanguage.US">{{dataMedical.medical_procedures.name_en}}</span>
                     </div>
                   </section>
                   <!-- REMEDIO -->
-                  <section class="container-default-infos">
+                  <section
+                    class="container-default-infos"
+                    *ngIf="data.my_drugs.length > 0">
                     <div class="container-default-personal-info">
                       <mat-icon>local_pharmacy</mat-icon>
                       <h4> {{dataTexts.profileUser.medicines}} </h4>
                     </div>
-                    <div class="color-blue-dark disability-list">
-                      <span class="bullet">•</span><span>medicines</span>
+                    <div
+                      class="color-blue-dark disability-list"
+                      *ngFor="let dataDrug of data.my_drugs">
+                      <span class="bullet">•</span>
+                      <span *ngIf="languageApp === enumLanguage.PT">{{dataDrug.drug.name}}</span>
+                      <span *ngIf="languageApp === enumLanguage.US">{{dataDrug.drug.name_en}}</span>
                     </div>
                   </section>
                   <!-- Hostpitais -->
-                  <section class="container-default-infos">
+                  <section
+                    class="container-default-infos"
+                    *ngIf="data.my_hospitals.length > 0">
                     <div class="container-default-personal-info">
                       <mat-icon>medical_services</mat-icon>
                       <h4> {{dataTexts.profileUser.hospitals}} </h4>
                     </div>
-                    <div class="color-blue-dark disability-list">
-                      <span class="bullet">•</span><span>hosp</span>
-                    </div>
+                    <div
+                    class="color-blue-dark disability-list"
+                    *ngFor="let dataHosptal of data.my_hospitals">
+                    <span class="bullet">•</span>
+                    <span *ngIf="languageApp === enumLanguage.PT">{{dataHosptal.hospital.name}}</span>
+                  </div>
                   </section>
                 </div>
               </div>

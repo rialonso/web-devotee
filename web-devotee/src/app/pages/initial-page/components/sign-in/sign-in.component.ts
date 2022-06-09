@@ -16,6 +16,7 @@ import { LoginQrCodeComponent } from 'src/app/shared/components/dialogs/login-qr
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { ModelErrors } from 'src/app/shared/model/errors/errors.model';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
+import { UserProfileService } from 'src/app/core/services/user-profile/user-profile.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -39,6 +40,7 @@ export class SignInComponent implements OnInit {
     private formBuilder: FormBuilder,
     private stateManagementFuncServices: StateManagementFuncService,
     private dialogsService: DialogsService,
+    private userProfileService: UserProfileService,
 
   ) {
     this.store.select('controlsApp')
@@ -67,13 +69,17 @@ export class SignInComponent implements OnInit {
   async signIn() {
     if (this.formGroup.valid) {
       const signInData: IUserData.RootObject = await this.signInService.post(this.formGroup.value).toPromise();
-      signInData?.status
-        ? this.stateManagementFuncServices.funcAddAllDataUser(signInData)
-        : this.showErrorCredentials
+      if (signInData?.status) {
+        const userProfile: IUserData.RootObject = await this.userProfileService.get(signInData.data.id).toPromise();
+        this.stateManagementFuncServices.funcAddAllDataUser({access_token: signInData.access_token, ...userProfile});
+        this.navigateTo('settings');
+      } else {
+        this.showErrorCredentials
         = new ModelErrors(
           !signInData.status,
            this.dataTexts.errors.credentials
         );
+      }
     }
   }
 

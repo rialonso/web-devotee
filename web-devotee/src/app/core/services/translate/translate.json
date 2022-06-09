@@ -317,7 +317,9 @@
       "medicalProcedures": "Procedimentos médicos",
       "medicines": "Medicamentos",
       "hospitals": "Hospitais",
-      "titlePictures": "Fots"
+      "titlePictures": "Fotos",
+      "haveBIID": "Tenho TIIC",
+      "prejudice":"Exemplo de superção"
     }
   },
   "us": {
@@ -639,7 +641,9 @@
       "medicalProcedures": "Medical procedures",
       "medicines": "Medicines",
       "hospitals": "Hospitals",
-      "titlePictures": "Pictures"
+      "titlePictures": "Pictures",
+      "haveBIID": "I have BIID",
+      "prejudice":"Example of perseverance"
     }
   }
 }
