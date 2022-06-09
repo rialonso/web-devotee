@@ -14,7 +14,7 @@ import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service
 import { MatDialog } from '@angular/material/dialog';
 import { LoginQrCodeComponent } from 'src/app/shared/components/dialogs/login-qr-code/login-qr-code.component';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
-import { MErrors } from 'src/app/shared/model/errors/errors.model';
+import { ModelErrors } from 'src/app/shared/model/errors/errors.model';
 
 @Component({
   selector: 'app-sign-in',
@@ -27,7 +27,7 @@ export class SignInComponent implements OnInit {
   dataTexts;
   routesEnum = EnumRoutesApplication;
   formGroup: FormGroup;
-  showErrorCredentials: MErrors = INIT_DATA_ERRORS;
+  showErrorCredentials: ModelErrors = INIT_DATA_ERRORS;
   destroy$ = new ReplaySubject();
   constructor(
     public routeService: RouteService,
@@ -69,7 +69,7 @@ export class SignInComponent implements OnInit {
       signInData?.status
         ? this.stateManagementFuncServices.funcAddAllDataUser(signInData)
         : this.showErrorCredentials
-        = new MErrors(
+        = new ModelErrors(
           !signInData.status,
            this.dataTexts.errors.credentials
         )

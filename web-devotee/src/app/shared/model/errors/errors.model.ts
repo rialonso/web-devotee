@@ -1,4 +1,4 @@
-export class MErrors {
+export class ModelErrors {
   showError: boolean;
   menssage: string;
   constructor(

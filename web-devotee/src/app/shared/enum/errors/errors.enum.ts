@@ -1,6 +1,6 @@
-import { MErrors } from "../../model/errors/errors.model";
+import { ModelErrors } from "../../model/errors/errors.model";
 
-export const INIT_DATA_ERRORS: MErrors = {
+export const INIT_DATA_ERRORS: ModelErrors = {
   showError: false,
   menssage: ''
 }

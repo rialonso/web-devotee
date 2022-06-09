@@ -9,7 +9,7 @@ import { VerifyEmailService } from 'src/app/core/services/verify-email/verify-em
 import { IHeaderCardsInitialPage } from 'src/app/shared/components/header-cards-initial-page/model/header-cards.data';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { RouteService } from 'src/app/shared/functions/routes/route.service';
-import { MErrors } from 'src/app/shared/model/errors/errors.model';
+import { ModelErrors } from 'src/app/shared/model/errors/errors.model';
 import { MHeaderCardsInitialPage } from 'src/app/shared/model/header-cards-initial-page/header-cards-initial-page.enum';
 import { IAppState } from 'src/app/state-management/app.model';
 import { AddControlApp } from 'src/app/state-management/controls/copntrols-app.action';
@@ -30,7 +30,7 @@ export class RegisterComponent implements OnInit {
   enumRoute = EnumRoutesApplication;
   dataTexts
 
-  showErrorCredentials: MErrors = INIT_DATA_ERRORS;
+  showErrorCredentials: ModelErrors = INIT_DATA_ERRORS;
 
   destroy$ = new ReplaySubject();
   constructor(
@@ -98,7 +98,7 @@ export class RegisterComponent implements OnInit {
         responseVerifyEmail => {
         if (responseVerifyEmail.error.errors.email[0] === "Email já está em uso.") {
           this.showErrorCredentials
-          = new MErrors(
+          = new ModelErrors(
             true,
             this.dataTexts.errors.existingEmail
           )
