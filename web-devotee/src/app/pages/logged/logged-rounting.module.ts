@@ -1,3 +1,4 @@
+import { titleHeader } from './../../shared/components/header-cards-initial-page/model/header-cards.data';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoggedComponent } from './logged.component';
@@ -15,6 +16,10 @@ const routes: Routes = [
       {
         path: 'filters',
         loadChildren: () => import('src/app/pages/filter-preferences/filter-preferences.module').then(m => m.FilterPreferencesModule),
+      },
+      {
+        path: 'chat',
+        loadChildren: () => import('src/app/pages/chat/chat.module').then(m => m.ChatModule),
       }
     ]
   },

@@ -378,6 +378,11 @@
         "years": "anos"
       }
 
+    },
+    "chat": {
+      "matches": {
+        "title": "Meus matches"
+      }
     }
   },
   "us": {
@@ -757,6 +762,11 @@
         "minAge": "Min age",
         "maxAge": "Max age",
         "years": "years"
+      }
+    },
+    "chat": {
+      "matches": {
+        "title": "My matches"
       }
     }
   }

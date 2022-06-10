@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from 'src/app/core/services/translate/translate.service';
 
 @Component({
   selector: 'app-chat',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
-
-  constructor() { }
+  dataTexts;
+  constructor(
+    private translateService: TranslateService,
+  ) { }
 
   ngOnInit(): void {
+    this.dataTexts = this.translateService?.textTranslate;
+
   }
 
 }

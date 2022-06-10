@@ -139,7 +139,7 @@ footer{
       align-items: flex-end;
     }
     .container-footer {
-      max-width: $max-width-contents;
+      max-width: 100vw;
       width: $max-width-contents;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;

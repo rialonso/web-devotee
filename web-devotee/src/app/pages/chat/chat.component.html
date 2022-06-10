@@ -1,1 +1,60 @@
-<p>chat works!</p>
+<main id="container-chat" class="container-default-cards-register">
+  <section class="container-default-itens-chat flex-1">
+    <mat-card class="container-title-register">
+      <mat-card-title>{{dataTexts.chat.matches.title}}</mat-card-title>
+    </mat-card>
+    <mat-card class="container-type-data-default">
+      <div class="container-person-message">
+        <div class="content-person-message">
+          <section class="container-person-image">
+            <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+            <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
+              <mat-icon>
+                no_photography
+              </mat-icon>
+            </div>
+          </section>
+          <section class="container-info color-blue-dark">
+            <p class="person-name font-booster-next-bold">Name</p>
+            <p class="last-message">Ultima mensagem</p>
+          </section>
+        </div>
+      </div>
+      <div class="container-person-message">
+        <div class="content-person-message">
+          <section class="container-person-image">
+            <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+            <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
+              <mat-icon>
+                no_photography
+              </mat-icon>
+            </div>
+          </section>
+          <section class="container-info color-blue-dark">
+            <p class="person-name font-booster-next-bold">Name</p>
+            <p class="last-message">Ultima mensagem</p>
+          </section>
+        </div>
+      </div>
+    </mat-card>
+  </section>
+  <section class="container-default-itens-chat flex-2">
+    <mat-card class="container-chat-card">
+      <div class="container-person-message">
+        <section class="container-person-image">
+          <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+          <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
+            <mat-icon>
+              no_photography
+            </mat-icon>
+          </div>
+        </section>
+        <section class="container-info color-blue-dark">
+          <p class="person-name font-booster-next-bold">Name, <span>22</span></p>
+          <p class="last-message">Ultima mensagem</p>
+        </section>
+      </div>
+    </mat-card>
+  </section>
+
+</main>

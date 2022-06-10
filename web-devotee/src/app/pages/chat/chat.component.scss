@@ -1,0 +1,63 @@
+@import '_custom';
+:host {
+  height: 100%
+}
+
+#container-chat {
+  @include dp-flex-alignment(column, flex-start);
+  gap: 20px;
+  max-width: 1200px;
+  @include min-tablet {
+    @include dp-flex-alignment(row, flex-start);
+
+  }
+  .container-person-message {
+    &:not(:last-child) {
+      border-bottom: 1px solid $gray-medium;
+      padding-bottom: 10px;
+    }
+    &:not(:first-child) {
+      padding-top: 10px;
+    }
+    .container-person-image{
+      border-radius: 100%;
+      background-color: $gray-medium-soft;
+      border: 1px solid $gray-soft;
+      width: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      max-width: 50px;
+      max-height: 50px;
+      @include dp-flex-alignment();
+      @include min-tablet {
+        width: 100%;
+        max-width: 50px;
+        max-height: 50px;
+      }
+      img{
+        width: 100%;
+        max-width: 50px;
+        max-height: 50px;
+        border-radius: 10px;
+
+      }
+      mat-icon {
+        font-size: 15px;
+        width: 100%;
+        height: 100%;
+      }
+    }
+    .content-person-message {
+      @include dp-flex-alignment(row, center, flex-start);
+      gap: 20px;
+    }
+  }
+  .container-chat-card {
+    box-sizing: border-box;
+    .container-person-message {
+      @include dp-flex-alignment(row, center, flex-start);
+      gap: 20px;
+    }
+  }
+
+}
