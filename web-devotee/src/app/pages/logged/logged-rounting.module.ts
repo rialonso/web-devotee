@@ -11,6 +11,10 @@ const routes: Routes = [
       {
         path: 'settings',
         loadChildren: () => import('src/app/pages/user-configurations/user-configurations.module').then(m => m.UserConfigurationsModule),
+      },
+      {
+        path: 'filters',
+        loadChildren: () => import('src/app/pages/filter-preferences/filter-preferences.module').then(m => m.FilterPreferencesModule),
       }
     ]
   },
