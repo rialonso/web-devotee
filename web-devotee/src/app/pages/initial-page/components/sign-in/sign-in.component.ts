@@ -25,11 +25,15 @@ import { UserProfileService } from 'src/app/core/services/user-profile/user-prof
 })
 export class SignInComponent implements OnInit {
   openMobileSignIn = false;
+  loading = false;
 
   dataTexts;
   routesEnum = EnumRoutesApplication;
+
   formGroup: FormGroup;
+
   showErrorCredentials: ModelErrors = INIT_DATA_ERRORS;
+
   destroy$ = new ReplaySubject();
   constructor(
     public routeService: RouteService,
@@ -67,6 +71,7 @@ export class SignInComponent implements OnInit {
     this.dialogsService.openQrCodeSignIn();
   }
   async signIn() {
+    this.loading = true;
     if (this.formGroup.valid) {
       const signInData: IUserData.RootObject = await this.signInService.post(this.formGroup.value).toPromise();
       if (signInData?.status) {
@@ -80,6 +85,7 @@ export class SignInComponent implements OnInit {
            this.dataTexts.errors.credentials
         );
       }
+      this.loading = false;
     }
   }
 

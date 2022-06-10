@@ -18,12 +18,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HeaderLoggedComponent } from './components/header-logged/header-logged.component';
 import { RouterModule } from '@angular/router';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { PrincipalLoadingComponent } from './components/principal-loading/principal-loading.component';
 
 const components = [
   FooterComponent,
   HeaderCardsInitialPageComponent,
   CardImgTitleTextComponent,
   HeaderLoggedComponent,
+  PrincipalLoadingComponent,
 ]
 const angularMaterialModules = [
   MatInputModule,
@@ -35,6 +38,7 @@ const angularMaterialModules = [
   MatButtonModule,
   MatDialogModule,
   MatSnackBarModule,
+  MatProgressSpinnerModule,
 ]
 @NgModule({
   declarations: [
