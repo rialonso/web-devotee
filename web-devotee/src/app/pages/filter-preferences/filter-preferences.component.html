@@ -1,1 +1,128 @@
-<p>filter-preferences works!</p>
+<div id="container-filters-preferences" class="container-default-cards-register">
+  <mat-card class="container-title-register">
+    <mat-card-title>{{dataTexts.preferences.title}}</mat-card-title>
+  </mat-card>
+  <mat-card class="container-type-data-default">
+    <main class="content-preferences">
+      <section class="content-deafult-preference-sections">
+        <mat-card-title class="first-title">{{dataTexts.preferences.locale.title}}</mat-card-title>
+        <mat-slider
+        class="slider"
+        tickInterval="1000"
+        min="1"
+        max="5000"
+        #searchRadius>  </mat-slider>
+        <p class="color-blue-dark">{{dataTexts.preferences.locale.distance}} {{searchRadius.value}} {{dataTexts.preferences.locale.sufixDistance}}</p>
+      </section>
+      <section class="content-deafult-preference-sections">
+        <mat-card-title>{{dataTexts.preferences.userPreference.title}}</mat-card-title>
+        <div class="container-default-inputs-orientation">
+          <mat-form-field appearance="fill">
+            <mat-label>{{ dataTexts.inputs.filterUserType.label }}</mat-label>
+            <mat-select >
+              <mat-option
+                *ngFor="
+                  let gender
+                  of dataTexts.userTypeValues"
+                [value]="gender.value">
+                {{gender.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>{{ dataTexts.inputs.filterToGender.label }}</mat-label>
+            <mat-select >
+              <mat-option
+                *ngFor="
+                  let gender
+                  of dataTexts.genders"
+                [value]="gender.value">
+                {{gender.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="container-default-inputs-orientation">
+          <mat-form-field appearance="fill">
+            <mat-label>{{ dataTexts.inputs.filterTosexualOrientation.label }}</mat-label>
+            <mat-select >
+              <mat-option
+                *ngFor="
+                  let gender
+                  of dataTexts.sexualOrientations"
+                [value]="gender.value">
+                {{gender.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>{{ dataTexts.inputs.filterToInterestType.label }}</mat-label>
+            <mat-select >
+              <mat-option
+                *ngFor="
+                  let gender
+                  of [dataTexts.genders[0], dataTexts.genders[1]]"
+                [value]="gender.value">
+                {{gender.label}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </section>
+      <section class="content-deafult-preference-sections">
+        <mat-card-title>{{dataTexts.preferences.age.title}}</mat-card-title>
+        <div class="container-default-inputs-orientation">
+          <section class="content-age width-100-per">
+            <mat-slider
+              class="width-100-per"
+              min="18"
+              max="100"
+              #minAge>
+            </mat-slider>
+            <p class="color-blue-dark text-age">
+              {{dataTexts.preferences.age.minAge}}
+              {{minAge.value}}
+              {{dataTexts.preferences.age.years}}
+            </p>
+          </section>
+
+          <section class="content-age width-100-per">
+            <mat-slider
+              class="width-100-per"
+              min="18"
+              max="100"
+              #maxAge>
+            </mat-slider>
+            <p class="color-blue-dark text-age">
+              {{dataTexts.preferences.age.maxAge}}
+              {{maxAge.value}}
+              {{dataTexts.preferences.age.years}}
+            </p>
+
+          </section>
+
+        </div>
+      </section>
+    </main>
+  </mat-card>
+  <section class="contianer-btns">
+    <button
+      class="button-stroke-primary"
+      mat-stroked-button
+      color="primary"
+      >
+      {{ dataTexts.buttons.btnBack }}
+    </button>
+    <button
+      mat-flat-button
+      color="primary"
+        >
+
+      {{ dataTexts.buttons.btnSave }}
+    </button>
+
+  </section>
+</div>

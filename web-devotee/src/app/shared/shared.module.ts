@@ -18,8 +18,9 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { HeaderLoggedComponent } from './components/header-logged/header-logged.component';
 import { RouterModule } from '@angular/router';
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PrincipalLoadingComponent } from './components/principal-loading/principal-loading.component';
+import { MatSliderModule } from '@angular/material/slider';
 
 const components = [
   FooterComponent,
@@ -39,6 +40,7 @@ const angularMaterialModules = [
   MatDialogModule,
   MatSnackBarModule,
   MatProgressSpinnerModule,
+  MatSliderModule,
 ]
 @NgModule({
   declarations: [

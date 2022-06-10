@@ -49,7 +49,8 @@
       "btnRecover": "Recuperar senha",
       "btnBack": "Voltar",
       "btnQrCode": "Continuar com",
-      "btnGoogle": "Continuar com Google"
+      "btnGoogle": "Continuar com Google",
+      "btnSave": "Salvar"
     },
     "inputs": {
       "genericErrors": {
@@ -118,7 +119,7 @@
       },
       "sexualOrientation": {
         "label": "Orientação sexual",
-        "placeHolder": "Selecione seu orientação sexual",
+        "placeHolder": "Selecione sua orientação sexual",
         "errors" : {
           "none": "none"
         }
@@ -164,7 +165,36 @@
         "errors" : {
           "none": "none"
         }
+      },
+      "filterUserType": {
+        "label": "Tipo de usuário",
+        "placeHolder": "Selecione o tipo de usuário",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "filterToGender": {
+        "label": "Gênero de prefêrencia",
+        "placeHolder": "Selecione o gênero de prefêrencia",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "filterTosexualOrientation": {
+        "label": "Orientação sexual",
+        "placeHolder": "Selecione orientação sexual",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "filterToInterestType": {
+        "label": "Tipo de interesse",
+        "placeHolder": "",
+        "errors" : {
+          "none": "none"
+        }
       }
+
     },
     "inputsErrors": {
       "requireds" : {
@@ -279,6 +309,16 @@
         "value": "bisexual"
       }
     ],
+    "userTypeValues": [
+      {
+        "label": "Devotee",
+        "value": "Devotee"
+      },
+      {
+        "label": "Especial",
+        "value": "Special"
+      }
+    ],
     "activateLocation": {
       "title": "Ative sua localização",
       "textInfo": "Voçê pecisa ativar sua localização para usar o Devotee",
@@ -320,6 +360,24 @@
       "titlePictures": "Fotos",
       "haveBIID": "Tenho TIIC",
       "prejudice":"Exemplo de superção"
+    },
+    "preferences": {
+      "title": "Preferências",
+      "locale": {
+        "title":  "Localização",
+        "distance": "Raio de busca:",
+        "sufixDistance": "km"
+      },
+      "userPreference": {
+        "title":  "Preferências de usuário"
+      },
+      "age": {
+        "title": "Idade",
+        "minAge": "Idade mínima",
+        "maxAge": "Idade máxima",
+        "years": "anos"
+      }
+
     }
   },
   "us": {
@@ -372,7 +430,9 @@
       "btnRecover": "Recover password",
       "btnBack": "Back",
       "btnQrCode": "Continue with",
-      "btnGoogle": "Continue with Google"
+      "btnGoogle": "Continue with Google",
+      "btnSave": "Save"
+
     },
     "inputs": {
       "genericErrors": {
@@ -487,8 +547,35 @@
           "none": "none"
         }
       },
-      "inputHospitals":"Hospitals",
-      "inputMedicines":"Medical procedures"
+      "filterUserType": {
+        "label": "User type",
+        "placeHolder": "Select user type",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "filterToGender": {
+        "label": "Preference gender",
+        "placeHolder": "Select your preference gender",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "filterTosexualOrientation": {
+        "label": "Sexual orientation",
+        "placeHolder": "Enter sexual orientation of you preference",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "filterToInterestType": {
+        "label": "Interest type",
+        "placeHolder": "",
+        "errors" : {
+          "none": "none"
+        }
+      }
+
     },
     "inputsErrors": {
       "requireds" : {
@@ -603,6 +690,16 @@
         "value": "bisexual"
       }
     ],
+    "userTypeValues": [
+      {
+        "label": "Devotee",
+        "value": "Devotee"
+      },
+      {
+        "label": "Special",
+        "value": "Special"
+      }
+    ],
     "activateLocation": {
       "title": "Activate your location",
       "textInfo": "You need to enable your location in order to use Devotee",
@@ -644,6 +741,23 @@
       "titlePictures": "Pictures",
       "haveBIID": "I have BIID",
       "prejudice":"Example of perseverance"
+    },
+    "preferences": {
+      "title": "Preferences",
+      "locale": {
+        "title":  "Localization",
+        "distance": "Search radius:",
+        "sufixDistance": "mile"
+      },
+      "userPreference": {
+        "title":  "User prefenreces"
+      },
+      "age": {
+        "title": "Age",
+        "minAge": "Min age",
+        "maxAge": "Max age",
+        "years": "years"
+      }
     }
   }
 }
