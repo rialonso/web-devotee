@@ -9,7 +9,10 @@
         <mat-icon class="icon-menu-logged" >people_alt</mat-icon>
       </div>
       <div class="chat">
-        <mat-icon class="icon-menu-logged">forum</mat-icon>
+        <mat-icon
+        class="icon-menu-logged"
+        [routerLink]="['/chat']"
+        [routerLinkActive]="['icon-route-is-active']">forum</mat-icon>
       </div>
       <div class="perfil-config">
         <mat-icon
