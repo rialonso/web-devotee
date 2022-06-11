@@ -7,9 +7,16 @@
   @include dp-flex-alignment(column, flex-start);
   gap: 20px;
   max-width: 1200px;
+  padding: 0 20px;
+  box-sizing: border-box;
   @include min-tablet {
     @include dp-flex-alignment(row, flex-start);
 
+  }
+  .container-title-register {
+    min-height: 82px;
+    box-sizing: border-box;
+    @include dp-flex-alignment(row, center, flex-start);
   }
   .container-person-message {
     &:not(:last-child) {
@@ -54,10 +61,71 @@
   }
   .container-chat-card {
     box-sizing: border-box;
+    border-radius: 10px;
     .container-person-message {
       @include dp-flex-alignment(row, center, flex-start);
       gap: 20px;
     }
   }
-
+  .chat {
+    margin: 20px 0 0;
+    height: 100%;
+    border-radius: 10px;
+    @include dp-flex-alignment(column, initial, initial);
+    @include min-tablet {
+      height: 500px;
+    }
+    .mensages {
+      height: 100%;
+    }
+    .box-msgs{
+      border-radius: 20px;
+      font-size: 16px;
+      padding: 5px 10px;
+      box-shadow: 0px 3px 6px #00000029;
+      max-width: 70%;
+    }
+    .box {
+      display: flex;
+      margin-top: 10px;
+      &.recived {
+        justify-content: flex-start;
+      }
+      &.sent {
+        justify-content: flex-end;
+      }
+    }
+    .msg-recived {
+      color: $black;
+      background-color: $magenta-soft;
+    }
+    .msg-sent {
+      color: $white;
+      background-color: $blue-dark;
+    }
+    .input-sent-msg{
+      @include dp-flex-alignment(row, center, space-between);
+      border-radius: 20px;
+      border: 1px solid $blue-dark;
+      padding-right: 10px;
+      margin-top: 20px;
+      textarea:focus, input:focus{
+        outline: none;
+      }
+      input{
+        height: 30px;
+        padding: 0 5px;
+        border:none;
+        box-shadow: none;
+        background-image:none;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none;
+        background-color:transparent;
+      }
+    }
+    .btn-sent {
+      display: flex;
+      color: $blue-dark;
+    }
+  }
 }
