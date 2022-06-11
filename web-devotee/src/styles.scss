@@ -192,3 +192,33 @@ p, a {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: "Booster-next-regular", "Helvetica Neue", sans-serif; }
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+.skeleton-text {
+  content: '...';
+  width: 120px;
+  height: 15px;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+
+}
+
+.skeleton-text__body {
+  width: 75%;
+}
+
+.skeleton-footer {
+  width: 30%;
+}

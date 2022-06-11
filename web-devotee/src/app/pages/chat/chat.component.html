@@ -3,10 +3,14 @@
     <mat-card class="container-title-register">
       <mat-card-title>{{dataTexts.chat.matches.title}}</mat-card-title>
     </mat-card>
-    <mat-card class="container-type-data-default">
-      <div class="container-person-message">
+    <mat-card class="container-type-data-default container-matches">
+      <div
+        class="container-person-message"
+        *ngFor="let matche of dataMatches.data">
         <div class="content-person-message">
-          <section class="container-person-image">
+          <section
+            class="container-person-image skeleton"
+            [ngClass]="{'skeleton': matche.loading}">
             <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
             <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
               <mat-icon>
@@ -15,24 +19,12 @@
             </div>
           </section>
           <section class="container-info color-blue-dark">
-            <p class="person-name font-booster-next-bold">Name</p>
-            <p class="last-message">Ultima mensagem</p>
-          </section>
-        </div>
-      </div>
-      <div class="container-person-message">
-        <div class="content-person-message">
-          <section class="container-person-image">
-            <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
-            <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
-              <mat-icon>
-                no_photography
-              </mat-icon>
-            </div>
-          </section>
-          <section class="container-info color-blue-dark">
-            <p class="person-name font-booster-next-bold">Name</p>
-            <p class="last-message">Ultima mensagem</p>
+            <p
+              class="person-name font-booster-next-bold"
+              [ngClass]="{'skeleton skeleton-text': matche.loading}">{{ matche?.latest_message?.user?.name }}</p>
+            <p
+              class="last-message "
+              [ngClass]="{'skeleton skeleton-text': matche.loading}">{{ matche?.latest_message?.content }}</p>
           </section>
         </div>
       </div>

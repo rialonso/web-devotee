@@ -5,6 +5,8 @@ export const environment = {
     login: 'api/login',
     registerUser: 'api/users',
     updateUser: 'api/users/update',
-    listCards: 'api/cards'
+    listCards: 'api/cards',
+    userProfile: 'api/users',
+    getMatches: 'api/matches',
   }
 };
