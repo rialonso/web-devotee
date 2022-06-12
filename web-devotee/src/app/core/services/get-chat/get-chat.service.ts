@@ -15,7 +15,7 @@ export class GetChatService extends HttpService<any>{
     super(
       httpClient,
       environment.api,
-      environment.urls.getMatches,
+      environment.urls.getMatchesOrChat,
       new GetChatServiceSerializer());
   }
 }
