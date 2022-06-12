@@ -4,6 +4,7 @@ import { GetMatchesService } from 'src/app/core/services/get-matches/get-matches
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { TransformAgeService } from 'src/app/shared/functions/transform-age/transform-age.service';
 import { ModelGetMatchesResponse } from 'src/app/shared/model/response/get-matches/get-matches.response';
+import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { EnumParamsChat } from './enum/params-chat.enum';
 
 @Component({
@@ -17,6 +18,7 @@ export class ChatComponent implements OnInit {
   dataChat: any;
   matchId: number;
   userId: number;
+  userData: IUserData.RootObject;
   constructor(
     private translateService: TranslateService,
     private getMatchesService: GetMatchesService,
@@ -51,8 +53,9 @@ export class ChatComponent implements OnInit {
     const dataChatOpened = await this.getChatService.get(false, params).toPromise();
     this.dataChat = dataChatOpened;
   }
-  showChat(matchId: number) {
-    this.matchId = matchId;
-    this.getChat(matchId);
+  showChat(match) {
+    this.matchId = match.match_id;
+    this.userData = match.target_user;
+    this.getChat(this.matchId);
   }
 }

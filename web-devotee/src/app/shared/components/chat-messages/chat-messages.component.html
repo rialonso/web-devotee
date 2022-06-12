@@ -1,5 +1,36 @@
-<mat-card class="chat" >
-  <div class="mensages">
+
+<mat-card class="container-chat-card">
+  <mat-card-title *ngIf="!dataChat">Chat</mat-card-title>
+
+  <div class="container-person-message" *ngIf="dataChat">
+    <section class="container-person-image">
+      <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+      <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
+        <mat-icon>
+          no_photography
+        </mat-icon>
+      </div>
+    </section>
+    <section class="container-info color-blue-dark">
+      <p class="person-name font-booster-next-bold">
+        {{userData.name}}
+        <span
+          *ngIf="userData.birthdate">,
+          {{transformAge(userData.birthdate)}}
+        </span>
+      </p>
+      <p class="last-message">{{userData?.account_type}}</p>
+    </section>
+  </div>
+</mat-card>
+<mat-card class="chat dont-have"  *ngIf="!dataChat">
+  <mat-icon class="dont-message-icon">message</mat-icon>
+  <p>Selecione uma pessoa para ver as mensagens </p>
+</mat-card>
+
+<mat-card class="chat" *ngIf="dataChat">
+
+  <div class="mensages" >
     <section *ngFor="let message of dataChat?.data.reverse()">
       <div
         class="box"
@@ -16,7 +47,7 @@
       </div>
     </section>
   </div>
-  <div class="input-sent-msg">
+  <div class="input-sent-msg" *ngIf="dataChat">
     <input type="text">
     <div class="btn-sent">
       <mat-icon>send</mat-icon>

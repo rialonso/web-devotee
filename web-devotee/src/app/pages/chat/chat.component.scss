@@ -1,6 +1,8 @@
 @import '_custom';
 :host {
-  height: 100%
+  height: 100%;
+  background-color: $gray-ultra-light-soft;
+
 }
 
 #container-chat {
@@ -10,7 +12,7 @@
   padding: 20px;
   box-sizing: border-box;
   height: 100%;
-  margin: 0;
+  margin: auto;
   @include min-tablet {
     @include dp-flex-alignment(row, flex-start);
 
@@ -70,12 +72,5 @@
       gap: 20px;
     }
   }
-  .container-chat-card {
-    box-sizing: border-box;
-    border-radius: 10px;
-    .container-person-message {
-      @include dp-flex-alignment(row, center, flex-start);
-      gap: 20px;
-    }
-  }
+
 }

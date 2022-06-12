@@ -7,7 +7,7 @@
       <div
         class="container-person-message"
         *ngFor="let matche of dataMatches.data"
-        (click)="showChat(matche.match_id)">
+        (click)="showChat(matche)">
         <div class="content-person-message cursor-pointer">
           <section
             class="container-person-image skeleton"
@@ -32,23 +32,8 @@
     </mat-card>
   </section>
   <section class="container-default-itens-chat flex-2 width-100-per">
-    <mat-card class="container-chat-card">
-      <div class="container-person-message">
-        <section class="container-person-image">
-          <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
-          <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
-            <mat-icon>
-              no_photography
-            </mat-icon>
-          </div>
-        </section>
-        <section class="container-info color-blue-dark">
-          <p class="person-name font-booster-next-bold">Name, <span>22</span></p>
-          <p class="last-message">User Type</p>
-        </section>
-      </div>
-    </mat-card>
-    <app-chat-messages [dataChat]="dataChat"></app-chat-messages>
+
+    <app-chat-messages [dataChat]="dataChat" [userData]="userData"></app-chat-messages>
   </section>
 
 </main>
