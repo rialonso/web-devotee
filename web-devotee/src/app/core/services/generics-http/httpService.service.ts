@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Resource } from 'src/app/shared/model/serializer/resource.model';
@@ -26,17 +27,28 @@ export class HttpService <T extends Resource> {
       })
   }
   }
-  get(id?: any): Observable<T> {
+  get(id?: any, params?: Params): Observable<T> {
     return this.httpClient
-      .get(this.returnUrl(id), this.options)
+      .get(
+        this.returnUrl(id),
+        {
+          ...this.options,
+          params
+        })
       .pipe(
         map((data: any) => this.serializer.toJson(data) as T),
 
         );
   }
-  post(item?: T, id?: any): Observable<T> {
+  post(item?: T, id?: any, params?: Params): Observable<T> {
     return this.httpClient
-      .post(this.returnUrl(id),this.serializer.fromJson(item), this.options )
+      .post(
+        this.returnUrl(id),
+        this.serializer.fromJson(item),
+        {
+          ...this.options,
+          params
+        })
       .pipe(map((data: any) => this.serializer.toJson(data) as T));
   }
   private returnUrl(id?: any) {
