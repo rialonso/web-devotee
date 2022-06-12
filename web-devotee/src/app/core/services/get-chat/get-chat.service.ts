@@ -15,21 +15,21 @@ export class GetChatService extends HttpService<any>{
     super(
       httpClient,
       environment.api,
-      environment.urls.getMatchesOrChat,
+      environment.urls.getChat,
       new GetChatServiceSerializer());
   }
 }
 class GetChatServiceSerializer {
   constructor (
     ) {}
-  fromJson(signInData: ModelGetMatchesResponse.RootObject): ModelGetMatchesResponse.RootObject {
+  fromJson(signInData: any): any {
     if(signInData != undefined ) {
       return signInData;
     }
 
   }
 
-  toJson(signInData: ModelGetMatchesResponse.RootObject):  ModelGetMatchesResponse.RootObject {
+  toJson(signInData: any):  any {
     return signInData;
   }
 }

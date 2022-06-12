@@ -15,7 +15,7 @@ export class GetMatchesService extends HttpService<any>{
     super(
       httpClient,
       environment.api,
-      environment.urls.getMatchesOrChat,
+      environment.urls.getMatches,
       new GetMatchesSerializer());
   }
 }
