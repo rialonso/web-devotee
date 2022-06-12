@@ -21,6 +21,7 @@ import { RouterModule } from '@angular/router';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PrincipalLoadingComponent } from './components/principal-loading/principal-loading.component';
 import { MatSliderModule } from '@angular/material/slider';
+import { ChatMessagesComponent } from './components/chat-messages/chat-messages.component';
 
 const components = [
   FooterComponent,
@@ -28,6 +29,7 @@ const components = [
   CardImgTitleTextComponent,
   HeaderLoggedComponent,
   PrincipalLoadingComponent,
+  ChatMessagesComponent,
 ]
 const angularMaterialModules = [
   MatInputModule,
@@ -44,7 +46,7 @@ const angularMaterialModules = [
 ]
 @NgModule({
   declarations: [
-    ...components
+    ...components,
   ],
   imports: [
     ...angularMaterialModules,

@@ -8,7 +8,7 @@
         class="container-person-message"
         *ngFor="let matche of dataMatches.data"
         (click)="showChat(matche.match_id)">
-        <div class="content-person-message">
+        <div class="content-person-message cursor-pointer">
           <section
             class="container-person-image skeleton"
             [ngClass]="{'skeleton': matche.loading}">
@@ -48,43 +48,7 @@
         </section>
       </div>
     </mat-card>
-    <mat-card class="chat" >
-      <div class="mensages">
-        <section *ngFor="let message of dataChat?.data.reverse()">
-          <div
-            class="box"
-            [ngClass]="{
-              'sent': message.user_id === userId,
-              'recived': message.user_id !== userId
-            }">
-            <div
-              class=" box-msgs"
-              [ngClass]="{
-                'msg-sent': message.user_id === userId,
-                'msg-recived': message.user_id !== userId
-              }">{{message.content}}</div>
-          </div>
-        </section>
-        <!-- <section>
-          <div class="box recived">
-            <div class="msg-recived box-msgs">Olá, tudo bemadadada  adadsad aasdasda asd adas dad as</div>
-          </div>
-        </section>
-        <section>
-          <div class="box sent">
-            <div class="msg-sent box-msgs">Olá, tudo bemadadada  adadsad aasdasda asd adas dad as</div>
-          </div>
-        </section> -->
-
-      </div>
-      <div class="input-sent-msg">
-        <input type="text">
-        <div class="btn-sent">
-          <mat-icon>send</mat-icon>
-        </div>
-      </div>
-
-    </mat-card>
+    <app-chat-messages [dataChat]="dataChat"></app-chat-messages>
   </section>
 
 </main>

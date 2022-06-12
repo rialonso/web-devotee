@@ -1,0 +1,26 @@
+<mat-card class="chat" >
+  <div class="mensages">
+    <section *ngFor="let message of dataChat?.data.reverse()">
+      <div
+        class="box"
+        [ngClass]="{
+          'sent': message.user_id === userId,
+          'recived': message.user_id !== userId
+        }">
+        <div
+          class=" box-msgs"
+          [ngClass]="{
+            'msg-sent': message.user_id === userId,
+            'msg-recived': message.user_id !== userId
+          }">{{message.content}}</div>
+      </div>
+    </section>
+  </div>
+  <div class="input-sent-msg">
+    <input type="text">
+    <div class="btn-sent">
+      <mat-icon>send</mat-icon>
+    </div>
+  </div>
+
+</mat-card>

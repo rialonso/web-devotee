@@ -27,7 +27,6 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
     this.getMacthes();
-    this.userId = parseInt(localStorage.getItem('userId'));
   }
   private async getMacthes() {
     this.dataMatches = {
