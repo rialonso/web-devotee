@@ -29,6 +29,12 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
     this.getMacthes();
+    // setInterval(() => {
+    //   if (this.matchId) {
+    //     this.getChat(this.matchId)
+
+    //   }
+    // }, 1000);
   }
   private async getMacthes() {
     this.dataMatches = {

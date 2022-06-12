@@ -47,11 +47,11 @@
       </div>
     </section>
   </div>
-  <div class="input-sent-msg" *ngIf="dataChat">
-    <input type="text">
-    <div class="btn-sent">
+  <form [formGroup]="formGroup" class="input-sent-msg" *ngIf="dataChat">
+    <input formControlName="content" type="text" >
+    <div class="btn-sent cursor-pointer" (click)="sendMessage()">
       <mat-icon>send</mat-icon>
     </div>
-  </div>
+  </form>
 
 </mat-card>
