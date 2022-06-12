@@ -11,7 +11,7 @@ export const environment = {
     updateUser: 'api/users/update',
     listCards: 'api/cards',
     userProfile: 'api/users',
-    getMatches: 'api/matches',
+    getMatchesOrChat: 'api/matches',
   }
 };
 
