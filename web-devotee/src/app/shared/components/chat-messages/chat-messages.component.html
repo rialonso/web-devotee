@@ -1,8 +1,8 @@
 
 <mat-card class="container-chat-card">
-  <mat-card-title *ngIf="!dataChat">Chat</mat-card-title>
+  <mat-card-title *ngIf="!userData">Chat</mat-card-title>
 
-  <div class="container-person-message" *ngIf="dataChat">
+  <div class="container-person-message flex-2" *ngIf="userData">
     <section class="container-person-image">
       <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
       <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
@@ -22,6 +22,11 @@
       <p class="last-message">{{userData?.account_type}}</p>
     </section>
   </div>
+  <div class="container-close chat-mobile flex-1">
+    <mat-icon class="mat-18 cursor-pointer" (click)="closeProfile()">
+      close
+    </mat-icon>
+  </div>
 </mat-card>
 <mat-card class="chat dont-have"  *ngIf="!dataChat">
   <mat-icon class="dont-message-icon">message</mat-icon>
@@ -30,7 +35,7 @@
 
 <mat-card class="chat" *ngIf="dataChat">
 
-  <div class="mensages" >
+  <div class="menssages" *ngIf="dataChat" #chat>
     <section *ngFor="let message of dataChat?.data.reverse()">
       <div
         class="box"

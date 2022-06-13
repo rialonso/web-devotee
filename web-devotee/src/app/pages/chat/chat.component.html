@@ -22,7 +22,7 @@
           <section class="container-info color-blue-dark">
             <p
               class="person-name font-booster-next-bold"
-              [ngClass]="{'skeleton skeleton-text': matche.loading}">{{ matche?.latest_message?.user?.name }}</p>
+              [ngClass]="{'skeleton skeleton-text': matche.loading}">{{ matche?.target_user?.name }}</p>
             <p
               class="last-message "
               [ngClass]="{'skeleton skeleton-text': matche.loading}">{{ matche?.latest_message?.content }}</p>
@@ -31,12 +31,19 @@
       </div>
     </mat-card>
   </section>
-  <section class="container-default-itens-chat flex-2 width-100-per">
-
+  <section
+    class="container-default-itens-chat flex-2 width-100-per chat-section-mobile"
+    [ngClass]="{'show-chat-mobile': showChatMobile }">
+    <app-chat-messages
+      [dataChat]="dataChat"
+      [userData]="userData"
+      [matchId]="matchId"
+      (closeChatMobile)="closeChatMobile($event)"></app-chat-messages>
+  </section>
+  <section class="container-default-itens-chat flex-2 width-100-per chat-section-desktop" >
     <app-chat-messages
       [dataChat]="dataChat"
       [userData]="userData"
       [matchId]="matchId"></app-chat-messages>
   </section>
-
 </main>

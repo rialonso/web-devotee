@@ -23,7 +23,7 @@
     .container-matches {
       height: 100%;
       max-height: 600px;
-
+      min-height: 400px;
     }
   }
   .container-title-register {
@@ -72,5 +72,23 @@
       gap: 20px;
     }
   }
-
+  .chat-section-desktop {
+    display: none;
+    @include min-tablet {
+      @include dp-flex-alignment(column, initial, initial);
+    }
+  }
+  .chat-section-mobile {
+    display: none;
+  }
+  .show-chat-mobile {
+    @include dp-flex-alignment(column, initial, initial);
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: $gray-ultra-light-soft;
+    @include min-tablet {
+      display: none;
+    }
+  }
 }

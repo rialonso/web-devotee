@@ -16,8 +16,13 @@ export class ChatComponent implements OnInit {
   dataTexts;
   dataMatches: ModelGetMatchesResponse.RootObject | any;
   dataChat: any;
+
+  showChatMobile = false;
+
   matchId: number;
   userId: number;
+
+
   userData: IUserData.RootObject;
   constructor(
     private translateService: TranslateService,
@@ -63,5 +68,11 @@ export class ChatComponent implements OnInit {
     this.matchId = match.match_id;
     this.userData = match.target_user;
     this.getChat(this.matchId);
+    this.showChatMobile = true;
+  }
+  closeChatMobile(event) {
+    if (event) {
+      this.showChatMobile = !event;
+    }
   }
 }

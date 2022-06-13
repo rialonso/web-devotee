@@ -150,7 +150,7 @@ p, a {
     }
   }
 }
-.contianer-close {
+.container-close {
   width: 100%;
   @include dp-flex-alignment(row, flex-end, flex-end);
   color: $magenta-soft;
