@@ -14,10 +14,18 @@ import { EnumParamsChat } from './enum/params-chat.enum';
 })
 export class ChatComponent implements OnInit {
   dataTexts;
-  dataMatches: ModelGetMatchesResponse.RootObject | any;
+  dataMatches: ModelGetMatchesResponse.RootObject | any = {
+    data: [
+      {loading: true},
+      {loading: true},
+      {loading: true},
+      {loading: true}
+    ]
+  };
   dataChat: any;
 
   showChatMobile = false;
+  showChatLoadingAll = false;
 
   matchId: number;
   userId: number;
@@ -34,19 +42,12 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
     this.getMacthes();
-    // setInterval(() => {
-    //   if (this.matchId) {
-    //     this.getChat(this.matchId)
+    setInterval(() => {
+      this.getMacthes();
 
-    //   }
-    // }, 1000);
+    }, 10000);
   }
   private async getMacthes() {
-    this.dataMatches = {
-      data: [
-        {loading: true},{loading: true},{loading: true},{loading: true}
-      ]
-    };
     const dataMatches = await this.getMatchesService.get().toPromise();
     this.dataMatches = dataMatches;
   }
@@ -62,13 +63,24 @@ export class ChatComponent implements OnInit {
       [EnumParamsChat.MATCH_ID]: matchId,
     };
     const dataChatOpened = await this.getChatService.get(false, params).toPromise();
-    this.dataChat = dataChatOpened;
+      this.dataChat = dataChatOpened;
+      setTimeout(() => {
+        this.showChatLoadingAll = false;
+      },100);
+
+
   }
   showChat(match) {
-    this.matchId = match.match_id;
-    this.userData = match.target_user;
-    this.getChat(this.matchId);
-    this.showChatMobile = true;
+    if (this.matchId !== match.match_id) {
+      this.showChatLoadingAll = true;
+      this.showChatMobile = true;
+      this.dataChat = false;
+      this.matchId = match.match_id;
+      this.userData = match.target_user;
+    }
+    setInterval(() => {
+      this.getChat(this.matchId);
+    }, 1000);
   }
   closeChatMobile(event) {
     if (event) {

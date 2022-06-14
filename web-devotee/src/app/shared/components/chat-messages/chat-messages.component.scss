@@ -59,6 +59,11 @@
     max-height: 600px;
 
   }
+  .container-spinner-chat {
+    @include dp-flex-alignment();
+    height: 100%;
+    max-height: 478px
+  }
   &.dont-have {
     @include dp-flex-alignment(column);
     .dont-message-icon {
@@ -72,8 +77,10 @@
     height: 100%;
     padding-right: 15px;
     overflow: auto;
+    @include dp-flex-alignment(column-reverse, initial, initial);
+
     @include min-tablet {
-      max-height: 480px;
+      max-height: 478px;
 
     }
   }

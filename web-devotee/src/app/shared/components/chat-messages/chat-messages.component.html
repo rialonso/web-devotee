@@ -28,26 +28,32 @@
     </mat-icon>
   </div>
 </mat-card>
-<mat-card class="chat dont-have"  *ngIf="!dataChat">
+<mat-card class="chat dont-have"  *ngIf="!dataChat && !showChatSkeleton">
   <mat-icon class="dont-message-icon">message</mat-icon>
   <p>Selecione uma pessoa para ver as mensagens </p>
 </mat-card>
 
-<mat-card class="chat" *ngIf="dataChat">
+<mat-card class="chat" *ngIf="showChatSkeleton">
+  <div class="container-spinner-chat" *ngIf="!dataChat && showChatLoadingAll">
+    <mat-spinner ></mat-spinner>
 
-  <div class="menssages" *ngIf="dataChat" #chat>
+  </div>
+
+  <div class="menssages"*ngIf="dataChat && !showChatLoadingAll" #chat>
     <section *ngFor="let message of dataChat?.data.reverse()">
       <div
         class="box"
         [ngClass]="{
           'sent': message.user_id === userId,
           'recived': message.user_id !== userId
+
         }">
         <div
           class=" box-msgs"
           [ngClass]="{
             'msg-sent': message.user_id === userId,
             'msg-recived': message.user_id !== userId
+
           }">{{message.content}}</div>
       </div>
     </section>

@@ -93,17 +93,21 @@ export class RegisterComponent implements OnInit {
   async verifyEmail() {
     const email = this.formGroup.get('email');
     if (email.valid) {
-      this.verifyEmailService.post({email: email.value}).subscribe(
-        responseVerifyEmail => {},
-        responseVerifyEmail => {
-        if (responseVerifyEmail.error.errors.email[0] === "Email já está em uso.") {
-          this.showErrorCredentials
-          = new ModelErrors(
-            true,
-            this.dataTexts.errors.existingEmail
-          )
+      this.verifyEmailService
+        .post({email: email.value})
+        .pipe(takeUntil(this.destroy$))
+        .subscribe(
+          responseVerifyEmail => {},
+          responseVerifyEmail => {
+          if (responseVerifyEmail.error.errors.email[0] === "Email já está em uso.") {
+            this.showErrorCredentials
+            = new ModelErrors(
+              true,
+              this.dataTexts.errors.existingEmail
+            )
+          }
         }
-      });
+      );
     }
   }
 }
