@@ -39,6 +39,33 @@
     &:not(:first-child) {
       padding-top: 10px;
     }
+    .notification-chat {
+      &::after, &::before{
+        display: block;
+        position: absolute;
+      }
+      &::after{
+      content:"";
+      font-size: 20px;
+      bottom: -10px;
+      right: -10px;
+      width: 20px;
+      height: 20px;
+      border-radius: 100%;
+      z-index: 3;
+      }
+      &::before{
+        content:"";
+        top: -5px;
+        right: -5px;
+        width: 15px;
+        height: 15px;
+        border-radius: 100%;
+        background: $magenta-soft;
+        z-index: 1;
+        border: 1px solid $blue-dark;
+      }
+    }
     .container-person-image{
       border-radius: 100%;
       background-color: $gray-medium-soft;
@@ -75,6 +102,7 @@
   .chat-section-desktop {
     display: none;
     @include min-tablet {
+      z-index: 2;
       @include dp-flex-alignment(column, initial, initial);
     }
   }
@@ -86,6 +114,7 @@
     position: absolute;
     top: 0;
     right: 0;
+    z-index: 2;
     background-color: $gray-ultra-light-soft;
     @include min-tablet {
       display: none;

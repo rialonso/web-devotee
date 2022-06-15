@@ -222,3 +222,6 @@ body { margin: 0; font-family: "Booster-next-regular", "Helvetica Neue", sans-se
 .skeleton-footer {
   width: 30%;
 }
+.mat-badge.hide-text .mat-badge-content {
+  color: transparent;
+}

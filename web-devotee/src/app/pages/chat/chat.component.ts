@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { State } from '@ngrx/store';
 import { GetChatService } from 'src/app/core/services/get-chat/get-chat.service';
 import { GetMatchesService } from 'src/app/core/services/get-matches/get-matches.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { TransformAgeService } from 'src/app/shared/functions/transform-age/transform-age.service';
 import { ModelGetMatchesResponse } from 'src/app/shared/model/response/get-matches/get-matches.response';
+import { IAppState } from 'src/app/state-management/app.model';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { environment } from 'src/environments/environment';
 import { EnumParamsChat } from './enum/params-chat.enum';
@@ -34,9 +36,11 @@ export class ChatComponent implements OnInit {
   userId: number;
 
   intervalChat;
+  intervalMatches;
 
-  userData: IUserData.RootObject;
+  userMatchData: IUserData.RootObject;
   constructor(
+    protected state: State<IAppState>,
     private translateService: TranslateService,
     private getMatchesService: GetMatchesService,
     private getChatService: GetChatService,
@@ -47,10 +51,14 @@ export class ChatComponent implements OnInit {
     this.dataTexts = this.translateService?.textTranslate;
     this.getMacthes();
 
+    this.intervalMatches = setInterval(() => {
+      this.getMacthes();
+    }, 10000);
   }
   private async getMacthes() {
     const dataMatches = await this.getMatchesService.get().toPromise();
     this.dataMatches = dataMatches;
+    this.userId = this.state.getValue().userData.data?.id;
   }
   private async getChat(matchId: number, pageNumber?: number) {
     let params;
@@ -64,8 +72,6 @@ export class ChatComponent implements OnInit {
       [EnumParamsChat.MATCH_ID]: matchId,
     };
     const dataChatOpened = await this.getChatService.get(false, params).toPromise();
-    console.log('CHAT SAVED', this.dataChat, dataChatOpened);
-
     if (!this.dataChat || (this.dataChat?.data[0]?.id !== dataChatOpened?.data[0]?.id)) {
       this.dataChat = dataChatOpened;
       this.showChatLoadingAll = false;
@@ -78,7 +84,7 @@ export class ChatComponent implements OnInit {
     this.showChatMobile = true;
     this.dataChat = false;
     this.matchId = match.match_id;
-    this.userData = match.target_user;
+    this.userMatchData = match.target_user;
     this.intervalChat = setInterval(() => {
       this.getChat(this.matchId);
     }, 1000);

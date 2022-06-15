@@ -22,6 +22,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PrincipalLoadingComponent } from './components/principal-loading/principal-loading.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { ChatMessagesComponent } from './components/chat-messages/chat-messages.component';
+import { MatBadgeModule } from '@angular/material/badge';
 
 const components = [
   FooterComponent,
@@ -43,6 +44,7 @@ const angularMaterialModules = [
   MatSnackBarModule,
   MatProgressSpinnerModule,
   MatSliderModule,
+  MatBadgeModule,
 ]
 @NgModule({
   declarations: [

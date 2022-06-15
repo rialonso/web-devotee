@@ -6,13 +6,20 @@
     <mat-card class="container-type-data-default container-matches">
       <div
         class="container-person-message"
-        *ngFor="let matche of dataMatches.data"
-        (click)="showChat(matche)">
-        <div class="content-person-message cursor-pointer">
+        *ngFor="let match of dataMatches.data"
+        (click)="showChat(match)"
+        >
+        <div class="content-person-message cursor-pointer" >
           <section
-            class="container-person-image"
-            [ngClass]="{'skeleton': matche.loading}">
-            <img #profileImg [src]="urlImages + matche?.target_user?.profile_picture[0]?.path" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+            matBadge="0"
+            [matBadgeHidden]="true"
+            matBadgeSize="small"
+            class="container-person-image hide-text "
+            [ngClass]="{
+              'skeleton': match.loading,
+              'notification-chat': (!match?.latest_message?.read && !(match?.latest_message?.user_id === userId))
+            }">
+            <img #profileImg [src]="urlImages + match?.target_user?.profile_picture[0]?.path" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
             <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
               <mat-icon>
                 no_photography
@@ -22,10 +29,10 @@
           <section class="container-info color-blue-dark">
             <p
               class="person-name font-booster-next-bold"
-              [ngClass]="{'skeleton skeleton-text': matche.loading}">{{ matche?.target_user?.name }}</p>
+              [ngClass]="{'skeleton skeleton-text': match.loading}">{{ match?.target_user?.name }}</p>
             <p
               class="last-message "
-              [ngClass]="{'skeleton skeleton-text': matche.loading}">{{ matche?.latest_message?.content }}</p>
+              [ngClass]="{'skeleton skeleton-text': match.loading}">{{ match?.latest_message?.content }}</p>
           </section>
         </div>
       </div>
@@ -36,7 +43,7 @@
     [ngClass]="{'show-chat-mobile': showChatMobile }">
     <app-chat-messages
       [dataChat]="dataChat"
-      [userData]="userData"
+      [userData]="userMatchData"
       [matchId]="matchId"
       [showChatSkeleton]="showChatMobile"
       [showChatLoadingAll]=""
@@ -45,7 +52,7 @@
   <section class="container-default-itens-chat flex-2 width-100-per chat-section-desktop" >
     <app-chat-messages
       [dataChat]="dataChat"
-      [userData]="userData"
+      [userData]="userMatchData"
       [matchId]="matchId"
       [showChatSkeleton]="showChatMobile"
       [showChatLoadingAll]="showChatLoadingAll"

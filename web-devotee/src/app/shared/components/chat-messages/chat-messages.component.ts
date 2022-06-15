@@ -7,6 +7,8 @@ import { EnumParamsChat } from 'src/app/pages/chat/enum/params-chat.enum';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { TransformAgeService } from '../../functions/transform-age/transform-age.service';
 import { environment } from 'src/environments/environment';
+import { DialogsService } from '../../functions/dialogs/dialogs.service';
+import { UserProfileService } from 'src/app/core/services/user-profile/user-profile.service';
 
 @Component({
   selector: 'app-chat-messages',
@@ -36,6 +38,8 @@ export class ChatMessagesComponent implements OnInit {
     private transformAgeService: TransformAgeService,
     private sendMessagesService: SendMessageService,
     private formBuilder: FormBuilder,
+    private dialogsService: DialogsService,
+    private userProfileService: UserProfileService,
   ) { }
 
   ngOnInit(): void {
@@ -87,5 +91,9 @@ export class ChatMessagesComponent implements OnInit {
   }
   closeProfile() {
     this.closeChatMobile.emit(true);
+  }
+  async openProfile() {
+    const userData = await this.userProfileService.get(this.userData.id).toPromise();
+    this.dialogsService.openProfile(userData.data);
   }
 }

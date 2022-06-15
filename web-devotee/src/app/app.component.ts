@@ -23,8 +23,10 @@ export class AppComponent implements OnInit {
     this.getUserWithoutData();
   }
   async getUserWithoutData() {
-    const userId = parseInt(localStorage.getItem('userId'));
-    const dataUser: IUserData.RootObject = await this.userProfileService.get(userId).toPromise();
-    this.store.dispatch(new AddAllDataUser(dataUser));
+    if (localStorage.getItem('userId')) {
+      const userId = parseInt(localStorage.getItem('userId'));
+      const dataUser: IUserData.RootObject = await this.userProfileService.get(userId).toPromise();
+      this.store.dispatch(new AddAllDataUser(dataUser));
+    }
   }
 }

@@ -3,7 +3,7 @@
   <mat-card-title *ngIf="!userData">Chat</mat-card-title>
 
   <div class="container-person-message flex-2" *ngIf="userData">
-    <section class="container-person-image">
+    <section class="container-person-image cursor-pointer" (click)="openProfile()">
       <img #profileImg [src]="urlImages + userData?.profile_picture[0]?.path" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
       <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
         <mat-icon>
@@ -11,7 +11,7 @@
         </mat-icon>
       </div>
     </section>
-    <section class="container-info color-blue-dark">
+    <section class="container-info color-blue-dark cursor-pointer" (click)="openProfile()">
       <p class="person-name font-booster-next-bold">
         {{userData.name}}
         <span
@@ -57,8 +57,8 @@
 
           }">
           {{message?.content}}
-          <div class="container-image-sent-message" *ngIf="message.path">
-            <img [src]="urlImages + message.path" alt="">
+          <div class="container-image-sent-message" >
+            <img [src]="urlImages + message.path" *ngIf="message.path" alt="">
           </div>
         </div>
       </div>
