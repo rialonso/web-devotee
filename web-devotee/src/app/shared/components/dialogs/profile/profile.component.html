@@ -7,7 +7,7 @@
   <div>
     <section class="container-header">
       <div class="container-profile-image">
-        <img #profileImg [src]="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+        <img #profileImg [src]="urlImages + data?.profile_picture[0]?.path" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
         <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
           <mat-icon>
             no_photography
@@ -141,7 +141,9 @@
                     class="color-blue-dark disability-list"
                     *ngFor="let dataHosptal of data.my_hospitals">
                     <span class="bullet">•</span>
-                    <span *ngIf="languageApp === enumLanguage.PT">{{dataHosptal.hospital.name}}</span>
+                    <span>
+                      {{dataHosptal.hospital.name}}
+                    </span>
                   </div>
                   </section>
                 </div>
@@ -156,40 +158,8 @@
         </mat-card>
         <mat-card class="container-type-data-default">
           <main class="content-data-pictures">
-            <div class="container-profile-image">
-              <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
-              <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
-                <mat-icon>
-                  no_photography
-                </mat-icon>
-              </div>
-            </div>
-            <div class="container-profile-image">
-              <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
-              <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
-                <mat-icon>
-                  no_photography
-                </mat-icon>
-              </div>
-            </div>
-            <div class="container-profile-image">
-              <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
-              <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
-                <mat-icon>
-                  no_photography
-                </mat-icon>
-              </div>
-            </div>
-            <div class="container-profile-image">
-              <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
-              <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
-                <mat-icon>
-                  no_photography
-                </mat-icon>
-              </div>
-            </div>
-            <div class="container-profile-image">
-              <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+            <div class="container-profile-image" *ngFor="let picture of data.profile_picture.slice(0, 6)">
+              <img #profileImg [src]="urlImages + picture.path" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
               <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
                 <mat-icon>
                   no_photography

@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { EnumLanguages } from 'src/app/shared/enum/languages/languages.enum';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-profile',
@@ -14,6 +15,8 @@ export class ProfileComponent implements OnInit {
   languageApp;
   enumLanguage = EnumLanguages;
   age;
+
+  urlImages = environment.urlImages;
   constructor(
     private matDialogRef: MatDialogRef<ProfileComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IUserData.IData,
