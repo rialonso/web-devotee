@@ -1,6 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { GenerateHashQrcodeService } from 'src/app/core/services/generate-hash-qrcode/generate-hash-qrcode.service';
+import { ReadHashQrcodeService } from 'src/app/core/services/read-hash-qrcode/read-hash-qrcode.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 
 @Component({
@@ -19,6 +20,7 @@ export class LoginQrCodeComponent implements OnInit {
     private translateService: TranslateService,
     private matDialogRef: MatDialogRef<LoginQrCodeComponent>,
     private generateHashQrcodeService: GenerateHashQrcodeService,
+    private readHashQrcodeService: ReadHashQrcodeService,
   ) { }
 
   ngOnInit() {
@@ -33,5 +35,13 @@ export class LoginQrCodeComponent implements OnInit {
     const hashReponse = await this.generateHashQrcodeService.post().toPromise();
     this.showLoading = false;
     this.qrCodeHash = hashReponse.data.hash;
+    this.readHashQrcode();
+  }
+  async readHashQrcode() {
+    setInterval(async() => {
+      const readHashReponse = await this.readHashQrcodeService.post(this.qrCodeHash).toPromise();
+      console.log(readHashReponse);
+    }, 5000);
+
   }
 }
