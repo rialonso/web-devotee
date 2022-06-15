@@ -5,6 +5,7 @@ import { LoginQrCodeComponent } from './login-qr-code/login-qr-code.component';
 import { ActivateLocationComponent } from './activate-location/activate-location.component';
 import { ProfileComponent } from './profile/profile.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { QRCodeModule } from 'angularx-qrcode';
 
 const dialogsComponent = [
   LoginQrCodeComponent,
@@ -20,6 +21,7 @@ const dialogsComponent = [
   ],
   imports: [
     SharedModule,
+    QRCodeModule,
   ],
   exports: [
     ...dialogsComponent,

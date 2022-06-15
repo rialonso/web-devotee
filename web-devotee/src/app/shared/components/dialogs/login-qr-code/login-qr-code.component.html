@@ -13,7 +13,11 @@
      </div>
    </div>
    <div class="container-img-qr">
-     <img src="../../../assets/QRCode-criar@2x.png" alt="">
+    <mat-spinner class="spinner" *ngIf="showLoading"></mat-spinner>
+
+     <qrcode
+        *ngIf="!showLoading"
+        [qrdata]="qrCodeHash" [width]="256" [errorCorrectionLevel]="'M'" [elementType]="'svg'"></qrcode>
    </div>
    <div class="container-creat-buttons">
      <div class="create-account">
