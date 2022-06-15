@@ -4,7 +4,7 @@
 
   <div class="container-person-message flex-2" *ngIf="userData">
     <section class="container-person-image">
-      <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+      <img #profileImg [src]="urlImages + userData?.profile_picture[0]?.path" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
       <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
         <mat-icon>
           no_photography
@@ -40,7 +40,7 @@
   </div>
 
   <div class="menssages"*ngIf="dataChat && !showChatLoadingAll" #chat>
-    <section *ngFor="let message of dataChat?.data.reverse()">
+    <section *ngFor="let message of dataChat?.data">
       <div
         class="box"
         [ngClass]="{
@@ -52,9 +52,15 @@
           class=" box-msgs"
           [ngClass]="{
             'msg-sent': message.user_id === userId,
-            'msg-recived': message.user_id !== userId
+            'msg-recived': message.user_id !== userId,
+            'box-msg-image':  message.path
 
-          }">{{message.content}}</div>
+          }">
+          {{message?.content}}
+          <div class="container-image-sent-message" *ngIf="message.path">
+            <img [src]="urlImages + message.path" alt="">
+          </div>
+        </div>
       </div>
     </section>
   </div>

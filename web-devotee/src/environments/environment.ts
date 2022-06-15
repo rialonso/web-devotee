@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   api:'https://apiv2.devotee.com.br/',
+  urlImages: 'https://devote-v2.s3.sa-east-1.amazonaws.com/',
   urls: {
     login: 'api/login',
     registerUser: 'api/users',

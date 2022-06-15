@@ -12,7 +12,7 @@
           <section
             class="container-person-image"
             [ngClass]="{'skeleton': matche.loading}">
-            <img #profileImg src="" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+            <img #profileImg [src]="urlImages + matche?.target_user?.profile_picture[0]?.path" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
             <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
               <mat-icon>
                 no_photography

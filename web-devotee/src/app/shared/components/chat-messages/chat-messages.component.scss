@@ -26,8 +26,8 @@
   background-color: $gray-medium-soft;
   border: 1px solid $gray-soft;
   width: 100%;
-  padding: 20px;
   box-sizing: border-box;
+  height: 50px;
   max-width: 50px;
   max-height: 50px;
   @include dp-flex-alignment();
@@ -40,7 +40,7 @@
     width: 100%;
     max-width: 50px;
     max-height: 50px;
-    border-radius: 10px;
+    border-radius: 100%;
 
   }
   mat-icon {
@@ -85,11 +85,24 @@
     }
   }
   .box-msgs{
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 16px;
     padding: 5px 10px;
     box-shadow: 0px 3px 6px #00000029;
     max-width: 70%;
+    .container-image-sent-message {
+      max-width: 200px;
+      height: auto;
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+      }
+    }
+  }
+  .box-msg-image {
+    padding: 5px;
+
   }
   .box {
     display: flex;

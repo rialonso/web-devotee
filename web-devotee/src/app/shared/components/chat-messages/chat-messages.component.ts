@@ -6,6 +6,7 @@ import { SendMessageService } from 'src/app/core/services/send-message/send-mess
 import { EnumParamsChat } from 'src/app/pages/chat/enum/params-chat.enum';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { TransformAgeService } from '../../functions/transform-age/transform-age.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-chat-messages',
@@ -17,13 +18,16 @@ export class ChatMessagesComponent implements OnInit {
 
   @Output() closeChatMobile = new EventEmitter();
   @Input() dataChat;
-  @Input() userData;
+  @Input() userData: IUserData.IData;
   @Input() matchId;
   @Input() showChatSkeleton;
   @Input() showChatLoadingAll;
 
 
   userId: number;
+
+  urlImages = environment.urlImages;
+
 
   formGroup: FormGroup;
 
