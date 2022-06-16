@@ -7,6 +7,10 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
+import { IConfig, NgxMaskModule } from "ngx-mask";
+const maskConfig: Partial<IConfig> = {
+  validation: false,
+};
 
 @NgModule({
   declarations: [
@@ -18,6 +22,8 @@ import { StoreModule } from '@ngrx/store';
     SharedModule,
     BrowserAnimationsModule,
     StoreModule.forRoot(rootReducer),
+    NgxMaskModule.forRoot(maskConfig),
+
   ],
   exports:[
     AppRoutingModule,

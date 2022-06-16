@@ -138,6 +138,13 @@
           "none": "none"
         }
       },
+      "birthdate": {
+        "label": "data de nascimento",
+        "placeHolder": "DD/MM/YYYY",
+        "errors" : {
+          "none": "none"
+        }
+      },
       "selectICD": {
         "label": "Classificação Internacional de Doenças (CID)",
         "placeHolder": "Selecion as CIDs",
@@ -520,6 +527,13 @@
       "address": {
         "label": "Address, Street, Avenue, etc",
         "placeHolder": "Enter your location",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "birthdate": {
+        "label": "Enter your birthdate",
+        "placeHolder": "MM/DD/YYYY",
         "errors" : {
           "none": "none"
         }

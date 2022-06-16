@@ -1,9 +1,10 @@
+import { StateManagementFuncService } from 'src/app/shared/functions/state-management/state-management-func.service';
 import { State, Store } from '@ngrx/store';
-import { Component, forwardRef, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { IAppState } from 'src/app/state-management/app.model';
 import { ImagesTypes } from './enum/images-type.enum';
-import { FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { nameValidatorSpecialCharacteres } from 'src/app/shared/validators/name/name-special-characteres.validator';
 import { nameValidatorFormatInvalid } from 'src/app/shared/validators/name/name-format-invalid.validator';
 import { ErrorsEnum } from 'src/app/shared/enum/errors/errors.enum';
@@ -12,6 +13,9 @@ import { RouteService } from 'src/app/shared/functions/routes/route.service';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
 import moment from 'moment';
+import { ChangeMaskService } from 'src/app/shared/functions/change-mask/change-mask.service';
+import { EnumLanguages } from 'src/app/shared/enum/languages/languages.enum';
+import { EnumFormatsInputs } from 'src/app/shared/enum/formats-inputs/formats-inputs.enum';
 
 @Component({
   selector: 'app-register-data',
@@ -41,6 +45,8 @@ export class RegisterDataComponent implements OnInit {
     private formBuilder: FormBuilder,
     private routeService: RouteService,
     private dialogsService: DialogsService,
+    private changeMaskService: ChangeMaskService,
+    private stateManagementFuncService: StateManagementFuncService
   ) {
     this.dataTexts = this.translateService?.textTranslate;
     const currentYear = new Date().getFullYear();
@@ -50,7 +56,6 @@ export class RegisterDataComponent implements OnInit {
   ngOnInit() {
     this.initForm();
     this.changeConfigToBirthdate()
-
     if (this.state.getValue()?.registerData?.account_type === EnumUserType.SPECIAL) {
         this.specialAccount = true;
       this.addControlsTypeSpecial();
@@ -113,6 +118,8 @@ export class RegisterDataComponent implements OnInit {
   }
   changeConfigToBirthdate() {
     console.log(this.minDate);
+  }
+  changeBirthDateMask() {
 
   }
   selectedImage(files: File, imageType: ImagesTypes) {
@@ -193,5 +200,10 @@ export class RegisterDataComponent implements OnInit {
    setSpecifyValueInRegisterState(key: string, value: any) {
     this.formGroup.get(key).setValue(value);
   }
-
+  dateSelected(event) {
+    const dateMoment = moment(event.value);
+    const birthDateFormated = dateMoment.format(this.changeMaskService.changeMaskBirthDate());
+    this.stateManagementFuncService.funcAddDataRegister(dateMoment.format(EnumFormatsInputs.dateToSend))
+    this.setSpecifyValueInRegisterState('birthdate', birthDateFormated);
+  }
 }
