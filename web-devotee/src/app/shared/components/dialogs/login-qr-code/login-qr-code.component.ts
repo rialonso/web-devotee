@@ -14,7 +14,7 @@ export class LoginQrCodeComponent implements OnInit {
   showLoading = false;
 
   qrCodeHash: string;
-
+  intervalValidadeHash;
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private translateService: TranslateService,
@@ -29,6 +29,7 @@ export class LoginQrCodeComponent implements OnInit {
   }
   onNoClick(){
     this.matDialogRef.close();
+    clearInterval(this.intervalValidadeHash)
   }
   async generateHashToQrcode() {
     this.showLoading = true;
@@ -38,7 +39,7 @@ export class LoginQrCodeComponent implements OnInit {
     this.readHashQrcode();
   }
   async readHashQrcode() {
-    setInterval(async() => {
+     this.intervalValidadeHash = setInterval(async() => {
       const readHashReponse = await this.readHashQrcodeService.post(this.qrCodeHash).toPromise();
       console.log(readHashReponse);
     }, 5000);
