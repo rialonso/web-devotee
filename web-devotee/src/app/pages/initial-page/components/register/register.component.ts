@@ -13,6 +13,7 @@ import { ModelErrors } from 'src/app/shared/model/errors/errors.model';
 import { MHeaderCardsInitialPage } from 'src/app/shared/model/header-cards-initial-page/header-cards-initial-page.enum';
 import { IAppState } from 'src/app/state-management/app.model';
 import { AddControlApp } from 'src/app/state-management/controls/copntrols-app.action';
+import { AddDataRegister } from 'src/app/state-management/register/register.action';
 
 @Component({
   selector: 'app-register',
@@ -109,5 +110,9 @@ export class RegisterComponent implements OnInit {
         }
       );
     }
+  }
+  continueToRegister() {
+    this.store.dispatch(new AddDataRegister(this.formGroup.value));
+    this.navigateTo(EnumRoutesApplication.REGISTER_USER_DATA);
   }
 }
