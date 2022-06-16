@@ -1,9 +1,9 @@
 import { State, Store } from '@ngrx/store';
-import { Component, OnInit } from '@angular/core';
+import { Component, forwardRef, OnInit } from '@angular/core';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { IAppState } from 'src/app/state-management/app.model';
 import { ImagesTypes } from './enum/images-type.enum';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 import { nameValidatorSpecialCharacteres } from 'src/app/shared/validators/name/name-special-characteres.validator';
 import { nameValidatorFormatInvalid } from 'src/app/shared/validators/name/name-format-invalid.validator';
 import { ErrorsEnum } from 'src/app/shared/enum/errors/errors.enum';
@@ -11,6 +11,7 @@ import { EnumUserType } from 'src/app/shared/enum/user-types/user-type.enum';
 import { RouteService } from 'src/app/shared/functions/routes/route.service';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
+import moment from 'moment';
 
 @Component({
   selector: 'app-register-data',
@@ -30,6 +31,9 @@ export class RegisterDataComponent implements OnInit {
   formGroup: FormGroup;
   specialAccount = false;
   showWasBorn = false;
+
+  minDate;
+  maxDate;
   constructor(
     protected store: Store,
     protected state: State<IAppState>,
@@ -39,10 +43,14 @@ export class RegisterDataComponent implements OnInit {
     private dialogsService: DialogsService,
   ) {
     this.dataTexts = this.translateService?.textTranslate;
-
+    const currentYear = new Date().getFullYear();
+    this.minDate = moment().subtract(100, 'years').toDate();
+    this.maxDate = moment().subtract(18, 'years').toDate();
   }
   ngOnInit() {
     this.initForm();
+    this.changeConfigToBirthdate()
+
     if (this.state.getValue()?.registerData?.account_type === EnumUserType.SPECIAL) {
         this.specialAccount = true;
       this.addControlsTypeSpecial();
@@ -103,7 +111,10 @@ export class RegisterDataComponent implements OnInit {
 
     })
   }
+  changeConfigToBirthdate() {
+    console.log(this.minDate);
 
+  }
   selectedImage(files: File, imageType: ImagesTypes) {
     const controlPictures = this.formGroup.get('profile_picture');
     if (files && files[0]) {
@@ -182,4 +193,5 @@ export class RegisterDataComponent implements OnInit {
    setSpecifyValueInRegisterState(key: string, value: any) {
     this.formGroup.get(key).setValue(value);
   }
+
 }
