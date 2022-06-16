@@ -46,7 +46,8 @@ export class RegisterDataComponent implements OnInit {
     if (this.state.getValue()?.registerData?.account_type === EnumUserType.SPECIAL) {
         this.specialAccount = true;
       this.addControlsTypeSpecial();
-    }
+    };
+    this.getEmailWithPreRegister();
   }
   private initForm() {
     this.formGroup = this.formBuilder.group({
@@ -68,6 +69,12 @@ export class RegisterDataComponent implements OnInit {
       ],
       occupation: [
         ''
+      ],
+      birthdate: [
+        '',
+        [
+          Validators.required,
+        ]
       ],
       gender: [
         '',
@@ -167,5 +174,12 @@ export class RegisterDataComponent implements OnInit {
     this.formGroup.get('show_as_gender').setValue(value);
     this.showWasBorn = false;
     return this.showWasBorn;
+  }
+  getEmailWithPreRegister() {
+    const email = this.state.getValue()?.registerData?.email;
+    this.setSpecifyValueInRegisterState('email', email);
+  }
+   setSpecifyValueInRegisterState(key: string, value: any) {
+    this.formGroup.get(key).setValue(value);
   }
 }

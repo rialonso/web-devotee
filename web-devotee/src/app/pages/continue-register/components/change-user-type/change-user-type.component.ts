@@ -49,7 +49,6 @@ export class ChangeUserTypeComponent implements OnInit {
   changeUserType(userType: EnumUserType) {
     this.userTypeChanged = userType;
     this.store.dispatch(new AddDataRegister(this.formGroup.value));
-
   }
   navigateTo(route: EnumRoutesApplication) {
     this.routeService.navigateToURL(route);

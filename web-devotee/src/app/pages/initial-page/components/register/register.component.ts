@@ -113,6 +113,6 @@ export class RegisterComponent implements OnInit {
   }
   continueToRegister() {
     this.store.dispatch(new AddDataRegister(this.formGroup.value));
-    this.navigateTo(EnumRoutesApplication.REGISTER_USER_DATA);
+    this.navigateTo(EnumRoutesApplication.REGISTER_WHO_ARE_YOU);
   }
 }

@@ -23,6 +23,8 @@ import { PrincipalLoadingComponent } from './components/principal-loading/princi
 import { MatSliderModule } from '@angular/material/slider';
 import { ChatMessagesComponent } from './components/chat-messages/chat-messages.component';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 const components = [
   FooterComponent,
@@ -45,6 +47,8 @@ const angularMaterialModules = [
   MatProgressSpinnerModule,
   MatSliderModule,
   MatBadgeModule,
+  MatDatepickerModule,
+  MatNativeDateModule,
 ]
 @NgModule({
   declarations: [
