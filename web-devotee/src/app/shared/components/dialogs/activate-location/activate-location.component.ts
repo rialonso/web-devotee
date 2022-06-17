@@ -102,14 +102,11 @@ export class ActivateLocationComponent implements OnInit {
     this.showAddManually = false;
   }
   async searchPlace(inputValue: string) {
-    console.log(inputValue);
-
     const params: Params = {
       input: inputValue,
       key: environment.googleApis.key
     }
     const places = await this.placesAutoCompleteService.getWithOutOptions(false, params).toPromise();
-    console.log(places);
     this.options = places.predictions;
   }
 }

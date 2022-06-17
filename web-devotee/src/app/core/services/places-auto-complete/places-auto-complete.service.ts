@@ -14,7 +14,7 @@ export class PlacesAutoCompleteService extends HttpService<any>{
     ) {
     super(
       httpClient,
-      environment.googleApis.api,
+      '/googleURL',
       environment.googleApis.getPlacesAutocomplete,
       new PlacesAutoCompleteSerializer());
   }

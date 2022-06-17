@@ -17,6 +17,6 @@ export const environment = {
     key: 'AIzaSyBRuDbRuGoy6vxVAYSPCRqTcKxnlTbZwVs',
     api: 'https://maps.googleapis.com/maps/',
     getAddrress: 'api/geocode/json',
-    getPlacesAutocomplete: 'googleURL/api/place/autocomplete/json'
+    getPlacesAutocomplete: 'api/place/autocomplete/json'
   }
 };
