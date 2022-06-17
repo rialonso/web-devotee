@@ -1,0 +1,20 @@
+{
+    "/api": {
+        "target": "http://34.223.220.245/",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        }
+    },
+    "/devoteeURL": {
+      "target": "http://devotee.com.br/php-devotee/",
+      "secure": false,
+      "logLevel": "debug",
+      "changeOrigin": true,
+      "pathRewrite": {
+          "^/devoteeURL": ""
+      }
+  }
+}

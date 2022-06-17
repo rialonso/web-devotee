@@ -12,7 +12,8 @@ export class LocationService {
       navigator.geolocation.getCurrentPosition(currentPosition => {
         resolve(new MLocation(
           currentPosition.coords.latitude,
-          currentPosition.coords.longitude
+          currentPosition.coords.longitude,
+          true
         ));
       }, err => {
         reject(err);

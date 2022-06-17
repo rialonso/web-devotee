@@ -51,6 +51,17 @@ export class HttpService <T extends Resource> {
         })
       .pipe(map((data: any) => this.serializer.toJson(data) as T));
   }
+  postWithOutOptions(item?: T, id?: any, params?: Params): Observable<T> {
+    return this.httpClient
+      .post(
+        this.returnUrl(id),
+        this.serializer.fromJson(item),
+        {
+          ...this.options,
+          params
+        })
+      .pipe(map((data: any) => this.serializer.toJson(data) as T));
+  }
   private returnUrl(id?: any) {
     const apiURL = `${this.api}${this.url}`;
     if (id) {

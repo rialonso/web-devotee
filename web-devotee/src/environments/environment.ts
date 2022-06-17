@@ -18,8 +18,9 @@ export const environment = {
     readHash: 'api/read-hash'
   },
   googleApis: {
-    key: 'AIzaSyCYUz4sGa9i9jwNwomxPywGVN13kMN4q3c',
-    getAddrress: 'https://maps.googleapis.com/maps/api/geocode/json'
+    key: 'AIzaSyBRuDbRuGoy6vxVAYSPCRqTcKxnlTbZwVs',
+    api: 'https://maps.googleapis.com/maps/',
+    getAddrress: 'api/geocode/json'
   }
 };
 

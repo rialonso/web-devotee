@@ -67,7 +67,13 @@
       mat-button
       class="button primary"
       (click)="activateLocation()">
-        {{dataTexts.activateLocation.buttons.activateLocation}}
+      <div class="container-spinner-btn" *ngIf="loadingGetLocation">
+        <mat-spinner class="color white" [diameter]="20"></mat-spinner>
+      </div>
+        <span *ngIf="!loadingGetLocation">
+          {{dataTexts.activateLocation.buttons.activateLocation}}
+
+        </span>
       </button>
   </footer>
 

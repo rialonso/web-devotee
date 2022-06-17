@@ -60,6 +60,18 @@
       height: 18px;
     }
   }
+  .container-spinner-btn {
+    @include dp-flex-alignment(row);
+    .color{
+      &.white {
+        &.mat-progress-spinner circle, .mat-spinner circle {
+          stroke: $white;
+        }
+      }
+
+    }
+  }
+
 }
 .container-close {
   width: 100%;

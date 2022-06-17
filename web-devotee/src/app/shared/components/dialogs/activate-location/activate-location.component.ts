@@ -1,16 +1,20 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Params } from '@angular/router';
 import { State, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
+import { GetAddressLatLongService } from 'src/app/core/services/get-address-lat-long/get-address-lat-long.service';
 import { LocationService } from 'src/app/core/services/location.service';
 import { SnackBarService } from 'src/app/core/services/snack-bar/snack-bar.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { ErrorsEnum } from 'src/app/shared/enum/errors/errors.enum';
 import { MLocation } from 'src/app/shared/model/location/location.model';
+import { ModelGetAddressLatLong } from 'src/app/shared/model/response/get-address-lat-long/getAddressLatLong.model';
 import { IAppState } from 'src/app/state-management/app.model';
 import { AddDataRegister } from 'src/app/state-management/register/register.action';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-activate-location',
@@ -21,6 +25,7 @@ export class ActivateLocationComponent implements OnInit {
   dataTexts
 
   showAddManually = false;
+  loadingGetLocation = false;
   errorsEnum = ErrorsEnum;
   formGroup: FormGroup;
   options: string[] = ['One', 'Two', 'Three'];
@@ -35,6 +40,7 @@ export class ActivateLocationComponent implements OnInit {
     private locationService: LocationService,
     private formBuilder: FormBuilder,
     private snackBarService: SnackBarService,
+    private getAddressLatLongService: GetAddressLatLongService,
   ) {
     matDialogRef.disableClose = true;
    }
@@ -68,12 +74,27 @@ export class ActivateLocationComponent implements OnInit {
     });
   }
   activateLocation() {
+    this.loadingGetLocation = true;
     this.locationService
       .getCurrentLocation()
-      .then((response: MLocation) => {
-        this.store.dispatch(new AddDataRegister(response));
+      .then(async (response: MLocation) => {
+        const params: Params = {
+          latlng: `${response.lat}, ${response.lng}`,
+          key: environment.googleApis.key
+        }
+        const address: ModelGetAddressLatLong.IRootObjetct = await this.getAddressLatLongService.get(false, params).toPromise();
+        const dataLocation = {
+          ...response,
+          address_description: address.results[0].formatted_address
+        }
+        console.log(dataLocation);
+
+        this.store.dispatch(new AddDataRegister(dataLocation));
+        this.loadingGetLocation = false;
+        this.closeModal();
       })
       .catch(reject => {
+
         const snackBarLocationBlocked = this.dataTexts.snacksBars.locationBlocked
         this.snackBarService
           .openSnackbarLocationBlocked(

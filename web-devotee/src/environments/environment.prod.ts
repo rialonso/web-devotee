@@ -12,5 +12,10 @@ export const environment = {
     getChat: 'api/match/messages',
     generateHash: 'api/create-hash',
     readHash: 'api/read-hash'
+  },
+  googleApis: {
+    key: 'AIzaSyBRuDbRuGoy6vxVAYSPCRqTcKxnlTbZwVs',
+    api: 'https://maps.googleapis.com/maps/',
+    getAddrress: 'api/geocode/json'
   }
 };
