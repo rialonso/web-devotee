@@ -82,19 +82,17 @@ export class ActivateLocationComponent implements OnInit {
           latlng: `${response.lat}, ${response.lng}`,
           key: environment.googleApis.key
         }
-        const address: ModelGetAddressLatLong.IRootObjetct = await this.getAddressLatLongService.get(false, params).toPromise();
+        const address: ModelGetAddressLatLong.IRootObjetct = await this.getAddressLatLongService.getWithOutOptions(false, params).toPromise();
         const dataLocation = {
           ...response,
           address_description: address.results[0].formatted_address
         }
-        console.log(dataLocation);
-
         this.store.dispatch(new AddDataRegister(dataLocation));
         this.loadingGetLocation = false;
         this.closeModal();
       })
       .catch(reject => {
-
+        this.loadingGetLocation = false;
         const snackBarLocationBlocked = this.dataTexts.snacksBars.locationBlocked
         this.snackBarService
           .openSnackbarLocationBlocked(
