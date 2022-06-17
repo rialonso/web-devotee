@@ -27,10 +27,11 @@
                aria-label="Number"
                matInput
                formControlName="address_description"
-               [matAutocomplete]="auto">
+               [matAutocomplete]="auto"
+               (input)="searchPlace($event.target.value)">
         <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let option of filteredStreets | async" [value]="option">
-            {{option}}
+          <mat-option *ngFor="let option of options" [value]="option">
+            {{option?.description}}
           </mat-option>
         </mat-autocomplete>
         <mat-error *ngIf="formGroup.controls.address_description.hasError(errorsEnum.REQUIRED)">

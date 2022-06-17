@@ -67,6 +67,7 @@ export class HttpService <T extends Resource> {
       .get(
         this.returnUrl(id),
         {
+          headers: {},
           params
         })
       .pipe(

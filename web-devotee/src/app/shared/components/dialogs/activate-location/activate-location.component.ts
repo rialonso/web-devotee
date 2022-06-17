@@ -13,6 +13,7 @@ import { TranslateService } from 'src/app/core/services/translate/translate.serv
 import { ErrorsEnum } from 'src/app/shared/enum/errors/errors.enum';
 import { MLocation } from 'src/app/shared/model/location/location.model';
 import { ModelGetAddressLatLong } from 'src/app/shared/model/response/google/get-address-lat-long/getAddressLatLong.model';
+import { ModelPlacesAutocomplete } from 'src/app/shared/model/response/google/get-places-autocomplete/getPlacesAutocomplete.model';
 import { IAppState } from 'src/app/state-management/app.model';
 import { AddDataRegister } from 'src/app/state-management/register/register.action';
 import { environment } from 'src/environments/environment';
@@ -29,8 +30,7 @@ export class ActivateLocationComponent implements OnInit {
   loadingGetLocation = false;
   errorsEnum = ErrorsEnum;
   formGroup: FormGroup;
-  options: string[] = ['One', 'Two', 'Three'];
-  filteredStreets: Observable<string[]>;
+  options: ModelPlacesAutocomplete.Prediction[] = [null];
 
   constructor(
     protected store: Store<IAppState>,
@@ -50,10 +50,6 @@ export class ActivateLocationComponent implements OnInit {
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
     this.initForm();
-    this.filteredStreets = this.formGroup.get('address_description')?.valueChanges.pipe(
-      startWith(''),
-      map(value => this._filter(value || '')),
-    );
   }
   initForm() {
     this.formGroup = this.formBuilder.group({
@@ -65,10 +61,6 @@ export class ActivateLocationComponent implements OnInit {
       ]
     })
 
-  }
-  private _filter(value: string): string[] {
-    const filterValue = value.toLowerCase();
-    return this.options.filter(option => option.toLowerCase().includes(filterValue));
   }
   closeModal() {
     this.matDialogRef.close(c => {
@@ -108,5 +100,16 @@ export class ActivateLocationComponent implements OnInit {
   }
   returnModal() {
     this.showAddManually = false;
+  }
+  async searchPlace(inputValue: string) {
+    console.log(inputValue);
+
+    const params: Params = {
+      input: inputValue,
+      key: environment.googleApis.key
+    }
+    const places = await this.placesAutoCompleteService.getWithOutOptions(false, params).toPromise();
+    console.log(places);
+    this.options = places.predictions;
   }
 }
