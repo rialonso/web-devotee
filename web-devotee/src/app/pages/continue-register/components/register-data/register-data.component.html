@@ -5,27 +5,6 @@
   <mat-card class="container-type-data-default">
     <main class="content-register-data">
       <form [formGroup]="formGroup">
-        <section class="container-profile-image container-register-default">
-          <mat-card-title class="m-0">{{dataTexts.iamEspecialAndDevotee.titleProfilePicture}}</mat-card-title>
-          <div class="content-picture">
-            <div class="photo-principal">
-              <label for="avatar" class="avatar cursor-pointer">
-                <mat-icon class="profile-img" *ngIf="!imagesURL?.profileURL">person</mat-icon>
-                <mat-icon class="profile-img" *ngIf="imagesURL?.profileURL">
-                  <img class="" src={{imagesURL?.profileURL}} alt="">
-                </mat-icon>
-
-              </label>
-              <input
-                type="file"
-                id="avatar"
-                name="avatar"
-                accept="image/png, image/jpeg"
-                class="input-file input-photo-principal"
-                (change)="selectedImage($event.target.files, imagesTypes.PROFILE_URL)">
-            </div>
-          </div>
-        </section>
         <section class="container-others-pictures container-register-default">
           <mat-card-title>{{dataTexts.iamEspecialAndDevotee.titleMorePictures}}</mat-card-title>
           <div class="more-pictures">
@@ -75,6 +54,21 @@
                 accept="image/png, image/jpeg"
                 class="input-file input-photo-principal"
                 (change)="selectedImage($event.target.files, imagesTypes.THIRD_IMAGE)">
+            </div>
+            <div class="more-photos flex-1 cursor-pointer" >
+              <label for="more-photos-4" class="cursor-pointer">
+                <mat-icon class="profile-img" svgIcon="camera_add_picture" *ngIf="!imagesURL?.fortyImage"></mat-icon>
+                <div class="profile-img" *ngIf="imagesURL?.fortyImage">
+                  <img class="" src={{imagesURL?.fortyImage}} alt="">
+                </div>
+              </label>
+              <input
+                type="file"
+                id="more-photos-4"
+                name="more-photos-4"
+                accept="image/png, image/jpeg"
+                class="input-file input-photo-principal"
+                (change)="selectedImage($event.target.files, imagesTypes.FORTY_IMAGE)">
             </div>
           </div>
         </section>
@@ -178,7 +172,7 @@
                 <mat-option
                   *ngFor="
                     let gender
-                    of dataTexts.genders"
+                    of dataTexts.genders.slice(0, 2)"
                   [value]="gender.value">
                   {{gender.label}}
                 </mat-option>

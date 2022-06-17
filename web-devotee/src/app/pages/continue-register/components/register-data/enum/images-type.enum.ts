@@ -3,5 +3,6 @@ export enum ImagesTypes {
   FIRST_IMAGE = 'firstImage',
   SECOND_IMAGE = 'secondImage',
   THIRD_IMAGE = 'thirdImage',
+  FORTY_IMAGE = 'fortyImage',
 
 }

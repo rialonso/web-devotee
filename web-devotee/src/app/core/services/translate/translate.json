@@ -279,7 +279,7 @@
     "iamEspecialAndDevotee": {
       "headerYourProfile":"Seu Perfil",
       "titleProfilePicture":"Foto de perfil",
-      "titleMorePictures":"Adicione mais fotos suas",
+      "titleMorePictures":"Fotos",
       "titleAboutYourself":"Sobre você",
       "titleAboutYourDisability":"Sobre sua deficiência",
       "btnNext":"Proximo"
@@ -655,7 +655,7 @@
     "iamEspecialAndDevotee":{
       "headerYourProfile":"Your profile",
       "titleProfilePicture":"Profile picture",
-      "titleMorePictures":"Add more pictures",
+      "titleMorePictures":"Pictures",
       "titleAboutYourself":"About yourself",
       "titleAboutYourDisability":"About or disability",
       "btnNext":"Proximo"

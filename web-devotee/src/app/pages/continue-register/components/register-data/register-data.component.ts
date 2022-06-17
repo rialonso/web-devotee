@@ -32,6 +32,7 @@ export class RegisterDataComponent implements OnInit {
   errorsEnum = ErrorsEnum;
   enumRouterApp = EnumRoutesApplication;
 
+  imagesList = []
   formGroup: FormGroup;
   specialAccount = false;
   showWasBorn = false;
@@ -49,18 +50,18 @@ export class RegisterDataComponent implements OnInit {
     private stateManagementFuncService: StateManagementFuncService
   ) {
     this.dataTexts = this.translateService?.textTranslate;
-    const currentYear = new Date().getFullYear();
     this.minDate = moment().subtract(100, 'years').toDate();
     this.maxDate = moment().subtract(18, 'years').toDate();
   }
   ngOnInit() {
     this.initForm();
-    this.changeConfigToBirthdate()
     if (this.state.getValue()?.registerData?.account_type === EnumUserType.SPECIAL) {
         this.specialAccount = true;
       this.addControlsTypeSpecial();
     };
     this.getEmailWithPreRegister();
+    this.openModalActivateLocation();
+
   }
   private initForm() {
     this.formGroup = this.formBuilder.group({
@@ -116,12 +117,6 @@ export class RegisterDataComponent implements OnInit {
 
     })
   }
-  changeConfigToBirthdate() {
-    console.log(this.minDate);
-  }
-  changeBirthDateMask() {
-
-  }
   selectedImage(files: File, imageType: ImagesTypes) {
     const controlPictures = this.formGroup.get('profile_picture');
     if (files && files[0]) {
@@ -129,18 +124,25 @@ export class RegisterDataComponent implements OnInit {
       const reader = new FileReader();
       reader.readAsDataURL(files[0]);
       reader.onload = (evt) => {
+        console.log(imageType);
+
         switch (imageType) {
-          case ImagesTypes.PROFILE_URL:
-            this.addImagesURL(ImagesTypes.PROFILE_URL, evt.target.result)
-            break;
           case ImagesTypes.FIRST_IMAGE:
-            this.addImagesURL(ImagesTypes.FIRST_IMAGE, evt.target.result)
+            this.addImagesURL(ImagesTypes.FIRST_IMAGE, evt.target.result);
+            this.imagesList[0] = files[0];
             break;
           case ImagesTypes.SECOND_IMAGE:
-            this.addImagesURL(ImagesTypes.SECOND_IMAGE, evt.target.result)
+            this.addImagesURL(ImagesTypes.SECOND_IMAGE, evt.target.result);
+            this.imagesList[1] = files[0];
             break;
           case ImagesTypes.THIRD_IMAGE:
-            this.addImagesURL(ImagesTypes.THIRD_IMAGE, evt.target.result)
+            this.addImagesURL(ImagesTypes.THIRD_IMAGE, evt.target.result);
+            this.imagesList[2] = files[0];
+            break;
+          case ImagesTypes.FORTY_IMAGE:
+
+            this.addImagesURL(ImagesTypes.FORTY_IMAGE, evt.target.result);
+            this.imagesList[3] = files[0];
             break;
           default:
             break;
@@ -181,7 +183,6 @@ export class RegisterDataComponent implements OnInit {
     });
   }
   continueRegister() {
-    this.openModalActivateLocation();
   }
   genderChanged(value) {
     console.log(value);

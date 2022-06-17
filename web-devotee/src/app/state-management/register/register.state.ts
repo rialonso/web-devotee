@@ -31,4 +31,36 @@ export class IRegisterUser {
 	things_i_use: string;  // default null
 	illicit_drugs: string;  // default null
 }
-export const INITIAL_STATE_REGISTER_USER: IRegisterUser = null
+export const INITIAL_STATE_REGISTER_USER: IRegisterUser = {
+  email: null,
+  password: null,
+	account_type: null,
+	name: null,
+	birthdate: null,
+	gender: null,
+	sexual_orientation: null,
+	target_gender: null,
+	relationship_type: 'all',
+	target_account_type: 'all',
+	profile_picture: null,
+	automatic_location: null,
+	lat: null,
+	lng: null,
+	notification_message: true,// pergunta unica
+	notification_match: true,
+	notification_like: true,
+	occupation: null,
+	about: null,
+	address_description: null,
+	age_min: 18,
+	age_max: 50,
+	max_distance: 10, // nao pergunta default 10km
+	show_as_gender: null,// string male, woman, trans
+	tiic: false, // default false
+	show_me: true, // default true
+	prejudice: false,  // default false
+	show_age: true,  // default true
+	show_distance: true,  // default true
+	things_i_use: null,  // default null
+	illicit_drugs: null,  // default null
+}

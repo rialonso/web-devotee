@@ -79,6 +79,7 @@
     .more-pictures {
       @include dp-flex-alignment(row, center, space-between);
       gap: 20px;
+      flex-wrap: wrap;
 
       .more-photos {
         @include dp-flex-alignment();
@@ -86,6 +87,8 @@
         border: 1px solid $gray-soft;
         border-radius: 8px;
         height: 100px;
+        min-width: 100px;
+        max-width: 100px;
         @include min-tablet {
           max-width: 180px;
         }
