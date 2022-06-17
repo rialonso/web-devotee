@@ -20,7 +20,8 @@ export const environment = {
   googleApis: {
     key: 'AIzaSyBRuDbRuGoy6vxVAYSPCRqTcKxnlTbZwVs',
     api: 'https://maps.googleapis.com/maps/',
-    getAddrress: 'api/geocode/json'
+    getAddrress: 'api/geocode/json',
+    getPlacesAutocomplete: 'api/place/autocomplete/json'
   }
 };
 

@@ -7,11 +7,12 @@ import { Observable } from 'rxjs';
 import { startWith, map } from 'rxjs/operators';
 import { GetAddressLatLongService } from 'src/app/core/services/get-address-lat-long/get-address-lat-long.service';
 import { LocationService } from 'src/app/core/services/location.service';
+import { PlacesAutoCompleteService } from 'src/app/core/services/places-auto-complete/places-auto-complete.service';
 import { SnackBarService } from 'src/app/core/services/snack-bar/snack-bar.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { ErrorsEnum } from 'src/app/shared/enum/errors/errors.enum';
 import { MLocation } from 'src/app/shared/model/location/location.model';
-import { ModelGetAddressLatLong } from 'src/app/shared/model/response/get-address-lat-long/getAddressLatLong.model';
+import { ModelGetAddressLatLong } from 'src/app/shared/model/response/google/get-address-lat-long/getAddressLatLong.model';
 import { IAppState } from 'src/app/state-management/app.model';
 import { AddDataRegister } from 'src/app/state-management/register/register.action';
 import { environment } from 'src/environments/environment';
@@ -41,6 +42,7 @@ export class ActivateLocationComponent implements OnInit {
     private formBuilder: FormBuilder,
     private snackBarService: SnackBarService,
     private getAddressLatLongService: GetAddressLatLongService,
+    private placesAutoCompleteService: PlacesAutoCompleteService,
   ) {
     matDialogRef.disableClose = true;
    }
