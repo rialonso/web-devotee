@@ -274,7 +274,9 @@
           <div class="container-default-inputs-orientation content-data-person">
             <mat-form-field appearance="fill">
               <mat-label>{{ dataTexts.inputs.selectMedications.label }}</mat-label>
-              <mat-select multiple>
+              <mat-select
+              formControlName="my_drugs"
+              multiple>
                 <mat-form-field class="example-full-width width-100-per" appearance="fill">
                   <mat-label>{{ dataTexts.inputs.searchs.medicines.label }}</mat-label>
                   <input
@@ -282,12 +284,19 @@
                     [placeholder]="dataTexts.inputs.searchs.medicines.placeholder"
                     type="name"
                     autocomplete="name"
+                    formControlName="input_my_drugs"
                     >
                 </mat-form-field>
-                <mat-option value="volvo">Volvo</mat-option>
-                <mat-option value="saab">Saab</mat-option>
-                <mat-option value="mercedes">Mercedes</mat-option>
-                <mat-option value="audi">Audi</mat-option>
+                <div *ngIf="usageLaguage === laguagesApplication.PT">
+                  <mat-option [value]="icd" *ngFor="let icd of filteredDrugs | async">
+                    {{icd.name}}
+                  </mat-option>
+                </div>
+                <div *ngIf="usageLaguage === laguagesApplication.US ">
+                  <mat-option [value]="icd" *ngFor="let icd of filteredDrugs | async">
+                    {{icd.name_en}}
+                  </mat-option>
+                </div>
               </mat-select>
             </mat-form-field>
             <mat-form-field appearance="fill">

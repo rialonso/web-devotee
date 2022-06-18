@@ -22,6 +22,7 @@ import { GetHosptalsService } from 'src/app/core/services/get-hosptals/get-hospt
 import { GetMedicalProceduresService } from 'src/app/core/services/get-medical-procedures/get-medical-procedures.service';
 import { ModelCidsResponse } from 'src/app/shared/model/response/get-cids/get-cids.model';
 import { Observable } from 'rxjs';
+import { GetMedicinesService } from 'src/app/core/services/get-medicines/get-medicines.service';
 
 @Component({
   selector: 'app-register-data',
@@ -51,6 +52,7 @@ export class RegisterDataComponent implements OnInit {
 
   filteredCids: Observable<any[]>;
   filteredMedicalProcedures: Observable<any[]>;
+  filteredDrugs: Observable<any[]>;
 
   constructor(
     protected store: Store,
@@ -64,6 +66,8 @@ export class RegisterDataComponent implements OnInit {
     private getCidsService: GetCidsService,
     private getHosptalsService: GetHosptalsService,
     private getMedicalProceduresService: GetMedicalProceduresService,
+    private getMedicinesService: GetMedicinesService,
+
 
   ) {
     this.dataTexts = this.translateService?.textTranslate;
@@ -235,6 +239,7 @@ export class RegisterDataComponent implements OnInit {
   getDatasSelectTypeSpecial() {
     this.getCids();
     this.getMedicalProcedures();
+    this.getDrugsMedicines();
   }
   async getCids() {
    const cids = await this.getCidsService.get().toPromise();
@@ -264,6 +269,21 @@ export class RegisterDataComponent implements OnInit {
           }
         }),
       );
+  }
+  async getDrugsMedicines() {
+    const responseSelect = await this.getMedicinesService.get().toPromise();
+
+    this.filteredDrugs = this.formGroup.get('input_my_drugs')?.valueChanges.pipe(
+      startWith(''),
+      map(value => {
+        const filterValue = value.toLowerCase();
+        if (this.usageLaguage === this.laguagesApplication.PT) {
+          return responseSelect.data.filter(option => option.name.toLowerCase().indexOf(filterValue.toLowerCase()) > -1);
+        } else {
+          return responseSelect.data.filter(option => option?.name_en?.toLowerCase().indexOf(filterValue.toLowerCase()) > -1);
+        }
+      }),
+    );
   }
   filterWithDescriptionOrEn(array, value) {
     if (this.usageLaguage === this.laguagesApplication.PT) {
