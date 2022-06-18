@@ -1,10 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Params } from '@angular/router';
 import { State, Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { startWith, map } from 'rxjs/operators';
 import { GetAddressLatLongService } from 'src/app/core/services/get-address-lat-long/get-address-lat-long.service';
 import { LocationService } from 'src/app/core/services/location.service';
 import { PlacesAutoCompleteService } from 'src/app/core/services/places-auto-complete/places-auto-complete.service';
@@ -33,11 +31,11 @@ export class ActivateLocationComponent implements OnInit {
   options: ModelPlacesAutocomplete.Prediction[] = [null];
 
   constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
     protected store: Store<IAppState>,
     protected state: State<IAppState>,
     private translateService: TranslateService,
     private matDialogRef: MatDialogRef<ActivateLocationComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
     private locationService: LocationService,
     private formBuilder: FormBuilder,
     private snackBarService: SnackBarService,

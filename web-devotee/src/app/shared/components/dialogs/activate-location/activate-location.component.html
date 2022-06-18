@@ -11,7 +11,7 @@
         location_on
       </mat-icon>
     </section>
-    <section *ngIf="!showAddManually" class="container-text-activate-location">
+    <section cdkFocusInitial	 *ngIf="!showAddManually" class="container-text-activate-location">
       <h2 class="font-booster-next-bold">{{ dataTexts.activateLocation.title }}</h2>
       <p>{{ dataTexts.activateLocation.textInfo }}</p>
     </section>
