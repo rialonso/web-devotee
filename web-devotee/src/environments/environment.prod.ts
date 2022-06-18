@@ -1,5 +1,9 @@
+// This file can be replaced during build by using the `fileReplacements` array.
+// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
+// The list of file replacements can be found in `angular.json`.
+
 export const environment = {
-  production: true,
+  production: false,
   api:'https://apiv2.devotee.com.br/',
   urlImages: 'https://devote-v2.s3.sa-east-1.amazonaws.com/',
   urls: {
@@ -11,7 +15,9 @@ export const environment = {
     getMatches: 'api/matches',
     getChat: 'api/match/messages',
     getHosptals: 'api/hospitals',
-
+    getCids: 'api/cid',
+    getMedicalProcedure: 'api/medical-procedures',
+    getMedicines: 'api/drugs',
     generateHash: 'api/create-hash',
     readHash: 'api/read-hash'
   },
@@ -22,3 +28,4 @@ export const environment = {
     getPlacesAutocomplete: 'api/place/autocomplete/json'
   }
 };
+
