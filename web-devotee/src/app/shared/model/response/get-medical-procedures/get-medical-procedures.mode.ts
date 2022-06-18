@@ -1,4 +1,4 @@
-declare module ModelGetMedicalProceduresReponse {
+export declare module ModelGetMedicalProceduresReponse {
 
   export interface Datum {
       id: number;

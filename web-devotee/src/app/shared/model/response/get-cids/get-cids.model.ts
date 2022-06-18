@@ -1,6 +1,6 @@
 export declare module ModelCidsResponse {
 
-  export interface Datum {
+  export interface IData {
       id: number;
       code: string;
       description: string;
@@ -16,7 +16,7 @@ export declare module ModelCidsResponse {
   export interface IRootObject {
       status: boolean;
       current_page: number;
-      data: Datum[];
+      data: IData[];
       first_page_url: string;
       from: number;
       last_page: number;

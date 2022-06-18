@@ -1,3 +1,4 @@
+import { startWith, map } from 'rxjs/operators';
 import { StateManagementFuncService } from 'src/app/shared/functions/state-management/state-management-func.service';
 import { State, Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
@@ -16,6 +17,11 @@ import moment from 'moment';
 import { ChangeMaskService } from 'src/app/shared/functions/change-mask/change-mask.service';
 import { EnumLanguages } from 'src/app/shared/enum/languages/languages.enum';
 import { EnumFormatsInputs } from 'src/app/shared/enum/formats-inputs/formats-inputs.enum';
+import { GetCidsService } from 'src/app/core/services/get-cids/get-cids.service';
+import { GetHosptalsService } from 'src/app/core/services/get-hosptals/get-hosptals.service';
+import { GetMedicalProceduresService } from 'src/app/core/services/get-medical-procedures/get-medical-procedures.service';
+import { ModelCidsResponse } from 'src/app/shared/model/response/get-cids/get-cids.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-register-data',
@@ -28,6 +34,9 @@ export class RegisterDataComponent implements OnInit {
   genderList;
   sexualOrientationList;
 
+  laguagesApplication = EnumLanguages
+  usageLaguage: string;
+
   imagesTypes = ImagesTypes;
   errorsEnum = ErrorsEnum;
   enumRouterApp = EnumRoutesApplication;
@@ -39,6 +48,10 @@ export class RegisterDataComponent implements OnInit {
 
   minDate;
   maxDate;
+
+  filteredCids: Observable<any[]>;
+  filteredMedicalProcedures: Observable<any[]>;
+
   constructor(
     protected store: Store,
     protected state: State<IAppState>,
@@ -47,17 +60,23 @@ export class RegisterDataComponent implements OnInit {
     private routeService: RouteService,
     private dialogsService: DialogsService,
     private changeMaskService: ChangeMaskService,
-    private stateManagementFuncService: StateManagementFuncService
+    private stateManagementFuncService: StateManagementFuncService,
+    private getCidsService: GetCidsService,
+    private getHosptalsService: GetHosptalsService,
+    private getMedicalProceduresService: GetMedicalProceduresService,
+
   ) {
     this.dataTexts = this.translateService?.textTranslate;
+    this.usageLaguage = translateService?.dataFormatation;
     this.minDate = moment().subtract(100, 'years').toDate();
     this.maxDate = moment().subtract(18, 'years').toDate();
   }
   ngOnInit() {
     this.initForm();
     if (this.state.getValue()?.registerData?.account_type === EnumUserType.SPECIAL) {
-        this.specialAccount = true;
+      this.specialAccount = true;
       this.addControlsTypeSpecial();
+      this.getDatasSelectTypeSpecial();
     };
     this.getEmailWithPreRegister();
     this.openModalActivateLocation();
@@ -160,9 +179,16 @@ export class RegisterDataComponent implements OnInit {
   addControlsTypeSpecial(): void {
     const controlsSpecial = [
       'my_cids',
+      'input_my_cids',
+
       'my_hospitals',
+      'input_my_hospitals',
+
       'my_drugs',
+      'input_my_drugs',
+
       'medical_procedures',
+      'input_medical_procedures',
     ]
     controlsSpecial.forEach((value: string) => {
       this.formGroup
@@ -205,5 +231,45 @@ export class RegisterDataComponent implements OnInit {
     const birthDateFormated = dateMoment.format(this.changeMaskService.changeMaskBirthDate());
     this.stateManagementFuncService.funcAddDataRegister(dateMoment.format(EnumFormatsInputs.dateToSend))
     this.setSpecifyValueInRegisterState('birthdate', birthDateFormated);
+  }
+  getDatasSelectTypeSpecial() {
+    this.getCids();
+    this.getMedicalProcedures();
+  }
+  async getCids() {
+   const cids = await this.getCidsService.get().toPromise();
+    this.filteredCids = this.formGroup.get('input_my_cids')?.valueChanges.pipe(
+      startWith(''),
+      map(value => {
+        const filterValue = value.toLowerCase();
+        if (this.usageLaguage === this.laguagesApplication.PT) {
+          return cids.data.filter(option => option.description.toLowerCase().indexOf(filterValue.toLowerCase()) > -1);
+        } else {
+          return cids.data.filter(option => option.description_en.toLowerCase().indexOf(filterValue.toLowerCase()) > -1);
+        }
+      }),
+    );
+  }
+  async getMedicalProcedures() {
+    const responseSelect = await this.getMedicalProceduresService.get().toPromise();
+
+      this.filteredMedicalProcedures = this.formGroup.get('input_medical_procedures')?.valueChanges.pipe(
+        startWith(''),
+        map(value => {
+          const filterValue = value.toLowerCase();
+          if (this.usageLaguage === this.laguagesApplication.PT) {
+            return responseSelect.data.filter(option => option.name.toLowerCase().indexOf(filterValue.toLowerCase()) > -1);
+          } else {
+            return responseSelect.data.filter(option => option?.name_en?.toLowerCase().indexOf(filterValue.toLowerCase()) > -1);
+          }
+        }),
+      );
+  }
+  filterWithDescriptionOrEn(array, value) {
+    if (this.usageLaguage === this.laguagesApplication.PT) {
+      return array.filter(option => option.description.toLowerCase().indexOf(value.toLowerCase()) > -1);
+    } else {
+      return array.filter(option => option?.description_en?.toLowerCase().indexOf(value.toLowerCase()) > -1);
+    }
   }
 }

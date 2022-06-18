@@ -216,25 +216,38 @@
           <div class="container-default-inputs-orientation content-data-person">
             <mat-form-field appearance="fill">
               <mat-label>{{ dataTexts.inputs.selectICD.label }}</mat-label>
-              <mat-select multiple>
+              <mat-select
+              formControlName="my_cids"
+              multiple>
                 <mat-form-field class="example-full-width width-100-per" appearance="fill">
                   <mat-label>{{ dataTexts.inputs.searchs.iIcd.label }}</mat-label>
                   <input
                     matInput
                     [placeholder]="dataTexts.inputs.searchs.iIcd.placeholder"
-                    type="name"
-                    autocomplete="name"
+                    formControlName="input_my_cids"
+                    type="search"
                     >
                 </mat-form-field>
-                <mat-option value="volvo">Volvo</mat-option>
-                <mat-option value="saab">Saab</mat-option>
-                <mat-option value="mercedes">Mercedes</mat-option>
-                <mat-option value="audi">Audi</mat-option>
+                <div *ngIf="usageLaguage === laguagesApplication.PT">
+                  <mat-option *ngFor="let icd of filteredCids | async">
+                    {{icd.description}}
+                  </mat-option>
+                </div>
+                <div *ngIf="usageLaguage === laguagesApplication.US ">
+                  <mat-option *ngFor="let icd of filteredCids | async">
+                    {{icd.description_en}}
+                  </mat-option>
+                </div>
+
+
               </mat-select>
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label>{{ dataTexts.inputs.selectMedicalProcedures.label }}</mat-label>
-              <mat-select multiple>
+              <mat-select
+                multiple
+                formControlName="medical_procedures"
+                (selectionChange)="select($event)">
                 <mat-form-field class="example-full-width width-100-per" appearance="fill">
                   <mat-label>{{ dataTexts.inputs.searchs.medicalProcedures.label }}</mat-label>
                   <input
@@ -242,12 +255,19 @@
                     [placeholder]="dataTexts.inputs.searchs.medicalProcedures.placeholder"
                     type="name"
                     autocomplete="name"
+                    formControlName="input_medical_procedures"
                     >
                 </mat-form-field>
-                <mat-option value="volvo">Volvo</mat-option>
-                <mat-option value="saab">Saab</mat-option>
-                <mat-option value="mercedes">Mercedes</mat-option>
-                <mat-option value="audi">Audi</mat-option>
+                <div *ngIf="usageLaguage === laguagesApplication.PT">
+                  <mat-option [value]="icd" *ngFor="let icd of filteredMedicalProcedures | async">
+                    {{icd.name}}
+                  </mat-option>
+                </div>
+                <div *ngIf="usageLaguage === laguagesApplication.US ">
+                  <mat-option [value]="icd" *ngFor="let icd of filteredMedicalProcedures | async">
+                    {{icd.name_en}}
+                  </mat-option>
+                </div>
               </mat-select>
             </mat-form-field>
           </div>
