@@ -14,6 +14,7 @@ export const environment = {
     userProfile: 'api/users',
     getMatches: 'api/matches',
     getChat: 'api/match/messages',
+    getHosptals: 'api/hospitals',
     generateHash: 'api/create-hash',
     readHash: 'api/read-hash'
   },
