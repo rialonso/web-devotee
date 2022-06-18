@@ -17,7 +17,7 @@ export class GetCidsService extends HttpService<any>{
     super(
       httpClient,
       environment.api,
-      environment.urls.getHosptals,
+      environment.urls.getCids,
       new GetCidsSerializer());
   }
 }

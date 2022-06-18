@@ -15,6 +15,9 @@ export const environment = {
     getMatches: 'api/matches',
     getChat: 'api/match/messages',
     getHosptals: 'api/hospitals',
+    getCids: 'api/cid',
+    getMedicalProcedure: 'api/medical-procedures',
+    getDrugs: 'api/drugs',
     generateHash: 'api/create-hash',
     readHash: 'api/read-hash'
   },
