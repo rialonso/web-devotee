@@ -185,7 +185,6 @@ export class RegisterDataComponent implements OnInit {
   continueRegister() {
   }
   genderChanged(value) {
-    console.log(value);
     if (value === 'trans') {
       this.showWasBorn = true;
       return this.showWasBorn;
