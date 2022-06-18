@@ -17,7 +17,7 @@ export const environment = {
     getHosptals: 'api/hospitals',
     getCids: 'api/cid',
     getMedicalProcedure: 'api/medical-procedures',
-    getDrugs: 'api/drugs',
+    getMedicines: 'api/drugs',
     generateHash: 'api/create-hash',
     readHash: 'api/read-hash'
   },
