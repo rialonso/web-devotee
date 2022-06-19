@@ -226,6 +226,7 @@
                     [placeholder]="dataTexts.inputs.searchs.iIcd.placeholder"
                     formControlName="input_my_cids"
                     type="search"
+                    (keydown)="$event.stopPropagation()"
                     >
                 </mat-form-field>
                 <div *ngIf="usageLaguage === laguagesApplication.PT">
@@ -256,16 +257,17 @@
                     type="name"
                     autocomplete="name"
                     formControlName="input_medical_procedures"
+                    (keydown)="$event.stopPropagation()"
                     >
                 </mat-form-field>
                 <div *ngIf="usageLaguage === laguagesApplication.PT">
-                  <mat-option [value]="icd" *ngFor="let icd of filteredMedicalProcedures | async">
-                    {{icd.name}}
+                  <mat-option [value]="medicalProcedure" *ngFor="let medicalProcedure of filteredMedicalProcedures | async">
+                    {{medicalProcedure.name}}
                   </mat-option>
                 </div>
                 <div *ngIf="usageLaguage === laguagesApplication.US ">
-                  <mat-option [value]="icd" *ngFor="let icd of filteredMedicalProcedures | async">
-                    {{icd.name_en}}
+                  <mat-option [value]="medicalProcedure" *ngFor="let medicalProcedure of filteredMedicalProcedures | async">
+                    {{medicalProcedure.name_en}}
                   </mat-option>
                 </div>
               </mat-select>
@@ -276,7 +278,8 @@
               <mat-label>{{ dataTexts.inputs.selectMedications.label }}</mat-label>
               <mat-select
               formControlName="my_drugs"
-              multiple>
+              multiple
+              >
                 <mat-form-field class="example-full-width width-100-per" appearance="fill">
                   <mat-label>{{ dataTexts.inputs.searchs.medicines.label }}</mat-label>
                   <input
@@ -285,23 +288,26 @@
                     type="name"
                     autocomplete="name"
                     formControlName="input_my_drugs"
+                    (keydown)="$event.stopPropagation()"
                     >
                 </mat-form-field>
                 <div *ngIf="usageLaguage === laguagesApplication.PT">
-                  <mat-option [value]="icd" *ngFor="let icd of filteredDrugs | async">
-                    {{icd.name}}
+                  <mat-option [value]="drug" *ngFor="let drug of filteredDrugs | async">
+                    {{drug.name}}
                   </mat-option>
                 </div>
                 <div *ngIf="usageLaguage === laguagesApplication.US ">
-                  <mat-option [value]="icd" *ngFor="let icd of filteredDrugs | async">
-                    {{icd.name_en}}
+                  <mat-option [value]="drug" *ngFor="let drug of filteredDrugs | async">
+                    {{drug.name_en}}
                   </mat-option>
                 </div>
               </mat-select>
             </mat-form-field>
             <mat-form-field appearance="fill">
               <mat-label>{{ dataTexts.inputs.selectHospitals.label }}</mat-label>
-              <mat-select multiple>
+              <mat-select
+              formControlName="my_hospitals"
+              multiple>
                 <mat-form-field class="example-full-width width-100-per" appearance="fill">
                   <mat-label>{{ dataTexts.inputs.searchs.hospitals.label }}</mat-label>
                   <input
@@ -309,12 +315,15 @@
                     [placeholder]="dataTexts.inputs.searchs.hospitals.placeholder"
                     type="name"
                     autocomplete="name"
+                    formControlName="input_my_hospitals"
+                    (keydown)="$event.stopPropagation()"
                     >
                 </mat-form-field>
-                <mat-option value="volvo">Volvo</mat-option>
-                <mat-option value="saab">Saab</mat-option>
-                <mat-option value="mercedes">Mercedes</mat-option>
-                <mat-option value="audi">Audi</mat-option>
+                <div>
+                  <mat-option [value]="hosptal" *ngFor="let hosptal of filteredHosptals | async">
+                    {{hosptal.name}}
+                  </mat-option>
+                </div>
               </mat-select>
             </mat-form-field>
           </div>

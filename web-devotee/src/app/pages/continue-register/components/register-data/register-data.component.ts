@@ -23,6 +23,8 @@ import { GetMedicalProceduresService } from 'src/app/core/services/get-medical-p
 import { ModelCidsResponse } from 'src/app/shared/model/response/get-cids/get-cids.model';
 import { Observable } from 'rxjs';
 import { GetMedicinesService } from 'src/app/core/services/get-medicines/get-medicines.service';
+import { EnumItensResponseTypeSpecial } from './enum/itens-response.enum';
+import { Params } from '@angular/router';
 
 @Component({
   selector: 'app-register-data',
@@ -53,6 +55,7 @@ export class RegisterDataComponent implements OnInit {
   filteredCids: Observable<any[]>;
   filteredMedicalProcedures: Observable<any[]>;
   filteredDrugs: Observable<any[]>;
+  filteredHosptals: Observable<any[]>;
 
   constructor(
     protected store: Store,
@@ -209,7 +212,7 @@ export class RegisterDataComponent implements OnInit {
       .openActivateLocation()
       .afterClosed()
       .subscribe( c => {
-
+        this.getHosptals();
     });
   }
   continueRegister() {
@@ -240,6 +243,7 @@ export class RegisterDataComponent implements OnInit {
     this.getCids();
     this.getMedicalProcedures();
     this.getDrugsMedicines();
+
   }
   async getCids() {
    const cids = await this.getCidsService.get().toPromise();
@@ -247,11 +251,10 @@ export class RegisterDataComponent implements OnInit {
       startWith(''),
       map(value => {
         const filterValue = value.toLowerCase();
-        if (this.usageLaguage === this.laguagesApplication.PT) {
-          return cids.data.filter(option => option.description.toLowerCase().indexOf(filterValue.toLowerCase()) > -1);
-        } else {
-          return cids.data.filter(option => option.description_en.toLowerCase().indexOf(filterValue.toLowerCase()) > -1);
-        }
+        return this.filterWithDescriptionOrEn(
+          cids.data, filterValue,
+          EnumItensResponseTypeSpecial.DESCRIPTION,
+          EnumItensResponseTypeSpecial.DESCRIPTION_EN);
       }),
     );
   }
@@ -262,11 +265,10 @@ export class RegisterDataComponent implements OnInit {
         startWith(''),
         map(value => {
           const filterValue = value.toLowerCase();
-          if (this.usageLaguage === this.laguagesApplication.PT) {
-            return responseSelect.data.filter(option => option.name.toLowerCase().indexOf(filterValue.toLowerCase()) > -1);
-          } else {
-            return responseSelect.data.filter(option => option?.name_en?.toLowerCase().indexOf(filterValue.toLowerCase()) > -1);
-          }
+          return this.filterWithDescriptionOrEn(
+            responseSelect.data, filterValue,
+            EnumItensResponseTypeSpecial.NAME,
+            EnumItensResponseTypeSpecial.NAME_EN);
         }),
       );
   }
@@ -277,19 +279,38 @@ export class RegisterDataComponent implements OnInit {
       startWith(''),
       map(value => {
         const filterValue = value.toLowerCase();
-        if (this.usageLaguage === this.laguagesApplication.PT) {
-          return responseSelect.data.filter(option => option.name.toLowerCase().indexOf(filterValue.toLowerCase()) > -1);
-        } else {
-          return responseSelect.data.filter(option => option?.name_en?.toLowerCase().indexOf(filterValue.toLowerCase()) > -1);
-        }
+        return this.filterWithDescriptionOrEn(
+            responseSelect.data, filterValue,
+            EnumItensResponseTypeSpecial.NAME,
+            EnumItensResponseTypeSpecial.NAME_EN);
       }),
     );
   }
-  filterWithDescriptionOrEn(array, value) {
+  async getHosptals(pg = 1) {
+    const registerData = this.state.getValue().registerData;
+
+    const params: Params = {
+      lat: registerData.lat,
+      lng: registerData.lng,
+      page: pg
+    }
+    console.log(params);
+
+    const responseSelect = await this.getHosptalsService.get(false, params).toPromise();
+
+    this.filteredHosptals = this.formGroup.get('input_my_hospitals')?.valueChanges.pipe(
+      startWith(''),
+      map(value => {
+        const filterValue = value.toLowerCase();
+        return responseSelect.data.filter(option => option[EnumItensResponseTypeSpecial.NAME].toLowerCase().indexOf(filterValue.toLowerCase()) > -1);
+      }),
+    );
+  }
+  filterWithDescriptionOrEn(array, value, keyOptionPt, keyOptionEn) {
     if (this.usageLaguage === this.laguagesApplication.PT) {
-      return array.filter(option => option.description.toLowerCase().indexOf(value.toLowerCase()) > -1);
+      return array.filter(option => option[keyOptionPt].toLowerCase().indexOf(value.toLowerCase()) > -1);
     } else {
-      return array.filter(option => option?.description_en?.toLowerCase().indexOf(value.toLowerCase()) > -1);
+      return array.filter(option => option[keyOptionEn].toLowerCase().indexOf(value.toLowerCase()) > -1);
     }
   }
 }
