@@ -19,7 +19,8 @@ export const environment = {
     getMedicalProcedure: 'api/medical-procedures',
     getMedicines: 'api/drugs',
     generateHash: 'api/create-hash',
-    readHash: 'api/read-hash'
+    readHash: 'api/read-hash',
+    profilePictures: 'api/user/pictures'
   },
   googleApis: {
     key: 'AIzaSyBRuDbRuGoy6vxVAYSPCRqTcKxnlTbZwVs',

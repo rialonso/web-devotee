@@ -25,6 +25,11 @@ import { Observable } from 'rxjs';
 import { GetMedicinesService } from 'src/app/core/services/get-medicines/get-medicines.service';
 import { EnumItensResponseTypeSpecial } from './enum/itens-response.enum';
 import { Params } from '@angular/router';
+import { AddDataRegister } from 'src/app/state-management/register/register.action';
+import { RegisterService } from 'src/app/core/services/register/register.service';
+import { ProfilePicturesService } from 'src/app/core/services/profile-pictures/profile-pictures.service';
+import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-register-data',
@@ -44,13 +49,14 @@ export class RegisterDataComponent implements OnInit {
   errorsEnum = ErrorsEnum;
   enumRouterApp = EnumRoutesApplication;
 
-  imagesList = []
+  imagesList: Set<File>;
   formGroup: FormGroup;
   specialAccount = false;
   showWasBorn = false;
 
   minDate;
   maxDate;
+  dateFormatedToSend;
 
   filteredCids: Observable<any[]>;
   filteredMedicalProcedures: Observable<any[]>;
@@ -70,6 +76,9 @@ export class RegisterDataComponent implements OnInit {
     private getHosptalsService: GetHosptalsService,
     private getMedicalProceduresService: GetMedicalProceduresService,
     private getMedicinesService: GetMedicinesService,
+    private registerService: RegisterService,
+    private profilePicturesService: ProfilePicturesService,
+    private httpCliente: HttpClient,
 
 
   ) {
@@ -87,7 +96,6 @@ export class RegisterDataComponent implements OnInit {
     };
     this.getEmailWithPreRegister();
     this.openModalActivateLocation();
-
   }
   private initForm() {
     this.formGroup = this.formBuilder.group({
@@ -151,15 +159,19 @@ export class RegisterDataComponent implements OnInit {
       reader.readAsDataURL(files[0]);
       reader.onload = (evt) => {
         console.log(imageType);
-
+        this.imagesList = new Set();
         switch (imageType) {
           case ImagesTypes.FIRST_IMAGE:
             this.addImagesURL(ImagesTypes.FIRST_IMAGE, evt.target.result);
-            this.imagesList[0] = files[0];
+            this.imagesList.add(files[0])
+
+            // this.imagesList = files[0];
             break;
           case ImagesTypes.SECOND_IMAGE:
             this.addImagesURL(ImagesTypes.SECOND_IMAGE, evt.target.result);
-            this.imagesList[1] = files[0];
+            this.imagesList.add(files[0])
+
+            // this.imagesList[1] = files[0];
             break;
           case ImagesTypes.THIRD_IMAGE:
             this.addImagesURL(ImagesTypes.THIRD_IMAGE, evt.target.result);
@@ -198,10 +210,29 @@ export class RegisterDataComponent implements OnInit {
       'input_medical_procedures',
     ]
     controlsSpecial.forEach((value: string) => {
-      this.formGroup
+      if (value.includes('input_')) {
+        this.formGroup
+        .addControl(
+          value,
+          this.formBuilder.control(''));
+      }else {
+        this.formGroup
         .addControl(
           value,
           this.formBuilder.control('', Validators.required));
+      }
+
+    });
+  }
+  removeControlsIputSearchSpecialThings() {
+    const controlsSpecial = [
+      'input_my_cids',
+      'input_my_hospitals',
+      'input_my_drugs',
+      'input_medical_procedures',
+    ]
+    controlsSpecial.forEach((value: string) => {
+      this.formGroup.removeControl(value);
     });
   }
   navigateTo(route: EnumRoutesApplication) {
@@ -215,8 +246,34 @@ export class RegisterDataComponent implements OnInit {
         this.getHosptals();
     });
   }
-  continueRegister() {
+  async continueRegister() {
+    this.removeControlsIputSearchSpecialThings();
+    this.store.dispatch(new AddDataRegister({
+      ...this.formGroup.value,
+      birthdate: this.dateFormatedToSend,
+    }));
+    console.log(this.imagesList);
+    // const reponseRegister = await this.registerService.post(this.state.getValue().registerData).toPromise();
+    console.log({image: this.imagesList});
+    const formData = new FormData();
+    // this.imagesList.forEach(file => formData.append('image', file, file.name));
+    const resquest = new HttpRequest('POST', environment.api + environment.urls.profilePictures, {image: this.imagesList}, {
+
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${localStorage?.getItem('access_token')}`,
+        'Content-Type': 'multipart/form-data',
+        'content-type': 'multipart/form-data'
+      }),
+
+    });
+    this.httpCliente.request(resquest).subscribe(res => console.log(res)
+    );
+    // await this.profilePicturesService.post({image: this.imagesList}).toPromise();
+
+    // console.log(this.state.getValue().registerData, reponseRegister);
+
   }
+
   genderChanged(value) {
     if (value === 'trans') {
       this.showWasBorn = true;
@@ -230,13 +287,13 @@ export class RegisterDataComponent implements OnInit {
     const email = this.state.getValue()?.registerData?.email;
     this.setSpecifyValueInRegisterState('email', email);
   }
-   setSpecifyValueInRegisterState(key: string, value: any) {
+  setSpecifyValueInRegisterState(key: string, value: any) {
     this.formGroup.get(key).setValue(value);
   }
   dateSelected(event) {
     const dateMoment = moment(event.value);
     const birthDateFormated = dateMoment.format(this.changeMaskService.changeMaskBirthDate());
-    this.stateManagementFuncService.funcAddDataRegister(dateMoment.format(EnumFormatsInputs.dateToSend))
+    this.dateFormatedToSend = dateMoment.format(EnumFormatsInputs.dateToSend)
     this.setSpecifyValueInRegisterState('birthdate', birthDateFormated);
   }
   getDatasSelectTypeSpecial() {
@@ -288,14 +345,11 @@ export class RegisterDataComponent implements OnInit {
   }
   async getHosptals(pg = 1) {
     const registerData = this.state.getValue().registerData;
-
     const params: Params = {
       lat: registerData.lat,
       lng: registerData.lng,
       page: pg
     }
-    console.log(params);
-
     const responseSelect = await this.getHosptalsService.get(false, params).toPromise();
 
     this.filteredHosptals = this.formGroup.get('input_my_hospitals')?.valueChanges.pipe(

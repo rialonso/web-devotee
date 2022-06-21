@@ -230,12 +230,12 @@
                     >
                 </mat-form-field>
                 <div *ngIf="usageLaguage === laguagesApplication.PT">
-                  <mat-option *ngFor="let icd of filteredCids | async">
+                  <mat-option [value]="icd" *ngFor="let icd of filteredCids | async">
                     {{icd.description}}
                   </mat-option>
                 </div>
                 <div *ngIf="usageLaguage === laguagesApplication.US ">
-                  <mat-option *ngFor="let icd of filteredCids | async">
+                  <mat-option [value]="icd" *ngFor="let icd of filteredCids | async">
                     {{icd.description_en}}
                   </mat-option>
                 </div>
@@ -248,7 +248,7 @@
               <mat-select
                 multiple
                 formControlName="medical_procedures"
-                (selectionChange)="select($event)">
+                >
                 <mat-form-field class="example-full-width width-100-per" appearance="fill">
                   <mat-label>{{ dataTexts.inputs.searchs.medicalProcedures.label }}</mat-label>
                   <input
@@ -339,10 +339,11 @@
       (click)="navigateTo(enumRouterApp.REGISTER_WHO_ARE_YOU)">
       {{ dataTexts.buttons.btnBack }}
     </button>
+  <!--       [disabled]="formGroup.invalid"
+ -->
     <button
       mat-flat-button
       color="primary"
-      [disabled]="formGroup.invalid"
       (click)="continueRegister()">
       {{ dataTexts.buttons.btnContinue }}
     </button>
