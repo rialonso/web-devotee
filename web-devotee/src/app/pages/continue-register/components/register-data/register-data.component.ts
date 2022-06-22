@@ -30,6 +30,7 @@ import { RegisterService } from 'src/app/core/services/register/register.service
 import { ProfilePicturesService } from 'src/app/core/services/profile-pictures/profile-pictures.service';
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { GetSelectsSpecialPersonService } from 'src/app/shared/functions/get-selects-special-person/get-selects-special-person.service';
 
 @Component({
   selector: 'app-register-data',
@@ -49,7 +50,7 @@ export class RegisterDataComponent implements OnInit {
   errorsEnum = ErrorsEnum;
   enumRouterApp = EnumRoutesApplication;
 
-  imagesList: Set<File>;
+  imagesList = [];
   formGroup: FormGroup;
   specialAccount = false;
   showWasBorn = false;
@@ -72,13 +73,10 @@ export class RegisterDataComponent implements OnInit {
     private dialogsService: DialogsService,
     private changeMaskService: ChangeMaskService,
     private stateManagementFuncService: StateManagementFuncService,
-    private getCidsService: GetCidsService,
-    private getHosptalsService: GetHosptalsService,
-    private getMedicalProceduresService: GetMedicalProceduresService,
-    private getMedicinesService: GetMedicinesService,
     private registerService: RegisterService,
     private profilePicturesService: ProfilePicturesService,
     private httpCliente: HttpClient,
+    private getSelectsSpecialPersonService: GetSelectsSpecialPersonService,
 
 
   ) {
@@ -159,19 +157,14 @@ export class RegisterDataComponent implements OnInit {
       reader.readAsDataURL(files[0]);
       reader.onload = (evt) => {
         console.log(imageType);
-        this.imagesList = new Set();
         switch (imageType) {
           case ImagesTypes.FIRST_IMAGE:
             this.addImagesURL(ImagesTypes.FIRST_IMAGE, evt.target.result);
-            this.imagesList.add(files[0])
-
-            // this.imagesList = files[0];
+            this.imagesList[0] = files[0];
             break;
           case ImagesTypes.SECOND_IMAGE:
             this.addImagesURL(ImagesTypes.SECOND_IMAGE, evt.target.result);
-            this.imagesList.add(files[0])
-
-            // this.imagesList[1] = files[0];
+            this.imagesList[1] = files[0];
             break;
           case ImagesTypes.THIRD_IMAGE:
             this.addImagesURL(ImagesTypes.THIRD_IMAGE, evt.target.result);
@@ -243,7 +236,10 @@ export class RegisterDataComponent implements OnInit {
       .openActivateLocation()
       .afterClosed()
       .subscribe( c => {
-        this.getHosptals();
+        this.getSelectsSpecialPersonService
+        .getHosptals().then(res => {
+          this.filteredHosptals = res.data;
+        });
     });
   }
   async continueRegister() {
@@ -252,28 +248,16 @@ export class RegisterDataComponent implements OnInit {
       ...this.formGroup.value,
       birthdate: this.dateFormatedToSend,
     }));
-    console.log(this.imagesList);
-    // const reponseRegister = await this.registerService.post(this.state.getValue().registerData).toPromise();
-    console.log({image: this.imagesList});
-    const formData = new FormData();
-    // this.imagesList.forEach(file => formData.append('image', file, file.name));
-    const resquest = new HttpRequest('POST', environment.api + environment.urls.profilePictures, {image: this.imagesList}, {
-
-      headers: new HttpHeaders({
-        'Authorization': `Bearer ${localStorage?.getItem('access_token')}`,
-        'Content-Type': 'multipart/form-data',
-        'content-type': 'multipart/form-data'
-      }),
-
-    });
-    this.httpCliente.request(resquest).subscribe(res => console.log(res)
-    );
-    // await this.profilePicturesService.post({image: this.imagesList}).toPromise();
-
-    // console.log(this.state.getValue().registerData, reponseRegister);
-
+    await this.registerService.post(this.state.getValue().registerData).toPromise();
+    await this.profilePicturesService.post(this.setFormDataToSendFiles()).toPromise();
   }
-
+  setFormDataToSendFiles() {
+    const formData = new FormData();
+    for (let i = 0; i < this.imagesList.length; i++) {
+      formData.append('image[]', this.imagesList[i]);
+    }
+    return formData;
+  }
   genderChanged(value) {
     if (value === 'trans') {
       this.showWasBorn = true;
@@ -297,74 +281,19 @@ export class RegisterDataComponent implements OnInit {
     this.setSpecifyValueInRegisterState('birthdate', birthDateFormated);
   }
   getDatasSelectTypeSpecial() {
-    this.getCids();
-    this.getMedicalProcedures();
-    this.getDrugsMedicines();
+    this.getSelectsSpecialPersonService
+      .getCids().then(res => {
+        this.filteredCids = res.data;
+      });
+    this.getSelectsSpecialPersonService
+      .getMedicalProcedures().then(res => {
+        this.filteredMedicalProcedures = res.data;
+      });
+    this.getSelectsSpecialPersonService
+      .getDrugsMedicines().then(res => {
+        this.filteredDrugs = res.data;
+      });
 
   }
-  async getCids() {
-   const cids = await this.getCidsService.get().toPromise();
-    this.filteredCids = this.formGroup.get('input_my_cids')?.valueChanges.pipe(
-      startWith(''),
-      map(value => {
-        const filterValue = value.toLowerCase();
-        return this.filterWithDescriptionOrEn(
-          cids.data, filterValue,
-          EnumItensResponseTypeSpecial.DESCRIPTION,
-          EnumItensResponseTypeSpecial.DESCRIPTION_EN);
-      }),
-    );
-  }
-  async getMedicalProcedures() {
-    const responseSelect = await this.getMedicalProceduresService.get().toPromise();
 
-      this.filteredMedicalProcedures = this.formGroup.get('input_medical_procedures')?.valueChanges.pipe(
-        startWith(''),
-        map(value => {
-          const filterValue = value.toLowerCase();
-          return this.filterWithDescriptionOrEn(
-            responseSelect.data, filterValue,
-            EnumItensResponseTypeSpecial.NAME,
-            EnumItensResponseTypeSpecial.NAME_EN);
-        }),
-      );
-  }
-  async getDrugsMedicines() {
-    const responseSelect = await this.getMedicinesService.get().toPromise();
-
-    this.filteredDrugs = this.formGroup.get('input_my_drugs')?.valueChanges.pipe(
-      startWith(''),
-      map(value => {
-        const filterValue = value.toLowerCase();
-        return this.filterWithDescriptionOrEn(
-            responseSelect.data, filterValue,
-            EnumItensResponseTypeSpecial.NAME,
-            EnumItensResponseTypeSpecial.NAME_EN);
-      }),
-    );
-  }
-  async getHosptals(pg = 1) {
-    const registerData = this.state.getValue().registerData;
-    const params: Params = {
-      lat: registerData.lat,
-      lng: registerData.lng,
-      page: pg
-    }
-    const responseSelect = await this.getHosptalsService.get(false, params).toPromise();
-
-    this.filteredHosptals = this.formGroup.get('input_my_hospitals')?.valueChanges.pipe(
-      startWith(''),
-      map(value => {
-        const filterValue = value.toLowerCase();
-        return responseSelect.data.filter(option => option[EnumItensResponseTypeSpecial.NAME].toLowerCase().indexOf(filterValue.toLowerCase()) > -1);
-      }),
-    );
-  }
-  filterWithDescriptionOrEn(array, value, keyOptionPt, keyOptionEn) {
-    if (this.usageLaguage === this.laguagesApplication.PT) {
-      return array.filter(option => option[keyOptionPt].toLowerCase().indexOf(value.toLowerCase()) > -1);
-    } else {
-      return array.filter(option => option[keyOptionEn].toLowerCase().indexOf(value.toLowerCase()) > -1);
-    }
-  }
 }

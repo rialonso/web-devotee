@@ -17,10 +17,7 @@ export class ProfilePicturesService extends HttpService<any>{
       environment.urls.profilePictures,
       new ProfilePicturesSerializer());
     this.options = {
-      responseType: 'json',
       headers: new HttpHeaders({
-          'Content-Type': 'multipart/form-data',
-          'Accept': 'application/json',
           'Authorization': `Bearer ${localStorage?.getItem('access_token') || ''}`,
       })
     }
@@ -31,8 +28,6 @@ class ProfilePicturesSerializer {
     ) {}
   fromJson(profileData: any): any {
     if(profileData != undefined ) {
-      console.log(profileData);
-
       return profileData;
     }
 
