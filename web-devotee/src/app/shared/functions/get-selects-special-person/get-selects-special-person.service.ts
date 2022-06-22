@@ -19,32 +19,7 @@ export class GetSelectsSpecialPersonService {
     private getMedicalProceduresService: GetMedicalProceduresService,
     private getMedicinesService: GetMedicinesService,
   ) { }
-  async getCids() {
-    const responseSelect = await this.getCidsService.get().toPromise();
-    return responseSelect;
-
-  }
-  async getMedicalProcedures() {
-    const responseSelect = await this.getMedicalProceduresService.get().toPromise();
-    return responseSelect;
-
-  }
-  async getDrugsMedicines() {
-    const responseSelect = await this.getMedicinesService.get().toPromise();
-    return responseSelect;
-
-  }
-  async getHosptals(pg = 1) {
-    const registerData = this.state.getValue().registerData;
-    const params: Params = {
-      lat: registerData.lat,
-      lng: registerData.lng,
-      page: pg
-    }
-    const responseSelect = await this.getHosptalsService.get(false, params).toPromise();
-    return responseSelect;
-  }
-  async searchCids(valueSearch: string) {
+  async getCids(valueSearch: string = '') {
     const params: Params = {
       q: valueSearch
     }
@@ -52,7 +27,7 @@ export class GetSelectsSpecialPersonService {
     return responseSelect;
 
   }
-  async searchMedicalProcedures(valueSearch: string) {
+  async getMedicalProcedures(valueSearch: string = '') {
     const params: Params = {
       q: valueSearch
     }
@@ -60,7 +35,7 @@ export class GetSelectsSpecialPersonService {
     return responseSelect;
 
   }
-  async searchDrugsMedicines(valueSearch: string) {
+  async getDrugsMedicines(valueSearch: string = '') {
     const params: Params = {
       q: valueSearch
     }
@@ -68,9 +43,14 @@ export class GetSelectsSpecialPersonService {
     return responseSelect;
 
   }
-  async searchHosptals(valueSearch: string) {
+  async getHosptals(valueSearch: string = '', pg = 1) {
+    const registerData = this.state.getValue().registerData;
     const params: Params = {
+      lat: registerData.lat,
+      lng: registerData.lng,
+      page: pg,
       q: valueSearch
+
     }
     const responseSelect = await this.getHosptalsService.get(false, params).toPromise();
     return responseSelect;

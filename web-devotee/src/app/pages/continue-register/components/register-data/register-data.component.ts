@@ -1,4 +1,4 @@
-import { startWith, map } from 'rxjs/operators';
+import { startWith, map, takeUntil } from 'rxjs/operators';
 import { StateManagementFuncService } from 'src/app/shared/functions/state-management/state-management-func.service';
 import { State, Store } from '@ngrx/store';
 import { Component, OnInit } from '@angular/core';
@@ -21,7 +21,7 @@ import { GetCidsService } from 'src/app/core/services/get-cids/get-cids.service'
 import { GetHosptalsService } from 'src/app/core/services/get-hosptals/get-hosptals.service';
 import { GetMedicalProceduresService } from 'src/app/core/services/get-medical-procedures/get-medical-procedures.service';
 import { ModelCidsResponse } from 'src/app/shared/model/response/get-cids/get-cids.model';
-import { Observable } from 'rxjs';
+import { Observable, ReplaySubject } from 'rxjs';
 import { GetMedicinesService } from 'src/app/core/services/get-medicines/get-medicines.service';
 import { EnumItensResponseTypeSpecial } from './enum/itens-response.enum';
 import { Params } from '@angular/router';
@@ -31,6 +31,8 @@ import { ProfilePicturesService } from 'src/app/core/services/profile-pictures/p
 import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { GetSelectsSpecialPersonService } from 'src/app/shared/functions/get-selects-special-person/get-selects-special-person.service';
+import { inputsSpecialPerson, searchSpecialPerson } from './consts/inputs-special-person.const';
+import { EnumControlsSpecialPerson } from './enum/constrols-inputs-special-person.enum';
 
 @Component({
   selector: 'app-register-data',
@@ -64,6 +66,7 @@ export class RegisterDataComponent implements OnInit {
   filteredDrugs: Observable<any[]>;
   filteredHosptals: Observable<any[]>;
 
+  destroy$ = new ReplaySubject(1);
   constructor(
     protected store: Store,
     protected state: State<IAppState>,
@@ -94,6 +97,7 @@ export class RegisterDataComponent implements OnInit {
     };
     this.getEmailWithPreRegister();
     this.openModalActivateLocation();
+    this.valueChangesInputsSearchSelects();
   }
   private initForm() {
     this.formGroup = this.formBuilder.group({
@@ -189,17 +193,8 @@ export class RegisterDataComponent implements OnInit {
   get controlsForm() { return this.formGroup.controls; }
   addControlsTypeSpecial(): void {
     const controlsSpecial = [
-      'my_cids',
-      'input_my_cids',
-
-      'my_hospitals',
-      'input_my_hospitals',
-
-      'my_drugs',
-      'input_my_drugs',
-
-      'medical_procedures',
-      'input_medical_procedures',
+      ...searchSpecialPerson,
+      ...inputsSpecialPerson,
     ]
     controlsSpecial.forEach((value: string) => {
       if (value.includes('input_')) {
@@ -217,12 +212,7 @@ export class RegisterDataComponent implements OnInit {
     });
   }
   removeControlsIputSearchSpecialThings() {
-    const controlsSpecial = [
-      'input_my_cids',
-      'input_my_hospitals',
-      'input_my_drugs',
-      'input_medical_procedures',
-    ]
+    const controlsSpecial = searchSpecialPerson;
     controlsSpecial.forEach((value: string) => {
       this.formGroup.removeControl(value);
     });
@@ -294,5 +284,50 @@ export class RegisterDataComponent implements OnInit {
       });
 
   }
-
+  valueChangesInputsSearchSelects() {
+    this.formGroup
+      .get(EnumControlsSpecialPerson.INPUT_MY_CID)
+      .valueChanges
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(res => {
+        this.getSelectsSpecialPersonService
+          .getCids(res)
+          .then(selectData => {
+            this.filteredCids = selectData.data;
+        })
+      });
+    this.formGroup
+      .get(EnumControlsSpecialPerson.INPUT_MY_DRUGS)
+      .valueChanges
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(res => {
+        this.getSelectsSpecialPersonService
+          .getDrugsMedicines(res)
+          .then(selectData => {
+            this.filteredDrugs = selectData.data;
+        })
+      });
+    this.formGroup
+      .get(EnumControlsSpecialPerson.INPUT_MEDICAL_PROCEDURES)
+      .valueChanges
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(res => {
+        this.getSelectsSpecialPersonService
+          .getMedicalProcedures(res)
+          .then(selectData => {
+            this.filteredMedicalProcedures = selectData.data;
+        })
+      });
+    this.formGroup
+      .get(EnumControlsSpecialPerson.INPUT_MY_HOSPTALS)
+      .valueChanges
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(res => {
+        this.getSelectsSpecialPersonService
+          .getHosptals(res)
+          .then(selectData => {
+            this.filteredHosptals = selectData.data;
+        })
+      });
+  }
 }
