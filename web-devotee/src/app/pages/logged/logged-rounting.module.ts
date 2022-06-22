@@ -20,6 +20,10 @@ const routes: Routes = [
       {
         path: 'chat',
         loadChildren: () => import('src/app/pages/chat/chat.module').then(m => m.ChatModule),
+      },
+      {
+        path: 'matchs',
+        loadChildren: () => import('src/app/pages/user-matchs/user-matchs.module').then(m => m.UserMatchsModule),
       }
     ]
   },
