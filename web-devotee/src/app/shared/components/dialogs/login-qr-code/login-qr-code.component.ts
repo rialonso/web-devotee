@@ -1,5 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ReplaySubject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { GenerateHashQrcodeService } from 'src/app/core/services/generate-hash-qrcode/generate-hash-qrcode.service';
 import { ReadHashQrcodeService } from 'src/app/core/services/read-hash-qrcode/read-hash-qrcode.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
@@ -15,6 +17,8 @@ export class LoginQrCodeComponent implements OnInit {
 
   qrCodeHash: string;
   intervalValidadeHash;
+
+  destroy$ = new ReplaySubject();
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     private translateService: TranslateService,
@@ -28,12 +32,16 @@ export class LoginQrCodeComponent implements OnInit {
     this.generateHashToQrcode();
   }
   onNoClick(){
+    clearInterval(this.intervalValidadeHash);
     this.matDialogRef.close();
-    clearInterval(this.intervalValidadeHash)
   }
   async generateHashToQrcode() {
     this.showLoading = true;
-    const hashReponse = await this.generateHashQrcodeService.post().toPromise();
+    const hashReponse =
+    await this.generateHashQrcodeService
+      .post()
+      .pipe(takeUntil(this.destroy$))
+      .toPromise();
     this.showLoading = false;
     this.qrCodeHash = hashReponse.data.hash;
     this.readHashQrcode();
@@ -43,6 +51,5 @@ export class LoginQrCodeComponent implements OnInit {
       const readHashReponse = await this.readHashQrcodeService.post(this.qrCodeHash).toPromise();
       console.log(readHashReponse);
     }, 5000);
-
   }
 }

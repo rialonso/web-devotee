@@ -171,7 +171,6 @@ export class RegisterDataComponent implements OnInit {
             this.imagesList[2] = files[0];
             break;
           case ImagesTypes.FORTY_IMAGE:
-
             this.addImagesURL(ImagesTypes.FORTY_IMAGE, evt.target.result);
             this.imagesList[3] = files[0];
             break;
