@@ -47,6 +47,7 @@
       [matchId]="matchId"
       [showChatSkeleton]="showChatMobile"
       [showChatLoadingAll]=""
+      (openingProfile)="clearInterval($event)"
       (closeChatMobile)="closeChatMobile($event)"></app-chat-messages>
   </section>
   <section class="container-default-itens-chat flex-2 width-100-per chat-section-desktop" >
@@ -56,7 +57,7 @@
       [matchId]="matchId"
       [showChatSkeleton]="showChatMobile"
       [showChatLoadingAll]="showChatLoadingAll"
-
+      (openingProfile)="clearInterval($event)"
       ></app-chat-messages>
   </section>
 </main>

@@ -19,13 +19,15 @@ export class ChatMessagesComponent implements OnInit {
   @ViewChild('chat') private myScrollContainer: ElementRef;
 
   @Output() closeChatMobile = new EventEmitter();
+  @Output() openingProfile = new EventEmitter();
+
   @Input() dataChat;
   @Input() userData: IUserData.IData;
   @Input() matchId;
   @Input() showChatSkeleton;
   @Input() showChatLoadingAll;
 
-
+  loading = false;
   userId: number;
 
   urlImages = environment.urlImages;
@@ -93,7 +95,10 @@ export class ChatMessagesComponent implements OnInit {
     this.closeChatMobile.emit(true);
   }
   async openProfile() {
+    this.openingProfile.emit(true);
+    this.loading = true;
     const userData = await this.userProfileService.get(this.userData.id).toPromise();
+    this.loading = false;
     this.dialogsService.openProfile(userData.data);
   }
 }

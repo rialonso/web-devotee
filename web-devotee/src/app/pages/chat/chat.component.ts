@@ -71,6 +71,7 @@ export class ChatComponent implements OnInit {
     params = {
       [EnumParamsChat.MATCH_ID]: matchId,
     };
+
     const dataChatOpened = await this.getChatService.get(false, params).toPromise();
     if (!this.dataChat || (this.dataChat?.data[0]?.id !== dataChatOpened?.data[0]?.id)) {
       this.dataChat = dataChatOpened;
@@ -88,6 +89,11 @@ export class ChatComponent implements OnInit {
     this.intervalChat = setInterval(() => {
       this.getChat(this.matchId);
     }, 1000);
+  }
+  clearInterval(event) {
+    if (event) {
+      clearInterval(this.intervalChat);
+    }
   }
   closeChatMobile(event) {
     if (event) {
