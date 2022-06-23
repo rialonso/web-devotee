@@ -1,0 +1,81 @@
+@import '_custom';
+:host {
+  background-color: $gray-ultra-light-soft;
+  height: 100%;
+}
+#container-user-matchs {
+  @include dp-flex-alignment(row, initial, center);
+  height: 100%;
+
+  .container-infos {
+    @include dp-flex-alignment();
+    gap: 15px;
+    margin: 10px;
+    @include min-tablet {
+      @include dp-flex-alignment(column, initial, initial);
+    }
+    .container-icon-info {
+      background-color: $white;
+      @include dp-flex-alignment();
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      box-shadow: 0px 3px 6px #00000029;
+      mat-icon {
+        color: $gray-icons-50;
+        &.activated {
+          color: $gray-icons;
+        }
+      }
+    }
+  }
+  .container-sugestion-matchs {
+    width: 100%;
+    @include dp-flex-alignment();
+
+    .container-cards-matchs {
+      @include dp-flex-alignment(column, initial, flex-end);
+      background-repeat: no-repeat;
+      background-attachment: inherit;
+      background-position: center;
+      background-size: cover;
+      max-width: 400px;
+      max-height: 560px;
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      .container-gradient-see-infos {
+        background-image: linear-gradient($black-01, $black-80);
+        @include dp-flex-alignment(column, initial, flex-end);
+        gap: 10px;
+        padding: 20px 10px;
+        border-radius: 10px;
+        .container-user-info {
+          .tip-user-type {
+            @include dp-flex-alignment();
+            max-width: 80px;
+            border-radius: 30px;
+            font-size: 14px;
+            padding: 2px 0;
+          }
+        }
+        .distance-match {
+          @include dp-flex-alignment(row, center, flex-start);
+          mat-icon {
+            font-size: 20px;
+            width: 20px;
+            height: 20px;
+          }
+          p {
+            font-size: 12px;
+          }
+        }
+        .container-buttons-action {
+          @include dp-flex-alignment();
+          gap: 15px;
+        }
+      }
+
+    }
+  }
+}

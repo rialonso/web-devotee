@@ -71,7 +71,22 @@
 
     }
   }
+  &.like-dislike {
+    background-color: transparent;
+    color: $white;
+    border: 1px solid $white;
+    @include dp-flex-alignment();
 
+    mat-icon {
+      color: $white;
+      svg {
+        .a {
+          fill: $white;
+          opacity: 1;
+        }
+      }
+    }
+  }
 }
 .container-close {
   width: 100%;

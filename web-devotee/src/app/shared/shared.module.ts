@@ -25,6 +25,7 @@ import { ChatMessagesComponent } from './components/chat-messages/chat-messages.
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 const components = [
   FooterComponent,
@@ -49,6 +50,7 @@ const angularMaterialModules = [
   MatBadgeModule,
   MatDatepickerModule,
   MatNativeDateModule,
+  DragDropModule,
 ]
 @NgModule({
   declarations: [
