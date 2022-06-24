@@ -66,8 +66,8 @@ export class UserMatchsComponent implements OnInit {
     const dragItemInterval = setInterval(() => {
       const dragItem: any = document.querySelectorAll('.sugestion-match')[0];
       const dragDataPosition: any = dragItem?.getAttribute('data-position');
-      dragDataPosition === '150' ? this.dragExecLikeAddMore() : dragItem.setAttribute('data-position', 0 );
-      dragDataPosition === '-150' ? this.dragExecDislikeAddMore() :  dragItem.setAttribute('data-position', 0 );
+      dragDataPosition === '150' ? this.dragExecLikeAddMore() : dragItem?.setAttribute('data-position', 0 );
+      dragDataPosition === '-150' ? this.dragExecDislikeAddMore() :  dragItem?.setAttribute('data-position', 0 );
     }, 1000);
     setTimeout(() => {
       clearInterval(dragItemInterval);
@@ -182,5 +182,8 @@ export class UserMatchsComponent implements OnInit {
       age--;
     }
     return age;
+  }
+  getDistance(distanceFull: number) {
+    return Math.trunc(distanceFull);
   }
 }
