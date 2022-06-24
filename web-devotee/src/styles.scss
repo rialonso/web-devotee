@@ -51,6 +51,12 @@ p, a {
 .cursor-pointer {
   cursor: pointer;
 }
+.cursor-grab {
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
+}
 .container-default-cards-initial-page {
   .content-deafult-cards-initial-page {
     padding: $s-40px;

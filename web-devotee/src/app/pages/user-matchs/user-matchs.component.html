@@ -7,38 +7,65 @@
       <mat-icon svgIcon="heart"></mat-icon>
     </div>
   </section>
-  <main class="container-sugestion-matchs">
-    <section
-      class="container-cards-matchs"
-      style="background-image: url(../../../assets/images/user-image-teste.jpg);"
-      draggable="true"
-      data-position="0">
-      <div class="container-gradient-see-infos">
-        <div class="container-user-info">
-          <section class="tip-user-type font-booster-next-bold bg-color-blue-dark color-white">
-            Devotee
-          </section>
-          <section class="container-user-name-age font-booster-next-bold color-white">
-            Murilo, 22
-          </section>
-        </div>
-        <div class="distance-match">
-          <mat-icon class="color-white"> location_on</mat-icon>
-          <p class="color-white ">44 km from you</p>
-        </div>
-        <div class="container-buttons-action">
+  <main class="sugestion-matchs">
+
+    <div  class="container-sugestion-matchs">
+      <div class="container-match-and-action">
+        <section
+        id="container-drag"
+          class="container-cards-matchs sugestion-match cursor-grab"
+          style="background-image: url(../../../assets/images/user-image-teste.jpg);"
+          draggable="true"
+          data-position="0"
+          >
+          <div class="nd" (mouseenter)="execDragSplitSugestions()"></div>
+          <div class="container-gradient-see-infos">
+            <div class="container-user-info">
+              <section class="tip-user-type font-booster-next-bold bg-color-blue-dark color-white">
+                Devotee
+              </section>
+              <section class="container-user-name-age font-booster-next-bold color-white">
+                Murilo, 22
+              </section>
+            </div>
+            <div class="distance-match">
+              <mat-icon class="color-white"> location_on</mat-icon>
+              <p class="color-white ">44 km from you</p>
+            </div>
+            <div class="container-buttons-action" style="visibility: hidden;">
+              <button
+              (click)="likeUnlikeMatch(enumLikeDislikeAction.UNLIKE)"
+                class="button like-dislike"
+                >
+                <mat-icon>close</mat-icon>
+              </button>
+              <button
+              (click)="likeUnlikeMatch(enumLikeDislikeAction.LIKE)"
+                class="button like-dislike"
+                >
+                <mat-icon svgIcon="heart"></mat-icon>
+              </button>
+            </div>
+          </div>
+        </section>
+        <section class="container-buttons-action action-active">
           <button
+          (click)="clickAddMoreMatchAndTransition(enumLikeDislikeAction.UNLIKE)"
             class="button like-dislike"
             >
             <mat-icon>close</mat-icon>
           </button>
           <button
+          (click)="clickAddMoreMatchAndTransition(enumLikeDislikeAction.LIKE)"
             class="button like-dislike"
             >
             <mat-icon svgIcon="heart"></mat-icon>
           </button>
-        </div>
+        </section>
       </div>
-    </section>
+
+
+    </div>
   </main>
+
 </div>

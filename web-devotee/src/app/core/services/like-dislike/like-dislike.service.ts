@@ -24,7 +24,7 @@ export class LikeDislikeService extends HttpService<any>{
 class LikeDislikeSerializer {
   constructor (
     ) {}
-  fromJson(signInData: ModelLikeDislikeRequest.IRootObject): ModelLikeDislikeRequest.IRootObject {
+  fromJson(signInData: ModelLikeDislikeRequest): ModelLikeDislikeRequest {
     if(signInData != undefined ) {
       return signInData;
     }

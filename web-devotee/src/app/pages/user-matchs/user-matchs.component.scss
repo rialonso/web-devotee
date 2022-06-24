@@ -2,11 +2,16 @@
 :host {
   background-color: $gray-ultra-light-soft;
   height: 100%;
+  padding: 45px 15px;
 }
 #container-user-matchs {
-  @include dp-flex-alignment(row, initial, center);
+  @include dp-flex-alignment(column);
   height: 100%;
+  min-height: 100%;
+  @include min-tablet {
+    @include dp-flex-alignment(row, initial, center);
 
+  }
   .container-infos {
     @include dp-flex-alignment();
     gap: 15px;
@@ -29,18 +34,44 @@
       }
     }
   }
+  .sugestion-matchs {
+    width: 100%;
+    height: 100%;
+    min-height: 500px;
+    position: relative;
+    @include dp-flex-alignment();
+  }
   .container-sugestion-matchs {
     width: 100%;
+    height: 100%;
+    max-height: 560px;
     @include dp-flex-alignment();
+    .container-match-and-action {
+      width: 100%;
+      height: 100%;
+      max-width: 400px;
+      position: relative;
+      @include dp-flex-alignment(column);
+      overflow: hidden;
+      border-radius: 10px;
+      .action-active {
+        position: absolute;
+        bottom: 10px;
+        z-index: 6;
+        gap: 10px;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+        @include dp-flex-alignment();
 
+      }
+    }
     .container-cards-matchs {
       @include dp-flex-alignment(column, initial, flex-end);
       background-repeat: no-repeat;
       background-attachment: inherit;
       background-position: center;
       background-size: cover;
-      max-width: 400px;
-      max-height: 560px;
       height: 100%;
       width: 100%;
       border-radius: 10px;
@@ -67,15 +98,44 @@
             height: 20px;
           }
           p {
-            font-size: 12px;
+            font-size: 14px;
           }
         }
         .container-buttons-action {
           @include dp-flex-alignment();
           gap: 15px;
-        }
-      }
 
+        }
+
+      }
+      &:nth-child(1) {
+        z-index: 5;
+        top: 0;
+        width: 100%;
+      }
+      &:nth-child(2) {
+        z-index: 4;
+        position: absolute;
+        top: 20px;
+        width: 100%;
+      }
+      &:nth-child(3) {
+        position: absolute;
+        top: 40px;
+        z-index: 3;
+        width: 100%;
+      }
+    }
+    .like-animation {
+      transform: rotate(45deg) translate3d(600px,200px,20px)!important;
+      transition: 1.5s!important;
+      background-color: #00DB92;
+    }
+
+    .dislike-animation {
+      transform: rotate(-45deg) translate3d(-600px,200px,20px)!important;
+      transition: 1.5s!important;
+      background-color: red;
     }
   }
 }
