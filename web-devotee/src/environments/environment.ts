@@ -1,6 +1,3 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
 
 export const environment = {
   production: false,
@@ -20,7 +17,8 @@ export const environment = {
     getMedicines: 'api/drugs',
     generateHash: 'api/create-hash',
     readHash: 'api/read-hash',
-    profilePictures: 'api/user/pictures'
+    profilePictures: 'api/user/pictures',
+    likes: 'api/likes',
   },
   googleApis: {
     key: 'AIzaSyBRuDbRuGoy6vxVAYSPCRqTcKxnlTbZwVs',
