@@ -14,24 +14,26 @@
         <section
 
           class="container-cards-matchs sugestion-match cursor-grab"
-          style="background-image: url(../../../assets/images/user-image-teste.jpg);"
+          [style]="changeUserImageInBackground(match.profile_picture)"
           draggable="true"
           data-position="0"
           *ngFor="let match of matchUser"
+          data-position="0"
+          (mouseenter)="execDragSplitSugestions()"
           >
-          <div class="nd" (mouseenter)="execDragSplitSugestions()"></div>
+          <div class="nd" ></div>
           <div class="container-gradient-see-infos">
             <div class="container-user-info">
               <section class="tip-user-type font-booster-next-bold bg-color-blue-dark color-white">
                 {{match?.account_type}}
               </section>
               <section class="container-user-name-age font-booster-next-bold color-white">
-                {{match?.name}}, 22
+                {{match?.name}}, {{transformAge(match.birthdate)}}
               </section>
             </div>
             <div class="distance-match">
               <mat-icon class="color-white"> location_on</mat-icon>
-              <p class="color-white ">44 km from you</p>
+              <p class="color-white ">{{match.distance}} km from you</p>
             </div>
             <div class="container-buttons-action" style="visibility: hidden;">
               <button

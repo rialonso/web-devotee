@@ -3,6 +3,7 @@ import { GetSugestionMatchsService } from 'src/app/core/services/get-sugestion-m
 import { LikeDislikeService } from 'src/app/core/services/like-dislike/like-dislike.service';
 import { EnumLikeDislikeActions } from 'src/app/shared/enum/like-dislike/likes-dislike.enum';
 import { ModelLikeDislikeRequest } from 'src/app/shared/model/request/like-dislike-request/like-dislike.model';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-user-matchs',
@@ -14,7 +15,7 @@ export class UserMatchsComponent implements OnInit {
 
   active = false;
   matchUser;
-
+  allSugestionMatchs;
   currentX;
   currentY;
   initialX;
@@ -23,6 +24,7 @@ export class UserMatchsComponent implements OnInit {
   deslikePosition;
   xOffset: number = 0;
   yOffset: number = 0;
+
   constructor(
     private likeDislikeService: LikeDislikeService,
     private getSugestionMatchsService: GetSugestionMatchsService,
@@ -30,12 +32,12 @@ export class UserMatchsComponent implements OnInit {
 
   ngOnInit() {
     this.getSugestionMatchs();
+    this.execDragSplitSugestions();
   }
   async getSugestionMatchs() {
     const sugestionMatchs = await this.getSugestionMatchsService.get().toPromise();
     this.matchUser = sugestionMatchs.data.slice(0, 3);
-    console.log(this.matchUser);
-
+    this.allSugestionMatchs = sugestionMatchs.data;
     this.dragCard();
 
   }
@@ -51,20 +53,26 @@ export class UserMatchsComponent implements OnInit {
     // elm.style.transform = `translate3d(${pos1}px, ${pos2}px, 20px)`;
   }
   async likeUnlikeMatch( action: string) {
-    // const data = new ModelLikeDislikeRequest(
-    //   this.matchUser[0]?.id,
-    //   action
-    // )
-    // await this.likeDislikeService.post(data).toPromise();
+    const data = new ModelLikeDislikeRequest(
+      this.matchUser[0]?.id,
+      action
+    )
+    const a = await this.likeDislikeService.post(data).toPromise();
+    const sugestionMatchs = await this.getSugestionMatchsService.get().toPromise();
+    this.matchUser = sugestionMatchs.data.slice(0, 3);
   }
   async execDragSplitSugestions() {
-    const dragItemInterval = await  setInterval(() => {
+
+    const dragItemInterval = setInterval(() => {
       const dragItem: any = document.querySelectorAll('.sugestion-match')[0];
-      const dragDataPosition: any = dragItem.getAttribute('data-position');
+      const dragDataPosition: any = dragItem?.getAttribute('data-position');
       dragDataPosition === '150' ? this.dragExecLikeAddMore() : dragItem.setAttribute('data-position', 0 );
       dragDataPosition === '-150' ? this.dragExecDislikeAddMore() :  dragItem.setAttribute('data-position', 0 );
     }, 1000);
-    clearInterval(dragItemInterval);
+    setTimeout(() => {
+      clearInterval(dragItemInterval);
+
+    }, 1500);
     // this.redirectLoggedService.logout.subscribe(res => {
     //   res ? '' : clearInterval(dragItemInterval);
     // });
@@ -87,6 +95,7 @@ export class UserMatchsComponent implements OnInit {
         this.currentX = e.clientX - this.initialX;
         this.currentY = e.clientY - this.initialY;
       }
+
       if (this.currentX >= 140 && this.currentX <= 150){
         dragItem.setAttribute('data-position', 150 );
         dragItem.classList.add('like-animation');
@@ -121,8 +130,6 @@ export class UserMatchsComponent implements OnInit {
   }
   dragEnd(e): any {
     const dragItem: any = document.querySelectorAll('.sugestion-match')[0];
-    console.log(dragItem);
-
     this.initialX =  this.initialX - this.currentX;
     this.initialY =  this.initialY - this.currentY;
     dragItem.style.transform = `translate3d(0px, 0px, 0)`;
@@ -160,5 +167,20 @@ export class UserMatchsComponent implements OnInit {
         // this.addMoreMatch();
       }
     });
+  }
+  changeUserImageInBackground(profilePicture): string {
+    return `background-image: url(${environment.urlImages}${profilePicture[0]?.path})`;
+  }
+  transformAge(birthdateUser) {
+    const birthdate = birthdateUser.replace(/-/g, '')
+    const year = Number(birthdate.substr(0, 4));
+    const today = new Date();
+    const month = Number(birthdate.substr(4, 2)) - 1;
+    const day = Number(birthdate.substr(6, 2));
+    let age = today.getFullYear() - year;
+    if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
+      age--;
+    }
+    return age;
   }
 }

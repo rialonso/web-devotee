@@ -2,12 +2,13 @@
 :host {
   background-color: $gray-ultra-light-soft;
   height: 100%;
-  padding: 45px 15px;
 }
 #container-user-matchs {
   @include dp-flex-alignment(column);
   height: 100%;
   min-height: 100%;
+  margin: 45px 15px;
+
   @include min-tablet {
     @include dp-flex-alignment(row, initial, center);
 
@@ -37,7 +38,7 @@
   .sugestion-matchs {
     width: 100%;
     height: 100%;
-    min-height: 500px;
+    min-height: 650px;
     position: relative;
     @include dp-flex-alignment();
   }
@@ -77,8 +78,13 @@
       height: 100%;
       width: 100%;
       border-radius: 10px;
-      max-width: 400px;
+      min-height: 560px;
       max-height: 560px;
+
+      @include min-tablet {
+        max-width: 400px;
+
+      }
       .container-gradient-see-infos {
         background-image: linear-gradient($black-01, $black-80);
         @include dp-flex-alignment(column, initial, flex-end);
@@ -115,28 +121,29 @@
         z-index: 5;
         top: 0;
         width: 100%;
+
       }
       &:nth-child(2) {
         z-index: 4;
         position: absolute;
-        top: 20px;
+        // top: 20px;
         width: 100%;
       }
       &:nth-child(3) {
         position: absolute;
-        top: 40px;
+        // top: 40px;
         z-index: 3;
         width: 100%;
       }
     }
     .like-animation {
-      transform: rotate(45deg) translate3d(600px,200px,20px)!important;
+      transform: rotate(45deg) translate3d(640px,240px,20px)!important;
       transition: 1.5s!important;
       background-color: #00DB92;
     }
 
     .dislike-animation {
-      transform: rotate(-45deg) translate3d(-600px,200px,20px)!important;
+      transform: rotate(-45deg) translate3d(-640px,240px,20px)!important;
       transition: 1.5s!important;
       background-color: red;
     }
