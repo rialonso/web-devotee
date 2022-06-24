@@ -17,7 +17,7 @@ export class LikeDislikeService extends HttpService<any>{
     super(
       httpClient,
       environment.api,
-      environment.urls.getMedicines,
+      environment.urls.likes,
       new LikeDislikeSerializer());
   }
 }
