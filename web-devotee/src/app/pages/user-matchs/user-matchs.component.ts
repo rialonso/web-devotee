@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, QueryList, ViewChild } from '@angular/core';
+import { GetSugestionMatchsService } from 'src/app/core/services/get-sugestion-matchs/get-sugestion-matchs.service';
 import { LikeDislikeService } from 'src/app/core/services/like-dislike/like-dislike.service';
 import { EnumLikeDislikeActions } from 'src/app/shared/enum/like-dislike/likes-dislike.enum';
 import { ModelLikeDislikeRequest } from 'src/app/shared/model/request/like-dislike-request/like-dislike.model';
@@ -24,20 +25,29 @@ export class UserMatchsComponent implements OnInit {
   yOffset: number = 0;
   constructor(
     private likeDislikeService: LikeDislikeService,
+    private getSugestionMatchsService: GetSugestionMatchsService,
   ) { }
 
   ngOnInit() {
+    this.getSugestionMatchs();
+  }
+  async getSugestionMatchs() {
+    const sugestionMatchs = await this.getSugestionMatchsService.get().toPromise();
+    this.matchUser = sugestionMatchs.data.slice(0, 3);
+    console.log(this.matchUser);
+
     this.dragCard();
+
   }
   dragCard(): void {
     const container = document.querySelector('#container-drag');
-    container.addEventListener('touchstart', this.dragStart, false);
-    container.addEventListener('touchend', this.dragEnd, false);
-    container.addEventListener('touchmove', this.drag, false);
+    container?.addEventListener('touchstart', this.dragStart, false);
+    container?.addEventListener('touchend', this.dragEnd, false);
+    container?.addEventListener('touchmove', this.drag, false);
 
-    container.addEventListener('mousedown', this.dragStart, false);
-    container.addEventListener('mouseup', this.dragEnd, false);
-    container.addEventListener('mousemove', this.drag, false);
+    container?.addEventListener('mousedown', this.dragStart, false);
+    container?.addEventListener('mouseup', this.dragEnd, false);
+    container?.addEventListener('mousemove', this.drag, false);
     // elm.style.transform = `translate3d(${pos1}px, ${pos2}px, 20px)`;
   }
   async likeUnlikeMatch( action: string) {

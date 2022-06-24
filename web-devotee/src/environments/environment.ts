@@ -19,6 +19,7 @@ export const environment = {
     readHash: 'api/read-hash',
     profilePictures: 'api/user/pictures',
     likes: 'api/likes',
+    getSugestionMatchs: 'api/cards',
   },
   googleApis: {
     key: 'AIzaSyBRuDbRuGoy6vxVAYSPCRqTcKxnlTbZwVs',

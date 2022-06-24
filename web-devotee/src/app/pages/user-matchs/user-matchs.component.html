@@ -10,22 +10,23 @@
   <main class="sugestion-matchs">
 
     <div  class="container-sugestion-matchs">
-      <div class="container-match-and-action">
+      <div class="container-match-and-action"id="container-drag">
         <section
-        id="container-drag"
+
           class="container-cards-matchs sugestion-match cursor-grab"
           style="background-image: url(../../../assets/images/user-image-teste.jpg);"
           draggable="true"
           data-position="0"
+          *ngFor="let match of matchUser"
           >
           <div class="nd" (mouseenter)="execDragSplitSugestions()"></div>
           <div class="container-gradient-see-infos">
             <div class="container-user-info">
               <section class="tip-user-type font-booster-next-bold bg-color-blue-dark color-white">
-                Devotee
+                {{match?.account_type}}
               </section>
               <section class="container-user-name-age font-booster-next-bold color-white">
-                Murilo, 22
+                {{match?.name}}, 22
               </section>
             </div>
             <div class="distance-match">
