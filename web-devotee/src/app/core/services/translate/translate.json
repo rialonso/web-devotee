@@ -390,6 +390,12 @@
       "matches": {
         "title": "Meus matches"
       }
+    },
+    "sugestionMatchs": {
+      "noProfileFound": {
+        "title": "Nenhum perfil encontrado",
+        "text": "Espere um momento, estamos buscando mais perfis"
+      }
     }
   },
   "us": {
@@ -781,6 +787,12 @@
     "chat": {
       "matches": {
         "title": "My matches"
+      }
+    },
+    "sugestionMatchs": {
+      "noProfileFound": {
+        "title": "No profile found",
+        "text": "Wait a moment as we search for other profiles"
       }
     }
   }

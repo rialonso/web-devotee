@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, QueryList, ViewChild } from '@angular/core';
 import { GetSugestionMatchsService } from 'src/app/core/services/get-sugestion-matchs/get-sugestion-matchs.service';
 import { LikeDislikeService } from 'src/app/core/services/like-dislike/like-dislike.service';
+import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { EnumLikeDislikeActions } from 'src/app/shared/enum/like-dislike/likes-dislike.enum';
 import { ModelLikeDislikeRequest } from 'src/app/shared/model/request/like-dislike-request/like-dislike.model';
 import { environment } from 'src/environments/environment';
@@ -12,6 +13,7 @@ import { environment } from 'src/environments/environment';
 })
 export class UserMatchsComponent implements OnInit {
   enumLikeDislikeAction = EnumLikeDislikeActions;
+  dataTexts;
 
   active = false;
   matchUser;
@@ -24,10 +26,10 @@ export class UserMatchsComponent implements OnInit {
   deslikePosition;
   xOffset: number = 0;
   yOffset: number = 0;
-
   constructor(
     private likeDislikeService: LikeDislikeService,
     private getSugestionMatchsService: GetSugestionMatchsService,
+    private translateService: TranslateService,
   ) { }
 
   ngOnInit() {
@@ -35,6 +37,7 @@ export class UserMatchsComponent implements OnInit {
     this.execDragSplitSugestions();
   }
   async getSugestionMatchs() {
+    this.dataTexts = this.translateService?.textTranslate;
     const sugestionMatchs = await this.getSugestionMatchsService.get().toPromise();
     this.matchUser = sugestionMatchs.data.slice(0, 3);
     this.allSugestionMatchs = sugestionMatchs.data;
@@ -73,9 +76,7 @@ export class UserMatchsComponent implements OnInit {
       clearInterval(dragItemInterval);
 
     }, 1500);
-    // this.redirectLoggedService.logout.subscribe(res => {
-    //   res ? '' : clearInterval(dragItemInterval);
-    // });
+
   }
   dragExecLikeAddMore(): any {
     this.likeUnlikeMatch(this.enumLikeDislikeAction.LIKE);
