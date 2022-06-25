@@ -3,7 +3,7 @@
     <mat-card-title>{{dataTexts.preferences.title}}</mat-card-title>
   </mat-card>
   <mat-card class="container-type-data-default">
-    <main class="content-preferences">
+    <form [formGroup]="formGroup" class="content-preferences">
       <section class="content-deafult-preference-sections">
         <mat-card-title class="first-title">{{dataTexts.preferences.locale.title}}</mat-card-title>
         <mat-slider
@@ -11,6 +11,7 @@
         tickInterval="1000"
         min="1"
         max="5000"
+        formControlName="max_distance"
         #searchRadius>  </mat-slider>
         <p class="color-blue-dark">{{dataTexts.preferences.locale.distance}} {{searchRadius.value}} {{dataTexts.preferences.locale.sufixDistance}}</p>
       </section>
@@ -19,7 +20,8 @@
         <div class="container-default-inputs-orientation">
           <mat-form-field appearance="fill">
             <mat-label>{{ dataTexts.inputs.filterUserType.label }}</mat-label>
-            <mat-select >
+            <mat-select
+            formControlName="target_account_type">
               <mat-option
                 *ngFor="
                   let gender
@@ -32,7 +34,8 @@
 
           <mat-form-field appearance="fill">
             <mat-label>{{ dataTexts.inputs.filterToGender.label }}</mat-label>
-            <mat-select >
+            <mat-select
+            formControlName="target_gender">
               <mat-option
                 *ngFor="
                   let gender
@@ -46,21 +49,9 @@
 
         <div class="container-default-inputs-orientation">
           <mat-form-field appearance="fill">
-            <mat-label>{{ dataTexts.inputs.filterTosexualOrientation.label }}</mat-label>
-            <mat-select >
-              <mat-option
-                *ngFor="
-                  let gender
-                  of dataTexts.sexualOrientations"
-                [value]="gender.value">
-                {{gender.label}}
-              </mat-option>
-            </mat-select>
-          </mat-form-field>
-
-          <mat-form-field appearance="fill">
             <mat-label>{{ dataTexts.inputs.filterToInterestType.label }}</mat-label>
-            <mat-select >
+            <mat-select
+            formControlName="target_account_type">
               <mat-option
                 *ngFor="
                   let gender
@@ -80,6 +71,7 @@
               class="width-100-per"
               min="18"
               max="100"
+              formControlName="age_min"
               #minAge>
             </mat-slider>
             <p class="color-blue-dark text-age">
@@ -94,6 +86,7 @@
               class="width-100-per"
               min="18"
               max="100"
+              formControlName="age_max"
               #maxAge>
             </mat-slider>
             <p class="color-blue-dark text-age">
@@ -106,10 +99,11 @@
 
         </div>
       </section>
-    </main>
+    </form>
   </mat-card>
   <section class="contianer-btns">
     <button
+      (click)="returnBackRoute()"
       class="button-stroke-primary"
       mat-stroked-button
       color="primary"

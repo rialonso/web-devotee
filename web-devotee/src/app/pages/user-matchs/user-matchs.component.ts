@@ -3,6 +3,7 @@ import { GetSugestionMatchsService } from 'src/app/core/services/get-sugestion-m
 import { LikeDislikeService } from 'src/app/core/services/like-dislike/like-dislike.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { EnumLikeDislikeActions } from 'src/app/shared/enum/like-dislike/likes-dislike.enum';
+import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { ModelLikeDislikeRequest } from 'src/app/shared/model/request/like-dislike-request/like-dislike.model';
 import { environment } from 'src/environments/environment';
 
@@ -13,6 +14,7 @@ import { environment } from 'src/environments/environment';
 })
 export class UserMatchsComponent implements OnInit {
   enumLikeDislikeAction = EnumLikeDislikeActions;
+  enumRoutesApplication = EnumRoutesApplication
   dataTexts;
 
   active = false;

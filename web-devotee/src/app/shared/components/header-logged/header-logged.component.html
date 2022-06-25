@@ -6,7 +6,10 @@
     </section>
     <section class="container-menu-logged">
       <div class="matches">
-        <mat-icon class="icon-menu-logged" >people_alt</mat-icon>
+        <mat-icon
+        [routerLink]="['/matchs']"
+        [routerLinkActive]="['icon-route-is-active']"
+        class="icon-menu-logged" >people_alt</mat-icon>
       </div>
       <div class="chat">
         <mat-icon

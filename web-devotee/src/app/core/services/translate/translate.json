@@ -704,7 +704,7 @@
     "sexualOrientations": [
       {
         "label": "Heterosexual",
-        "value": "heterosexual"
+        "value": "hetero"
       },
       {
         "label": "Homosexual",
@@ -723,6 +723,10 @@
       {
         "label": "Special",
         "value": "Special"
+      },
+      {
+        "label": "All",
+        "value": "all"
       }
     ],
     "activateLocation": {
