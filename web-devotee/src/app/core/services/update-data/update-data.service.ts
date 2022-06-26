@@ -18,7 +18,7 @@ export class UpdateDataService extends HttpService<any>{
     super(
       httpClient,
       environment.api,
-      environment.urls.login,
+      environment.urls.updateUser,
       new UpdateDataSerializer());
   }
 }
