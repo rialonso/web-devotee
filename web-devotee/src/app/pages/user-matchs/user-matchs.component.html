@@ -15,7 +15,7 @@
         <p class="font-booster-next-regular color-blue-dark">{{dataTexts.sugestionMatchs.noProfileFound.text}}</p>
       </div>
     </div>
-    <div  class="container-sugestion-matchs">
+    <div *ngIf="matchUser?.length > 0" class="container-sugestion-matchs">
       <div class="container-match-and-action"id="container-drag">
         <section
 

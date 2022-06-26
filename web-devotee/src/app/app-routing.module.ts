@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService } from './core/guards/auth-guard/auth.guard.service';
+import { LoggedService } from './core/guards/logged/logged.guard.service';
 
 const routes: Routes = [
   {
@@ -11,6 +12,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('src/app/pages/initial-page/initial-page.module').then(m => m.InitialPageModule),
+    canActivate: [LoggedService]
   },
   {
     path: 'rules',
