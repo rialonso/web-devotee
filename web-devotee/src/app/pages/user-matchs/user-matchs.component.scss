@@ -92,12 +92,8 @@
       width: 100%;
       border-radius: 10px;
       min-height: 560px;
-      max-height: 560px;
+      max-width: 400px;
 
-      @include min-tablet {
-        max-width: 400px;
-
-      }
       .container-gradient-see-infos {
         background-image: linear-gradient($black-01, $black-80);
         @include dp-flex-alignment(column, initial, flex-end);

@@ -39,7 +39,7 @@
               <mat-option
                 *ngFor="
                   let gender
-                  of dataTexts.genders"
+                  of dataTexts.targetGenders"
                 [value]="gender.value">
                 {{gender.label}}
               </mat-option>
@@ -55,7 +55,7 @@
               <mat-option
                 *ngFor="
                   let gender
-                  of [dataTexts.genders[0], dataTexts.genders[1]]"
+                  of dataTexts.relationshipValues"
                 [value]="gender.value">
                 {{gender.label}}
               </mat-option>

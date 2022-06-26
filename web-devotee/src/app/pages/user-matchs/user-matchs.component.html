@@ -8,14 +8,14 @@
     </div>
   </section>
   <main class="sugestion-matchs">
-    <div *ngIf="matchUser.length === 0" class="container-havent-match">
+    <div *ngIf="matchUser?.length === 0" class="container-havent-match">
       <mat-icon class="icon-havent-match color-blue-dark">account_box</mat-icon>
       <div class="not-found-message">
         <p class="font-booster-next-bold color-blue-dark">{{dataTexts.sugestionMatchs.noProfileFound.title}}</p>
         <p class="font-booster-next-regular color-blue-dark">{{dataTexts.sugestionMatchs.noProfileFound.text}}</p>
       </div>
     </div>
-    <div *ngIf="matchUser.length > 0"  class="container-sugestion-matchs">
+    <div  class="container-sugestion-matchs">
       <div class="container-match-and-action"id="container-drag">
         <section
 

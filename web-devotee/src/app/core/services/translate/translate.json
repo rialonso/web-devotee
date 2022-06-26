@@ -195,7 +195,7 @@
         }
       },
       "filterToInterestType": {
-        "label": "Tipo de interesse",
+        "label": "tipo de relacionamento que procuro",
         "placeHolder": "",
         "errors" : {
           "none": "none"
@@ -324,6 +324,32 @@
       {
         "label": "Especial",
         "value": "Special"
+      }
+    ],
+    "relationshipValues": [
+      {
+        "label": "Todos",
+        "value": "all"
+      },
+      {
+        "label": "Conhecer novas pessoas",
+        "value": "friendship_meet"
+      },
+      {
+        "label": "Fazer novos amigos",
+        "value": "friendship_friends"
+      },
+      {
+        "label": "Só sexo",
+        "value": "sex_none"
+      },
+      {
+        "label": "Deixar acontecer",
+        "value": "sex_happen"
+      },
+      {
+        "label": "Deixar acontecer",
+        "value": "sex_happen"
       }
     ],
     "activateLocation": {
@@ -594,7 +620,7 @@
         }
       },
       "filterToInterestType": {
-        "label": "Interest type",
+        "label": "type of relationship i seek",
         "placeHolder": "",
         "errors" : {
           "none": "none"
@@ -723,6 +749,42 @@
       {
         "label": "Special",
         "value": "Special"
+      },
+      {
+        "label": "All",
+        "value": "all"
+      }
+    ],
+    "relationshipValues": [
+      {
+        "label": "All",
+        "value": "all"
+      },
+      {
+        "label": "Meet new people",
+        "value": "friendship_meet"
+      },
+      {
+        "label": "Want to make a new friends",
+        "value": "friendship_friends"
+      },
+      {
+        "label": "Only sex",
+        "value": "sex_none"
+      },
+      {
+        "label": "Let it happen",
+        "value": "sex_happen"
+      }
+    ],
+    "targetGenders": [
+      {
+        "label": "Male",
+        "value": "male"
+      },
+      {
+        "label": "Female",
+        "value": "female"
       },
       {
         "label": "All",

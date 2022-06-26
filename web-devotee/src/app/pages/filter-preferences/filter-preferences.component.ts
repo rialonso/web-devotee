@@ -52,6 +52,8 @@ export class FilterPreferencesComponent implements OnInit {
   }
   setValuesRegitered() {
     // const
+    console.log(this.state.getValue()?.userData?.data);
+
     this.formGroup.patchValue(
       {
         ...this.state.getValue()?.userData?.data
