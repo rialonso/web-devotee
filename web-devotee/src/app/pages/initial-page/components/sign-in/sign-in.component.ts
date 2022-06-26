@@ -77,7 +77,7 @@ export class SignInComponent implements OnInit {
       if (signInData?.status) {
         const userProfile: IUserData.RootObject = await this.userProfileService.get(signInData.data.id).toPromise();
         this.stateManagementFuncServices.funcAddAllDataUser({access_token: signInData.access_token, ...userProfile});
-        this.navigateTo('settings');
+        this.navigateTo(EnumRoutesApplication.MATCHS);
       } else {
         this.showErrorCredentials
         = new ModelErrors(

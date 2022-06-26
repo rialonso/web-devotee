@@ -24,7 +24,7 @@
         <mat-icon>delete</mat-icon>
         <mat-card-title>{{dataTexts.userConfigurations.features.deleteAccount}}</mat-card-title>
       </mat-card>
-      <mat-card class="card-settings" >
+      <mat-card class="card-settings" (click)="logout()">
         <mat-icon>power_settings_new</mat-icon>
         <mat-card-title>{{dataTexts.userConfigurations.features.logout}}</mat-card-title>
       </mat-card>

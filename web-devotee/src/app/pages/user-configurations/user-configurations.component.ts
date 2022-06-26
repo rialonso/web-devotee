@@ -34,4 +34,8 @@ export class UserConfigurationsComponent implements OnInit {
   navigateTo(route: string) {
     this.routeService.navigateToURL(route)
   }
+  logout() {
+    localStorage.clear();
+    this.navigateTo(this.enumRoutes.LOGIN);
+  }
 }

@@ -6,6 +6,7 @@ import { LoginQrCodeComponent } from '../../components/dialogs/login-qr-code/log
 import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/layout';
 import { ProfileComponent } from '../../components/dialogs/profile/profile.component';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
+import { LogoutComponent } from '../../components/dialogs/logout/logout.component';
 
 @Injectable({
   providedIn: 'root'
@@ -74,6 +75,20 @@ export class DialogsService {
         maxWidth: '1100px',
         panelClass: 'profile-container',
         data: data
+      },
+    );
+    const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
+      size.matches ? modal.updateSize('100vw', '100vh'): undefined ;
+    });
+    return modal;
+  }
+  openLogout() {
+    const modal =  this.dialog.open(
+      LogoutComponent,
+      {
+        width: 'calc(100% - 50px)',
+        maxWidth: '1100px',
+        panelClass: 'container-logout',
       },
     );
     const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
