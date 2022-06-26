@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { State } from '@ngrx/store';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { UpdateDataService } from 'src/app/core/services/update-data/update-data.service';
+import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
+import { RouteService } from 'src/app/shared/functions/routes/route.service';
 import { IAppState } from 'src/app/state-management/app.model';
 
 @Component({
@@ -21,6 +23,7 @@ export class FilterPreferencesComponent implements OnInit {
     private location: Location,
     private formBuilder: FormBuilder,
     private updateDataService: UpdateDataService,
+    private routerService: RouteService,
   ) { }
 
   ngOnInit(): void {
@@ -66,7 +69,9 @@ export class FilterPreferencesComponent implements OnInit {
       ...this.formGroup.value
     }
     const data = await this.updateDataService.post(dataUpdate, stateUser.id).toPromise();
-    console.log(data);
-
+    this.navigateTo(EnumRoutesApplication.MATCHS);
+  }
+  navigateTo(route: string) {
+    this.routerService.navigateToURL(route);
   }
 }
