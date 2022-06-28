@@ -20,7 +20,7 @@
         [name]="'more-photos-' + indexOfelement"
         accept="image/png, image/jpeg"
         class="input-file input-photo-principal"
-        (change)="selectedImage($event.target.files, indexOfelement)">
+        (change)="selectedImage($event.target.files, indexOfelement, image.order)">
     </div>
   </div>
   <section class="contianer-btns">
@@ -28,14 +28,17 @@
       class="button-stroke-primary"
       mat-stroked-button
       color="primary"
+      (click)="closeModal()"
       >
       {{ dataTexts.buttons.btnCancel }}
     </button>
     <button
       mat-flat-button
       color="primary"
+      (click)="addImages()"
       >
       {{ dataTexts.buttons.btnSave }}
     </button>
   </section>
 </section>
+<app-principal-loading *ngIf="loading"></app-principal-loading>

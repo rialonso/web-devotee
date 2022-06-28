@@ -20,6 +20,7 @@ export const environment = {
     profilePictures: 'api/user/pictures',
     likes: 'api/likes',
     getSugestionMatchs: 'api/cards',
+    updateProfilePictureByOrder: 'api/user/pictures/update-by-order',
   },
   googleApis: {
     key: 'AIzaSyBRuDbRuGoy6vxVAYSPCRqTcKxnlTbZwVs',

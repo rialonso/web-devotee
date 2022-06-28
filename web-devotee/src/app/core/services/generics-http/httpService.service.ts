@@ -75,6 +75,19 @@ export class HttpService <T extends Resource> {
 
         );
   }
+  delete(id?: any, params?: Params) {
+    return this.httpClient
+      .delete(
+        this.returnUrl(id),
+        {
+          ...this.options,
+          params
+        })
+      .pipe(
+        map((data: any) => this.serializer.toJson(data) as T),
+
+        );
+  }
   private returnUrl(id?: any) {
     const apiURL = `${this.api}${this.url}`;
     if (id) {
