@@ -7,6 +7,7 @@ import { BreakpointObserver, Breakpoints, BreakpointState } from '@angular/cdk/l
 import { ProfileComponent } from '../../components/dialogs/profile/profile.component';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { EditProfilePicturesComponent } from '../../components/dialogs/edit-profile-pictures/edit-profile-pictures.component';
+import { EditAboutMeComponent } from '../../components/dialogs/edit-about-me/edit-about-me.component';
 
 @Injectable({
   providedIn: 'root'
@@ -87,6 +88,20 @@ export class DialogsService {
       EditProfilePicturesComponent,
       {
         width: 'calc(50%)',
+        maxWidth: '1100px',
+        panelClass: 'container-edit-profile',
+      },
+    );
+    const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
+      size.matches ? modal.updateSize('100vw', '100vh'): undefined ;
+    });
+    return modal;
+  }
+  openEditAboutMe() {
+    const modal =  this.dialog.open(
+      EditAboutMeComponent,
+      {
+        width: 'calc(80%)',
         maxWidth: '1100px',
         panelClass: 'container-edit-profile',
       },

@@ -6,6 +6,7 @@ import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service
 import { IAppState } from 'src/app/state-management/app.model';
 import { RouteService } from 'src/app/shared/functions/routes/route.service';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
+import { StateManagementFuncService } from 'src/app/shared/functions/state-management/state-management-func.service';
 
 @Component({
   selector: 'app-user-configurations',
@@ -14,7 +15,9 @@ import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 })
 export class UserConfigurationsComponent implements OnInit {
   dataTexts;
-  enumRoutes = EnumRoutesApplication
+  enumRoutes = EnumRoutesApplication;
+
+  loading = false;
   constructor(
     protected state: State<IAppState>,
     protected store: Store<IAppState>,
@@ -22,6 +25,7 @@ export class UserConfigurationsComponent implements OnInit {
     private dialogService: DialogsService,
     private userProfileService: UserProfileService,
     private routeService: RouteService,
+    private stateManagementFuncService: StateManagementFuncService,
   ) { }
 
   ngOnInit() {
@@ -30,7 +34,18 @@ export class UserConfigurationsComponent implements OnInit {
   viewMyProfile() {
     const userData = this.state.getValue().userData.data;
 
-    this.dialogService.openProfile(userData);
+    this.dialogService
+      .openProfile(userData)
+      .afterClosed()
+      .subscribe(async res => {
+        if(res === 'saved') {
+          this.loading = true;
+          const data  = await this.userProfileService.get(userData.id).toPromise();
+          this.stateManagementFuncService.funcAddAllDataUser(data);
+          this.viewMyProfile();
+          this.loading = false;
+        }
+      });
   }
   navigateTo(route: string) {
     this.routeService.navigateToURL(route)

@@ -1,5 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ReplaySubject } from 'rxjs';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { EnumLanguages } from 'src/app/shared/enum/languages/languages.enum';
 import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
@@ -18,6 +19,7 @@ export class ProfileComponent implements OnInit {
   age;
 
   urlImages = environment.urlImages;
+  destroy$ = new ReplaySubject();
   constructor(
     private matDialogRef: MatDialogRef<ProfileComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IUserData.IData,
@@ -29,8 +31,6 @@ export class ProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.data);
-
     this.languageApp = this.translateService.dataFormatation;
     this.transformAge();
   }
@@ -53,5 +53,15 @@ export class ProfileComponent implements OnInit {
   }
   openEditProfilePicture() {
     this.dialogsService.openEditProfilePicture();
+  }
+  openEditAboutMe() {
+    this.dialogsService
+      .openEditAboutMe()
+      .afterClosed()
+      .subscribe(res => {
+        if (res === 'saved') {
+          this.matDialogRef.close(res);
+        }
+      });
   }
 }

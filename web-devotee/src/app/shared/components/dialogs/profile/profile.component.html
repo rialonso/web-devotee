@@ -36,7 +36,9 @@
       <section class="container-about-me width-100-per container-default-cards-register flex-1">
         <mat-card class="container-title-register">
           <mat-card-title>{{dataTexts.profileUser.titleAboutMe}}</mat-card-title>
-          <div class="container-edit-infos">
+          <div
+            class="container-edit-infos"
+            (click)="openEditAboutMe()">
             <mat-icon class="mat-18 color-white cursor-pointer" >edit</mat-icon>
           </div>
         </mat-card>

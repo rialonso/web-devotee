@@ -55,4 +55,16 @@ export class GetSelectsSpecialPersonService {
     const responseSelect = await this.getHosptalsService.get(false, params).toPromise();
     return responseSelect;
   }
+  async getHosptalsLogged(valueSearch: string = '', pg = 1) {
+    const registerData = this.state.getValue().userData.data;
+    const params: Params = {
+      lat: registerData.lat,
+      lng: registerData.lng,
+      page: pg,
+      q: valueSearch
+
+    }
+    const responseSelect = await this.getHosptalsService.get(false, params).toPromise();
+    return responseSelect;
+  }
 }
