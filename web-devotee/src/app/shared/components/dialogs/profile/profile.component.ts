@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { EnumLanguages } from 'src/app/shared/enum/languages/languages.enum';
+import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { environment } from 'src/environments/environment';
 
@@ -21,12 +22,15 @@ export class ProfileComponent implements OnInit {
     private matDialogRef: MatDialogRef<ProfileComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IUserData.IData,
     private translateService: TranslateService,
+    private dialogsService: DialogsService
   ) {
     this.dataTexts = this.translateService?.textTranslate;
 
   }
 
   ngOnInit() {
+    console.log(this.data);
+
     this.languageApp = this.translateService.dataFormatation;
     this.transformAge();
   }
@@ -46,5 +50,8 @@ export class ProfileComponent implements OnInit {
       age--;
     }
     this.age = age;
+  }
+  openEditProfilePicture() {
+    this.dialogsService.openEditProfilePicture();
   }
 }

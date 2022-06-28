@@ -29,6 +29,7 @@ export class UserConfigurationsComponent implements OnInit {
   }
   viewMyProfile() {
     const userData = this.state.getValue().userData.data;
+
     this.dialogService.openProfile(userData);
   }
   navigateTo(route: string) {

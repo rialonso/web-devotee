@@ -36,6 +36,9 @@
       <section class="container-about-me width-100-per container-default-cards-register flex-1">
         <mat-card class="container-title-register">
           <mat-card-title>{{dataTexts.profileUser.titleAboutMe}}</mat-card-title>
+          <div class="container-edit-infos">
+            <mat-icon class="mat-18 color-white cursor-pointer" >edit</mat-icon>
+          </div>
         </mat-card>
         <mat-card class="container-type-data-default">
           <main class="content-profile-data">
@@ -155,6 +158,13 @@
       <section class="container-pictures width-100-per container-default-cards-register flex-2">
         <mat-card class="container-title-register">
           <mat-card-title>{{dataTexts.profileUser.titlePictures}}</mat-card-title>
+          <div class="container-edit-infos">
+            <mat-icon
+              class="mat-18 color-white cursor-pointer"
+              (click)="openEditProfilePicture()">
+              edit
+            </mat-icon>
+          </div>
         </mat-card>
         <mat-card class="container-type-data-default">
           <main class="content-data-pictures">

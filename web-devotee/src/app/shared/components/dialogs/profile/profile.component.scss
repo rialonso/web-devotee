@@ -49,6 +49,9 @@
       @include dp-flex-alignment(row, flex-start);
 
     }
+    .container-title-register {
+      @include dp-flex-alignment(row, flex-start, space-between);
+    }
     .content-profile-data {
       @include dp-flex-alignment(column, flex-start, flex-start);
       gap: 20px;
