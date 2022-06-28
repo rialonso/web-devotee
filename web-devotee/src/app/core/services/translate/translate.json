@@ -374,7 +374,7 @@
       "headerYourProfile": "Configurações",
       "features": {
         "myProfile": "Meu perfil",
-        "editProfile": "Editar perfil",
+        "workFeatures": "Em breve",
         "preferences": "Preferências",
         "changePassword": "Alterar senha",
         "deleteAccount": "Deletar perfil",
@@ -813,8 +813,8 @@
       "headerYourProfile": "Settings",
       "features": {
         "myProfile": "My profile",
-        "editProfile": "Edit profile",
-        "preferences": "Prenfereces",
+        "workFeatures": "coming soon",
+        "preferences": "Preferences",
         "changePassword": "Change password",
         "deleteAccount": "Delete profile",
         "logout": "Logout"

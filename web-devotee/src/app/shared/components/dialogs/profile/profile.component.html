@@ -86,7 +86,7 @@
                     </div>
                   </section>
                   <!-- CIDS -->
-                  <section class="container-default-infos" *ngIf="data.my_cids.length > 0">
+                  <section class="container-default-infos" *ngIf="data?.my_cids?.length > 0">
                     <div class="container-default-personal-info">
                       <mat-icon>healing</mat-icon>
                       <h4> {{dataTexts.profileUser.ICDS}} </h4>
@@ -100,7 +100,7 @@
                     </div>
                   </section>
                   <!-- PROCEDIMENTOS MEDICOS -->
-                  <section class="container-default-infos" *ngIf="data.medical_procedures.length > 0">
+                  <section class="container-default-infos" *ngIf="data?.medical_procedures?.length > 0">
                     <div class="container-default-personal-info">
                       <mat-icon>content_cut</mat-icon>
                       <h4> {{dataTexts.profileUser.medicalProcedures}} </h4>
@@ -116,7 +116,7 @@
                   <!-- REMEDIO -->
                   <section
                     class="container-default-infos"
-                    *ngIf="data.my_drugs.length > 0">
+                    *ngIf="data?.my_drugs?.length > 0">
                     <div class="container-default-personal-info">
                       <mat-icon>local_pharmacy</mat-icon>
                       <h4> {{dataTexts.profileUser.medicines}} </h4>
@@ -132,7 +132,7 @@
                   <!-- Hostpitais -->
                   <section
                     class="container-default-infos"
-                    *ngIf="data.my_hospitals.length > 0">
+                    *ngIf="data?.my_hospitals?.length > 0">
                     <div class="container-default-personal-info">
                       <mat-icon>medical_services</mat-icon>
                       <h4> {{dataTexts.profileUser.hospitals}} </h4>

@@ -8,10 +8,7 @@
         <mat-icon>person</mat-icon>
         <mat-card-title>{{dataTexts.userConfigurations.features.myProfile}}</mat-card-title>
       </mat-card>
-      <mat-card class="card-settings" >
-        <mat-icon>edit</mat-icon>
-        <mat-card-title>{{dataTexts.userConfigurations.features.editProfile}}</mat-card-title>
-      </mat-card>
+
       <mat-card class="card-settings" (click)="navigateTo(enumRoutes.FILTERS)">
         <mat-icon>filter_alt</mat-icon>
         <mat-card-title>{{dataTexts.userConfigurations.features.preferences}}</mat-card-title>
@@ -27,6 +24,10 @@
       <mat-card class="card-settings" (click)="logout()">
         <mat-icon>power_settings_new</mat-icon>
         <mat-card-title>{{dataTexts.userConfigurations.features.logout}}</mat-card-title>
+      </mat-card>
+      <mat-card class="card-settings" >
+        <mat-icon>new_releases</mat-icon>
+        <mat-card-title>{{dataTexts.userConfigurations.features.workFeatures}}</mat-card-title>
       </mat-card>
     </section>
   </main>

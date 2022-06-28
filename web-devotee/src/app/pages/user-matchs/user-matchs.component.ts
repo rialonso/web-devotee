@@ -4,6 +4,7 @@ import { LikeDislikeService } from 'src/app/core/services/like-dislike/like-disl
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { EnumLikeDislikeActions } from 'src/app/shared/enum/like-dislike/likes-dislike.enum';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
+import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
 import { ModelLikeDislikeRequest } from 'src/app/shared/model/request/like-dislike-request/like-dislike.model';
 import { environment } from 'src/environments/environment';
 
@@ -32,6 +33,7 @@ export class UserMatchsComponent implements OnInit {
     private likeDislikeService: LikeDislikeService,
     private getSugestionMatchsService: GetSugestionMatchsService,
     private translateService: TranslateService,
+    private dialogsService: DialogsService,
   ) { }
 
   ngOnInit() {
@@ -188,5 +190,8 @@ export class UserMatchsComponent implements OnInit {
   }
   getDistance(distanceFull: number) {
     return Math.trunc(distanceFull);
+  }
+  viewProfile(id) {
+    this.dialogsService.openProfile(id);
   }
 }
