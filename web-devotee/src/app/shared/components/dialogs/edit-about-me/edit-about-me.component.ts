@@ -251,8 +251,6 @@ export class EditAboutMeComponent implements OnInit {
     return (o1.name == o2.name && o1.id == o2.id);
   }
   async saveDataEdited() {
-    console.log(this.addKeyInDisabilitys(this.formGroup.get('my_cids').value));
-
     const disabilitys = {
       cids: this.addKeyInDisabilitys(this.formGroup.get('my_cids').value),
       medical_procedures: this.addKeyInDisabilitys(this.formGroup.get('medical_procedures').value),

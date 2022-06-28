@@ -12,7 +12,6 @@ export class AuthGuardService implements CanActivate       {
     ): Observable<boolean> | boolean {
       const getLocalStorageId = localStorage.getItem('userId');
       const getLocalStorageTOken = localStorage.getItem('access_token');
-      // console.log(getLocalStorageId, getLocalStorageTOken);
 
       if (getLocalStorageId && getLocalStorageTOken){
         return true;

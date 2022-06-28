@@ -160,7 +160,6 @@ export class RegisterDataComponent implements OnInit {
       const reader = new FileReader();
       reader.readAsDataURL(files[0]);
       reader.onload = (evt) => {
-        console.log(imageType);
         switch (imageType) {
           case ImagesTypes.FIRST_IMAGE:
             this.addImagesURL(ImagesTypes.FIRST_IMAGE, evt.target.result);

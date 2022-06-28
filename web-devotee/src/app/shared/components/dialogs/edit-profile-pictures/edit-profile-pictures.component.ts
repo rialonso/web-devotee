@@ -47,7 +47,6 @@ export class EditProfilePicturesComponent implements OnInit {
         array.push({});
       }
       this.images = array;
-      console.log(this.images);
       return this.images;
     }
     this.images = userProfilePictures;

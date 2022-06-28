@@ -22,12 +22,10 @@ constructor() { }
     switch (language) {
       case 'pt-BR':
         this.traductionLanguage(data[0][1]);
-        console.log(data[0]);
         this.dataFormatation = 'pt';
         break;
       case 'en-US':
         this.traductionLanguage(data[1][1]);
-        console.log(data[0]);
         this.dataFormatation = 'us';
         break;
 

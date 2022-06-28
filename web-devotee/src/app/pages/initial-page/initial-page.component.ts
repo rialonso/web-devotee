@@ -21,6 +21,5 @@ export class InitialPageComponent implements OnInit {
   }
   clickopenMobileSignIn(): void {
     this.store.dispatch(new AddControlApp({ openSingIn: true }));
-    console.log(this.state.getValue());
   }
 }

@@ -47,7 +47,6 @@ export class ChatMessagesComponent implements OnInit {
   ngOnInit(): void {
     this.userId = parseInt(localStorage.getItem('userId'));
     this.initForm();
-    console.log(this.dataChat);
 
   }
   initForm () {

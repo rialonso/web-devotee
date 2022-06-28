@@ -162,7 +162,6 @@ export class UserMatchsComponent implements OnInit {
       buttons.forEach((value) => {value.removeAttribute('disabled'); });
   }
   clickAddMoreMatchAndTransition(likeOrDeslike): void {
-    console.log(likeOrDeslike);
     this.transitionOptionMatch(likeOrDeslike).then((res: boolean) => {
 
       if (res) {

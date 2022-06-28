@@ -12,7 +12,6 @@ export class HeaderCardsInitialPageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.data);
 
   }
   emitClick(): void {

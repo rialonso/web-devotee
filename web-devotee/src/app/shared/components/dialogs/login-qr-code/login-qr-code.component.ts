@@ -49,7 +49,6 @@ export class LoginQrCodeComponent implements OnInit {
   async readHashQrcode() {
      this.intervalValidadeHash = setInterval(async() => {
       const readHashReponse = await this.readHashQrcodeService.post(this.qrCodeHash).toPromise();
-      console.log(readHashReponse);
     }, 5000);
   }
 }

@@ -29,7 +29,6 @@ export class FilterPreferencesComponent implements OnInit {
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
     this.initForm();
-    console.log(this.state.getValue());
     this.setValuesRegitered();
   }
   private initForm() {

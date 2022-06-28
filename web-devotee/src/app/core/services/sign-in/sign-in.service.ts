@@ -35,7 +35,6 @@ class SignInSerializer {
   }
 
   toJson(signInData: IUserData.RootObject): any {
-    console.log(signInData);
     if (signInData.status) {
       localStorage.setItem('access_token', `${signInData?.access_token}`);
       localStorage.setItem('userId', `${signInData?.data.id}`);
