@@ -94,7 +94,9 @@ p, a {
     text-align: center;
   }
 }
-
+.input-file{
+  display: none;
+}
 @for $i from 1 to 5
 {
   .flex-#{$i}

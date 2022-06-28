@@ -82,14 +82,13 @@ export class DialogsService {
     });
     return modal;
   }
-  openEditProfilePicture(data?: IUserData.IData) {
+  openEditProfilePicture() {
     const modal =  this.dialog.open(
       EditProfilePicturesComponent,
       {
-        width: 'calc(100% - 50px)',
+        width: 'calc(50%)',
         maxWidth: '1100px',
-        panelClass: 'profile-container',
-        data: data
+        panelClass: 'container-edit-profile',
       },
     );
     const smallDialogSubscription = this.isExtraSmall.subscribe(size => {

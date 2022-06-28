@@ -6,12 +6,16 @@ import { ActivateLocationComponent } from './activate-location/activate-location
 import { ProfileComponent } from './profile/profile.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { QRCodeModule } from 'angularx-qrcode';
+import { EditProfilePicturesComponent } from './edit-profile-pictures/edit-profile-pictures.component';
+import { EditAboutMeComponent } from './edit-about-me/edit-about-me.component';
 
 const dialogsComponent = [
   LoginQrCodeComponent,
   ActivateLocationComponent,
   ProfileComponent,
   ChangePasswordComponent,
+  EditProfilePicturesComponent,
+  EditAboutMeComponent,
 ]
 
 @NgModule({

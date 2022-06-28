@@ -50,7 +50,8 @@
       "btnBack": "Voltar",
       "btnQrCode": "Continuar com",
       "btnGoogle": "Continuar com Google",
-      "btnSave": "Salvar"
+      "btnSave": "Salvar",
+      "btnCancel": "Cancelar"
     },
     "inputs": {
       "genericErrors": {
@@ -475,7 +476,8 @@
       "btnBack": "Back",
       "btnQrCode": "Continue with",
       "btnGoogle": "Continue with Google",
-      "btnSave": "Save"
+      "btnSave": "Save",
+      "btnCancel": "Cancel"
 
     },
     "inputs": {
