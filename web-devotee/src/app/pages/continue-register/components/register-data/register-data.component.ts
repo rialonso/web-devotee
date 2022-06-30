@@ -33,6 +33,7 @@ import { environment } from 'src/environments/environment';
 import { GetSelectsSpecialPersonService } from 'src/app/shared/functions/get-selects-special-person/get-selects-special-person.service';
 import { inputsSpecialPerson, searchSpecialPerson } from './consts/inputs-special-person.const';
 import { EnumControlsSpecialPerson } from './enum/constrols-inputs-special-person.enum';
+import { UpdateDataService } from 'src/app/core/services/update-data/update-data.service';
 
 @Component({
   selector: 'app-register-data',
@@ -56,6 +57,7 @@ export class RegisterDataComponent implements OnInit {
   formGroup: FormGroup;
   specialAccount = false;
   showWasBorn = false;
+  loading = false;
 
   minDate;
   maxDate;
@@ -78,8 +80,9 @@ export class RegisterDataComponent implements OnInit {
     private stateManagementFuncService: StateManagementFuncService,
     private registerService: RegisterService,
     private profilePicturesService: ProfilePicturesService,
-    private httpCliente: HttpClient,
     private getSelectsSpecialPersonService: GetSelectsSpecialPersonService,
+    private updateDataService: UpdateDataService,
+
 
 
   ) {
@@ -94,10 +97,10 @@ export class RegisterDataComponent implements OnInit {
       this.specialAccount = true;
       this.addControlsTypeSpecial();
       this.getDatasSelectTypeSpecial();
+      this.valueChangesInputsSearchSelects();
+
     };
-    this.getEmailWithPreRegister();
     this.openModalActivateLocation();
-    this.valueChangesInputsSearchSelects();
   }
   private initForm() {
     this.formGroup = this.formBuilder.group({
@@ -108,13 +111,6 @@ export class RegisterDataComponent implements OnInit {
           Validators.required,
           nameValidatorSpecialCharacteres,
           nameValidatorFormatInvalid,
-        ]
-      ],
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.email
         ]
       ],
       occupation: [
@@ -211,7 +207,11 @@ export class RegisterDataComponent implements OnInit {
     });
   }
   removeControlsIputSearchSpecialThings() {
-    const controlsSpecial = searchSpecialPerson;
+    const controlsSpecial = [
+      ...searchSpecialPerson,
+      ...inputsSpecialPerson,
+      'profile_picture'
+    ];
     controlsSpecial.forEach((value: string) => {
       this.formGroup.removeControl(value);
     });
@@ -231,13 +231,36 @@ export class RegisterDataComponent implements OnInit {
     });
   }
   async continueRegister() {
+    this.loading = true;
+
+    const disabilitys = {
+      cids: this.addKeyInDisabilitys(this.formGroup.get('my_cids').value),
+      medical_procedures: this.addKeyInDisabilitys(this.formGroup.get('medical_procedures').value),
+      medicament: this.addKeyInDisabilitys(this.formGroup.get('my_drugs').value),
+      hospital: this.addKeyInDisabilitys(this.formGroup.get('my_hospitals').value),
+    }
     this.removeControlsIputSearchSpecialThings();
     this.store.dispatch(new AddDataRegister({
       ...this.formGroup.value,
       birthdate: this.dateFormatedToSend,
     }));
-    await this.registerService.post(this.state.getValue().registerData).toPromise();
+    const updateData = {
+      ...this.state.getValue().registerData,
+      disability: disabilitys
+    }
+
+    // const registerData = await this.registerService.post(this.state.getValue().registerData).toPromise();
     await this.profilePicturesService.post(this.setFormDataToSendFiles()).toPromise();
+    await this.updateDataService.post(updateData, this.state.getValue().userData.data.id).toPromise();
+    this.loading = false;
+    this.navigateTo(EnumRoutesApplication.MATCHS);
+  }
+  addKeyInDisabilitys(value) {
+    let newArrayValue = [];
+    value.forEach(element => {
+      newArrayValue.push(  element);
+    });
+    return newArrayValue;
   }
   setFormDataToSendFiles() {
     const formData = new FormData();
@@ -255,10 +278,7 @@ export class RegisterDataComponent implements OnInit {
     this.showWasBorn = false;
     return this.showWasBorn;
   }
-  getEmailWithPreRegister() {
-    const email = this.state.getValue()?.registerData?.email;
-    this.setSpecifyValueInRegisterState('email', email);
-  }
+
   setSpecifyValueInRegisterState(key: string, value: any) {
     this.formGroup.get(key).setValue(value);
   }

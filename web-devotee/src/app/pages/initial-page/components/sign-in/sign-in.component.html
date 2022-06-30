@@ -2,7 +2,7 @@
   <section class="content-sign-in content-deafult-cards-initial-page" [class.content-deafult-cards-initial-page-mobile]="openMobileSignIn">
     <div class="content-header-sign-in">
       <div class="title-sign-return">
-        <mat-icon svgIcon="navigate_before" (click)="clickopenMobileSignIn(false)"></mat-icon>
+        <mat-icon class="cursor-pointer" svgIcon="navigate_before" (click)="clickopenMobileSignIn(false)"></mat-icon>
         <a class="color-blue-dark font-booster-next-bold f-size-24" >{{dataTexts.login}}</a>
       </div>
       <div>
@@ -74,7 +74,7 @@
     </p>
   </section>
   <div class="container-buttons-mobile">
-    <button class="button primary">
+    <button class="button primary" (click)="clickopenMobileSignIn(false); navigateTo(routesEnum.PRE_REGISTER)">
       {{dataTexts.signin.register}}
     </button>
     <button class="button secondary" (click)="clickopenMobileSignIn(true)">

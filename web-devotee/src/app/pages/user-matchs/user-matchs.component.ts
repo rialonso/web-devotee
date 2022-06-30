@@ -43,7 +43,7 @@ export class UserMatchsComponent implements OnInit {
   async getSugestionMatchs() {
     this.dataTexts = this.translateService?.textTranslate;
     const sugestionMatchs = await this.getSugestionMatchsService.get().toPromise();
-    this.matchUser = sugestionMatchs.data.slice(0, 3);
+    this.matchUser = sugestionMatchs?.data?.slice(0, 3);
     this.allSugestionMatchs = sugestionMatchs.data;
     this.dragCard();
 
@@ -66,7 +66,7 @@ export class UserMatchsComponent implements OnInit {
     )
     const a = await this.likeDislikeService.post(data).toPromise();
     const sugestionMatchs = await this.getSugestionMatchsService.get().toPromise();
-    this.matchUser = sugestionMatchs.data.slice(0, 3);
+    this.matchUser = sugestionMatchs?.data?.slice(0, 3);
   }
   async execDragSplitSugestions() {
 

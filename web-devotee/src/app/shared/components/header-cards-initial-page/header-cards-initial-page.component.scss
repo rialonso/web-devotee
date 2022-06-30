@@ -7,6 +7,12 @@
   display: flex;
   flex-direction: column;
   gap: $s-35px;
+  .title-sign-return {
+    @include dp-flex-alignment(row, center, initial);
+    gap: 10px;
+
+  }
+
   mat-icon {
     background-color: $gray-soft;
     width: $s-35px;

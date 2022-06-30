@@ -14,6 +14,8 @@ import { MHeaderCardsInitialPage } from 'src/app/shared/model/header-cards-initi
 import { IAppState } from 'src/app/state-management/app.model';
 import { AddControlApp } from 'src/app/state-management/controls/copntrols-app.action';
 import { AddDataRegister } from 'src/app/state-management/register/register.action';
+import { RegisterService } from 'src/app/core/services/register/register.service';
+import { AddAllDataUser } from 'src/app/state-management/user-data/user-data.action';
 
 @Component({
   selector: 'app-register',
@@ -40,7 +42,8 @@ export class RegisterComponent implements OnInit {
     private translateService: TranslateService,
     private routerService: RouteService,
     private formBuilder: FormBuilder,
-    private verifyEmailService: VerifyEmailService
+    private verifyEmailService: VerifyEmailService,
+    private registerService: RegisterService,
   ) {
     this.store.select('controlsApp')
     .pipe(takeUntil(this.destroy$))
@@ -100,7 +103,7 @@ export class RegisterComponent implements OnInit {
         .subscribe(
           responseVerifyEmail => {},
           responseVerifyEmail => {
-          if (responseVerifyEmail.error.errors.email[0] === "Email já está em uso.") {
+          if (responseVerifyEmail?.error?.errors?.email[0] === "Email já está em uso.") {
             this.showErrorCredentials
             = new ModelErrors(
               true,
@@ -111,8 +114,9 @@ export class RegisterComponent implements OnInit {
       );
     }
   }
-  continueToRegister() {
-    this.store.dispatch(new AddDataRegister(this.formGroup.value));
+  async continueToRegister() {
+    const registerData = await this.registerService.post(this.formGroup.value).toPromise();
+    this.store.dispatch(new AddAllDataUser(registerData));
     this.navigateTo(EnumRoutesApplication.REGISTER_WHO_ARE_YOU);
   }
 }

@@ -86,9 +86,9 @@ export class ChatComponent implements OnInit {
     this.dataChat = false;
     this.matchId = match.match_id;
     this.userMatchData = match.target_user;
-    this.intervalChat = setInterval(() => {
+    // this.intervalChat = setInterval(() => {
       this.getChat(this.matchId);
-    }, 1000);
+    // }, 1000);
   }
   clearInterval(event) {
     if (event) {

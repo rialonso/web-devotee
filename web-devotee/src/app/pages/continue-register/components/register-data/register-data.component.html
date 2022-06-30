@@ -99,7 +99,7 @@
                 {{ dataTexts.inputs.name.errors.invalidFormatName }}
               </mat-error>
             </mat-form-field>
-            <mat-form-field class="example-full-width" appearance="fill">
+            <!-- <mat-form-field class="example-full-width" appearance="fill">
               <mat-label>{{dataTexts.inputs.email.label}}</mat-label>
               <input
                 matInput
@@ -115,7 +115,7 @@
                   && !controlsForm.email.hasError(errorsEnum.REQUIRED)">
                   {{ dataTexts.inputs.email.errors.invalidEmail }}
                 </mat-error>
-            </mat-form-field>
+            </mat-form-field> -->
           </div>
           <div class="container-default-inputs-orientation content-data-person">
             <mat-form-field class="example-full-width" appearance="fill">
@@ -349,3 +349,4 @@
     </button>
   </section>
 </div>
+<app-principal-loading *ngIf="loading"></app-principal-loading>

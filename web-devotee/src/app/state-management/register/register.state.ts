@@ -1,6 +1,4 @@
 export class IRegisterUser {
-  email: string;
-  password: string;
 	account_type: string; // selecao
 	name: string;
 	birthdate: string; // depend language en: YYYY-MM-DD br: DD-MM-YYYY
@@ -32,8 +30,6 @@ export class IRegisterUser {
 	illicit_drugs: string;  // default null
 }
 export const INITIAL_STATE_REGISTER_USER: IRegisterUser = {
-  email: null,
-  password: null,
 	account_type: null,
 	name: null,
 	birthdate: null,
