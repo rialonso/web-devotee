@@ -25,6 +25,7 @@ import { AddAllDataUser } from 'src/app/state-management/user-data/user-data.act
 export class RegisterComponent implements OnInit {
   openMobileSignIn = false;
   hide = true;
+  loading = false;
 
   formGroup: FormGroup;
 
@@ -115,8 +116,10 @@ export class RegisterComponent implements OnInit {
     }
   }
   async continueToRegister() {
+    this.loading = true;
     const registerData = await this.registerService.post(this.formGroup.value).toPromise();
     this.store.dispatch(new AddAllDataUser(registerData));
+    this.loading = false;
     this.navigateTo(EnumRoutesApplication.REGISTER_WHO_ARE_YOU);
   }
 }
