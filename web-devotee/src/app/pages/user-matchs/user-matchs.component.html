@@ -8,6 +8,9 @@
     </div>
   </section>
   <main class="sugestion-matchs">
+    <div class="container-loading" *ngIf="loading">
+      <mat-spinner></mat-spinner>
+    </div>
     <div *ngIf="matchUser?.length === 0" class="container-havent-match">
       <mat-icon class="icon-havent-match color-blue-dark">account_box</mat-icon>
       <div class="not-found-message">
@@ -15,7 +18,7 @@
         <p class="font-booster-next-regular color-blue-dark">{{dataTexts.sugestionMatchs.noProfileFound.text}}</p>
       </div>
     </div>
-    <div [class.display-none]="matchUser?.length === 0" class="container-sugestion-matchs">
+    <div [class.display-none]="matchUser?.length === 0 || loading" class="container-sugestion-matchs">
       <div class="container-match-and-action"id="container-drag">
         <section
 

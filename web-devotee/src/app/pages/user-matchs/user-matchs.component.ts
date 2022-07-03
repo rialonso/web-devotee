@@ -19,6 +19,8 @@ export class UserMatchsComponent implements OnInit {
   dataTexts;
 
   active = false;
+  loading = false;
+
   matchUser;
   allSugestionMatchs;
   currentX;
@@ -41,10 +43,12 @@ export class UserMatchsComponent implements OnInit {
     this.execDragSplitSugestions();
   }
   async getSugestionMatchs() {
+    this.loading = true;
     this.dataTexts = this.translateService?.textTranslate;
     const sugestionMatchs = await this.getSugestionMatchsService.get().toPromise();
     this.matchUser = sugestionMatchs?.data?.slice(0, 3);
     this.allSugestionMatchs = sugestionMatchs.data;
+    this.loading = false;
     this.dragCard();
 
   }
