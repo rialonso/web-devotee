@@ -2,6 +2,7 @@ import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { State } from '@ngrx/store';
+import { SnackBarService } from 'src/app/core/services/snack-bar/snack-bar.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { UpdateDataService } from 'src/app/core/services/update-data/update-data.service';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
@@ -24,6 +25,7 @@ export class FilterPreferencesComponent implements OnInit {
     private formBuilder: FormBuilder,
     private updateDataService: UpdateDataService,
     private routerService: RouteService,
+    private snackBarService: SnackBarService,
   ) { }
 
   ngOnInit(): void {
@@ -68,6 +70,9 @@ export class FilterPreferencesComponent implements OnInit {
       ...this.formGroup.value
     }
     const data = await this.updateDataService.post(dataUpdate, stateUser.id).toPromise();
+    this.snackBarService.openSnackbarSuccess(
+      this.dataTexts.snacksBars.successSaveFilters.mensage,
+      this.dataTexts.snacksBars.successSaveFilters.button);
     this.navigateTo(EnumRoutesApplication.MATCHS);
   }
   navigateTo(route: string) {

@@ -233,3 +233,13 @@ body { margin: 0; font-family: "Booster-next-regular", "Helvetica Neue", sans-se
 .mat-badge.hide-text .mat-badge-content {
   color: transparent;
 }
+
+//snackbars
+.success-snackbar {
+  background-color: $color-success;
+  color: $white;
+  .mat-simple-snackbar-action {
+    color: $white;
+
+  }
+}

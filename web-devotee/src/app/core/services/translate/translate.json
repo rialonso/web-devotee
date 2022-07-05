@@ -374,6 +374,10 @@
       "locationBlocked": {
         "mensage": "Insira sua localização, pois a localização automática foi recusada",
         "button": "entendi"
+      },
+      "successSaveFilters": {
+        "mensage": "Filtros salvos com sucesso",
+        "button": "entendi"
       }
     },
     "userConfigurations": {
@@ -819,6 +823,10 @@
     "snacksBars": {
       "locationBlocked": {
         "mensage": "Put your address, because automatic location has been blocked",
+        "button": "understand"
+      },
+      "successSaveFilters": {
+        "mensage": "filters saved",
         "button": "understand"
       }
     },

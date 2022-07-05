@@ -17,4 +17,13 @@ export class SnackBarService {
       }
     );
   }
+  openSnackbarSuccess(mensage: string, button: string, backgroudClass = 'success-snackbar') {
+    this.snackBar.open(
+      mensage, button,
+      {
+        duration: 2000,
+        panelClass: backgroudClass,
+      }
+    );
+  }
 }

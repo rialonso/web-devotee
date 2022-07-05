@@ -7,6 +7,7 @@ import { IAppState } from 'src/app/state-management/app.model';
 import { RouteService } from 'src/app/shared/functions/routes/route.service';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { StateManagementFuncService } from 'src/app/shared/functions/state-management/state-management-func.service';
+import { SnackBarService } from 'src/app/core/services/snack-bar/snack-bar.service';
 
 @Component({
   selector: 'app-user-configurations',
