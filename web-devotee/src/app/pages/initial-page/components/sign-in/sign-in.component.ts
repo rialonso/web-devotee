@@ -17,6 +17,7 @@ import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { ModelErrors } from 'src/app/shared/model/errors/errors.model';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { UserProfileService } from 'src/app/core/services/user-profile/user-profile.service';
+import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
 
 @Component({
   selector: 'app-sign-in',
@@ -45,6 +46,7 @@ export class SignInComponent implements OnInit {
     private stateManagementFuncServices: StateManagementFuncService,
     private dialogsService: DialogsService,
     private userProfileService: UserProfileService,
+    private socialAuthService: SocialAuthService,
 
   ) {
     this.store.select('controlsApp')
@@ -105,5 +107,12 @@ export class SignInComponent implements OnInit {
         ]
       ]
     })
+  }
+  loginWithGoogle() {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
+    .then((res) => {
+      console.log(res);
+
+    });
   }
 }

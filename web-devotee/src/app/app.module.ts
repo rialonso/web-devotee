@@ -9,6 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { IConfig, NgxMaskModule } from "ngx-mask";
 import { AuthGuardService } from "./core/guards/auth-guard/auth.guard.service";
+import { GoogleLoginProvider } from "angularx-social-login";
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
@@ -30,7 +31,20 @@ const maskConfig: Partial<IConfig> = {
     AppRoutingModule,
   ],
   providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: true, //keeps the user signed in
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider('670097540184-3liid93hjkcib38idqtrnvrgfa6drm69.apps.googleusercontent.com') // your client id
+          }
+        ]
+      }
+    },
     AuthGuardService,
+
   ],
   bootstrap: [AppComponent]
 })
