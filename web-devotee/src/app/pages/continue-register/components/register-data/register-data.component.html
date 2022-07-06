@@ -128,8 +128,8 @@
                 formControlName="occupation"
                 >
             </mat-form-field>
-            <mat-form-field appearance="fill">
-              <mat-label>{{dataTexts.inputs.birthdate.label}}</mat-label>
+            <mat-form-field (click)="picker.open()" appearance="fill">
+              <mat-label (click)="picker.open()">{{dataTexts.inputs.birthdate.label}}</mat-label>
               <input
                 type="hidden"
                 [min]="minDate"
@@ -141,6 +141,7 @@
                 <input
                   matInput
                   [mask]=""
+                  (click)="picker.open()"
                   formControlName="birthdate">
               <mat-hint>{{dataTexts.inputs.birthdate.placeHolder}}</mat-hint>
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
