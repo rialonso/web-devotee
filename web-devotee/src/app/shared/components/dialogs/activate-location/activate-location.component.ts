@@ -106,5 +106,7 @@ export class ActivateLocationComponent implements OnInit {
     }
     const places = await this.placesAutoCompleteService.getWithOutOptions(false, params).toPromise();
     this.options = places.predictions;
+    console.log(places);
+
   }
 }

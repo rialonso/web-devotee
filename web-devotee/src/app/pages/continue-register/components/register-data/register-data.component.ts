@@ -34,6 +34,7 @@ import { GetSelectsSpecialPersonService } from 'src/app/shared/functions/get-sel
 import { inputsSpecialPerson, searchSpecialPerson } from './consts/inputs-special-person.const';
 import { EnumControlsSpecialPerson } from './enum/constrols-inputs-special-person.enum';
 import { UpdateDataService } from 'src/app/core/services/update-data/update-data.service';
+import { EnumGenders } from 'src/app/shared/enum/genders/genders.enum';
 
 @Component({
   selector: 'app-register-data',
@@ -232,34 +233,54 @@ export class RegisterDataComponent implements OnInit {
   }
   async continueRegister() {
     this.loading = true;
-
-    const disabilitys = {
-      cids: this.addKeyInDisabilitys(this.formGroup.get('my_cids').value),
-      medical_procedures: this.addKeyInDisabilitys(this.formGroup.get('medical_procedures').value),
-      medicament: this.addKeyInDisabilitys(this.formGroup.get('my_drugs').value),
-      hospital: this.addKeyInDisabilitys(this.formGroup.get('my_hospitals').value),
-    }
-    this.removeControlsIputSearchSpecialThings();
+    let updateData;
     this.store.dispatch(new AddDataRegister({
       ...this.formGroup.value,
       birthdate: this.dateFormatedToSend,
     }));
-    const updateData = {
+    updateData = {
       ...this.state.getValue().registerData,
-      disability: disabilitys
+      target_gender: this.changeTargetGender()
+    }
+    if (this.state.getValue()?.registerData?.account_type === EnumUserType.SPECIAL) {
+      updateData = {
+        ...updateData,
+        disability: this.setDataToSpecialPerson()
+      }
     }
 
-    // const registerData = await this.registerService.post(this.state.getValue().registerData).toPromise();
+    console.log(this.formGroup.value, updateData);
+
     await this.profilePicturesService.post(this.setFormDataToSendFiles()).toPromise();
     await this.updateDataService.post(updateData, this.state.getValue().userData.data.id).toPromise();
     this.loading = false;
-    this.navigateTo(EnumRoutesApplication.MATCHS);
+    // this.navigateTo(EnumRoutesApplication.MATCHS);
+  }
+  setDataToSpecialPerson() {
+    const disabilitys = {
+      cid: this.addKeyInDisabilitys(this.formGroup.get('my_cids').value),
+      medical_procedures: this.addKeyInDisabilitys(this.formGroup.get('medical_procedures').value),
+      drugs: this.addKeyInDisabilitys(this.formGroup.get('my_drugs').value),
+      hospitals: this.addKeyInDisabilitys(this.formGroup.get('my_hospitals').value),
+    }
+    this.removeControlsIputSearchSpecialThings();
+    return disabilitys;
+  }
+  changeTargetGender() {
+    if (this.formGroup.get('show_as_gender').value === EnumGenders.MALE) {
+      return EnumGenders.FEMALE;
+    } else if (this.formGroup.get('show_as_gender').value === EnumGenders.FEMALE) {
+      return EnumGenders.MALE;
+    }
   }
   addKeyInDisabilitys(value) {
     let newArrayValue = [];
-    value.forEach(element => {
-      newArrayValue.push(  element);
-    });
+    if (value) {
+      value.forEach(element => {
+        newArrayValue.push(  element);
+      });
+    }
+
     return newArrayValue;
   }
   setFormDataToSendFiles() {

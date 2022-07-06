@@ -104,13 +104,22 @@ export class RegisterComponent implements OnInit {
         .subscribe(
           responseVerifyEmail => {},
           responseVerifyEmail => {
-          if (responseVerifyEmail?.error?.errors?.email[0] === "Email já está em uso.") {
-            this.showErrorCredentials
-            = new ModelErrors(
-              true,
-              this.dataTexts.errors.existingEmail
-            )
-          }
+            console.log(responseVerifyEmail);
+            const responseError = responseVerifyEmail?.error?.errors;
+            if (responseError.email
+              && responseError.email[0] === "Email já está em uso.") {
+              this.showErrorCredentials
+              = new ModelErrors(
+                true,
+                this.dataTexts.errors.existingEmail
+              )
+            } else {
+              this.showErrorCredentials
+              = new ModelErrors(
+                false,
+               ''
+              )
+            }
         }
       );
     }
