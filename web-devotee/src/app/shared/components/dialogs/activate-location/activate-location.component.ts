@@ -26,6 +26,7 @@ export class ActivateLocationComponent implements OnInit {
 
   showAddManually = false;
   loadingGetLocation = false;
+  enableButton = false;
   errorsEnum = ErrorsEnum;
   formGroup: FormGroup;
   options: ModelPlacesAutocomplete.Prediction[] = [null];
@@ -108,5 +109,23 @@ export class ActivateLocationComponent implements OnInit {
     this.options = places.predictions;
     console.log(places);
 
+  }
+  async continueRegister() {
+    this.loadingGetLocation = true;
+    const params: Params = {
+      address: this.formGroup.get('address_description').value,
+      key: environment.googleApis.key
+    }
+    const address: ModelGetAddressLatLong.IRootObjetct = await this.getAddressLatLongService.getWithOutOptions(false, params).toPromise();
+    const locationResponse = address.results[0].geometry.location;
+    this.store.dispatch(new AddDataRegister({
+      lat: locationResponse.lat,
+      lng: locationResponse.lng
+    }));
+    this.loadingGetLocation = false;
+    this.matDialogRef.close();
+  }
+  locationSelected() {
+    this.enableButton = true;
   }
 }

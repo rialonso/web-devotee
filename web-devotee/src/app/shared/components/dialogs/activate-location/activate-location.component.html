@@ -29,8 +29,8 @@
                formControlName="address_description"
                [matAutocomplete]="auto"
                (input)="searchPlace($event.target.value)">
-        <mat-autocomplete #auto="matAutocomplete">
-          <mat-option *ngFor="let option of options" [value]="option">
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="locationSelected($event)">
+          <mat-option *ngFor="let option of options" [value]="option?.description">
             {{option?.description}}
           </mat-option>
         </mat-autocomplete>
@@ -53,8 +53,16 @@
     mat-button
     cdkFocusInitial
     class="button primary"
+    [disabled]="!enableButton"
+    (click)="continueRegister()"
     >
-      {{dataTexts.buttons.btnContinue}}
+      <div class="container-spinner-btn" *ngIf="loadingGetLocation">
+        <mat-spinner class="color white" [diameter]="20"></mat-spinner>
+      </div>
+      <span *ngIf="!loadingGetLocation">
+        {{dataTexts.buttons.btnContinue}}
+
+      </span>
     </button>
 </footer>
   <footer class="container-footer-activate-location" *ngIf="!showAddManually">

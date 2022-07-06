@@ -2,6 +2,7 @@
 @import '_sizes';
 @import '_mixins';
 
+
 .button{
   padding: $s-10px;
   border-radius: 60px;
@@ -11,6 +12,7 @@
   cursor: pointer;
   box-sizing: border-box;
   font-family: 'Booster-next-bold' "Roboto", "Helvetica Neue", sans-serif;
+
   &.primary {
     background: $principal-gradient;
     color: $white;
@@ -59,6 +61,7 @@
       width: 18px;
       height: 18px;
     }
+
   }
   .container-spinner-btn {
     @include dp-flex-alignment(row);
@@ -86,6 +89,9 @@
         }
       }
     }
+  }
+  &:disabled {
+    opacity: .2;
   }
 }
 .container-close {

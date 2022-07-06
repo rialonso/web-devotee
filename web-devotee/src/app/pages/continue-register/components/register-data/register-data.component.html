@@ -339,11 +339,10 @@
       (click)="navigateTo(enumRouterApp.REGISTER_WHO_ARE_YOU)">
       {{ dataTexts.buttons.btnBack }}
     </button>
-  <!--       [disabled]="formGroup.invalid"
- -->
     <button
       mat-flat-button
       color="primary"
+      [disabled]="formGroup.invalid"
       (click)="continueRegister()">
       {{ dataTexts.buttons.btnContinue }}
     </button>
