@@ -18,6 +18,9 @@ import { ModelErrors } from 'src/app/shared/model/errors/errors.model';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { UserProfileService } from 'src/app/core/services/user-profile/user-profile.service';
 import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
+import { ISignInGoogle } from 'src/app/shared/model/others-sign-in/sign-in.model';
+import { LoginGoogleService } from 'src/app/core/services/others-sign-in/login-google/login-google.service';
+import { VerifyStageRegisterDataService } from 'src/app/shared/functions/verify-stage-register-data/verify-stage-register-data.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -47,6 +50,8 @@ export class SignInComponent implements OnInit {
     private dialogsService: DialogsService,
     private userProfileService: UserProfileService,
     private socialAuthService: SocialAuthService,
+    private loginGoogleService: LoginGoogleService,
+    private verifyStageRegisterDataService: VerifyStageRegisterDataService,
 
   ) {
     this.store.select('controlsApp')
@@ -110,9 +115,16 @@ export class SignInComponent implements OnInit {
   }
   loginWithGoogle() {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
-    .then((res) => {
+    .then(async (res) => {
       console.log(res);
-
+      const dataToLoginGoogle = new ISignInGoogle(
+        res.email,
+        res.response.idpId,
+        res.response.id_token
+      );
+      const userData = await this.loginGoogleService.post(dataToLoginGoogle).toPromise();
+      this.stateManagementFuncServices.funcAddDataRegister(userData.data);
+      this.verifyStageRegisterDataService.redirectRouteWithDataRegistered();
     });
   }
 }

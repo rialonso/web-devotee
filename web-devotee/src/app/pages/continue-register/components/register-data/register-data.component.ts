@@ -101,17 +101,29 @@ export class RegisterDataComponent implements OnInit {
       this.valueChangesInputsSearchSelects();
 
     };
+    this.setDataInFormWheDataRecovered();
     this.openModalActivateLocation();
+  }
+  setDataInFormWheDataRecovered() {
+    const registerData = this.state.getValue()?.registerData
+    this.imagesURL = {
+      ...this.imagesURL,
+      [this.imagesTypes.FIRST_IMAGE]: `${environment.urlImages}${registerData?.profile_picture[0]?.path}`
+    }
+    this.formGroup.patchValue(
+      {
+        ...this.state.getValue()?.registerData
+      }
+    );
+    this.formGroup
   }
   private initForm() {
     this.formGroup = this.formBuilder.group({
-      profile_picture: this.formBuilder.array([]),
       name: [
         '',
         [
           Validators.required,
           nameValidatorSpecialCharacteres,
-          nameValidatorFormatInvalid,
         ]
       ],
       occupation: [
@@ -151,9 +163,9 @@ export class RegisterDataComponent implements OnInit {
     })
   }
   selectedImage(files: File, imageType: ImagesTypes) {
-    const controlPictures = this.formGroup.get('profile_picture');
+    // const controlPictures = this.formGroup.get('profile_picture');
     if (files && files[0]) {
-      (controlPictures as FormArray).push(this.formBuilder.group(files[0]));
+      // (controlPictures as FormArray).push(this.formBuilder.group(files[0]));
       const reader = new FileReader();
       reader.readAsDataURL(files[0]);
       reader.onload = (evt) => {
@@ -211,7 +223,6 @@ export class RegisterDataComponent implements OnInit {
     const controlsSpecial = [
       ...searchSpecialPerson,
       ...inputsSpecialPerson,
-      'profile_picture'
     ];
     controlsSpecial.forEach((value: string) => {
       this.formGroup.removeControl(value);
@@ -221,7 +232,9 @@ export class RegisterDataComponent implements OnInit {
     this.routeService.navigateToURL(route);
   }
   openModalActivateLocation() {
-    this.dialogsService
+    if (!this.state.getValue()?.registerData.lat
+      && !this.state.getValue()?.registerData.lng) {
+      this.dialogsService
       .openActivateLocation()
       .afterClosed()
       .subscribe( c => {
@@ -229,32 +242,40 @@ export class RegisterDataComponent implements OnInit {
         .getHosptals().then(res => {
           this.filteredHosptals = res.data;
         });
-    });
+      });
+    }
+
   }
   async continueRegister() {
-    this.loading = true;
-    let updateData;
-    this.store.dispatch(new AddDataRegister({
-      ...this.formGroup.value,
-      birthdate: this.dateFormatedToSend,
-    }));
-    updateData = {
-      ...this.state.getValue().registerData,
-      target_gender: this.changeTargetGender()
-    }
-    if (this.state.getValue()?.registerData?.account_type === EnumUserType.SPECIAL) {
+    console.log(this.formGroup.value, this.formGroup.valid);
+
+    if (this.formGroup.valid) {
+      this.loading = true;
+      let updateData;
+      this.store.dispatch(new AddDataRegister({
+        ...this.formGroup.value,
+        birthdate: this.dateFormatedToSend,
+      }));
       updateData = {
-        ...updateData,
-        disability: this.setDataToSpecialPerson()
+        ...this.state.getValue().registerData,
+        target_gender: this.changeTargetGender()
       }
+      if (this.state.getValue()?.registerData?.account_type === EnumUserType.SPECIAL) {
+        updateData = {
+          ...updateData,
+          disability: this.setDataToSpecialPerson()
+        }
+      }
+
+      console.log(this.formGroup.value, updateData);
+      if(this.imagesList.length > 0) {
+        await this.profilePicturesService.post(this.setFormDataToSendFiles()).toPromise();
+      }
+      await this.updateDataService.post(updateData, this.state.getValue().userData.data.id).toPromise();
+      this.loading = false;
+      this.navigateTo(EnumRoutesApplication.MATCHS);
     }
 
-    console.log(this.formGroup.value, updateData);
-
-    await this.profilePicturesService.post(this.setFormDataToSendFiles()).toPromise();
-    await this.updateDataService.post(updateData, this.state.getValue().userData.data.id).toPromise();
-    this.loading = false;
-    // this.navigateTo(EnumRoutesApplication.MATCHS);
   }
   setDataToSpecialPerson() {
     const disabilitys = {
