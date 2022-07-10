@@ -106,16 +106,18 @@ export class RegisterDataComponent implements OnInit {
   }
   setDataInFormWheDataRecovered() {
     const registerData = this.state.getValue()?.registerData
-    this.imagesURL = {
-      ...this.imagesURL,
-      [this.imagesTypes.FIRST_IMAGE]: `${environment.urlImages}${registerData?.profile_picture[0]?.path}`
+    if (registerData.profile_picture !== null) {
+      this.imagesURL = {
+        ...this.imagesURL,
+        [this.imagesTypes.FIRST_IMAGE]: `${environment.urlImages}${registerData?.profile_picture[0]?.path}`
+      }
     }
+
     this.formGroup.patchValue(
       {
         ...this.state.getValue()?.registerData
       }
     );
-    this.formGroup
   }
   private initForm() {
     this.formGroup = this.formBuilder.group({
