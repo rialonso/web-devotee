@@ -83,9 +83,11 @@ export class ChatMessagesComponent implements OnInit {
       .post(this.formGroup.value, false, params)
       .pipe(takeUntil(this.destroy$))
       .subscribe(
-        responseSendMessage => {},
+        responseSendMessage => {
+          this.formGroup.get('content').setValue('');
+
+        },
         erroSendMessage => {
-          this.formGroup.get('content').setValue('')
         }
       );
 

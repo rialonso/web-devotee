@@ -3,6 +3,8 @@ import { State } from '@ngrx/store';
 import { GetChatService } from 'src/app/core/services/get-chat/get-chat.service';
 import { GetMatchesService } from 'src/app/core/services/get-matches/get-matches.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
+import { ChatConnectorService } from 'src/app/core/services/websockets/chat-connector/chat-connector.service';
+import { LoginQrcodeConnectorService } from 'src/app/core/services/websockets/login-qrcode-connector/login-qrcode-connector.service';
 import { TransformAgeService } from 'src/app/shared/functions/transform-age/transform-age.service';
 import { ModelGetMatchesResponse } from 'src/app/shared/model/response/get-matches/get-matches.response';
 import { IAppState } from 'src/app/state-management/app.model';
@@ -38,22 +40,22 @@ export class ChatComponent implements OnInit {
   intervalChat;
   intervalMatches;
 
-  userMatchData: IUserData.RootObject;
+  userMatchData: ModelGetMatchesResponse.ITargetUser;
   constructor(
     protected state: State<IAppState>,
     private translateService: TranslateService,
     private getMatchesService: GetMatchesService,
     private getChatService: GetChatService,
     private transformAgeService: TransformAgeService,
+    private chatConnectorService: ChatConnectorService,
   ) { }
 
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
     this.getMacthes();
-
-    this.intervalMatches = setInterval(() => {
-      this.getMacthes();
-    }, 10000);
+    // this.intervalMatches = setInterval(() => {
+    //   this.getMacthes();
+    // }, 10000);
   }
   private async getMacthes() {
     const dataMatches = await this.getMatchesService.get().toPromise();
@@ -79,16 +81,31 @@ export class ChatComponent implements OnInit {
     }
 
   }
-  showChat(match) {
+  showChat(match: ModelGetMatchesResponse.IData) {
     clearInterval(this.intervalChat);
     this.showChatLoadingAll = true;
     this.showChatMobile = true;
     this.dataChat = false;
     this.matchId = match.match_id;
     this.userMatchData = match.target_user;
-    // this.intervalChat = setInterval(() => {
-      this.getChat(this.matchId);
-    // }, 1000);
+    this.getChat(this.matchId);
+    this.connectChat();
+  }
+  connectChat() {
+    this.chatConnectorService
+    .connectWebSocketChatMessages(this.userMatchData.id)
+    .bind(environment.webSocket.events.chat, (res) => {
+      console.log(res);
+
+      this.dataChat = {
+        data: [
+          {
+            ...res.payload
+          },
+          ...this.dataChat.data
+        ]
+      }
+    });
   }
   clearInterval(event) {
     if (event) {

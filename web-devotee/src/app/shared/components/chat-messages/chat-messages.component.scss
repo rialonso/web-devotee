@@ -94,7 +94,7 @@
     box-shadow: 0px 3px 6px #00000029;
     max-width: 70%;
     line-height: auto;
-    .container-image-sent-message {
+    .container-img-message {
       max-width: 200px;
       height: auto;
       img {
@@ -103,10 +103,18 @@
         border-radius: 10px;
       }
     }
+    .container-image-sent-message {
+      img {
+        border-radius: 10px 10px 0 10px;
+      }
+    }
+    .container-image-recived-message {
+      img {
+        border-radius: 10px 10px 10px 0;
+      }
+    }
   }
-  .box-msg-image {
-    padding: 5px;
-  }
+
   .box {
     display: flex;
     margin-top: 10px;
@@ -120,10 +128,18 @@
   .msg-recived {
     color: $black;
     background-color: $magenta-soft;
+    border-radius: 10px 10px 10px 0;
   }
   .msg-sent {
     color: $white;
     background-color: $blue-dark;
+    border-radius: 10px 10px 0 10px;
+  }
+  .box-msg-image {
+    padding: 5px;
+    box-shadow: none;
+    background-color: transparent;
+
   }
   .input-sent-msg{
     @include dp-flex-alignment(row, center, space-between);

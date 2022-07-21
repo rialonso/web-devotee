@@ -5,6 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { GenerateHashQrcodeService } from 'src/app/core/services/generate-hash-qrcode/generate-hash-qrcode.service';
 import { ReadHashQrcodeService } from 'src/app/core/services/read-hash-qrcode/read-hash-qrcode.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
+import { LoginQrcodeConnectorService } from 'src/app/core/services/websockets/login-qrcode-connector/login-qrcode-connector.service';
 
 @Component({
   selector: 'app-login-qr-code',
@@ -25,6 +26,7 @@ export class LoginQrCodeComponent implements OnInit {
     private matDialogRef: MatDialogRef<LoginQrCodeComponent>,
     private generateHashQrcodeService: GenerateHashQrcodeService,
     private readHashQrcodeService: ReadHashQrcodeService,
+    private loginQrcodeConnectorService: LoginQrcodeConnectorService,
   ) { }
 
   ngOnInit() {
@@ -47,8 +49,7 @@ export class LoginQrCodeComponent implements OnInit {
     this.readHashQrcode();
   }
   async readHashQrcode() {
-     this.intervalValidadeHash = setInterval(async() => {
-      const readHashReponse = await this.readHashQrcodeService.post(this.qrCodeHash).toPromise();
-    }, 5000);
+    this.loginQrcodeConnectorService.connectWebSOcket(this.qrCodeHash);
   }
+
 }

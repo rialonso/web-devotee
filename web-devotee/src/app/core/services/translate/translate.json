@@ -424,7 +424,10 @@
     },
     "chat": {
       "matches": {
-        "title": "Meus matches"
+        "title": "Meus matches",
+        "lastMessageImg": "Imagem",
+        "sentByYou": "você:"
+
       }
     },
     "sugestionMatchs": {
@@ -873,7 +876,9 @@
     },
     "chat": {
       "matches": {
-        "title": "My matches"
+        "title": "My matches",
+        "lastMessageImg": "picture",
+        "sentByYou": "you:"
       }
     },
     "sugestionMatchs": {

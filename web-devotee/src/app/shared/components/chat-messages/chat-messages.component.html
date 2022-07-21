@@ -57,7 +57,12 @@
 
           }">
           {{message?.content}}
-          <div class="container-image-sent-message" >
+          <div class="container-img-message"
+          [ngClass]="{
+            'container-image-sent-messaget': message.user_id === userId,
+            'container-image-recived-message': message.user_id !== userId
+          }"
+          >
             <img [src]="urlImages + message.path" *ngIf="message.path" alt="">
           </div>
         </div>

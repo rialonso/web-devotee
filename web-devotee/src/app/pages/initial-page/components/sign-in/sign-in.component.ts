@@ -54,11 +54,11 @@ export class SignInComponent implements OnInit {
     private verifyStageRegisterDataService: VerifyStageRegisterDataService,
 
   ) {
-    this.store.select('controlsApp')
-      .pipe(takeUntil(this.destroy$))
-      .subscribe((controlsApp: any) => {
-        this.changeOpenMenuMobile(controlsApp.openSingIn);
-      });
+    // this.store.select('controlsApp')
+    //   .pipe(takeUntil(this.destroy$))
+    //   .subscribe((controlsApp: any) => {
+    //     this.changeOpenMenuMobile(controlsApp.openSingIn);
+    //   });
   }
 
   ngOnInit(): void {

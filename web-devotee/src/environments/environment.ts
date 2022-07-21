@@ -3,6 +3,20 @@ export const environment = {
   production: false,
   api:'https://apiv2.devotee.com.br/',
   urlImages: 'https://devote-v2.s3.sa-east-1.amazonaws.com/',
+  socketUrL:'https://apiv2.devotee.com.br:6001/',
+  webSocket: {
+    url: 'apiv2.devotee.com.br',
+    port: 6001,
+    cluster: 'devows',
+    events: {
+      loginQrCode: 'login-qrcode',
+      chat: 'new-message'
+    },
+    channels: {
+      loginQrCode: 'login.',
+      chat: 'user_messages.'
+    }
+  },
   urls: {
     login: 'api/login',
     registerUser: 'api/users',
