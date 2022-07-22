@@ -36,6 +36,8 @@ export class ChatComponent implements OnInit {
   showChatLoadingAll = false;
 
   matchId: number;
+  oldMatchId: number;
+
   userId: number;
 
   intervalChat;
@@ -92,23 +94,27 @@ export class ChatComponent implements OnInit {
     this.userMatchData = match.target_user;
     this.getChat(this.matchId);
     this.connectChat();
+    this.oldMatchId = match.match_id;
   }
   private connectChat() {
     //use in connction this.userMatchData.id
-    this.chatConnectorService
-    .connectWebSocketChatMessages(this.matchId)
-    .bind(environment.webSocket.events.chat, (res) => {
-      console.log(res);
+    if (this.oldMatchId && (this.oldMatchId === this.matchId)) {
+      this.chatConnectorService.connectWebSocketChatMessages(this.matchId).unsubscribe();
 
-      this.dataChat = {
-        data: [
-          {
-            ...res.payload
-          },
-          ...this.dataChat.data
-        ]
-      }
-    });
+    } else {
+      this.chatConnectorService
+      .connectWebSocketChatMessages(this.matchId)
+      .bind(environment.webSocket.events.chat, (res) => {
+        this.dataChat = {
+          data: [
+            {
+              ...res.payload
+            },
+            ...this.dataChat.data
+          ]
+        }
+      });
+    }
   }
   private connectMatches() {
     this.matchesConnectorService
