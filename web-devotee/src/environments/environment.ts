@@ -10,11 +10,16 @@ export const environment = {
     cluster: 'devows',
     events: {
       loginQrCode: 'login-qrcode',
-      chat: 'new-message'
+      chat: 'new-message',
+      matches: 'new-match.',
+      userUpdate: 'update'
     },
     channels: {
       loginQrCode: 'login.',
-      chat: 'user_messages.'
+      chat: 'match.',
+      matches: 'matches.',
+      userUpdate: 'user.'
+
     }
   },
   urls: {

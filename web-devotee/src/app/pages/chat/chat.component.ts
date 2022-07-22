@@ -53,9 +53,6 @@ export class ChatComponent implements OnInit {
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
     this.getMacthes();
-    // this.intervalMatches = setInterval(() => {
-    //   this.getMacthes();
-    // }, 10000);
   }
   private async getMacthes() {
     const dataMatches = await this.getMatchesService.get().toPromise();
@@ -92,8 +89,9 @@ export class ChatComponent implements OnInit {
     this.connectChat();
   }
   connectChat() {
+    //use in connction this.userMatchData.id
     this.chatConnectorService
-    .connectWebSocketChatMessages(this.userMatchData.id)
+    .connectWebSocketChatMessages(this.matchId)
     .bind(environment.webSocket.events.chat, (res) => {
       console.log(res);
 
