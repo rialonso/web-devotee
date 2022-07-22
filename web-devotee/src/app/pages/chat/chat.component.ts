@@ -5,6 +5,7 @@ import { GetMatchesService } from 'src/app/core/services/get-matches/get-matches
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { ChatConnectorService } from 'src/app/core/services/websockets/chat-connector/chat-connector.service';
 import { LoginQrcodeConnectorService } from 'src/app/core/services/websockets/login-qrcode-connector/login-qrcode-connector.service';
+import { MatchesConnectorService } from 'src/app/core/services/websockets/matches-connector/matches-connector.service';
 import { TransformAgeService } from 'src/app/shared/functions/transform-age/transform-age.service';
 import { ModelGetMatchesResponse } from 'src/app/shared/model/response/get-matches/get-matches.response';
 import { IAppState } from 'src/app/state-management/app.model';
@@ -48,6 +49,8 @@ export class ChatComponent implements OnInit {
     private getChatService: GetChatService,
     private transformAgeService: TransformAgeService,
     private chatConnectorService: ChatConnectorService,
+    private matchesConnectorService: MatchesConnectorService,
+
   ) { }
 
   ngOnInit(): void {
@@ -58,6 +61,8 @@ export class ChatComponent implements OnInit {
     const dataMatches = await this.getMatchesService.get().toPromise();
     this.dataMatches = dataMatches;
     this.userId = this.state.getValue().userData.data?.id;
+    this.connectMatches();
+
   }
   private async getChat(matchId: number, pageNumber?: number) {
     let params;
@@ -88,7 +93,7 @@ export class ChatComponent implements OnInit {
     this.getChat(this.matchId);
     this.connectChat();
   }
-  connectChat() {
+  private connectChat() {
     //use in connction this.userMatchData.id
     this.chatConnectorService
     .connectWebSocketChatMessages(this.matchId)
@@ -104,6 +109,13 @@ export class ChatComponent implements OnInit {
         ]
       }
     });
+  }
+  private connectMatches() {
+    this.matchesConnectorService
+      .connectWebSocketChatMessages(this.userId)
+      .bind(environment.webSocket.events.matches, (res) => {
+        console.log(res);
+      });
   }
   clearInterval(event) {
     if (event) {

@@ -11,7 +11,7 @@ export const environment = {
     events: {
       loginQrCode: 'login-qrcode',
       chat: 'new-message',
-      matches: 'new-match.',
+      matches: 'new-match',
       userUpdate: 'update'
     },
     channels: {
