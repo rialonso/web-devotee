@@ -40,9 +40,6 @@ export class ChatComponent implements OnInit {
 
   userId: number;
 
-  intervalChat;
-  intervalMatches;
-
   userMatchData: ModelGetMatchesResponse.ITargetUser;
   constructor(
     protected state: State<IAppState>,
@@ -86,7 +83,6 @@ export class ChatComponent implements OnInit {
 
   }
   showChat(match: ModelGetMatchesResponse.IData) {
-    clearInterval(this.intervalChat);
     this.showChatLoadingAll = true;
     this.showChatMobile = true;
     this.dataChat = false;
@@ -123,14 +119,8 @@ export class ChatComponent implements OnInit {
         console.log(res);
       });
   }
-  clearInterval(event) {
-    if (event) {
-      clearInterval(this.intervalChat);
-    }
-  }
   closeChatMobile(event) {
     if (event) {
-      clearInterval(this.intervalChat);
       this.showChatMobile = !event;
     }
   }

@@ -1,4 +1,6 @@
-<main id="container-chat" class="container-default-cards-register">
+<main id="container-chat"
+class="container-default-cards-register"
+[ngClass]="{'chat-mobile': showChatMobile }">
   <section class="container-default-itens-chat flex-1 width-100-per">
     <mat-card class="container-title-register">
       <mat-card-title>{{dataTexts.chat.matches.title}}</mat-card-title>
@@ -59,7 +61,6 @@
       [matchId]="matchId"
       [showChatSkeleton]="showChatMobile"
       [showChatLoadingAll]=""
-      (openingProfile)="clearInterval($event)"
       (closeChatMobile)="closeChatMobile($event)"></app-chat-messages>
   </section>
   <section class="container-default-itens-chat flex-2 width-100-per chat-section-desktop" >
@@ -69,7 +70,6 @@
       [matchId]="matchId"
       [showChatSkeleton]="showChatMobile"
       [showChatLoadingAll]="showChatLoadingAll"
-      (openingProfile)="clearInterval($event)"
       ></app-chat-messages>
   </section>
 </main>

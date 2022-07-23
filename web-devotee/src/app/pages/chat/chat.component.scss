@@ -12,10 +12,20 @@
   padding: 20px;
   box-sizing: border-box;
   height: 100%;
+
   margin: auto;
   @include min-tablet {
     @include dp-flex-alignment(row, flex-start);
 
+  }
+  &.chat-mobile {
+
+    @media screen and (max-width: $min-tablet) {
+      position: absolute;
+      top: 0;
+      padding: 0;
+      width: 100%;
+    }
   }
   .container-default-itens-chat {
     @include dp-flex-alignment(column, initial, initial);
