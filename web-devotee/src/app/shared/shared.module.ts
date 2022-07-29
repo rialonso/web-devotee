@@ -26,6 +26,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { AdsCardsComponent } from './components/google-ads/ads-cards/ads-cards/ads-cards.component';
 
 const components = [
   FooterComponent,
@@ -34,6 +35,7 @@ const components = [
   HeaderLoggedComponent,
   PrincipalLoadingComponent,
   ChatMessagesComponent,
+  AdsCardsComponent,
 ]
 const angularMaterialModules = [
   MatInputModule,
@@ -55,6 +57,7 @@ const angularMaterialModules = [
 @NgModule({
   declarations: [
     ...components,
+    AdsCardsComponent,
   ],
   imports: [
     ...angularMaterialModules,
