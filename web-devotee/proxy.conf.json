@@ -7,5 +7,14 @@
       "pathRewrite": {
           "^/googleURL": ""
       }
-  }
+  },
+  "/proxy": {
+    "target": "https://apiv2.devotee.com.br/",
+    "secure": false,
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "pathRewrite": {
+        "^/proxy": ""
+    }
+}
 }

@@ -8,6 +8,7 @@ import { ChangePasswordComponent } from './change-password/change-password.compo
 import { QRCodeModule } from 'angularx-qrcode';
 import { EditProfilePicturesComponent } from './edit-profile-pictures/edit-profile-pictures.component';
 import { EditAboutMeComponent } from './edit-about-me/edit-about-me.component';
+import { UseOfTermsComponent } from './use-of-terms/use-of-terms.component';
 
 const dialogsComponent = [
   LoginQrCodeComponent,
@@ -16,12 +17,12 @@ const dialogsComponent = [
   ChangePasswordComponent,
   EditProfilePicturesComponent,
   EditAboutMeComponent,
+  UseOfTermsComponent,
 ]
 
 @NgModule({
   declarations: [
     ...dialogsComponent,
-    ChangePasswordComponent,
   ],
   imports: [
     SharedModule,

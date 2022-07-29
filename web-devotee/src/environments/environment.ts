@@ -24,6 +24,7 @@ export const environment = {
   },
   urls: {
     login: 'api/login',
+    loginGoogle: 'login/google',
     registerUser: 'api/users',
     updateUser: 'api/users/update',
     listCards: 'api/cards',
