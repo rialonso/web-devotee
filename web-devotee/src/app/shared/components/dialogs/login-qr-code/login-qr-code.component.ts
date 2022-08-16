@@ -6,6 +6,11 @@ import { GenerateHashQrcodeService } from 'src/app/core/services/generate-hash-q
 import { ReadHashQrcodeService } from 'src/app/core/services/read-hash-qrcode/read-hash-qrcode.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { LoginQrcodeConnectorService } from 'src/app/core/services/websockets/login-qrcode-connector/login-qrcode-connector.service';
+import { PusherAuthService } from 'src/app/core/services/websockets/pusher/pusher-auth/pusher-auth.service';
+import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
+import { RouteService } from 'src/app/shared/functions/routes/route.service';
+import { StateManagementFuncService } from 'src/app/shared/functions/state-management/state-management-func.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login-qr-code',
@@ -27,6 +32,9 @@ export class LoginQrCodeComponent implements OnInit {
     private generateHashQrcodeService: GenerateHashQrcodeService,
     private readHashQrcodeService: ReadHashQrcodeService,
     private loginQrcodeConnectorService: LoginQrcodeConnectorService,
+    private stateManagementFuncService: StateManagementFuncService,
+    private routeService: RouteService,
+    private pusherAuthService: PusherAuthService,
   ) { }
 
   ngOnInit() {
@@ -48,8 +56,19 @@ export class LoginQrCodeComponent implements OnInit {
     this.qrCodeHash = hashReponse.data.hash;
     this.readHashQrcode();
   }
-  async readHashQrcode() {
-    this.loginQrcodeConnectorService.connectWebSOcket(this.qrCodeHash);
+  readHashQrcode() {
+    this.loginQrcodeConnectorService
+      .connectWebSOcket(this.qrCodeHash)
+      .bind(environment.webSocket.events.loginQrCode, (res) => {
+        localStorage.setItem('access_token', `${res?.payload.access_token}`);
+        localStorage.setItem('userId', `${res?.payload.data.id}`);
+        this.stateManagementFuncService.funcAddAllDataUser({access_token: res?.payload.access_token, ...res?.payload.data});
+        this.routeService.navigateToURL(EnumRoutesApplication.MATCHS);
+        this.pusherAuthService
+          .pusherConnect()
+          .unsubscribe(`${environment.webSocket.channels.loginQrCode}${this.qrCodeHash}`);
+      })
+
   }
 
 }

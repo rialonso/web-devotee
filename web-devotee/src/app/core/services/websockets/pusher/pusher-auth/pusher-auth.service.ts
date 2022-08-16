@@ -20,4 +20,7 @@ export class PusherAuthService {
     })
     return pusherConnect;
   }
+  pusherConnect() {
+    return this.pusherConfig();
+  }
 }

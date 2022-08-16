@@ -14,19 +14,11 @@ export class LoginQrcodeConnectorService {
 
   constructor(
     private pusherAuthService: PusherAuthService,
-    private stateManagementFuncServices: StateManagementFuncService,
-    private routeService: RouteService,
   ) { }
   connectWebSOcket(hash: string) {
       const pusherConnect = this.pusherAuthService.pusherConfig()
       const pusherBind = pusherConnect.subscribe( `${environment.webSocket.channels.loginQrCode}${hash}`);
-      pusherBind.bind(environment.webSocket.events.loginQrCode, (res) => {
-        localStorage.setItem('access_token', `${res?.payload.access_token}`);
-        localStorage.setItem('userId', `${res?.payload.data.id}`);
-        this.stateManagementFuncServices.funcAddAllDataUser({access_token: res?.payload.access_token, ...res?.payload.data});
-        this.routeService.navigateToURL(EnumRoutesApplication.MATCHS);
-        pusherConnect.unsubscribe(`${environment.webSocket.channels.loginQrCode}${hash}`);
-      })
       pusherConnect.allChannels().forEach(channel => console.log(channel.name));
+      return pusherBind;
   }
 }
