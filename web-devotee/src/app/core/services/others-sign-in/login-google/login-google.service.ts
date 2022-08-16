@@ -14,12 +14,11 @@ import { ISignInGoogle } from 'src/app/shared/model/others-sign-in/sign-in.model
 export class LoginGoogleService extends HttpService<any>{
   constructor(
     httpClient: HttpClient,
-
     ) {
     super(
       httpClient,
       environment.api,
-      environment.urls.loginGoogle,
+      environment.urls.login,
       new LoginGoogleSerializer());
   }
 }

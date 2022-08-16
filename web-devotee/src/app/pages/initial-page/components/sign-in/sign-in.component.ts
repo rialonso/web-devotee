@@ -119,7 +119,7 @@ export class SignInComponent implements OnInit {
       ]
     })
   }
-  loginWithGoogle() {
+async loginWithGoogle() {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
     .then(async (res) => {
       console.log(res);
