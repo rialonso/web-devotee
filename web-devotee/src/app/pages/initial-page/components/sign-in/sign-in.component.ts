@@ -84,8 +84,8 @@ export class SignInComponent implements OnInit {
 
   }
   async signIn() {
-    this.loading = true;
     if (this.formGroup.valid) {
+      this.loading = true;
       const signInData: IUserData.RootObject = await this.signInService.post(this.formGroup.value).toPromise();
       if (signInData?.status) {
         const userProfile: IUserData.RootObject = await this.userProfileService.get(signInData.data.id).toPromise();
