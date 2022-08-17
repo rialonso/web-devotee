@@ -33,7 +33,6 @@ export class UserConfigurationsComponent implements OnInit {
     private userProfileService: UserProfileService,
     private routeService: RouteService,
     private stateManagementFuncService: StateManagementFuncService,
-    private changePasswordService: ChangePasswordService,
   ) { }
 
   ngOnInit() {
@@ -67,10 +66,7 @@ export class UserConfigurationsComponent implements OnInit {
       .afterClosed()
       .pipe(takeUntil(this.destroy$))
       .subscribe((closed: ModelChangePassword) => {
-        // this.changePasswordService
-        // .post()
-        // .pipe(takeUntil(this.destroy$))
-        // .toPromise();
+
       })
 
   }

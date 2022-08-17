@@ -26,4 +26,17 @@ export class SnackBarService {
       }
     );
   }
+  openSnackbarWarning(
+    mensage: string,
+    button: string,
+    duration = 2000
+    ) {
+    this.snackBar.open(
+      mensage, button,
+      {
+        duration: duration,
+        panelClass: 'warning-snackbar',
+      }
+    );
+  }
 }

@@ -201,8 +201,21 @@
         "errors" : {
           "none": "none"
         }
+      },
+      "newPassword": {
+        "label": "Nova senha",
+        "placeHolder": "Digite sua nova senha",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "oldPassword": {
+        "label": "Senha antiga",
+        "placeHolder": "Digite sua senha antiga",
+        "errors" : {
+          "none": "none"
+        }
       }
-
     },
     "inputsErrors": {
       "requireds" : {
@@ -377,6 +390,14 @@
       },
       "successSaveFilters": {
         "mensage": "Filtros salvos com sucesso",
+        "button": "entendi"
+      },
+      "successChangePassword": {
+        "mensage": "Senha alterada com sucesso",
+        "button": "entendi"
+      },
+      "errorChangePassword": {
+        "mensage": "Ops.. algo deu errado, confira as senhas digitadas",
         "button": "entendi"
       }
     },
@@ -639,8 +660,21 @@
         "errors" : {
           "none": "none"
         }
+      },
+      "newPassword": {
+        "label": "New password",
+        "placeHolder": "Type your new password",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "oldPassword": {
+        "label": "Old password",
+        "placeHolder": "Type your old password",
+        "errors" : {
+          "none": "none"
+        }
       }
-
     },
     "inputsErrors": {
       "requireds" : {
@@ -831,6 +865,14 @@
       "successSaveFilters": {
         "mensage": "filters saved",
         "button": "understand"
+      },
+      "successChangePassword": {
+        "mensage": "Senha alterada com sucesso",
+        "button": "ok"
+      },
+      "wrongChangePassword": {
+        "mensage": "Ops.. something is wrong, see passwords",
+        "button": "ok"
       }
     },
     "userConfigurations": {

@@ -248,3 +248,11 @@ body { margin: 0; font-family: "Booster-next-regular", "Helvetica Neue", sans-se
 
   }
 }
+.warning-snackbar {
+  background-color: $magenta-soft-hover;
+  color: $white;
+  .mat-simple-snackbar-action {
+    color: $white;
+
+  }
+}

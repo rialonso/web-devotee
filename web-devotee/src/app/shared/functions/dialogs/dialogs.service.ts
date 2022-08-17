@@ -118,14 +118,11 @@ export class DialogsService {
     const modal =  this.dialog.open(
       ChangePasswordComponent,
       {
-        width: 'calc(80%)',
-        maxWidth: '1100px',
+        width: 'calc(60%)',
+        maxWidth: '800px',
         panelClass: 'container-change-password',
       },
     );
-    const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
-      size.matches ? modal.updateSize('100vw', '100vh'): undefined ;
-    });
     return modal;
   }
 }
