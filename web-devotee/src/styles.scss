@@ -181,6 +181,11 @@ p, a {
     background-color: $gray-ultra-light-soft;
   }
 }
+.container-change-password {
+  mat-dialog-container {
+    border-radius: 10px;
+  }
+}
 @font-face {
   font-family: Booster-next-regular;
   src: url(assets/fonts/BoosterNextFY-Regular.otf) format("opentype");

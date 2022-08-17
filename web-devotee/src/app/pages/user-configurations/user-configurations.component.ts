@@ -8,6 +8,10 @@ import { RouteService } from 'src/app/shared/functions/routes/route.service';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { StateManagementFuncService } from 'src/app/shared/functions/state-management/state-management-func.service';
 import { SnackBarService } from 'src/app/core/services/snack-bar/snack-bar.service';
+import { ChangePasswordService } from 'src/app/core/services/change-password/change-password.service';
+import { ReplaySubject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { ModelChangePassword } from 'src/app/shared/model/change-password/change-password.model';
 
 @Component({
   selector: 'app-user-configurations',
@@ -19,6 +23,8 @@ export class UserConfigurationsComponent implements OnInit {
   enumRoutes = EnumRoutesApplication;
 
   loading = false;
+
+  destroy$ = new ReplaySubject();
   constructor(
     protected state: State<IAppState>,
     protected store: Store<IAppState>,
@@ -27,6 +33,7 @@ export class UserConfigurationsComponent implements OnInit {
     private userProfileService: UserProfileService,
     private routeService: RouteService,
     private stateManagementFuncService: StateManagementFuncService,
+    private changePasswordService: ChangePasswordService,
   ) { }
 
   ngOnInit() {
@@ -34,7 +41,6 @@ export class UserConfigurationsComponent implements OnInit {
   }
   viewMyProfile() {
     const userData = this.state.getValue().userData.data;
-
     this.dialogService
       .openProfile(userData)
       .afterClosed()
@@ -54,5 +60,18 @@ export class UserConfigurationsComponent implements OnInit {
   logout() {
     localStorage.clear();
     this.navigateTo(this.enumRoutes.LOGIN);
+  }
+  changePassword() {
+    this.dialogService
+      .openChangePassword()
+      .afterClosed()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((closed: ModelChangePassword) => {
+        // this.changePasswordService
+        // .post()
+        // .pipe(takeUntil(this.destroy$))
+        // .toPromise();
+      })
+
   }
 }

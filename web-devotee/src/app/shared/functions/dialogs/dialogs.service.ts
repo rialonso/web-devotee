@@ -1,3 +1,4 @@
+import { ModelGetAddressLatLong } from 'src/app/shared/model/response/google/get-address-lat-long/getAddressLatLong.model';
 import { Injectable } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
@@ -8,6 +9,7 @@ import { ProfileComponent } from '../../components/dialogs/profile/profile.compo
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { EditProfilePicturesComponent } from '../../components/dialogs/edit-profile-pictures/edit-profile-pictures.component';
 import { EditAboutMeComponent } from '../../components/dialogs/edit-about-me/edit-about-me.component';
+import { ChangePasswordComponent } from '../../components/dialogs/change-password/change-password.component';
 
 @Injectable({
   providedIn: 'root'
@@ -104,6 +106,21 @@ export class DialogsService {
         width: 'calc(80%)',
         maxWidth: '1100px',
         panelClass: 'container-edit-profile',
+      },
+    );
+    const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
+      size.matches ? modal.updateSize('100vw', '100vh'): undefined ;
+    });
+    return modal;
+  }
+
+  openChangePassword() {
+    const modal =  this.dialog.open(
+      ChangePasswordComponent,
+      {
+        width: 'calc(80%)',
+        maxWidth: '1100px',
+        panelClass: 'container-change-password',
       },
     );
     const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
