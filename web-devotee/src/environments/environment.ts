@@ -41,6 +41,11 @@ export const environment = {
     likes: 'api/likes',
     getSugestionMatchs: 'api/cards',
     updateProfilePictureByOrder: 'api/user/pictures/update-by-order',
+    termsOfUsePt: 'api/settings/terms',
+    termsOfUseEn: 'api/settings/terms_en',
+    privacyPolicyPt: 'api/settings/privacy',
+    privacyPolicyEn: 'api/settings/privacy_en'
+
   },
   googleApis: {
     key: 'AIzaSyBRuDbRuGoy6vxVAYSPCRqTcKxnlTbZwVs',

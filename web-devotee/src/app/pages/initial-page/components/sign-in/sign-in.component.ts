@@ -77,12 +77,6 @@ export class SignInComponent implements OnInit {
   openQrSignIn() {
     this.dialogsService.openQrCodeSignIn();
   }
-  openTerms() {
-
-  }
-  openPrivacy() {
-
-  }
   async signIn() {
     if (this.formGroup.valid) {
       this.loading = true;
@@ -132,5 +126,11 @@ async loginWithGoogle() {
       this.stateManagementFuncServices.funcAddDataRegister(userData.data);
       this.verifyStageRegisterDataService.redirectRouteWithDataRegistered();
     });
+  }
+  openTerms() {
+    this.dialogsService.openTerms();
+  }
+  openPrivacy() {
+    this.dialogsService.openPrivacy();
   }
 }

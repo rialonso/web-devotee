@@ -9,6 +9,7 @@ import { QRCodeModule } from 'angularx-qrcode';
 import { EditProfilePicturesComponent } from './edit-profile-pictures/edit-profile-pictures.component';
 import { EditAboutMeComponent } from './edit-about-me/edit-about-me.component';
 import { UseOfTermsComponent } from './use-of-terms/use-of-terms.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 
 const dialogsComponent = [
   LoginQrCodeComponent,
@@ -23,6 +24,7 @@ const dialogsComponent = [
 @NgModule({
   declarations: [
     ...dialogsComponent,
+    PrivacyPolicyComponent,
   ],
   imports: [
     SharedModule,

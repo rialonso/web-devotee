@@ -12,10 +12,17 @@
       <div class="terms-policy">
         <div class="content-terms policy-privacy">
           <p
-            class="tablinks policy my-btn-terms">{{dataTexts.policyPrivacy}}</p>
+            class="tablinks policy my-btn-terms"
+            (click)="openPrivacy()">
+            {{dataTexts.policyPrivacy}}
+          </p>
         </div>
         <div class="content-terms">
-          <p  class="tablinks  terms my-btn-terms">{{dataTexts.termsOfUse}}</p>
+          <p
+            class="tablinks terms my-btn-terms"
+            (click)="openTerms()">
+            {{dataTexts.termsOfUse}}
+          </p>
         </div>
       </div>
     </section>

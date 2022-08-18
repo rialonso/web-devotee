@@ -256,3 +256,20 @@ body { margin: 0; font-family: "Booster-next-regular", "Helvetica Neue", sans-se
 
   }
 }
+.container-data-legal-policy {
+  max-height: 400px;
+
+  p {
+    color: $blue-dark;
+
+  }
+  :first-child {
+    color: $blue-dark;
+    font-family: $font-booster-next-bold;
+    margin-bottom: 20px;
+  }
+  :nth-child(2) {
+
+  }
+
+}
