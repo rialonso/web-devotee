@@ -70,7 +70,7 @@
     </section>
   </div>
   <form [formGroup]="formGroup" class="input-sent-msg" *ngIf="dataChat">
-    <input formControlName="content" type="text" >
+    <input formControlName="content" type="text" (keyup.enter)="sendMessage()">
     <div class="btn-sent cursor-pointer" (click)="sendMessage()">
       <mat-icon>send</mat-icon>
     </div>

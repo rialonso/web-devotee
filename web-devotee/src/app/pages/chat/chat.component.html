@@ -39,7 +39,10 @@ class="container-default-cards-register"
               <span *ngIf="match.latest_message.user_id === userId">
                 {{dataTexts.chat.matches.sentByYou}}
               </span>
-              {{ match?.latest_message?.content }}
+              <span class="last-msg-txt">
+                {{ match?.latest_message?.content }}
+
+              </span>
             </p>
             <p
               *ngIf="match?.latest_message?.path"
