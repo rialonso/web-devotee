@@ -22,7 +22,7 @@ artifacts:
     files:
         - '**/*'
         - 'dist/*'
-        - 'dist'
+        - 'dist*'
 
     base-directory: 'dist*'
     discard-paths: yes
