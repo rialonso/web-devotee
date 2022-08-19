@@ -13,7 +13,7 @@ phases:
             - cd web-devotee/
             - echo Installing source NPM dependencies...
             - npm install
-            - npm install -g @angular/cli
+            - npm install -g @angular/cli@12.2.16
     build:
         commands:
             - echo Build started on `date`
@@ -25,4 +25,5 @@ cache:
 artifacts:
     files:
         - '**/*'
+    base-directory: 'dist*'
     discard-paths: no
