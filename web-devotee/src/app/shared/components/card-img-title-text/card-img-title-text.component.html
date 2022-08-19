@@ -1,0 +1,7 @@
+<div class="container-card" [id]="data?.id">
+  <mat-icon  *ngIf="data?.icon" [svgIcon]="data.icon"></mat-icon>
+  <div class="content-text-title">
+    <p *ngIf="data?.title" class="color-blue-dark font-booster-next-bold" [id]="data?.title">{{ data?.title || 'title' }}</p>
+    <p *ngIf="data?.text" class="color-blue-dark">{{ data?.text || 'text' }}</p>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+@import '_custom';
+#container-header-logged {
+  background-color: $blue-dark;
+  .content-header-logged {
+    @include dp-flex-alignment(row, flex-start, space-between);
+    padding: 15px;
+    gap: 15px;
+  }
+  .container-logo {
+    @include dp-flex-alignment();
+    .logo {
+      width: 30px;
+      height: auto;
+    }
+    p {
+      color: $white;
+      font-size: 25px;
+    }
+  }
+  .container-menu-logged{
+    @include dp-flex-alignment(row, center, flex-end);
+    gap: 30px;
+    @include min-tablet {
+      gap: 40px;
+    }
+    div{
+      max-width: 30px;
+      max-height: 30px;
+    }
+    mat-icon{
+      cursor: pointer;
+    }
+    .icon-menu-logged{
+      color: #fff;
+      opacity: 0.7;
+      @include min-tablet {
+        font-size: 35px;
+      }
+      &:hover{
+        cursor: pointer;
+      }
+      &:active{
+        outline: 0;
+      }
+    }
+    .icon-route-is-active{
+      opacity: 1;
+
+    }
+  }
+}

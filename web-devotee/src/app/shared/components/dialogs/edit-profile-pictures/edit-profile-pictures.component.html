@@ -1,0 +1,44 @@
+<section class="container-others-pictures container-register-default">
+  <mat-card-title class="color-blue-dark font-booster-next-bold">Edit profile pictures</mat-card-title>
+  <div class="more-pictures">
+    <div
+      class="more-photos flex-1 cursor-pointer"
+      *ngFor="let image of images;let indexOfelement = index;">
+      <label [for]="'more-photos-' + indexOfelement" class="cursor-pointer">
+        <mat-icon svgIcon="camera_add_picture" *ngIf="!image?.path"></mat-icon>
+        <div *ngIf="image?.path  && !image?.localPath">
+          <img class="" [src]="urlImagesS3 + image?.path" alt="">
+        </div>
+        <div *ngIf="image?.path  && image?.localPath">
+          <img class="" [src]="image?.path" alt="">
+        </div>
+      </label>
+
+      <input
+        type="file"
+        [id]="'more-photos-' + indexOfelement"
+        [name]="'more-photos-' + indexOfelement"
+        accept="image/png, image/jpeg"
+        class="input-file input-photo-principal"
+        (change)="selectedImage($event.target.files, indexOfelement, image.order)">
+    </div>
+  </div>
+  <section class="contianer-btns">
+    <button
+      class="button-stroke-primary"
+      mat-stroked-button
+      color="primary"
+      (click)="closeModal()"
+      >
+      {{ dataTexts.buttons.btnCancel }}
+    </button>
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="addImages()"
+      >
+      {{ dataTexts.buttons.btnSave }}
+    </button>
+  </section>
+</section>
+<app-principal-loading *ngIf="loading"></app-principal-loading>

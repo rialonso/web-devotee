@@ -1,0 +1,155 @@
+@import '_colors';
+@import '_sizes';
+@import '_mixins';
+@import '_breakpoints';
+@import '_fonts';
+
+$opacity-70: 70%;
+footer{
+  p{
+    margin: 0;
+    color: $white;
+  }
+  background-color: $magenta-soft-20;
+  flex-direction: column;
+  padding-bottom: 1.5rem;
+  .logo{
+    a{
+        text-decoration: none;
+    }
+    img {
+      width: 30px;
+      height: 30px;
+    }
+    .logo-text{
+      color: $white;
+      font-size:2rem;
+      font-weight: normal;
+      margin-left: 8px;
+  }
+  }
+  .terms-policy{
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      .policy, .terms{
+        opacity: $opacity-70;
+        font-size: 1rem;
+        &:hover{
+          opacity: 100%;
+          cursor: pointer;
+        }
+      }
+  }
+  .download-app{
+      flex-direction: column;
+      margin-top: 15px;
+      p{
+          color: $white;
+          font-size:600;
+      }
+      :first-child{
+          margin-right: 10px;
+      }
+  }
+  .logo{
+      padding: 2rem 0 1rem;
+  }
+  .buttons-download{
+      margin-top: 5px;
+      img{
+          width: auto;
+          height: 30px;
+      }
+  }
+  #copyright{
+      opacity: $opacity-70;
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: $white;
+  }
+}
+@media only screen and (min-width: $epecific-mobile) {
+  footer{
+    .logo-terms{
+      grid-area: logo-terms;
+    }
+
+  }
+}
+@include min-tablet {
+  .logo{
+    padding-bottom: 0;
+  }
+  .download-copyright{
+    grid-area: download-copyright;
+    display: flex;
+    grid-area: download-copyright;
+    justify-content: center;
+  }
+  .copyright{
+    text-align: center;
+    grid-area: copyright;
+  }
+  .container-footer{
+    max-width: 800px;
+    width: 700px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+    "logo-terms download-copyright"
+    "copyright copyright"
+    ;
+  }
+}
+@include max-mobile {
+  header{
+    padding-right: 4rem;
+  }
+  .container-text {
+      margin-right: 4rem;
+  }
+  .container-video  {
+      iframe{
+          height: 441px;
+      }
+  }
+  article{
+      margin-bottom: 0;
+  }
+  footer{
+      flex-direction: row;
+      .logo-terms{
+          display: flex;
+          flex-direction: column;
+          align-items: baseline;
+          padding-left: 20px;
+      }
+      .logo {
+        padding: 2rem 0 0.3rem 0rem;
+    }
+
+  }
+}
+@include min-desk {
+  footer{
+    .copyright {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+    .container-footer {
+      max-width: 100vw;
+      width: $max-width-contents;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-areas:
+          "logo-terms copyright download-copyright";
+    }
+    #copyright{
+      margin-top: 1rem;
+      padding-bottom: 10px;
+    }
+  }
+
+}

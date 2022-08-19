@@ -1,0 +1,56 @@
+$black: #000000;
+$black-01: #00000001;
+$black-80: #000000cd;
+$white: #FFFFFF;
+
+$gray-ultra-light-soft: #F1F1F1;
+$gray-ultra-soft: #f7f7f7;
+$gray-medium-soft: #D9D9D9;
+$gray-soft: #C4C4C4;
+$gray-medium: #ABABAB;
+
+$gray-icons: #909090;
+$gray-icons-50: #90909080;
+
+$blue-dark: #2E4664;
+
+$magenta-soft: #F97688;
+$magenta-soft-20: #F9768833;
+$magenta-soft-30: #F976884D;
+$magenta-soft-80: #f97687cd;
+
+$magenta-ulta-soft: #F57DA1;
+
+$magenta-soft-hover: #f55d72;
+
+$magenta-ulta-soft-hover: #f46f97;
+
+$red-error: #f44336;
+$green-info:#00DB92;
+$color-success: #007E33;
+
+$principal-gradient: linear-gradient(90deg, $magenta-ulta-soft 0%, $magenta-soft 100%) 0% 0% no-repeat padding-box;
+$principal-gradient-hover: linear-gradient(90deg,  $magenta-ulta-soft-hover 0%, $magenta-soft-hover 100%) 0% 0% no-repeat padding-box;
+
+.color-black {
+  color: $black;
+}
+.color-white {
+  color: $white;
+}
+.color-blue-dark {
+  color: $blue-dark;
+}
+.color-magenta-soft {
+  color: $magenta-soft;
+}
+// backjground colors
+.bg-color-blue-dark {
+  background-color: $blue-dark;
+}
+.bg-color-white {
+  background-color: $white;
+}
+.bg-gray-ultra-light-soft {
+  background-color: $gray-ultra-light-soft;
+}

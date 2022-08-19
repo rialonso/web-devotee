@@ -1,0 +1,13 @@
+<main >
+  <div class="container-close">
+    <mat-icon class="mat-18 cursor-pointer" (click)="closeModal()">
+      close
+    </mat-icon>
+  </div>
+  <div class="container-data-legal-policy" [innerHTML]="data">
+
+  </div>
+  <mat-spinner *ngIf="loading"></mat-spinner>
+
+</main>
+<!-- <app-principal-loading *ngIf="loading"></app-principal-loading> -->

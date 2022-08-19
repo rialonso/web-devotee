@@ -1,1 +1,275 @@
-/* You can add global styles to this file, and also import other style files */
+@import '_sizes';
+@import '_colors';
+@import '_fonts';
+@import '_breakpoints';
+@import '_material-components';
+@import '_mixins';
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+.container-default-inputs-orientation {
+  gap: 20px;
+  @include dp-flex-alignment(column);
+  @include min-tablet {
+    @include dp-flex-alignment();
+  }
+  mat-form-field {
+    width: 100%;
+  }
+}
+.dp-flex {
+  display: flex;
+}
+.dp-flex-all-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dp-flex-column-all-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+p, a {
+  font-family: 'Booster-next-regular';
+}
+.content-header-sign-in,
+.content-header-remember,
+.content-header-cards-initial-page {
+  mat-icon {
+    svg {
+      fill: $white;
+    }
+}
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-grab {
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
+}
+.container-default-cards-initial-page {
+  .content-deafult-cards-initial-page {
+    padding: $s-40px;
+    background-color: $white;
+    border-radius: $s-10px;
+    @media screen and(max-width: $max-mobile){
+      display: none;
+    }
+    &-mobile {
+      @media screen and(max-width: $max-mobile){
+
+        display: initial;
+        background-color: #FFFFFF;
+        height: $s-100vh;
+        width: $s-100per;
+        max-width: $s-100vw;
+        position: fixed;
+        top: 0;
+        right: 0;
+        box-sizing: border-box;
+      }
+
+    }
+  }
+}
+.infos-about-app {
+  text-align: center;
+}
+.text {
+  &.error {
+    color: $red-error;
+    min-height: 20px;
+  }
+  &.center {
+    text-align: center;
+  }
+}
+.input-file{
+  display: none;
+}
+@for $i from 1 to 5
+{
+  .flex-#{$i}
+  {
+    flex: $i;
+  }
+}
+.input-search-list {
+  padding: 0 10px;
+}
+.container-default-cards-register {
+  max-width: 800px;
+  margin: 30px 20px;
+  @include min-tablet {
+    width: 100%;
+    margin: 40px auto;
+  }
+  mat-card {
+    &.container-title-register {
+      background-color: $blue-dark;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      @include min-tablet {
+        padding: 20px 40px;
+      }
+      mat-card-title {
+        color: $white;
+        font-size: 24px;
+        margin: 0;
+      }
+    }
+    &.container-type-data-default {
+      border-radius: 10px;
+      @include min-tablet {
+        padding: 20px;
+      }
+      mat-card-title {
+        color: $blue-dark;
+        margin-top: 30px;
+      }
+    }
+  }
+}
+.contianer-btns {
+  gap: 20px;
+  margin: 20px 0;
+  width: 100%;
+  @include dp-flex-alignment(column);
+  @include min-tablet {
+    @include dp-flex-alignment(row, flex-start, flex-start);
+  }
+  button {
+    width: 100%;
+    font-size: 18px;
+    line-height: 40px;
+    border-radius: 10px;
+    @include min-tablet {
+      max-width: 150px;
+    }
+  }
+}
+.container-close {
+  width: 100%;
+  @include dp-flex-alignment(row, flex-end, flex-end);
+  color: $magenta-soft;
+  mat-icon {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+  }
+}
+.container-default {
+  max-width: $max-width-contents;
+  margin: auto;
+}
+.profile-container {
+  @include min-tablet {
+    max-height: 650px;
+    margin: 20px;
+  }
+  mat-dialog-container {
+    background-color: $gray-ultra-light-soft;
+  }
+}
+.container-change-password {
+  mat-dialog-container {
+    border-radius: 10px;
+  }
+}
+@font-face {
+  font-family: Booster-next-regular;
+  src: url(assets/fonts/BoosterNextFY-Regular.otf) format("opentype");
+}
+@font-face {
+  font-family: Booster-next-bold;
+  src: url(assets/fonts/BoosterNextFY-Bold.otf) format("opentype");
+}
+@font-face {
+  font-family: Booster-next-black;
+  src: url(assets/fonts/BoosterNextFY-Black.otf) format("opentype");
+}
+@font-face {
+  font-family: Booster-next-medium;
+  src: url(assets/fonts/BoosterNextFY-Medium.otf) format("opentype");
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: "Booster-next-regular", "Helvetica Neue", sans-serif; }
+
+.skeleton {
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
+.skeleton-text {
+  content: '...';
+  width: 120px;
+  height: 15px;
+  margin-bottom: 0.5rem;
+  border-radius: 0.25rem;
+
+}
+
+.skeleton-text__body {
+  width: 75%;
+}
+
+.skeleton-footer {
+  width: 30%;
+}
+.mat-badge.hide-text .mat-badge-content {
+  color: transparent;
+}
+
+//snackbars
+.success-snackbar {
+  background-color: $color-success;
+  color: $white;
+  .mat-simple-snackbar-action {
+    color: $white;
+
+  }
+}
+.warning-snackbar {
+  background-color: $magenta-soft-hover;
+  color: $white;
+  .mat-simple-snackbar-action {
+    color: $white;
+
+  }
+}
+.container-data-legal-policy {
+  max-height: 400px;
+
+  p {
+    color: $blue-dark;
+
+  }
+  :first-child {
+    color: $blue-dark;
+    font-family: $font-booster-next-bold;
+    margin-bottom: 20px;
+  }
+  :nth-child(2) {
+
+  }
+
+}

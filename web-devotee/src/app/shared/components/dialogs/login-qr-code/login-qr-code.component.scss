@@ -1,0 +1,149 @@
+@import '_colors';
+@import '_mixins';
+.close {
+  display: flex;
+  top: 15px;
+  left: 346px;
+  width: 30px;
+  height: 30px;
+  transform: matrix(0, 1, -1, 0, 0, 0);
+  color: $blue-dark;
+  font-size: 28px;
+  font-weight: bold;
+  :hover,
+  :focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  ::after{
+      content: 'asa';
+      width: 20px;
+      height: 20px;
+      background-color: #000;
+  }
+}
+.container-modal-qr{
+  display: grid;
+  grid-template-rows: 1fr 8fr;
+  height: 100%;
+  color: $blue-dark;
+  .close-terms{
+    cursor: pointer;
+  }
+  .content-close{
+      display: flex;
+      justify-content: flex-end;
+  }
+  .container-itens-qr{
+    display: grid;
+    grid-template-columns: 1fr;
+    .container-img-qr{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px 0;
+      img{
+        max-width: 185px;
+      }
+    }
+  }
+}
+.create-account{
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+.qr-subtitle{
+  img{
+    width: 15px;
+    margin: 0 5px;
+  }
+}
+.download-app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.1rem;
+  .buttons-download{
+    display: flex;
+    :first-child{
+      margin-right: 10px;
+    }
+    img{
+      height: 30px;
+    }
+  }
+}
+
+@include medium-tablet {
+  .create-account{
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 1rem 0;
+  }
+  .download-app{
+    p{
+      font-size: 1.1rem;
+    }
+  }
+}
+@include min-tablet {
+
+  .container-modal-qr {
+    padding-left: 70px;
+    .container-itens-qr {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-areas:
+      "text-qr qr-code-image "
+      "create-buttons create-buttons"
+      ;
+      .container-img-qr {
+        grid-area: qr-code-image;
+        img{
+          max-width: 220px;
+        }
+      }
+      .container-creat-buttons {
+        grid-area: create-buttons;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        .download-copyright{
+          display: flex;
+          align-items: flex-start;
+        }
+        .create-account {
+          display: flex;
+          text-align: center;
+          font-size: 1.5rem;
+        }
+      }
+      .text-qr {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        grid-area: text-qr;
+      }
+      .download-app {
+        font-size: 1.5rem;
+      }
+    }
+
+  }
+  .qr-title{
+    font-size: 2rem;
+    margin: 10px 0 ;
+  }
+  .qr-subtitle{
+    margin: 10px 0;
+    font-size: 1.1rem;
+  }
+}
+.qr-subtitle {
+  img {
+    width: 20px;
+    margin: 0 5px;
+  }
+}

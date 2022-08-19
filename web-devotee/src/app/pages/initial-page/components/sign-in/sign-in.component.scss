@@ -1,0 +1,67 @@
+@import '_colors';
+@import '_buttons';
+@import '_breakpoints';
+@import '_sizes';
+@import '_mixins';
+.content-sign-in {
+  .content-header-sign-in {
+    display: flex;
+    justify-content: space-between;
+    .title-sign-return {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    mat-icon {
+      background-color: $gray-soft;
+      width: 35px;
+      height: 35px;
+      border-radius: $s-100per;
+      @include min-tablet {
+        display: none;
+      }
+    }
+    .return-first-pg-mobile {
+      @include min-tablet {
+        display: none;
+      }
+    }
+  }
+  #sign-in {
+    display: flex;
+    width: $s-100per;
+    flex-direction: column;
+    margin-top: $s-20px;
+  }
+}
+.container-buttons- {
+  &mobile {
+    display: flex;
+    flex-direction: column;
+    gap: $s-10px;
+    @include min-tablet {
+      display: none;
+    }
+  }
+  &others {
+    display: flex;
+    flex-direction: column;
+    gap: $s-10px;
+    @include min-tablet {
+      flex-direction: row;
+    }
+  }
+}
+#btn-qrcode {
+  display: none;
+  @include min-tablet {
+    display: flex;
+  }
+}
+.others-logins {
+  text-align: center;
+}
+.infos-about-app {
+  text-align: center;
+}
+

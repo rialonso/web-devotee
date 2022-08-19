@@ -1,0 +1,10 @@
+@import '_mixins';
+@import '_sizes';
+@import '_buttons';
+
+
+#register {
+  display: flex;
+  width: $s-100per;
+  flex-direction: column;
+}

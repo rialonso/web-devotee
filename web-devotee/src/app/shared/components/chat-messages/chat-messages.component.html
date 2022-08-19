@@ -1,0 +1,80 @@
+
+<mat-card class="container-chat-card">
+  <mat-card-title *ngIf="!userData">Chat</mat-card-title>
+
+  <div class="container-person-message flex-2" *ngIf="userData">
+    <section class="container-person-image cursor-pointer" (click)="openProfile()">
+      <img #profileImg [src]="urlImages + userData?.profile_picture[0]?.path" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+      <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
+        <mat-icon>
+          no_photography
+        </mat-icon>
+      </div>
+    </section>
+    <section class="container-info color-blue-dark cursor-pointer" (click)="openProfile()">
+      <p class="person-name font-booster-next-bold">
+        {{userData.name}}
+        <span
+          *ngIf="userData.birthdate">,
+          {{transformAge(userData.birthdate)}}
+        </span>
+      </p>
+      <p class="last-message">{{userData?.account_type}}</p>
+    </section>
+  </div>
+  <div class="container-close chat-mobile flex-1">
+    <mat-icon class="mat-18 cursor-pointer" (click)="closeProfile()">
+      close
+    </mat-icon>
+  </div>
+</mat-card>
+<mat-card class="chat dont-have"  *ngIf="!dataChat && !showChatSkeleton">
+  <mat-icon class="dont-message-icon">message</mat-icon>
+  <p>Selecione uma pessoa para ver as mensagens </p>
+</mat-card>
+
+<mat-card class="chat" *ngIf="showChatSkeleton">
+  <div class="container-spinner-chat" *ngIf="!dataChat && showChatLoadingAll">
+    <mat-spinner ></mat-spinner>
+
+  </div>
+
+  <div class="menssages"*ngIf="dataChat && !showChatLoadingAll" #chat>
+    <section *ngFor="let message of dataChat?.data">
+      <div
+        class="box"
+        [ngClass]="{
+          'sent': message.user_id === userId,
+          'recived': message.user_id !== userId
+
+        }">
+        <div
+          class=" box-msgs"
+          [ngClass]="{
+            'msg-sent': message.user_id === userId,
+            'msg-recived': message.user_id !== userId,
+            'box-msg-image':  message.path
+
+          }">
+          {{message?.content}}
+          <div class="container-img-message"
+          [ngClass]="{
+            'container-image-sent-messaget': message.user_id === userId,
+            'container-image-recived-message': message.user_id !== userId
+          }"
+          >
+            <img [src]="urlImages + message.path" *ngIf="message.path" alt="">
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <form [formGroup]="formGroup" class="input-sent-msg" *ngIf="dataChat">
+    <input formControlName="content" type="text" (keyup.enter)="sendMessage()">
+    <div class="btn-sent cursor-pointer" (click)="sendMessage()">
+      <mat-icon>send</mat-icon>
+    </div>
+  </form>
+
+</mat-card>
+<app-principal-loading *ngIf="loading"></app-principal-loading>

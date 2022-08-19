@@ -1,0 +1,180 @@
+@import '_colors';
+@import '_sizes';
+@import '_mixins';
+
+
+.button{
+  padding: $s-10px;
+  border-radius: 60px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 20px;
+  cursor: pointer;
+  box-sizing: border-box;
+  font-family: 'Booster-next-bold' "Roboto", "Helvetica Neue", sans-serif;
+
+  &.primary {
+    background: $principal-gradient;
+    color: $white;
+    &:hover {
+      background: $principal-gradient-hover;
+      // background: $black;
+      // opacity: 0.2;
+    }
+  }
+  &.secondary {
+    background: $magenta-soft-20;
+    color: $magenta-soft;
+    &:hover {
+      background: $magenta-soft-30;
+    }
+  }
+  &.third {
+    border: 1px solid $magenta-soft;
+    background: $white;
+    color: $magenta-soft;
+    &:hover {
+      background: $gray-ultra-soft;
+    }
+  }
+  &.stroke-primary {
+    background-color: #fff;
+    border: 1px solid $blue-dark;
+  }
+  &.icon-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: $s-10px;
+    padding: $s-10px;
+    border-radius: 60px;
+    border: 1px solid $gray-soft;
+    background: $white;
+    width: 100%;
+    color: $gray-soft;
+    font-size: 14px;
+    cursor: pointer;
+    &:hover {
+      background: $gray-ultra-soft;
+    }
+    mat-icon.size-18 {
+      width: 18px;
+      height: 18px;
+    }
+
+  }
+  .container-spinner-btn {
+    @include dp-flex-alignment(row);
+    .color{
+      &.white {
+        &.mat-progress-spinner circle, .mat-spinner circle {
+          stroke: $white;
+        }
+      }
+
+    }
+  }
+  &.like-dislike {
+    background-color: transparent;
+    color: $white;
+    border: 1px solid $white;
+    @include dp-flex-alignment();
+
+    mat-icon {
+      color: $white;
+      svg {
+        .a {
+          fill: $white;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &:disabled {
+    opacity: .2;
+  }
+}
+.container-close {
+  width: 100%;
+  @include dp-flex-alignment(row, flex-end, flex-end);
+  color: $magenta-soft;
+  mat-icon {
+    font-size: 30px;
+    width: 30px;
+    height: 30px;
+  }
+}
+.option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  transition: all 0.15s ease-out 0s;
+  background: $gray-medium-soft;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 0.5rem;
+  outline: none;
+  position: relative;
+  z-index: 1000;
+}
+.option-input:hover {
+  background: $gray-soft;
+}
+.option-input:checked {
+  background: $magenta-soft;
+}
+.option-input:checked::before {
+  width: 20px;
+  height: 20px;
+  display:flex;
+  content: "\f00c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 15px;
+  font-weight:bold;
+  position: absolute;
+  align-items:center;
+  justify-content:center;
+}
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: $magenta-soft;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+.option-input.radio {
+  border-radius: 50%;
+}
+.option-input.radio::after {
+  border-radius: 50%;
+}
+
+@keyframes click-wave {
+  0% {
+    height: 40px;
+    width: 40px;
+    opacity: 0.35;
+    position: relative;
+  }
+  100% {
+    height: 200px;
+    width: 200px;
+    margin-left: -80px;
+    margin-top: -80px;
+    opacity: 0;
+  }
+}
+
+
+

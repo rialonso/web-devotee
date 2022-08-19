@@ -1,24 +1,37 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AuthGuardService } from './core/guards/auth-guard/auth.guard.service';
+import { LoggedService } from './core/guards/logged/logged.guard.service';
 
 const routes: Routes = [
-  // initial page
-  // login.
-  // create account
-  // reset password
-  // logged initial page
-  // perfil
-  // edit profile
-  // user page id modal
-  // matches
-  // chat
-  // filtros
-  // devotee plus 
-  // support 
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full'
+  },
+  {
+    path: '',
+    loadChildren: () => import('src/app/pages/initial-page/initial-page.module').then(m => m.InitialPageModule),
+    canActivate: [LoggedService]
+  },
+  {
+    path: 'rules',
+    loadChildren: () => import('src/app/pages/etical-rules/etical-rules.module').then(m => m.EticalRulesModule),
+  },
+  {
+    path: 'register',
+    loadChildren: () => import('src/app/pages/continue-register/continue-register.module').then(m => m.ContinueRegisterModule),
+  },
+  {
+    path: '',
+    loadChildren: () => import('src/app/pages/logged/logged.module').then(m => m.LoggedModule),
+    canActivate: [AuthGuardService]
+  }
+
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

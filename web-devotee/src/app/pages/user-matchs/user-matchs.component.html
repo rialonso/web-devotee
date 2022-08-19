@@ -1,0 +1,88 @@
+<div id="container-user-matchs" class="container-default">
+  <section class="container-infos">
+    <div class="container-icon-info" [routerLink]="enumRoutesApplication.FILTERS">
+      <mat-icon class="">filter_alt</mat-icon>
+    </div>
+    <div class="container-icon-info">
+      <mat-icon svgIcon="heart"></mat-icon>
+    </div>
+  </section>
+  <main class="sugestion-matchs">
+    <div class="container-loading" *ngIf="loading">
+      <mat-spinner></mat-spinner>
+    </div>
+    <div *ngIf="matchUser?.length === 0" class="container-havent-match">
+      <mat-icon class="icon-havent-match color-blue-dark">account_box</mat-icon>
+      <div class="not-found-message">
+        <p class="font-booster-next-bold color-blue-dark">{{dataTexts.sugestionMatchs.noProfileFound.title}}</p>
+        <p class="font-booster-next-regular color-blue-dark">{{dataTexts.sugestionMatchs.noProfileFound.text}}</p>
+      </div>
+    </div>
+    <div [class.display-none]="matchUser?.length === 0 || loading" class="container-sugestion-matchs">
+      <div class="container-match-and-action"id="container-drag">
+        <section
+
+          class="container-cards-matchs sugestion-match cursor-grab"
+          [style]="changeUserImageInBackground(match.profile_picture)"
+          draggable="true"
+          data-position="0"
+          *ngFor="let match of matchUser"
+          data-position="0"
+          (mouseenter)="execDragSplitSugestions()"
+          >
+          <div class="nd" ></div>
+          <div class="container-gradient-see-infos cursor-pointer">
+            <div class="container-user-info" (click)="viewProfile(match)">
+              <section class="tip-user-type font-booster-next-bold bg-color-blue-dark color-white">
+                {{match?.account_type}}
+              </section>
+              <section class="container-user-name-age font-booster-next-bold color-white">
+                {{match?.name}}, {{transformAge(match.birthdate)}}
+              </section>
+            </div>
+            <div class="distance-match">
+              <mat-icon class="color-white"> location_on</mat-icon>
+              <p class="color-white ">{{ getDistance(match.distance)}} km from you</p>
+            </div>
+            <div class="container-buttons-action" style="visibility: hidden;">
+              <button
+              (click)="likeUnlikeMatch(enumLikeDislikeAction.UNLIKE)"
+                class="button like-dislike"
+                >
+                <mat-icon>close</mat-icon>
+              </button>
+              <button
+              (click)="likeUnlikeMatch(enumLikeDislikeAction.LIKE)"
+                class="button like-dislike"
+                >
+                <mat-icon svgIcon="heart"></mat-icon>
+              </button>
+            </div>
+          </div>
+        </section>
+        <section class="container-buttons-action action-active">
+          <button
+          (click)="clickAddMoreMatchAndTransition(enumLikeDislikeAction.UNLIKE)"
+            class="button like-dislike"
+            >
+            <mat-icon>close</mat-icon>
+          </button>
+          <button
+          (click)="clickAddMoreMatchAndTransition(enumLikeDislikeAction.LIKE)"
+            class="button like-dislike"
+            >
+            <mat-icon svgIcon="heart"></mat-icon>
+          </button>
+        </section>
+
+      </div>
+
+
+    </div>
+    <div class="ads">
+      <app-ads-cards></app-ads-cards>
+    </div>
+
+  </main>
+
+</div>

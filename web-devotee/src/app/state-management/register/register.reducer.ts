@@ -1,10 +1,13 @@
+import { IRegisterUser, INITIAL_STATE_REGISTER_USER } from './register.state';
 import { createReducer, on } from '@ngrx/store';
-import { INITAL_STATE_REGISTER_USER, IRegisterUser } from 'src/app/shared/model/register/register.model.';
-import { addEmail } from './register.action';
+import { AddDataRegister } from './register.action';
 
-export const initialState: IRegisterUser = INITAL_STATE_REGISTER_USER;
+export const initialState: IRegisterUser = INITIAL_STATE_REGISTER_USER;
 
-export const counterReducer = createReducer(
+export const registerReducer = createReducer(
   initialState,
-  on(addEmail, (state,{email}) => state = email )
+  on(new AddDataRegister().creatAction(), (state,  data: any ) => ({
+    ...state,
+    ...data.payload
+  }))
 );

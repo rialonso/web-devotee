@@ -1,0 +1,128 @@
+@import '_custom';
+@import '_mixins';
+
+:host {
+  width: 100%;
+  background-color: $gray-ultra-light-soft;
+}
+#container-register-data {
+
+  .container-register-default {
+    @include dp-flex-alignment(column, initial, initial);
+    gap: 20px;
+  }
+
+  .content-register-data {
+    .container-profile-image {
+      .profile-img{
+        display: flex;
+        margin: 0 auto;
+        position: relative;
+        width:160px;
+        height: 100px;
+        background-color: $gray-medium-soft;
+        border: 1px solid $gray-soft;
+        border-radius: 8px;
+        color: #909090;
+        font-size: 120px;
+        &:hover {
+          border: 1px solid $blue-dark;
+          &::before{
+            border: 1px solid $blue-dark;
+          }
+        }
+        &::after, &::before{
+          display: block;
+          position: absolute;
+        }
+        &::after{
+        content:"add_a_photo";
+        font-size: 20px;
+        bottom: -10px;
+        right: -10px;
+        width: 20px;
+        height: 20px;
+        border-radius: 100%;
+        z-index: 3;
+        }
+        &::before{
+          content:"";
+          bottom: -15px;
+          right: -15px;
+          width: 30px;
+          height: 30px;
+          border-radius: 100%;
+          background: $gray-medium-soft;
+          z-index: 1;
+          border: 1px solid $gray-soft;
+        }
+      }
+      .content-picture {
+        @include dp-flex-alignment();
+      }
+      .photo-principal{
+        max-width: 160px;
+        mat-icon{
+          display: flex;
+          justify-content: center;
+        }
+        .avatar{
+          img{
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 8px;
+          }
+        }
+      }
+    }
+    .more-pictures {
+      @include dp-flex-alignment(row, center, space-between);
+      gap: 20px;
+      flex-wrap: wrap;
+
+      .more-photos {
+        @include dp-flex-alignment();
+        background-color: $gray-medium-soft;
+        border: 1px solid $gray-soft;
+        border-radius: 8px;
+        height: 100px;
+        min-width: 100px;
+        max-width: 100px;
+        @include min-tablet {
+          max-width: 180px;
+        }
+        &:hover {
+          border: 1px solid $blue-dark;
+        }
+        img{
+          max-width: 100%;
+          max-height: 100%;
+          border-radius: 8px;
+          display: block;
+          max-height: 100px;
+        }
+        mat-icon {
+          width: 100%;
+          max-width: 30px;
+          height: auto;
+          padding: 20px;
+          @include min-tablet {
+            max-width: 55px;
+          }
+        }
+      }
+    }
+
+  }
+  .container-data-person {
+    .content-data-person {
+      padding: 0 15px;
+    }
+
+  }
+
+
+
+}
+

@@ -1,0 +1,18 @@
+@import '_colors';
+@import '_fonts';
+@import '_sizes';
+
+.container-card {
+  border: 1px solid $gray-soft;
+  border-radius: 10px;
+  display: flex;
+  min-width: 260px;
+  max-width: 500px;
+  width: 100%;
+  gap: $s-10px;
+  padding: $s-15px;
+  box-sizing: border-box;
+  mat-icon {
+    width: $s-20px;
+  }
+}

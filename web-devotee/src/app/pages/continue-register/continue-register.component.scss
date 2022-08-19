@@ -1,0 +1,28 @@
+@import '_custom';
+.container-page-register {
+  @include dp-flex-alignment(column, center, space-between);
+  width: 100vw;
+  height: 100%;
+  background-color: $gray-ultra-light-soft;
+}
+router-outlet {
+  display: none;
+}
+#container-continue-register {
+  background-color: $blue-dark;
+  padding: 20px;
+  box-sizing: border-box;
+  header {
+    @include dp-flex-alignment();
+    gap: 15px;
+    .logo {
+      width: 30px;
+      height: auto;
+    }
+    p {
+      color: $white;
+      font-size: 25px;
+    }
+  }
+
+}

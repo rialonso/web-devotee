@@ -22,15 +22,27 @@
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./src/assets/styles/theme/devotee.theme.scss",
+              "src/styles.scss",
+              "src/assets/styles/_fonts.scss"
             ],
-            "scripts": []
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/styles"
+              ]
+            },
+            "scripts": [],
+            "vendorChunk": true,
+            "extractLicenses": false,
+            "buildOptimizer": false,
+            "sourceMap": true,
+            "optimization": false,
+            "namedChunks": true
           },
           "configurations": {
             "production": {
@@ -43,7 +55,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -61,12 +72,14 @@
                 }
               ]
             }
-          }
+          },
+          "defaultConfiguration": ""
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "web-devotee:build"
+            "browserTarget": "web-devotee:build",
+            "proxyConfig": "./proxy.conf.json"
           },
           "configurations": {
             "production": {
@@ -92,6 +105,7 @@
               "src/assets"
             ],
             "styles": [
+              "./src/assets/styles/devotee.theme.scss",
               "src/styles.scss"
             ],
             "scripts": []

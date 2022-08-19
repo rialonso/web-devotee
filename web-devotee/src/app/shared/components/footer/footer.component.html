@@ -1,0 +1,45 @@
+<footer [class]="backgroudColor" class="dp-flex-all-center">
+  <div class="container-footer">
+    <section class="logo-terms">
+      <div class="logo dp-flex-all-center">
+        <a href="#" rel="noopener noreferrer" class="dp-flex-all-center">
+          <img src="/assets/images/logo.png" alt="Logo Devotee" data-alt="altlogo" id="altfootlogo">
+          <span>
+            <h2 class="logo-text font-booster-next-bold">Devotee</h2>
+          </span>
+        </a>
+      </div>
+      <div class="terms-policy">
+        <div class="content-terms policy-privacy">
+          <p
+            class="tablinks policy my-btn-terms"
+            (click)="openPrivacy()">
+            {{dataTexts.policyPrivacy}}
+          </p>
+        </div>
+        <div class="content-terms">
+          <p
+            class="tablinks terms my-btn-terms"
+            (click)="openTerms()">
+            {{dataTexts.termsOfUse}}
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="download-copyright">
+      <div class="download-app dp-flex-all-center">
+        <p>{{dataTexts.getApp}}</p>
+        <div class="buttons-download">
+          <a href="https://play.google.com/store/apps/details?id=com.phurshell.devotee&hl=pt_BR" target="_blank"
+            rel="noopener noreferrer">
+            <img src={{buttonsDownload.btnPlayStore}} alt={{buttonsDownload.altPlaySotre}}></a>
+          <a href="https://apps.apple.com/br/app/devotee/id1331331692" target="_blank" rel="noopener noreferrer">
+            <img src={{buttonsDownload.btnAppStore}} alt={{buttonsDownload.altAppStore}}></a>
+        </div>
+      </div>
+
+    </section>
+    <p id="copyright" class="copyright">{{copyright}}</p>
+  </div>
+
+</footer>

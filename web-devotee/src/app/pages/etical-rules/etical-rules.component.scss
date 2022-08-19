@@ -1,0 +1,67 @@
+@import '_sizes';
+@import '_buttons';
+@import '_mixins';
+
+#container-etical-rules {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  .content-etical-rules {
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: $s-100vw;
+    .logo-devote {
+      gap: $s-20px;
+      padding: $s-15px;
+      box-sizing: border-box;
+      @media screen and(max-width: $epecific-mobile) {
+       flex-direction: column;
+      }
+      img {
+        max-width: 115px;
+        @media screen and(max-width: $epecific-mobile) {
+          max-width: 5rem;
+        }
+      }
+      .container-text-logo {
+        h1 {
+          font-size: 2.6rem;
+        }
+      }
+    }
+    #etical-rules {
+      margin-top: $s-15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      gap: $s-20px;
+      padding: $s-20px $s-15px;
+      width: $s-100per;
+      box-sizing: border-box;
+      .content-rules {
+        gap: $s-20px;
+        margin: $s-40px 0;
+      }
+      app-card-img-title-text {
+        width: 100%;
+      }
+      .container-buttons {
+        flex-direction: column;
+        align-items: center;
+        max-width: 840px;
+        gap: $s-20px;
+        width: $s-100per;
+
+        @include min-tablet {
+          flex-direction: row;
+        }
+      }
+    }
+  }
+  app-footer {
+    width: $s-100vw;
+  }
+}

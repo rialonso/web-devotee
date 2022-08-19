@@ -1,0 +1,933 @@
+{
+  "pt": {
+    "firstPage": {
+     "title": "O maior aplicativo de relacionamento feito para pessoas especiais"
+    },
+    "policyPrivacy": "Política de Privacidade",
+    "termsOfUse": "Termos de Uso",
+    "copyright": "Devotee. Todos direitos reservados.",
+    "getApp": "Baixe o aplicativo!",
+    "txtPrivacyAndTerms": "Ao continuar, você concorda com nossos",
+    "and": "e",
+    "or": "ou",
+    "buttonsDownload": {
+      "btnPlayStore": "/assets/images/playstore.svg",
+      "btnAppStore": "/assets/images/appstore.svg",
+      "altPlaySotre": "Botão Play Store",
+      "altAppStore": "Botão Apple Store"
+    },
+    "login": "Entrar",
+    "signin": {
+      "register": "Começar cadastro!",
+      "alreadyAccount": "Já possui conta",
+      "rememberPassword": "Esqueci minha senha",
+      "password": "Senha"
+    },
+    "placeholders": {
+      "password": "Digite sua senha",
+      "email": "Digite seu email",
+      "name": "Digite seu nome"
+    },
+    "buttonsSignin": {
+      "btnContinue": "Continuar",
+      "btnRegister": "Cadastrar",
+      "btnQrCode": "Continuar com",
+      "btnGoogle": "Continuar com Google"
+    },
+    "rememberPasswordPg": {
+      "title": "Esqueci minha senha",
+      "text": "Enviaremos um e-mail com as instruções para você recuperar sua senha. Insira seu e-mail abaixo.",
+      "btnRecover": "Recuperar senha",
+      "btnBack": "Voltar"
+    },
+    "registerPg": {
+      "title": "Cadastrar"
+    },
+    "buttons": {
+      "btnContinue": "Continuar",
+      "btnRegister": "Cadastrar",
+      "btnRecover": "Recuperar senha",
+      "btnBack": "Voltar",
+      "btnQrCode": "Continuar com",
+      "btnGoogle": "Continuar com Google",
+      "btnSave": "Salvar",
+      "btnCancel": "Cancelar"
+    },
+    "inputs": {
+      "genericErrors": {
+        "inputRequired": "Campo obrigatório"
+      },
+      "searchs" : {
+        "iIcd": {
+          "label": "Pesquisar CID`s",
+          "placeholder": "comece a digitar para pesquisar"
+        },
+        "medicalProcedures" : {
+          "label": "Digite para pesquisar cirurgias",
+          "placeholder": "start typing to search"
+        },
+        "hospitals" : {
+          "label": "Digite para pesquisar hospitais"
+        },
+        "medicines" : {
+          "label": "Digite para pesquisar medicamentos"
+        }
+      },
+      "name": {
+        "label": "Nome",
+        "placeHolder": "Digite seu nome",
+        "errors" : {
+          "specialCharacters": "Digite seu nome sem caracteres especiais",
+          "invalidFormatName": "Digite nome e sobrenome"
+
+        }
+      },
+      "email": {
+        "label": "E-mail",
+        "placeHolder": "Digite seu e-mail",
+        "errors" : {
+          "emailIs": "E-mail é",
+          "invalidEmail": "Digite um e-mail válido"
+        }
+      },
+      "phone": {
+        "label": "Telefone",
+        "placeHolder": "Digite seu telefone",
+        "errors" : {
+          "invalidNumber": "Digite um telefone válido"
+        }
+      },
+      "profession": {
+        "label": "Profissão",
+        "placeHolder": "Digite sua Profissão",
+        "errors" : {
+          "specialCharacters": "Digite sua profissão sem caracteres especiais"
+        }
+      },
+      "gender": {
+        "label": "Gênero",
+        "placeHolder": "Selecione seu gênero",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "wasBorn": {
+        "label": "Como nasceu",
+        "placeHolder": "Selecione gênero",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "sexualOrientation": {
+        "label": "Orientação sexual",
+        "placeHolder": "Selecione sua orientação sexual",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "moreAboutYourself": {
+        "label": "Conte mais sobre você",
+        "placeHolder": "Conte mais sobre você...",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "address": {
+        "label": "Endereço, Rua, Avenida, etc",
+        "placeHolder": "Enter your location",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "birthdate": {
+        "label": "data de nascimento",
+        "placeHolder": "DD/MM/YYYY",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "selectICD": {
+        "label": "Classificação Internacional de Doenças (CID)",
+        "placeHolder": "Selecion as CIDs",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "selectMedicalProcedures": {
+        "label": "Procedimentos medicos",
+        "placeHolder": "Cirurgia, transplante...",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "selectMedications": {
+        "label": "Medicações que utilizo",
+        "placeHolder": "Medicações ou drogas",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "selectHospitals": {
+        "label": "Hospitais que frequento",
+        "placeHolder": "Hospitals que frequento",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "filterUserType": {
+        "label": "Tipo de usuário",
+        "placeHolder": "Selecione o tipo de usuário",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "filterToGender": {
+        "label": "Gênero de prefêrencia",
+        "placeHolder": "Selecione o gênero de prefêrencia",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "filterTosexualOrientation": {
+        "label": "Orientação sexual",
+        "placeHolder": "Selecione orientação sexual",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "filterToInterestType": {
+        "label": "tipo de relacionamento que procuro",
+        "placeHolder": "",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "newPassword": {
+        "label": "Nova senha",
+        "placeHolder": "Digite sua nova senha",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "oldPassword": {
+        "label": "Senha antiga",
+        "placeHolder": "Digite sua senha antiga",
+        "errors" : {
+          "none": "none"
+        }
+      }
+    },
+    "inputsErrors": {
+      "requireds" : {
+        "inputRequired": "Campo obrigatório",
+        "required": "obrigatório",
+        "emailIs": "E-mail é",
+        "passwordIs": "Senha é",
+        "errorInvalidEmail":"Insira um email valido"
+      }
+    },
+    "checks": {
+      "checkBirthDisability":"Deficiência desde nascença",
+      "checkHaveTIIC":"Tenho TIIC",
+      "checkImpairedFertility":"Comprometimento da fertilidade",
+      "checkOvercomingExample":"Sou um exemplo de superação"
+    },
+    "qrSignIn": {
+      "qrTitle":"Para fazer o Login com QR Code:",
+      "qrSubTitleFirst":"Abra o Devotee no seu celular",
+      "qrSubTitleSecond": {
+        "qrFirstTouch":"Toque em",
+        "qrSecondPerfil":"Perfil",
+        "qrThirdSelect":"e selecione",
+        "qrFourthDevotee":"Devotee Web"
+      },
+      "qrSubTitleThird": {
+        "qrFirstTouch":"Toque em",
+        "qrSecondBold":"Escanear código"
+      },
+      "qrSubTitleFouth":"Aponte seu celular para essa tela para capturar o código",
+      "qrCreateAccount": {
+        "qrNotAccount":"Ainda não tem cadastro?",
+        "qrCreateAccount":"Cadastre-se"
+      }
+    },
+    "eticalRules": {
+      "welcome": "Bem-vindo(a) ao",
+      "followRules": "Siga as regras abaixo",
+      "rules": {
+        "firstRule": {
+          "title": "Seja você mesmo",
+          "text": "Use suas próprias fotos, idade e biografia."
+        },
+        "secondRule": {
+          "title": "Esteja seguro",
+          "text": "Não repasse suas informações pessoais de forma rápida."
+        },
+        "thirdRule": {
+          "title": "Respeite os outros",
+          "text": "Respeite outras pessoas e trate a todos como você gostaria de ser tratado"
+        }
+      }
+    },
+    "errors": {
+      "credentials": "Credenciais incorretas",
+      "existingEmail": "Email já está em uso."
+    },
+    "changeUserType": {
+      "headerYourProfile":"Quem é você?",
+      "iam": {
+        "devotee": {
+          "title": "Devotee",
+          "text": "Não tenho deficiência. Com interesse em pessoas especiais."
+        },
+        "special": {
+          "title": "Especial",
+          "text": "Tenho deficiência. Com interesse em pessoas especiais ou devotees."
+        },
+        "curious": {
+          "title": "Curioso",
+          "text": "Não tenho interesse em relações, apenas navegando em perfis de outras pessoas"
+        }
+      }
+    },
+    "iamEspecialAndDevotee": {
+      "headerYourProfile":"Seu Perfil",
+      "titleProfilePicture":"Foto de perfil",
+      "titleMorePictures":"Fotos",
+      "titleAboutYourself":"Sobre você",
+      "titleAboutYourDisability":"Sobre sua deficiência",
+      "btnNext":"Proximo"
+    },
+    "genders": [
+      {
+        "label": "Masculino",
+        "value": "male",
+        "value2": "masculino"
+      },
+      {
+        "label": "Feminino",
+        "value": "female",
+        "value2": "feminino"
+      },
+      {
+        "label": "Trans",
+        "value": "trans"
+      },
+      {
+        "label": "Outro",
+        "value": "other"
+      }
+    ],
+    "sexualOrientations": [
+      {
+        "label": "Heterossexual",
+        "value": "hetero",
+        "value2": "heterosexual"
+      },
+      {
+        "label": "Homossexual",
+        "value": "homo",
+        "value2": "homosexual"
+      },
+      {
+        "label": "Bisexual",
+        "value": "bi",
+        "value2": "bisexual"
+      }
+    ],
+    "userTypeValues": [
+      {
+        "label": "Devotee",
+        "value": "Devotee"
+      },
+      {
+        "label": "Especial",
+        "value": "Special"
+      }
+    ],
+    "relationshipValues": [
+      {
+        "label": "Todos",
+        "value": "all"
+      },
+      {
+        "label": "Conhecer novas pessoas",
+        "value": "friendship_meet"
+      },
+      {
+        "label": "Fazer novos amigos",
+        "value": "friendship_friends"
+      },
+      {
+        "label": "Só sexo",
+        "value": "sex_none"
+      },
+      {
+        "label": "Deixar acontecer",
+        "value": "sex_happen"
+      },
+      {
+        "label": "Deixar acontecer",
+        "value": "sex_happen"
+      }
+    ],
+    "activateLocation": {
+      "title": "Ative sua localização",
+      "textInfo": "Voçê pecisa ativar sua localização para usar o Devotee",
+      "buttons": {
+        "addManually": "Adicionar manualmente",
+        "activateLocation": "Ative a localização"
+      }
+    },
+    "manuallyLocation": {
+      "title": "Digite sua localização",
+      "textInfo": "Para continuar digite sua localização"
+    },
+    "snacksBars": {
+      "locationBlocked": {
+        "mensage": "Insira sua localização, pois a localização automática foi recusada",
+        "button": "entendi"
+      },
+      "successSaveFilters": {
+        "mensage": "Filtros salvos com sucesso",
+        "button": "entendi"
+      },
+      "successChangePassword": {
+        "mensage": "Senha alterada com sucesso",
+        "button": "entendi"
+      },
+      "errorChangePassword": {
+        "mensage": "Ops.. algo deu errado, confira as senhas digitadas",
+        "button": "entendi"
+      }
+    },
+    "userConfigurations": {
+      "headerYourProfile": "Configurações",
+      "features": {
+        "myProfile": "Meu perfil",
+        "workFeatures": "Em breve",
+        "preferences": "Preferências",
+        "changePassword": "Alterar senha",
+        "deleteAccount": "Deletar perfil",
+        "logout": "Sair"
+
+      }
+    },
+    "profileUser": {
+      "titleAboutMe": "Sobre mim",
+      "personalInfo": "Informações pessoais",
+      "myDisability": "Minha deficiência",
+      "ICDS": "CIDs",
+      "medicalProcedures": "Procedimentos médicos",
+      "medicines": "Medicamentos",
+      "hospitals": "Hospitais",
+      "titlePictures": "Fotos",
+      "haveBIID": "Tenho TIIC",
+      "prejudice":"Exemplo de superção"
+    },
+    "preferences": {
+      "title": "Preferências",
+      "locale": {
+        "title":  "Localização",
+        "distance": "Raio de busca:",
+        "sufixDistance": "km"
+      },
+      "userPreference": {
+        "title":  "Preferências de usuário"
+      },
+      "age": {
+        "title": "Idade",
+        "minAge": "Idade mínima",
+        "maxAge": "Idade máxima",
+        "years": "anos"
+      }
+
+    },
+    "chat": {
+      "matches": {
+        "title": "Meus matches",
+        "lastMessageImg": "Imagem",
+        "sentByYou": "você:"
+
+      }
+    },
+    "sugestionMatchs": {
+      "noProfileFound": {
+        "title": "Nenhum perfil encontrado",
+        "text": "Espere um momento, estamos buscando mais perfis"
+      }
+    }
+  },
+  "us": {
+    "firstPage": {
+      "title": "The best relationship app made for special people"
+    },
+    "policyPrivacy": "Privacy Policy",
+    "termsOfUse": "Terms of use",
+    "copyright": "Devotee. All rights reserved.",
+    "getApp": "Get the app",
+    "txtPrivacyAndTerms": "by continuing you agree with",
+    "and": "and",
+    "or": "or",
+    "buttonsDownload": {
+      "btnPlayStore": "/assets/images/playstore-en.svg",
+      "btnAppStore": "/assets/images/appstore-en.svg",
+      "altPlaySotre": "Button Play Store",
+      "altAppStore": "Button Apple Store"
+    },
+    "login": "Login",
+    "signin": {
+      "register": "Register",
+      "alreadyAccount": "already have an account",
+      "rememberPassword": "Remember my password",
+      "password": "Password"
+    },
+    "placeholders": {
+      "password": "Type your password",
+      "email": "Type your email",
+      "name": "Type your name"
+    },
+    "buttonsSignin": {
+      "btnContinue": "Continue",
+      "btnRegister": "Register",
+      "btnQrCode": "Continue with",
+      "btnGoogle": "Continue with Google"
+    },
+    "rememberPasswordPg": {
+      "title": "Forgot my password",
+      "text": "We will send a email for you with to instructions to recover password. Put your e-mail below",
+      "btnRecover": "Recover password",
+      "btnBack": "Back"
+    },
+    "registerPg": {
+      "title": "Register"
+    },
+    "buttons": {
+      "btnContinue": "Continue",
+      "btnRegister": "Register",
+      "btnRecover": "Recover password",
+      "btnBack": "Back",
+      "btnQrCode": "Continue with",
+      "btnGoogle": "Continue with Google",
+      "btnSave": "Save",
+      "btnCancel": "Cancel"
+
+    },
+    "inputs": {
+      "genericErrors": {
+        "inputRequired": "Input is required"
+      },
+      "searchs" : {
+        "iIcd": {
+          "label": "Search ICD`s",
+          "placeholder": "start typing to search"
+        },
+        "medicalProcedures" : {
+          "label": "type to search medical procedures",
+          "placeholder": "start typing to search"
+        },
+        "hospitals" : {
+          "label": "type to search hospitals"
+        },
+        "medicines" : {
+          "label": "type to search medicines"
+        }
+      },
+      "name": {
+        "label": "Name",
+        "placeHolder": "Type your name",
+        "errors" : {
+          "specialCharacters": "Enter your name without special characters",
+          "invalidFormatName": "Enter your name and surname"
+        }
+      },
+      "email": {
+        "label": "E-mail",
+        "placeHolder": "Enter your e-mail",
+        "errors" : {
+          "emailIs": "E-mail is",
+          "invalidEmail": "Enter a valid e-mail"
+        }
+      },
+      "phone": {
+        "label": "Phone number",
+        "placeHolder": "Enter your phone number",
+        "errors" : {
+          "invalidNumber": "Enter a valid phone"
+        }
+      },
+      "profession": {
+        "label": "Profession",
+        "placeHolder": "Enter your profession",
+        "errors" : {
+          "specialCharacters": "Enter your profession without special characters"
+        }
+      },
+      "gender": {
+        "label": "gender",
+        "placeHolder": "Enter your gender",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "wasBorn": {
+        "label": "How was born",
+        "placeHolder": "Select gender",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "sexualOrientation": {
+        "label": "Sexual orientation",
+        "placeHolder": "Enter your sexual orientation",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "moreAboutYourself": {
+        "label": "Tell more about yourself",
+        "placeHolder": "Tell more about yourself",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "address": {
+        "label": "Address, Street, Avenue, etc",
+        "placeHolder": "Enter your location",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "birthdate": {
+        "label": "Enter your birthdate",
+        "placeHolder": "MM/DD/YYYY",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "selectICD": {
+        "label": "Internetional classification of diseases (ICD)",
+        "placeHolder": "Select the ICDs",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "selectMedicalProcedures": {
+        "label": "Medical procedures",
+        "placeHolder": "Surgery, transplant...",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "selectMedications": {
+        "label": "Medications i take",
+        "placeHolder": "Medications or drugs",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "selectHospitals": {
+        "label": "Hospitals i go",
+        "placeHolder": "Medical center i go",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "filterUserType": {
+        "label": "User type",
+        "placeHolder": "Select user type",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "filterToGender": {
+        "label": "Preference gender",
+        "placeHolder": "Select your preference gender",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "filterTosexualOrientation": {
+        "label": "Sexual orientation",
+        "placeHolder": "Enter sexual orientation of you preference",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "filterToInterestType": {
+        "label": "type of relationship i seek",
+        "placeHolder": "",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "newPassword": {
+        "label": "New password",
+        "placeHolder": "Type your new password",
+        "errors" : {
+          "none": "none"
+        }
+      },
+      "oldPassword": {
+        "label": "Old password",
+        "placeHolder": "Type your old password",
+        "errors" : {
+          "none": "none"
+        }
+      }
+    },
+    "inputsErrors": {
+      "requireds" : {
+        "inputRequired": "Input is required",
+        "required": "required",
+        "emailIs": "E-mail is",
+        "passwordIs": "Password is",
+        "errorInvalidEmail":"enter a valid email"
+      }
+    },
+    "checks": {
+      "checkBirthDisability":"Disability from birth",
+      "checkHaveTIIC":"I`ve TIIC",
+      "checkImpairedFertility":"Fertility impairment",
+      "checkOvercomingExample":"I am an example of overcoming"
+    },
+    "qrSignIn": {
+      "qrTitle":"To Login with QR Code:",
+      "qrSubTitleFirst":"Open Devotee on your phone",
+      "qrSubTitleSecond":{
+        "qrFirstTouch":"Touch",
+        "qrSecondPerfil":"Profile",
+        "qrThirdSelect":"and select",
+        "qrFourthDevotee":"Devotee Web"
+      },
+      "qrSubTitleThird":{
+        "qrFirstTouch":"Touch",
+        "qrSecondBold":"Scan code"
+      },
+      "qrSubTitleFouth":"Point your phone at this screen to capture the code",
+      "qrCreateAccount":{
+        "qrNotAccount":"Don't have a registration yet?",
+        "qrCreateAccount":"Register"
+      }
+    },
+    "eticalRules": {
+      "welcome": "Welcome to",
+      "followRules": "Follow the rules below",
+      "rules": {
+        "firstRule": {
+          "title": "Be Yourself",
+          "text": "Use their own pictures, age ande biography."
+        },
+        "secondRule": {
+          "title": "Be safe",
+          "text": "Don't pass your information quickly"
+        },
+        "thirdRule": {
+          "title": "Respect all users",
+          "text": "Respect all peoples and treat everyone as you would like to be treated"
+        }
+      }
+    },
+    "errors": {
+      "credentials": "Incorrect credentials",
+      "existingEmail": "Email already used."
+    },
+    "iamEspecialAndDevotee":{
+      "headerYourProfile":"Your profile",
+      "titleProfilePicture":"Profile picture",
+      "titleMorePictures":"Pictures",
+      "titleAboutYourself":"About yourself",
+      "titleAboutYourDisability":"About or disability",
+      "btnNext":"Proximo"
+    },
+    "changeUserType":{
+      "headerYourProfile":"Who are you",
+      "iam": {
+        "devotee": {
+          "title": "Devotee",
+          "text": "Someone without any disability looking for a relationship"
+        },
+        "special": {
+          "title": "Special",
+          "text": "Someone with a disability looking for a relationship"
+        },
+        "curious": {
+          "title": "Curious",
+          "text": "Someone that is not looking for a relationship, just browsing other people's profiles"
+        }
+      }
+    },
+    "genders": [
+      {
+        "label": "Male",
+        "value": "male",
+        "value2": "masculino"
+      },
+      {
+        "label": "Female",
+        "value": "female",
+        "value2": "feminino"
+      },
+      {
+        "label": "Trans",
+        "value": "trans",
+        "value2": "transexual"
+      },
+      {
+        "label": "Other",
+        "value": "other"
+      }
+    ],
+    "sexualOrientations": [
+      {
+        "label": "Heterosexual",
+        "value": "hetero",
+        "value2": "heterosexual"
+      },
+      {
+        "label": "Homosexual",
+        "value": "homo",
+        "value2": "homosexual"
+      },
+      {
+        "label": "Bisexual",
+        "value": "bi",
+        "value2": "bisexual"
+      }
+    ],
+    "userTypeValues": [
+      {
+        "label": "Devotee",
+        "value": "Devotee"
+      },
+      {
+        "label": "Special",
+        "value": "Special"
+      },
+      {
+        "label": "All",
+        "value": "all"
+      }
+    ],
+    "relationshipValues": [
+      {
+        "label": "All",
+        "value": "all"
+      },
+      {
+        "label": "Meet new people",
+        "value": "friendship_meet"
+      },
+      {
+        "label": "Want to make a new friends",
+        "value": "friendship_friends"
+      },
+      {
+        "label": "Only sex",
+        "value": "sex_none"
+      },
+      {
+        "label": "Let it happen",
+        "value": "sex_happen"
+      }
+    ],
+    "targetGenders": [
+      {
+        "label": "Male",
+        "value": "male"
+      },
+      {
+        "label": "Female",
+        "value": "female"
+      },
+      {
+        "label": "All",
+        "value": "all"
+      }
+    ],
+    "activateLocation": {
+      "title": "Activate your location",
+      "textInfo": "You need to enable your location in order to use Devotee",
+      "buttons": {
+        "addManually": "Add manually",
+        "activateLocation": "Activate location"
+      }
+    },
+    "manuallyLocation": {
+      "title": "Enter you location",
+      "textInfo": "type your location to continue"
+    },
+    "snacksBars": {
+      "locationBlocked": {
+        "mensage": "Put your address, because automatic location has been blocked",
+        "button": "understand"
+      },
+      "successSaveFilters": {
+        "mensage": "filters saved",
+        "button": "understand"
+      },
+      "successChangePassword": {
+        "mensage": "Senha alterada com sucesso",
+        "button": "ok"
+      },
+      "wrongChangePassword": {
+        "mensage": "Ops.. something is wrong, see passwords",
+        "button": "ok"
+      }
+    },
+    "userConfigurations": {
+      "headerYourProfile": "Settings",
+      "features": {
+        "myProfile": "My profile",
+        "workFeatures": "coming soon",
+        "preferences": "Preferences",
+        "changePassword": "Change password",
+        "deleteAccount": "Delete profile",
+        "logout": "Logout"
+
+      }
+    },
+    "profileUser": {
+      "titleAboutMe": "About me",
+      "personalInfo": "Personal information",
+      "myDisability": "My disability",
+      "ICDS": "ICDs",
+      "medicalProcedures": "Medical procedures",
+      "medicines": "Medicines",
+      "hospitals": "Hospitals",
+      "titlePictures": "Pictures",
+      "haveBIID": "I have BIID",
+      "prejudice":"Example of perseverance"
+    },
+    "preferences": {
+      "title": "Preferences",
+      "locale": {
+        "title":  "Localization",
+        "distance": "Search radius:",
+        "sufixDistance": "mile"
+      },
+      "userPreference": {
+        "title":  "User prefenreces"
+      },
+      "age": {
+        "title": "Age",
+        "minAge": "Min age",
+        "maxAge": "Max age",
+        "years": "years"
+      }
+    },
+    "chat": {
+      "matches": {
+        "title": "My matches",
+        "lastMessageImg": "picture",
+        "sentByYou": "You:"
+      }
+    },
+    "sugestionMatchs": {
+      "noProfileFound": {
+        "title": "No profile found",
+        "text": "Wait a moment as we search for other profiles"
+      }
+    }
+  }
+}

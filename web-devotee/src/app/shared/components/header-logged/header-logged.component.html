@@ -1,0 +1,30 @@
+<header id="container-header-logged">
+  <div class="content-header-logged container-default">
+    <section class="container-logo">
+      <img class="logo" src="/assets/images/logo.png" alt="Logo Devotee" data-alt="altlogo" id="altfootlogo">
+      <p>Devotee</p>
+    </section>
+    <section class="container-menu-logged">
+      <div class="matches">
+        <mat-icon
+        [routerLink]="['/matchs']"
+        [routerLinkActive]="['icon-route-is-active']"
+        class="icon-menu-logged" >people_alt</mat-icon>
+      </div>
+      <div class="chat">
+        <mat-icon
+        class="icon-menu-logged"
+        [routerLink]="['/chat']"
+        [routerLinkActive]="['icon-route-is-active']">forum</mat-icon>
+      </div>
+      <div class="perfil-config">
+        <mat-icon
+          class="icon-menu-logged"
+          [routerLink]="['/settings']"
+          [routerLinkActive]="['icon-route-is-active']">settings</mat-icon>
+      </div>
+    </section>
+  </div>
+
+
+</header>

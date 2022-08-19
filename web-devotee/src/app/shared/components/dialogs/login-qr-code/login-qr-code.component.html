@@ -1,0 +1,39 @@
+<div class="container-modal-qr">
+  <div class="content-close">
+       <div class="close close-terms" (click)="onNoClick()">&times;</div>
+   </div>
+ <div class="container-itens-qr">
+   <div class="text-qr">
+     <div class="qr-title">{{ dataTexts.qrSignIn.qrTitle }}</div>
+     <div>
+       <div class="qr-subtitle"><span>1.</span> {{ dataTexts.qrSignIn.qrSubTitleFirst }}</div>
+       <div class="qr-subtitle"><span>2.</span> {{ dataTexts.qrSignIn.qrSubTitleSecond.qrFirstTouch }} <b>{{ dataTexts.qrSignIn.qrSubTitleSecond.qrSecondPerfil }} </b> <span><img src="/assets/icon-person@2x.png" alt=""></span>{{ dataTexts.qrSignIn.qrSubTitleSecond.qrThirdSelect }} <b> {{ dataTexts.qrSignIn.qrSubTitleSecond.qrFourthDevotee }}</b></div>
+       <div class="qr-subtitle"><span>3.</span> {{ dataTexts.qrSignIn.qrSubTitleThird.qrFirstTouch }} <b> {{ dataTexts.qrSignIn.qrSubTitleThird.qrSecondBold }}</b></div>
+       <div class="qr-subtitle"><span>4.</span> {{ dataTexts.qrSignIn.qrSubTitleFouth }}</div>
+     </div>
+   </div>
+   <div class="container-img-qr">
+    <mat-spinner class="spinner" *ngIf="showLoading"></mat-spinner>
+
+     <qrcode
+        *ngIf="!showLoading"
+        [qrdata]="qrCodeHash" [width]="256" [errorCorrectionLevel]="'M'" [elementType]="'svg'"></qrcode>
+   </div>
+   <div class="container-creat-buttons">
+     <div class="create-account">
+       {{ dataTexts.qrSignIn.qrCreateAccount.qrNotAccount }} <a >{{ dataTexts.qrSignIn.qrCreateAccount.qrCreateAccount }}</a>
+     </div>
+     <div class="download-copyright">
+       <div class="download-app">
+           <p>{{dataTexts.getApp}}</p>
+           <div class="buttons-download">
+               <a href="https://play.google.com/store/apps/details?id=com.phurshell.devotee&hl=pt_BR" target="_blank" rel="noopener noreferrer">
+               <img src={{dataTexts.buttonsDownload.btnPlayStore}} alt={{dataTexts.buttonsDownload.altPlayStore}}  ></a>
+               <a href="https://apps.apple.com/br/app/devotee/id1331331692" target="_blank" rel="noopener noreferrer">
+               <img src={{dataTexts.buttonsDownload.btnAppStore}} alt={{dataTexts.buttonsDownload.altAppStore}} ></a>
+           </div>
+       </div>
+     </div>
+   </div>
+ </div>
+</div>

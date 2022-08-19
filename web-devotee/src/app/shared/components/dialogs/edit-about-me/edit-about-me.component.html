@@ -1,0 +1,236 @@
+<form [formGroup]="formGroup" id="container-edit-about-me">
+  <section class="container-data-person container-register-default">
+    <mat-card-title>{{dataTexts.iamEspecialAndDevotee.titleAboutYourself}}</mat-card-title>
+    <div class="container-default-inputs-orientation content-data-person">
+      <!-- <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>{{dataTexts.inputs.name.label}}</mat-label>
+        <input
+          matInput
+          [placeholder]="dataTexts.inputs.name.placeHolder"
+          type="name"
+          autocomplete="name"
+          formControlName="name"
+          >
+
+      </mat-form-field> -->
+    </div>
+    <div class="container-default-inputs-orientation content-data-person">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>{{dataTexts.inputs.profession.label}}</mat-label>
+        <input
+          matInput
+          [placeholder]="dataTexts.inputs.profession.placeHolder"
+          type="text"
+          autocomplete="work"
+          formControlName="occupation"
+          >
+      </mat-form-field>
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>{{dataTexts.inputs.birthdate.label}}</mat-label>
+        <input
+          type="hidden"
+          [min]="minDate"
+          [max]="maxDate"
+          [matDatepicker]="picker"
+          maxlength="10"
+          (dateChange)="dateSelected($event)"
+          >
+          <input
+            matInput
+            [mask]=""
+            formControlName="birthdate">
+        <mat-hint>{{dataTexts.inputs.birthdate.placeHolder}}</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+    </div>
+    <div class="container-default-inputs-orientation content-data-person">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ dataTexts.inputs.gender.label }}</mat-label>
+        <mat-select formControlName="gender" (valueChange)="genderChanged($event)">
+          <mat-option
+            *ngFor="
+              let gender
+              of dataTexts.genders"
+            [value]="changeViewValueGender(gender.value)">
+            {{gender.label}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill" *ngIf="showWasBorn">
+        <mat-label>{{ dataTexts.inputs.wasBorn.label }}</mat-label>
+        <mat-select formControlName="show_as_gender">
+          <mat-option
+            *ngFor="
+              let gender
+              of dataTexts.genders.slice(0, 2)"
+            [value]="gender.value">
+            {{gender.label}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="controlsForm.show_as_gender.hasError(errorsEnum.REQUIRED)">
+          {{ dataTexts.inputs.genericErrors.inputRequired }}
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>{{ dataTexts.inputs.sexualOrientation.label }}</mat-label>
+        <mat-select formControlName="sexual_orientation">
+          <mat-option
+            *ngFor="
+              let sexualOrientation
+              of dataTexts.sexualOrientations"
+            [value]="changeViewValueSexualOrientation(sexualOrientation.value)">
+            {{sexualOrientation.label}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="container-default-inputs-orientation content-data-person">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>{{ dataTexts.inputs.moreAboutYourself.label }}</mat-label>
+        <textarea
+          matInput
+          [placeholder]="dataTexts.inputs.moreAboutYourself.placeHolder"
+          formControlName="about">
+        </textarea>
+      </mat-form-field>
+    </div>
+  </section>
+  <section *ngIf="specialAccount" class="container-data-disability container-register-default">
+    <mat-card-title>{{dataTexts.iamEspecialAndDevotee.titleAboutYourDisability}}</mat-card-title>
+    <div class="container-default-inputs-orientation content-data-person">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ dataTexts.inputs.selectICD.label }}</mat-label>
+        <mat-select
+        formControlName="my_cids"
+        multiple>
+          <mat-form-field class="example-full-width width-100-per" appearance="fill">
+            <mat-label>{{ dataTexts.inputs.searchs.iIcd.label }}</mat-label>
+            <input
+              matInput
+              [placeholder]="dataTexts.inputs.searchs.iIcd.placeholder"
+              formControlName="input_my_cids"
+              type="search"
+              (keydown)="$event.stopPropagation()"
+              >
+          </mat-form-field>
+          <div *ngIf="usageLaguage === laguagesApplication.PT">
+            <mat-option [value]="icd.id" *ngFor="let icd of filteredCids">
+              {{icd.description}}
+            </mat-option>
+          </div>
+          <div *ngIf="usageLaguage === laguagesApplication.US ">
+            <mat-option [value]="icd.id" *ngFor="let icd of filteredCids">
+              {{icd.description_en}}
+            </mat-option>
+          </div>
+
+
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>{{ dataTexts.inputs.selectMedicalProcedures.label }}</mat-label>
+        <mat-select
+          multiple
+          formControlName="medical_procedures"
+
+          >
+          <mat-form-field class="example-full-width width-100-per" appearance="fill">
+            <mat-label>{{ dataTexts.inputs.searchs.medicalProcedures.label }}</mat-label>
+            <input
+              matInput
+              [placeholder]="dataTexts.inputs.searchs.medicalProcedures.placeholder"
+              type="name"
+              autocomplete="name"
+
+              formControlName="input_medical_procedures"
+              (keydown)="$event.stopPropagation()"
+
+              >
+          </mat-form-field>
+          <div *ngIf="usageLaguage === laguagesApplication.PT">
+            <mat-option [value]="medicalProcedure.id" *ngFor="let medicalProcedure of filteredMedicalProcedures">
+              {{medicalProcedure.name}}
+            </mat-option>
+          </div>
+          <div *ngIf="usageLaguage === laguagesApplication.US ">
+            <mat-option [value]="medicalProcedure.id" *ngFor="let medicalProcedure of filteredMedicalProcedures">
+              {{medicalProcedure.name_en}}
+            </mat-option>
+          </div>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="container-default-inputs-orientation content-data-person">
+      <mat-form-field appearance="fill">
+        <mat-label>{{ dataTexts.inputs.selectMedications.label }}</mat-label>
+        <mat-select
+        formControlName="my_drugs"
+        multiple
+        >
+          <mat-form-field class="example-full-width width-100-per" appearance="fill">
+            <mat-label>{{ dataTexts.inputs.searchs.medicines.label }}</mat-label>
+            <input
+              matInput
+              [placeholder]="dataTexts.inputs.searchs.medicines.placeholder"
+              type="name"
+              autocomplete="name"
+              formControlName="input_my_drugs"
+              (keydown)="$event.stopPropagation()"
+              >
+          </mat-form-field>
+          <div *ngIf="usageLaguage === laguagesApplication.PT">
+            <mat-option [value]="drug.id" *ngFor="let drug of filteredDrugs">
+              {{drug.name}}
+            </mat-option>
+          </div>
+          <div *ngIf="usageLaguage === laguagesApplication.US ">
+            <mat-option [value]="drug.id" *ngFor="let drug of filteredDrugs">
+              {{drug.name_en}}
+            </mat-option>
+          </div>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>{{ dataTexts.inputs.selectHospitals.label }}</mat-label>
+        <mat-select
+        formControlName="my_hospitals"
+        multiple>
+          <mat-form-field class="example-full-width width-100-per" appearance="fill">
+            <mat-label>{{ dataTexts.inputs.searchs.hospitals.label }}</mat-label>
+            <input
+              matInput
+              [placeholder]="dataTexts.inputs.searchs.hospitals.placeholder"
+              type="name"
+              autocomplete="name"
+              formControlName="input_my_hospitals"
+              (keydown)="$event.stopPropagation()"
+              >
+          </mat-form-field>
+          <div>
+            <mat-option [value]="hosptal" *ngFor="let hosptal of filteredHosptals">
+              {{hosptal.name}}
+            </mat-option>
+          </div>
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </section>
+  <section class="contianer-btns">
+    <button
+      class="button-stroke-primary"
+      mat-stroked-button
+      color="primary"
+      (click)="closeModal()"
+      >
+      {{ dataTexts.buttons.btnCancel }}
+    </button>
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="saveDataEdited()"
+      >
+      {{ dataTexts.buttons.btnSave }}
+    </button>
+  </section>
+</form>

@@ -1,0 +1,30 @@
+@import '_mixins';
+@import '_sizes';
+@import '_colors';
+
+
+.content-header-cards-initial-page {
+  display: flex;
+  flex-direction: column;
+  gap: $s-35px;
+  .title-sign-return {
+    @include dp-flex-alignment(row, center, initial);
+    gap: 10px;
+
+  }
+
+  mat-icon {
+    background-color: $gray-soft;
+    width: $s-35px;
+    height: $s-35px;
+    border-radius: $s-100per;
+    @include min-tablet {
+      display: none;
+    }
+  }
+  .return-first-pg-mobile {
+    @include min-tablet {
+      display: none;
+    }
+  }
+}
