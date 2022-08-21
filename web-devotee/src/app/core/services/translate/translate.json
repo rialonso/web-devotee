@@ -396,6 +396,10 @@
         "mensage": "Senha alterada com sucesso",
         "button": "entendi"
       },
+      "successSavedUserData": {
+        "mensage": "Dados salvos com sucesso",
+        "button": "entendi"
+      },
       "errorChangePassword": {
         "mensage": "Ops.. algo deu errado, confira as senhas digitadas",
         "button": "entendi"
@@ -868,6 +872,10 @@
       },
       "successChangePassword": {
         "mensage": "Senha alterada com sucesso",
+        "button": "ok"
+      },
+      "successSavedUserData": {
+        "mensage": "Data saved with success",
         "button": "ok"
       },
       "wrongChangePassword": {

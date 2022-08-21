@@ -33,6 +33,7 @@ export class UserConfigurationsComponent implements OnInit {
     private userProfileService: UserProfileService,
     private routeService: RouteService,
     private stateManagementFuncService: StateManagementFuncService,
+    private snackBarService: SnackBarService,
   ) { }
 
   ngOnInit() {
@@ -50,6 +51,10 @@ export class UserConfigurationsComponent implements OnInit {
           this.stateManagementFuncService.funcAddAllDataUser(data);
           this.viewMyProfile();
           this.loading = false;
+          this.snackBarService.openSnackbarSuccess(
+            this.dataTexts.snacksBars.successSavedUserData.mensage,
+            this.dataTexts.snacksBars.successSavedUserData.button,
+          )
         }
       });
   }
