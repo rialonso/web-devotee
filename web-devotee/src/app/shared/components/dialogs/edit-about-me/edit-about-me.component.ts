@@ -251,19 +251,27 @@ export class EditAboutMeComponent implements OnInit {
     return (o1.name == o2.name && o1.id == o2.id);
   }
   async saveDataEdited() {
-    const disabilitys = {
-      cids: this.addKeyInDisabilitys(this.formGroup.get('my_cids').value),
-      medical_procedures: this.addKeyInDisabilitys(this.formGroup.get('medical_procedures').value),
-      medicament: this.addKeyInDisabilitys(this.formGroup.get('my_drugs').value),
-      hospital: this.addKeyInDisabilitys(this.formGroup.get('my_hospitals').value),
+    let updateData;
+    let disabilitys;
+    if(this.specialAccount) {
+      disabilitys = {
+        cids: this.addKeyInDisabilitys(this.formGroup.get('my_cids').value),
+        medical_procedures: this.addKeyInDisabilitys(this.formGroup.get('medical_procedures').value),
+        medicament: this.addKeyInDisabilitys(this.formGroup.get('my_drugs').value),
+        hospital: this.addKeyInDisabilitys(this.formGroup.get('my_hospitals').value),
+      }
     }
+
     this.removeControlsIputSearchSpecialThings();
-
-    const updateData = {
+    updateData = {
       ...this.formGroup.value,
-      disability: disabilitys
     }
-
+    if (this.specialAccount) {
+      updateData = {
+        ...this.formGroup.value,
+        disability: disabilitys
+      }
+    }
     await this.updateDataService.post(updateData, this.state.getValue()?.userData?.data.id).toPromise();
     setTimeout(() => {
       this.closeModal('saved');
