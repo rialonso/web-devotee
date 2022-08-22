@@ -343,6 +343,10 @@
       {
         "label": "Especial",
         "value": "Special"
+      },
+      {
+        "label": "Todos",
+        "value": "all"
       }
     ],
     "relationshipValues": [
