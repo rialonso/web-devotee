@@ -4,7 +4,9 @@
   background-color: $gray-ultra-light-soft;
 
 }
-
+body{
+  max-width: 100vw;
+}
 #container-chat {
   @include dp-flex-alignment(column, flex-start);
   gap: 20px;
@@ -124,10 +126,8 @@
   }
   .show-chat-mobile {
     @include dp-flex-alignment(column, initial, initial);
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
+    position: fixed;
+    z-index: 100;
     background-color: $gray-ultra-light-soft;
     @include min-tablet {
       display: none;
