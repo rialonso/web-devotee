@@ -32,7 +32,6 @@ export class ChatMessagesComponent implements OnInit {
 
   urlImages = environment.urlImages;
 
-
   formGroup: FormGroup;
 
   destroy$ = new ReplaySubject();
