@@ -95,7 +95,10 @@
     max-width: 70%;
     line-height: auto;
     word-wrap: break-word;
-    max-width: 345px;
+    @include min-tablet() {
+      max-width: 345px;
+
+    }
     .container-img-message {
       max-width: 200px;
       height: auto;

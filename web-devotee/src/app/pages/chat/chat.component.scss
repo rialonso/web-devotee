@@ -142,13 +142,8 @@
 .last-msg-txt {
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 250px;
-
+  max-width: 180px;
   white-space: nowrap;
-  @include min-tablet {
-    max-width: 180px;
-
-  }
 }
 // .last-msg-txt:before {
 //   content: '...';

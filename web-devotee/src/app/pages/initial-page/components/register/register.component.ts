@@ -16,6 +16,7 @@ import { AddControlApp } from 'src/app/state-management/controls/copntrols-app.a
 import { AddDataRegister } from 'src/app/state-management/register/register.action';
 import { RegisterService } from 'src/app/core/services/register/register.service';
 import { AddAllDataUser } from 'src/app/state-management/user-data/user-data.action';
+import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
 
 @Component({
   selector: 'app-register',
@@ -45,6 +46,7 @@ export class RegisterComponent implements OnInit {
     private formBuilder: FormBuilder,
     private verifyEmailService: VerifyEmailService,
     private registerService: RegisterService,
+    private dialogsService: DialogsService,
   ) {
     this.store.select('controlsApp')
     .pipe(takeUntil(this.destroy$))
@@ -133,5 +135,11 @@ export class RegisterComponent implements OnInit {
       this.navigateTo(EnumRoutesApplication.REGISTER_WHO_ARE_YOU);
     }
 
+  }
+  openTerms() {
+    this.dialogsService.openTerms();
+  }
+  openPrivacy() {
+    this.dialogsService.openPrivacy();
   }
 }

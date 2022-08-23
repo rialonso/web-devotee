@@ -63,7 +63,8 @@ export class UserConfigurationsComponent implements OnInit {
   }
   logout() {
     localStorage.clear();
-    this.navigateTo(this.enumRoutes.LOGIN);
+    window.location.href = this.enumRoutes.LOGIN;
+
   }
   changePassword() {
     this.dialogService
