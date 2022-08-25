@@ -7,6 +7,8 @@ import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { environment } from 'src/environments/environment';
 import { TransformAgeService } from 'src/app/shared/functions/transform-age/transform-age.service';
+import { State } from '@ngrx/store';
+import { IAppState } from 'src/app/state-management/app.model';
 
 @Component({
   selector: 'app-profile',
@@ -14,6 +16,7 @@ import { TransformAgeService } from 'src/app/shared/functions/transform-age/tran
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  userId: number;
   dataTexts
   languageApp;
   enumLanguage = EnumLanguages;
@@ -22,17 +25,20 @@ export class ProfileComponent implements OnInit {
   urlImages = environment.urlImages;
   destroy$ = new ReplaySubject();
   constructor(
+    protected state: State<IAppState>,
     private matDialogRef: MatDialogRef<ProfileComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IUserData.IData,
     private translateService: TranslateService,
     private dialogsService: DialogsService,
     private transformAgeService: TransformAgeService
+
   ) {
     this.dataTexts = this.translateService?.textTranslate;
 
   }
 
   ngOnInit() {
+    this.userId = this.state.getValue().userData?.data?.id;
     this.languageApp = this.translateService.dataFormatation;
     this.transformAge();
   }
