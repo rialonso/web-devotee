@@ -6,6 +6,7 @@ import { EnumLanguages } from 'src/app/shared/enum/languages/languages.enum';
 import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { environment } from 'src/environments/environment';
+import { TransformAgeService } from 'src/app/shared/functions/transform-age/transform-age.service';
 
 @Component({
   selector: 'app-profile',
@@ -24,7 +25,8 @@ export class ProfileComponent implements OnInit {
     private matDialogRef: MatDialogRef<ProfileComponent>,
     @Inject(MAT_DIALOG_DATA) public data: IUserData.IData,
     private translateService: TranslateService,
-    private dialogsService: DialogsService
+    private dialogsService: DialogsService,
+    private transformAgeService: TransformAgeService
   ) {
     this.dataTexts = this.translateService?.textTranslate;
 
@@ -40,28 +42,30 @@ export class ProfileComponent implements OnInit {
     });
   }
   transformAge() {
-    const birthdate = this.data.birthdate.replace(/-/g, '')
-    const year = Number(birthdate.substr(0, 4));
-    const today = new Date();
-    const month = Number(birthdate.substr(4, 2)) - 1;
-    const day = Number(birthdate.substr(6, 2));
-    let age = today.getFullYear() - year;
-    if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
-      age--;
+    if (this.data?.birthdate) {
+      this.age = this.transformAgeService.transformAge(this.data?.birthdate);
     }
-    this.age = age;
+
   }
   openEditProfilePicture() {
-    this.dialogsService.openEditProfilePicture();
+    this.dialogsService
+    .openEditProfilePicture()
+    .afterClosed()
+    .subscribe(res => {
+      this.checkWhoCloseModal(res);
+    });;
   }
   openEditAboutMe() {
     this.dialogsService
       .openEditAboutMe()
       .afterClosed()
       .subscribe(res => {
-        if (res === 'saved') {
-          this.matDialogRef.close(res);
-        }
+        this.checkWhoCloseModal(res);
       });
+  }
+  checkWhoCloseModal(who) {
+    if (who === 'saved') {
+      this.matDialogRef.close(who);
+    }
   }
 }
