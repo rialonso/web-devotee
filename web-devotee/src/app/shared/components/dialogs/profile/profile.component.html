@@ -37,6 +37,7 @@
         <mat-card class="container-title-register">
           <mat-card-title>{{dataTexts.profileUser.titleAboutMe}}</mat-card-title>
           <div
+            *ngIf="data.id == userId"
             class="container-edit-infos"
             (click)="openEditAboutMe()">
             <mat-icon class="mat-18 color-white cursor-pointer" >edit</mat-icon>
@@ -160,8 +161,10 @@
       <section class="container-pictures width-100-per container-default-cards-register flex-2">
         <mat-card class="container-title-register">
           <mat-card-title>{{dataTexts.profileUser.titlePictures}}</mat-card-title>
-          <div class="container-edit-infos">
+          <div class="container-edit-infos"
+          *ngIf="data.id == userId">
             <mat-icon
+
               class="mat-18 color-white cursor-pointer"
               (click)="openEditProfilePicture()">
               edit

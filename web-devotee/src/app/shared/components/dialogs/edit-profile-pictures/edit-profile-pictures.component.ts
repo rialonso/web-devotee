@@ -69,8 +69,12 @@ export class EditProfilePicturesComponent implements OnInit {
   }
   async addImages() {
     const formData = new FormData();
-    let lastOrder = this.initialImagesGet[this.initialImagesGet.length - 1].order;
-
+    let lastOrder;
+    if(this.initialImagesGet.length > 0) {
+      lastOrder = this.initialImagesGet[this.initialImagesGet?.length - 1].order;
+    } else {
+      lastOrder = 0;
+    }
     for (let i = 0; i < this.images.length; i++) {
       if (this.images[i].localPath && this.images[i].order !== undefined) {
         formData.append('image[]', this.images[i].file);
@@ -85,11 +89,11 @@ export class EditProfilePicturesComponent implements OnInit {
     await this.updatePictureByOrderService.post(formData).toPromise();
     this.userProfileService.get(this.state.getValue().userData.data?.id);
     this.loading = false;
-    this.closeModal()
+    this.closeModal('saved')
   }
 
-  closeModal() {
-    this.matDialogRef.close();
+  closeModal(msgSend?: string) {
+    this.matDialogRef.close(msgSend);
   }
 
 }
