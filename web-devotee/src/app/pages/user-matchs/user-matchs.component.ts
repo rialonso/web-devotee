@@ -27,6 +27,8 @@ export class UserMatchsComponent implements OnInit {
   active = false;
   loading = false;
   showAds = false;
+  liked = false;
+  disliked = false;
 
   matchUser;
   allSugestionMatchs;
@@ -132,6 +134,8 @@ export class UserMatchsComponent implements OnInit {
   countShowAdsAndExecLikeDislike(likeOrDislike) {
     this.likeUnlikeMatch(likeOrDislike);
     this.stateManagementFuncService.incrementCountShowAdsense();
+
+
   }
   dragExecLikeAddMore(): any {
     this.likeUnlikeMatch(this.enumLikeDislikeAction.LIKE);
@@ -214,10 +218,9 @@ export class UserMatchsComponent implements OnInit {
   }
   clickAddMoreMatchAndTransition(likeOrDeslike): void {
     this.transitionOptionMatch(likeOrDeslike).then((res: boolean) => {
-
       if (res) {
-        likeOrDeslike === this.enumLikeDislikeAction.LIKE ? this.dragExecLikeAddMore(): '';
-        likeOrDeslike === this.enumLikeDislikeAction.UNLIKE ? this.dragExecDislikeAddMore() : '';
+        likeOrDeslike === this.enumLikeDislikeAction.LIKE ? this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.LIKE) : '';
+        likeOrDeslike === this.enumLikeDislikeAction.UNLIKE ? this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.UNLIKE) : '';
         this.buttonDisabled('remove');
         // this.addMoreMatch();
       }

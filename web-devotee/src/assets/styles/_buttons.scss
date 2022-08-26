@@ -83,10 +83,24 @@
     mat-icon {
       color: $white;
       svg {
-        .a {
+        path {
           fill: $white;
           opacity: 1;
         }
+      }
+    }
+    &.liked {
+      border: 1px solid $green-info;
+      svg {
+        path {
+          fill: $green-info;
+        }
+      }
+    }
+    &.disliked {
+      border: 1px solid $red-error;
+      mat-icon {
+        color: $red-error;
       }
     }
   }
