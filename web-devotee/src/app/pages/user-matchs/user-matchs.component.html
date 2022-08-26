@@ -20,6 +20,11 @@
     </div>
     <div [class.display-none]="matchUser?.length === 0 || loading" class="container-sugestion-matchs">
       <div class="container-match-and-action"id="container-drag">
+        <div *ngIf="showAds" class="ads container-cards-matchs sugestion-match">
+          <div class="ads">
+            <app-ads-cards></app-ads-cards>
+          </div>
+        </div>
         <section
 
           class="container-cards-matchs sugestion-match cursor-grab"
@@ -79,9 +84,7 @@
 
 
     </div>
-    <div class="ads">
-      <app-ads-cards></app-ads-cards>
-    </div>
+
 
   </main>
 
