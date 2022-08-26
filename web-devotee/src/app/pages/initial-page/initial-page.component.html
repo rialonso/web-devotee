@@ -4,8 +4,8 @@
       <div class="initial-page-define-size">
         <div class="container-logo-text padding-default-mobile">
           <section class="content-logo-header">
-            <img src="/assets/images/logo.png" alt="Logo Devotee" srcset="">
-            <span class="font-booster-next-bold color-white title-logo">Devotee</span>
+            <img class="cursor-pointer" src="/assets/images/logo.png" alt="Logo Devotee" srcset="" (click)="navigateTo(routeApp.LANDING_PAGE)">
+            <span class="font-booster-next-bold color-white title-logo cursor-pointer" (click)="navigateTo(routeApp.LANDING_PAGE)">Devotee</span>
             <span class="sign-in-mobile color-magenta-soft font-booster-next-bold cursor-pointer" (click)="clickopenMobileSignIn()">{{ dataTexts?.login }}</span>
           </section>
           <p  class="font-booster-next-regular color-white">{{ dataTexts?.firstPage?.title }}</p>

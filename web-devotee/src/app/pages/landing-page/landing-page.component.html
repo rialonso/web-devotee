@@ -1,0 +1,68 @@
+<div id="landing-page">
+  <header class="container-logo-login container-default-lp">
+    <section class="logo">
+      <img src="/assets/images/logo-blue.png" alt="Logo Devotee" srcset="">
+      <span class="font-booster-next-bold color-blue-dark title-logo">Devotee</span>
+    </section>
+  <section class="container-button-header">
+    <button class="button primary font-booster-next-bold" (click)="navigateTo(routesApp.LOGIN)">
+      {{dataTexts.buttons.btnEntry}}
+    </button>
+  </section>
+  </header>
+
+  <article class="container-welcome-app container-default-lp">
+    <section class="container-title-text">
+      <h2 class="font-booster-next-bold color-magenta-soft">
+        {{dataTexts.lading.welcome.title}}
+      </h2>
+      <p class="color-blue-dark f-size-18">
+        {{dataTexts.lading.welcome.text}}
+      </p>
+    </section>
+    <section class="container-cellphone-button">
+      <div class="content-cellphone">
+        <img src="/assets/images/cellphone-lp.png" alt="">
+      </div>
+      <div class="container-buttons-text">
+        <p class="font-booster-next-bold color-blue-dark"> {{dataTexts.lading.welcome.text}}</p>
+        <div class="content-buttons">
+          <section >
+            <button class="button third font-booster-next-bold" (click)="navigateTo(routesApp.PRE_REGISTER)">
+              {{dataTexts.buttons.btnRegisterSe}}
+            </button>
+          </section>
+          <section class="buttons-download">
+            <a href="https://play.google.com/store/apps/details?id=com.phurshell.devotee&hl=pt_BR" target="_blank"
+              rel="noopener noreferrer">
+              <img src={{dataTexts.buttonsDownload.btnPlayStore}} alt={{dataTexts.buttonsDownload.altPlaySotre}}></a>
+            <a href="https://apps.apple.com/br/app/devotee/id1331331692" target="_blank" rel="noopener noreferrer">
+              <img src={{dataTexts.buttonsDownload.btnAppStore}} alt={{dataTexts.buttonsDownload.altAppStore}}></a>
+          </section>
+        </div>
+      </div>
+    </section>
+  </article>
+
+  <article class="container-devotee-shop container-default-lp" >
+    <h2 class="font-booster-next-bold color-magenta-soft">
+      {{dataTexts.lading.devoteeShop.title}}
+    </h2>
+    <div class="container-cellphone-button">
+      <div class="content-cellphone">
+        <img src="/assets/images/cellphone-lp-shop.png" alt="">
+      </div>
+      <section class="container-text-button">
+        <p class="color-blue-dark f-size-18">
+          {{dataTexts.lading.devoteeShop.text}}
+        </p>
+        <section >
+          <button class="button third font-booster-next-bold" (click)="navigateTo(routesApp.LOGIN)">
+            {{dataTexts.buttons.btnAccess}}
+          </button>
+        </section>
+      </section>
+    </div>
+  </article>
+  <app-footer [backgroudColor]="'bg-color-blue-dark'"></app-footer>
+</div>

@@ -134,8 +134,6 @@ export class UserMatchsComponent implements OnInit {
   countShowAdsAndExecLikeDislike(likeOrDislike) {
     this.likeUnlikeMatch(likeOrDislike);
     this.stateManagementFuncService.incrementCountShowAdsense();
-
-
   }
   dragExecLikeAddMore(): any {
     this.likeUnlikeMatch(this.enumLikeDislikeAction.LIKE);

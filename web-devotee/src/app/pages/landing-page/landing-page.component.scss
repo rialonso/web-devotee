@@ -1,0 +1,83 @@
+@import '_custom';
+#landing-page {
+  .container-logo-login {
+    @include dp-flex-alignment(row, center, space-between);
+    background: transparent linear-gradient(180deg, $sand-medium 0%, $sand-soft 100%) 0% 0% no-repeat padding-box;;
+    .logo {
+      @include dp-flex-alignment(row, center, initial);
+      gap: 5px;
+      img {
+        width: 25px;
+        max-width: 55px;
+        height: auto;
+      }
+      .title-logo {
+        font-size: 1.2rem;
+        @include min-tablet {
+          font-size: 4rem;
+        }
+        @media screen and(min-width: $min-desk) {
+          font-size: 5rem;
+        }
+      }
+    }
+    .container-button-header {
+      button {
+        font-size: 12px;
+        padding: 8px 34px;
+      }
+    }
+  }
+  .container-welcome-app {
+    background: transparent linear-gradient(180deg, $sand-soft 0%, $sand-medium 100%) 0% 0% no-repeat padding-box;
+    .container-title-text {
+      @include dp-flex-alignment(column, initial, initial);
+      gap: 10px;
+    }
+    .container-cellphone-button {
+      .content-cellphone {
+        img {
+          width: 100%;
+        }
+      }
+      .container-buttons-text {
+        .content-buttons {
+          padding: 20px 0;
+          @include dp-flex-alignment(row, center, space-between);
+          .button {
+            padding: 8px 18px;
+          }
+          .buttons-download {
+            @include dp-flex-alignment(row, initial, initial);
+            gap: 10px;
+            img {
+              height: 25px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .container-devotee-shop {
+    @include dp-flex-alignment(column, flex-end, flex-end);
+    background:  transparent linear-gradient(180deg, #DDE6F0 0%, #E9EFEF 100%) 0% 0% no-repeat padding-box;
+    .container-cellphone-button {
+      @include dp-flex-alignment();
+      gap: 10px;
+
+      img {
+        max-width: 150px;
+      }
+      .container-text-button {
+        @include dp-flex-alignment(column, flex-end, flex-end);
+        gap: 10px;
+        .button {
+          padding: 8px 18px;
+        }
+      }
+    }
+  }
+}
+.container-default-lp {
+  padding: 20px 30px;
+}
