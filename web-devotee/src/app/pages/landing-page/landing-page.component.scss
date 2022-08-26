@@ -71,6 +71,7 @@
       .container-text-button {
         @include dp-flex-alignment(column, flex-end, flex-end);
         gap: 10px;
+        text-align: right;
         .button {
           padding: 8px 18px;
         }
