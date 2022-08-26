@@ -214,10 +214,9 @@ export class UserMatchsComponent implements OnInit {
   }
   clickAddMoreMatchAndTransition(likeOrDeslike): void {
     this.transitionOptionMatch(likeOrDeslike).then((res: boolean) => {
-
       if (res) {
-        likeOrDeslike === this.enumLikeDislikeAction.LIKE ? this.dragExecLikeAddMore(): '';
-        likeOrDeslike === this.enumLikeDislikeAction.UNLIKE ? this.dragExecDislikeAddMore() : '';
+        likeOrDeslike === this.enumLikeDislikeAction.LIKE ? this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.LIKE) : '';
+        likeOrDeslike === this.enumLikeDislikeAction.UNLIKE ? this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.UNLIKE) : '';
         this.buttonDisabled('remove');
         // this.addMoreMatch();
       }
