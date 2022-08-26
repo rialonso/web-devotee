@@ -1,11 +1,17 @@
 import { Component, ElementRef, OnInit, QueryList, ViewChild } from '@angular/core';
+import { State, Store } from '@ngrx/store';
+import { ReplaySubject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 import { GetSugestionMatchsService } from 'src/app/core/services/get-sugestion-matchs/get-sugestion-matchs.service';
 import { LikeDislikeService } from 'src/app/core/services/like-dislike/like-dislike.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { EnumLikeDislikeActions } from 'src/app/shared/enum/like-dislike/likes-dislike.enum';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
+import { StateManagementFuncService } from 'src/app/shared/functions/state-management/state-management-func.service';
 import { ModelLikeDislikeRequest } from 'src/app/shared/model/request/like-dislike-request/like-dislike.model';
+import { IAppState } from 'src/app/state-management/app.model';
+import { IControlsApp } from 'src/app/state-management/controls/controls-app.state';
 import { environment } from 'src/environments/environment';
 
 @Component({
@@ -20,6 +26,7 @@ export class UserMatchsComponent implements OnInit {
 
   active = false;
   loading = false;
+  showAds = false;
 
   matchUser;
   allSugestionMatchs;
@@ -31,16 +38,44 @@ export class UserMatchsComponent implements OnInit {
   deslikePosition;
   xOffset: number = 0;
   yOffset: number = 0;
+
+  countMatchsSlided = 0;
+
+  destroy$ = new ReplaySubject();
   constructor(
+    protected state: State<IAppState>,
+    protected store: Store,
     private likeDislikeService: LikeDislikeService,
     private getSugestionMatchsService: GetSugestionMatchsService,
     private translateService: TranslateService,
     private dialogsService: DialogsService,
-  ) { }
+    private stateManagementFuncService: StateManagementFuncService,
+  ) {
+
+
+  }
 
   ngOnInit() {
     this.getSugestionMatchs();
     this.execDragSplitSugestions();
+    this.subscribeCountsAds();
+
+  }
+  subscribeCountsAds() {
+    this.store
+    .select((state: IAppState) => state.controlsApp.countShowAds)
+    .pipe(takeUntil(this.destroy$))
+    .subscribe(state => {
+      console.log(state);
+
+      if (state === 10) {
+        this.buttonDisabled('add')
+        this.showAds = true;
+
+      } else {
+        this.showAds = false;
+      }
+    })
   }
   async getSugestionMatchs() {
     this.loading = true;
@@ -73,18 +108,30 @@ export class UserMatchsComponent implements OnInit {
     this.matchUser = sugestionMatchs?.data?.slice(0, 3);
   }
   async execDragSplitSugestions() {
-
-    const dragItemInterval = setInterval(() => {
+    if (document.querySelectorAll('.ads')[0] === undefined) {
+      const dragItemInterval = setInterval(() => {
+        const dragItem: any = document.querySelectorAll('.sugestion-match')[0];
+        const dragDataPosition: any = dragItem?.getAttribute('data-position');
+        dragDataPosition === '150' ? this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.LIKE) : dragItem?.setAttribute('data-position', 0 );
+        dragDataPosition === '-150' ? this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.UNLIKE) :  dragItem?.setAttribute('data-position', 0 );
+      }, 1000);
+      setTimeout(() => {
+        clearInterval(dragItemInterval);
+      }, 1500);
+    } else {
       const dragItem: any = document.querySelectorAll('.sugestion-match')[0];
       const dragDataPosition: any = dragItem?.getAttribute('data-position');
-      dragDataPosition === '150' ? this.dragExecLikeAddMore() : dragItem?.setAttribute('data-position', 0 );
-      dragDataPosition === '-150' ? this.dragExecDislikeAddMore() :  dragItem?.setAttribute('data-position', 0 );
-    }, 1000);
-    setTimeout(() => {
-      clearInterval(dragItemInterval);
-
-    }, 1500);
-
+      dragDataPosition === '150' ? this.resetCountEnableButtons() : dragItem?.setAttribute('data-position', 0 );
+      dragDataPosition === '-150' ? this.resetCountEnableButtons() :  dragItem?.setAttribute('data-position', 0 );
+    }
+  }
+  resetCountEnableButtons() {
+    this.buttonDisabled('remove');
+    this.stateManagementFuncService.resetCountShowAdsense();
+  }
+  countShowAdsAndExecLikeDislike(likeOrDislike) {
+    this.likeUnlikeMatch(likeOrDislike);
+    this.stateManagementFuncService.incrementCountShowAdsense();
   }
   dragExecLikeAddMore(): any {
     this.likeUnlikeMatch(this.enumLikeDislikeAction.LIKE);
