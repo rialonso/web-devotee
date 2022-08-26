@@ -51,14 +51,14 @@
             </div>
             <div class="container-buttons-action" style="visibility: hidden;">
               <button
-              (click)="likeUnlikeMatch(enumLikeDislikeAction.UNLIKE)"
+              (click)="this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.UNLIKE)"
                 class="button like-dislike"
                 >
                 <mat-icon>close</mat-icon>
               </button>
               <button
-              (click)="likeUnlikeMatch(enumLikeDislikeAction.LIKE)"
-                class="button like-dislike"
+              (click)="this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.LIKE)"
+                class="button like-dislike liked"
                 >
                 <mat-icon svgIcon="heart"></mat-icon>
               </button>
@@ -69,12 +69,14 @@
           <button
           (click)="clickAddMoreMatchAndTransition(enumLikeDislikeAction.UNLIKE)"
             class="button like-dislike"
+            [class.disliked]="disliked"
             >
             <mat-icon>close</mat-icon>
           </button>
           <button
           (click)="clickAddMoreMatchAndTransition(enumLikeDislikeAction.LIKE)"
             class="button like-dislike"
+            [class.liked]="liked"
             >
             <mat-icon svgIcon="heart"></mat-icon>
           </button>

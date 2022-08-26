@@ -27,6 +27,8 @@ export class UserMatchsComponent implements OnInit {
   active = false;
   loading = false;
   showAds = false;
+  liked = false;
+  disliked = false;
 
   matchUser;
   allSugestionMatchs;
@@ -132,6 +134,8 @@ export class UserMatchsComponent implements OnInit {
   countShowAdsAndExecLikeDislike(likeOrDislike) {
     this.likeUnlikeMatch(likeOrDislike);
     this.stateManagementFuncService.incrementCountShowAdsense();
+
+
   }
   dragExecLikeAddMore(): any {
     this.likeUnlikeMatch(this.enumLikeDislikeAction.LIKE);
