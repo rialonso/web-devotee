@@ -30,7 +30,11 @@ export class ActivateLocationComponent implements OnInit {
   errorsEnum = ErrorsEnum;
   formGroup: FormGroup;
   options: ModelPlacesAutocomplete.Prediction[] = [null];
-
+  optionsa = {
+    componentRestrictions: {
+      country: ['']
+    }
+  }
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     protected store: Store<IAppState>,
@@ -100,14 +104,15 @@ export class ActivateLocationComponent implements OnInit {
   returnModal() {
     this.showAddManually = false;
   }
-  async searchPlace(inputValue: string) {
-    const params: Params = {
-      input: inputValue,
-      key: environment.googleApis.key
-    }
-    const places = await this.placesAutoCompleteService.getWithOutOptions(false, params).toPromise();
-    this.options = places.predictions;
-    console.log(places);
+  async searchPlace(inputValue: any) {
+    const formated = inputValue.formatted_address
+    // const params: Params = {
+    //   key: environment.googleApis.key,
+    //   input: inputValue.target.value
+    // }
+    // const places = await this.placesAutoCompleteService.getWithOutOptions(false, params).toPromise();
+    // this.options = places.predictions;
+    // console.log(places);
 
   }
   async continueRegister() {

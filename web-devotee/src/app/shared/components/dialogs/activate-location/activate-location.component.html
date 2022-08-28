@@ -27,13 +27,16 @@
                aria-label="Number"
                matInput
                formControlName="address_description"
-               [matAutocomplete]="auto"
-               (input)="searchPlace($event.target.value)">
-        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="locationSelected($event)">
-          <mat-option *ngFor="let option of options" [value]="option?.description">
+
+               ngx-google-places-autocomplete
+               [options]='optionsa'
+               #placesRef="ngx-places"
+               (input)="searchPlace($event)">
+        <!--[matAutocomplete]="auto" <mat-autocomplete #auto="matAutocomplete" (optionSelected)="locationSelected($event)">
+          <mat-option *ngFor="let option of optionsa" [value]="option?.description">
             {{option?.description}}
           </mat-option>
-        </mat-autocomplete>
+        </mat-autocomplete> -->
         <mat-error *ngIf="formGroup.controls.address_description.hasError(errorsEnum.REQUIRED)">
           {{ dataTexts.inputs.genericErrors.inputRequired }}
         </mat-error>
