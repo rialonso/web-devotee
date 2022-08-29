@@ -137,8 +137,10 @@
                 [matDatepicker]="picker"
                 maxlength="10"
                 (dateChange)="dateSelected($event)"
+                (keypress)="false"
                 >
                 <input
+                (keypress)="false"
                   matInput
                   [mask]=""
                   (click)="picker.open()"
