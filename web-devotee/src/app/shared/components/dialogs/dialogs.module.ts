@@ -10,6 +10,7 @@ import { EditProfilePicturesComponent } from './edit-profile-pictures/edit-profi
 import { EditAboutMeComponent } from './edit-about-me/edit-about-me.component';
 import { UseOfTermsComponent } from './use-of-terms/use-of-terms.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 const dialogsComponent = [
   LoginQrCodeComponent,
@@ -29,6 +30,7 @@ const dialogsComponent = [
   imports: [
     SharedModule,
     QRCodeModule,
+    GooglePlaceModule
   ],
   exports: [
     ...dialogsComponent,
