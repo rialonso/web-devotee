@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, QueryList, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild } from '@angular/core';
 import { State, Store } from '@ngrx/store';
 import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -19,7 +19,7 @@ import { environment } from 'src/environments/environment';
   templateUrl: './user-matchs.component.html',
   styleUrls: ['./user-matchs.component.scss']
 })
-export class UserMatchsComponent implements OnInit {
+export class UserMatchsComponent implements OnInit, AfterViewInit {
   enumLikeDislikeAction = EnumLikeDislikeActions;
   enumRoutesApplication = EnumRoutesApplication
   dataTexts;
@@ -62,6 +62,15 @@ export class UserMatchsComponent implements OnInit {
     this.execDragSplitSugestions();
     this.subscribeCountsAds();
 
+  }
+  ngAfterViewInit() {
+    // setTimeout(() => {
+    // try {
+    //     (window["adsbygoogle"] = window["adsbygoogle"] || []).push({});
+    //   } catch (e) {
+    //     console.error(e);
+    //   }
+    // }, 2000);
   }
   subscribeCountsAds() {
     this.store
