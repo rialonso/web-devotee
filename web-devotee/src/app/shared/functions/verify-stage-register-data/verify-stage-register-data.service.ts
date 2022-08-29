@@ -1,3 +1,4 @@
+import { INITIAL_STATE_REGISTER_USER } from './../../../state-management/register/register.state';
 import { AddAllDataUser } from 'src/app/state-management/user-data/user-data.action';
 import { Injectable } from '@angular/core';
 import { State, Store } from '@ngrx/store';
@@ -7,6 +8,7 @@ import { IRegisterUser } from 'src/app/state-management/register/register.state'
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { EnumRoutesApplication } from '../../enum/routes.enum';
 import { RouteService } from '../routes/route.service';
+import { StateManagementFuncService } from '../state-management/state-management-func.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +20,7 @@ export class VerifyStageRegisterDataService {
     protected store: Store<IAppState>,
     private routeService: RouteService,
     private userProfileService: UserProfileService,
+    private stateManagementFuncServices: StateManagementFuncService
   ) { }
   verifyDataRegistered() {
 
@@ -41,6 +44,8 @@ export class VerifyStageRegisterDataService {
       const userId = parseInt(localStorage.getItem('userId'));
       const dataUser: IUserData.RootObject = await this.userProfileService.get(userId).toPromise();
       this.store.dispatch(new AddAllDataUser(dataUser));
+      this.stateManagementFuncServices.funcAddDataRegister(INITIAL_STATE_REGISTER_USER);
+
     }
   }
 }
