@@ -125,6 +125,9 @@ export class DialogsService {
         panelClass: 'container-change-password',
       },
     );
+    const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
+      size.matches ? modal.updateSize('100vw', ''): undefined ;
+    });
     return modal;
   }
   openTerms() {

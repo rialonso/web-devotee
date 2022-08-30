@@ -5,16 +5,16 @@
     </mat-card>
     <section class="container-cards-settings">
       <mat-card class="card-settings" (click)="viewMyProfile()">
-        <mat-icon>person</mat-icon>
+        <mat-icon svgIcon="account_circle"></mat-icon>
         <mat-card-title>{{dataTexts.userConfigurations.features.myProfile}}</mat-card-title>
       </mat-card>
 
       <mat-card class="card-settings" (click)="navigateTo(enumRoutes.FILTERS)">
-        <mat-icon>filter_alt</mat-icon>
+        <mat-icon svgIcon="interests"></mat-icon>
         <mat-card-title>{{dataTexts.userConfigurations.features.preferences}}</mat-card-title>
       </mat-card>
       <mat-card class="card-settings"  (click)="changePassword()">
-        <mat-icon>security</mat-icon>
+        <mat-icon svgIcon="change_password"></mat-icon>
         <mat-card-title>{{dataTexts.userConfigurations.features.changePassword}}</mat-card-title>
       </mat-card>
       <mat-card class="card-settings" *ngIf="false">
@@ -22,8 +22,12 @@
         <mat-card-title>{{dataTexts.userConfigurations.features.deleteAccount}}</mat-card-title>
       </mat-card>
       <mat-card class="card-settings" (click)="logout()">
-        <mat-icon>power_settings_new</mat-icon>
+        <mat-icon>logout</mat-icon>
         <mat-card-title>{{dataTexts.userConfigurations.features.logout}}</mat-card-title>
+      </mat-card>
+      <mat-card class="card-settings" (click)="logout()">
+        <mat-icon>add</mat-icon>
+        <mat-card-title>Devotee <span class="color-magenta-soft">+</span></mat-card-title>
       </mat-card>
       <mat-card class="card-settings" >
         <mat-icon>new_releases</mat-icon>
