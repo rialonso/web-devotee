@@ -464,6 +464,17 @@
         "title": "Nenhum perfil encontrado",
         "text": "Espere um momento, estamos buscando mais perfis"
       }
+    },
+    "devotePlus": {
+      "title": "<h2 class='color-blue-dark'>Muito em breve as funcionalidades do <span class='font-booster-next-bold'>Devotee<span class='color-magenta-soft'>+ </span> </span> na web para você!</h2>",
+      "features": {
+        "noAds": "Sem propagandas",
+        "matchAllUsers": "Match com qualquer usuário",
+        "seeAllLikes": "Acesso a todos que curtiram você",
+        "moreEditData": "Mais opções de edição de perfil"
+      },
+      "conclusion": "<h2 class='color-blue-dark'>Para assinar o <span class='font-booster-next-bold'>Devotee<span class='color-magenta-soft'>+</span></span>, faça o download do App Devotee em seu celular, acesse o <span class='font-booster-next-bold'>perfil</span>no menu inferior e selecione <span class='font-booster-next-bold'>Plano atual</span>.</h2>"
+
     }
   },
   "us": {
@@ -940,6 +951,17 @@
         "title": "No profile found",
         "text": "Wait a moment as we search for other profiles"
       }
+    },
+    "devotePlus": {
+      "title": "<h2 class='color-blue-dark'>Coming soon as  <span class='font-booster-next-bold'>Devotee<span class='color-magenta-soft'>+ </span> </span> features on the web for you!</h2>",
+      "features": {
+        "noAds": "No Ads",
+        "matchAllUsers": "Match all users",
+        "seeAllLikes": "See all likes",
+        "moreEditData": "More options to edit"
+      },
+      "conclusion": "<h3 class='color-blue-dark'>Subscribe to <span class='font-booster-next-bold'>Devotee<span class='color-magenta-soft'>+</span></span>, download the Devotee App on your mobile, go to <span class='font-booster-next-bold'>your profile </span>in the bottom menu and select <span class='font-booster-next-bold'>current plan</span></h3>"
+
     }
   }
 }
