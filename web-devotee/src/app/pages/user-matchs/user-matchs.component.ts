@@ -143,8 +143,6 @@ export class UserMatchsComponent implements OnInit, AfterViewInit {
   countShowAdsAndExecLikeDislike(likeOrDislike) {
     this.likeUnlikeMatch(likeOrDislike);
     this.stateManagementFuncService.incrementCountShowAdsense();
-
-
   }
   dragExecLikeAddMore(): any {
     this.likeUnlikeMatch(this.enumLikeDislikeAction.LIKE);
@@ -236,7 +234,7 @@ export class UserMatchsComponent implements OnInit, AfterViewInit {
     });
   }
   changeUserImageInBackground(profilePicture): string {
-    return `background-image: url(${environment.urlImages}${profilePicture[0]?.path})`;
+    return `background-image: url(${environment.urlImages}${profilePicture[0]?.path}); background-color: #D9D9D9;`;
   }
   transformAge(birthdateUser) {
     const birthdate = birthdateUser.replace(/-/g, '')
