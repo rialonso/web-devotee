@@ -1,1 +1,59 @@
-<p>devotee-plus works!</p>
+<div id="container-dialog-activate-location">
+  <div class="container-close">
+    <mat-icon class="mat-18 cursor-pointer" (click)="closeModal()">
+      close
+    </mat-icon>
+  </div>
+  <div class="container-main">
+    <header class="container-title-dialog-devotee-plus" [innerHtml]="dataTexts.devotePlus.title">
+    </header>
+    <div class="container-new-features">
+      <section class="container-phone-feature ">
+        <img src="/assets/images/cellphone-feature-plus.png" alt="">
+      </section>
+      <section class="container-features">
+        <section class="feature">
+          <mat-icon class="color-magenta-soft">check</mat-icon>
+          <p>{{dataTexts.devotePlus.features.noAds}}</p>
+        </section>
+        <section class="feature">
+          <mat-icon class="color-magenta-soft">check</mat-icon>
+          <p>{{dataTexts.devotePlus.features.matchAllUsers}}</p>
+        </section>
+        <section class="feature">
+          <mat-icon class="color-magenta-soft">check</mat-icon>
+          <p>{{dataTexts.devotePlus.features.seeAllLikes}}</p>
+        </section>
+        <section class="feature">
+          <mat-icon class="color-magenta-soft">check</mat-icon>
+          <p>{{dataTexts.devotePlus.features.moreEditData}}</p>
+        </section>
+        <div class="container-btn-conclusion desk">
+          <div class="container-conclusion-dialog-devotee-plus" [innerHtml]="dataTexts.devotePlus.conclusion">
+          </div>
+          <div class="buttons-download">
+            <a href="https://play.google.com/store/apps/details?id=com.phurshell.devotee&hl=pt_BR" target="_blank"
+              >
+              <img src={{dataTexts.buttonsDownload.btnPlayStore}} alt={{dataTexts.buttonsDownload.altPlaySotre}}></a>
+            <a href="https://apps.apple.com/br/app/devotee/id1331331692" target="_blank" >
+              <img src={{dataTexts.buttonsDownload.btnAppStore}} alt={{dataTexts.buttonsDownload.altAppStore}}></a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    <div class="container-btn-conclusion mobile">
+      <div class="container-conclusion-dialog-devotee-plus" [innerHtml]="dataTexts.devotePlus.conclusion">
+      </div>
+      <div class="buttons-download">
+        <a href="https://play.google.com/store/apps/details?id=com.phurshell.devotee&hl=pt_BR" target="_blank"
+          >
+          <img src={{dataTexts.buttonsDownload.btnPlayStore}} alt={{dataTexts.buttonsDownload.altPlaySotre}}></a>
+        <a href="https://apps.apple.com/br/app/devotee/id1331331692" target="_blank" >
+          <img src={{dataTexts.buttonsDownload.btnAppStore}} alt={{dataTexts.buttonsDownload.altAppStore}}></a>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -17,6 +17,8 @@ export class IconModule {
       .addSvgIcon('logo_raposo_shoping', this.setPath(`${this.path}/logo-raposo-shopping.svg`))
       .addSvgIcon('check_magenta', this.setPath(`${this.path}/check.svg`))
       .addSvgIcon('camera_add_picture', this.setPath(`${this.path}/camera-add-picture.svg`))
+      .addSvgIcon('heart', this.setPath(`${this.path}/heart.svg`))
+
       .addSvgIcon('add_location', this.setPath(`${this.path}/add_location.svg`))
       .addSvgIcon('change_password', this.setPath(`${this.path}/change-password.svg`))
       .addSvgIcon('interests', this.setPath(`${this.path}/interests.svg`))
