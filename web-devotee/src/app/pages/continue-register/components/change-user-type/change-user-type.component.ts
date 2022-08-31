@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { State, Store } from '@ngrx/store';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
+import { UpdateDataService } from 'src/app/core/services/update-data/update-data.service';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { EnumUserType } from 'src/app/shared/enum/user-types/user-type.enum';
 import { RouteService } from 'src/app/shared/functions/routes/route.service';
@@ -29,6 +30,7 @@ export class ChangeUserTypeComponent implements OnInit {
     private formBuilder: FormBuilder,
     private routeService: RouteService,
     private router: Router,
+    private updateDataService: UpdateDataService,
   ) {
     this.dataTexts = this.translateService?.textTranslate;
    }
@@ -50,7 +52,8 @@ export class ChangeUserTypeComponent implements OnInit {
     this.userTypeChanged = userType;
     this.store.dispatch(new AddDataRegister(this.formGroup.value));
   }
-  navigateTo(route: EnumRoutesApplication) {
+  async navigateTo(route: EnumRoutesApplication) {
+    await this.updateDataService.post(this.formGroup.value, this.state.getValue().userData.data.id).toPromise();
     this.routeService.navigateToURL(route);
   }
 }

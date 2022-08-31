@@ -107,9 +107,15 @@ export class RegisterDataComponent implements OnInit {
   setDataInFormWheDataRecovered() {
     const registerData = this.state.getValue()?.registerData
     if (registerData.profile_picture !== null) {
-      this.imagesURL = {
-        ...this.imagesURL,
-        [this.imagesTypes.FIRST_IMAGE]: `${environment.urlImages}${registerData?.profile_picture[0]?.path}`
+      if (registerData?.profile_picture[0]) {
+        this.imagesURL = {
+          ...this.imagesURL,
+          [this.imagesTypes.FIRST_IMAGE]: `${environment.urlImages}${registerData?.profile_picture[0]?.path}`
+        }
+      } else {
+        this.imagesURL = {
+          ...this.imagesURL,
+        }
       }
     }
 
@@ -249,8 +255,6 @@ export class RegisterDataComponent implements OnInit {
 
   }
   async continueRegister() {
-    console.log(this.formGroup.value, this.formGroup.valid);
-
     if (this.formGroup.valid) {
       this.loading = true;
       let updateData;
@@ -268,8 +272,6 @@ export class RegisterDataComponent implements OnInit {
           disability: this.setDataToSpecialPerson()
         }
       }
-
-      console.log(this.formGroup.value, updateData);
       if(this.imagesList.length > 0) {
         await this.profilePicturesService.post(this.setFormDataToSendFiles()).toPromise();
       }
@@ -314,7 +316,12 @@ export class RegisterDataComponent implements OnInit {
     return formData;
   }
   genderChanged(value) {
-    if (value === 'trans') {
+    if (
+        value !== 'male'
+        || value !== 'man'
+        || value !== 'female'
+        || value !== 'women'
+      ) {
       this.showWasBorn = true;
       return this.showWasBorn;
     }
