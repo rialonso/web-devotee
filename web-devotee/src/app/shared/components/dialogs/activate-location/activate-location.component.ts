@@ -105,10 +105,6 @@ export class ActivateLocationComponent implements OnInit {
     this.showAddManually = false;
   }
   async searchPlace(address: any) {
-    debugger;
-    const formated = address.formatted_address
-    const lat = address.geometry.location.lat();
-    const long = address.geometry.location.lng();
     this.store.dispatch(new AddDataRegister({
       lat: address.geometry.location.lat(),
       lng: address.geometry.location.lng(),
