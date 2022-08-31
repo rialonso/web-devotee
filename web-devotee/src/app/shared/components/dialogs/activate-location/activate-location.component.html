@@ -27,11 +27,10 @@
                aria-label="Number"
                matInput
                formControlName="address_description"
-
                ngx-google-places-autocomplete
                [options]='optionsa'
                #placesRef="ngx-places"
-               (input)="searchPlace($event)">
+               (onAddressChange)="searchPlace($event)">
         <!--[matAutocomplete]="auto" <mat-autocomplete #auto="matAutocomplete" (optionSelected)="locationSelected($event)">
           <mat-option *ngFor="let option of optionsa" [value]="option?.description">
             {{option?.description}}
@@ -56,7 +55,7 @@
     mat-button
     cdkFocusInitial
     class="button primary"
-    [disabled]="!enableButton"
+    [disabled]="formGroup.invalid"
     (click)="continueRegister()"
     >
       <div class="container-spinner-btn" *ngIf="loadingGetLocation">
