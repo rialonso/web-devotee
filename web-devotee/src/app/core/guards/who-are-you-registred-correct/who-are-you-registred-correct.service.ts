@@ -39,7 +39,8 @@ export class WhoAreYouRegistredCorrectService implements CanActivate {
       || !dataRegister.sexual_orientation
       || !dataRegister.name
     ) {
-      this.routeService.navigateToURL(EnumRoutesApplication.REGISTER_USER_DATA)
+      this.routeService.navigateToURL(EnumRoutesApplication.REGISTER_USER_DATA);
+      return false;
     }
       this.router.navigate([EnumRoutesApplication.MATCHS]);
       return false;

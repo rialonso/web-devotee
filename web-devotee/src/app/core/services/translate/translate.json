@@ -310,8 +310,60 @@
         "value2": "feminino"
       },
       {
-        "label": "Trans",
-        "value": "trans"
+        "label": "Transgenero",
+        "value": "transgender"
+      },
+      {
+        "label": "Agênero",
+        "value": "agender"
+      },
+      {
+        "label": "Andrógeno",
+        "value": "androgynous"
+      },
+      {
+        "label": "Bigênero",
+        "value": "bigender"
+      },
+      {
+        "label": "Cisgênero",
+        "value": "cisgender"
+      },
+      {
+        "label": "212 Duplo-Espírito",
+        "value": "two-Spirit 212"
+      },
+      {
+        "label": "Gendequeer",
+        "value": "genderqueer"
+      },
+      {
+        "label": "Gênero em dúvida",
+        "value": "gender in Doubt"
+      },
+      {
+        "label": "Gênero Fluido",
+        "value": "gender Fluid"
+      },
+      {
+        "label": "Gênero Variante",
+        "value": "variant Genre,"
+      },
+      {
+        "label": "Intersex",
+        "value": "intersex"
+      },
+      {
+        "label": "Não binário",
+        "value": "non-binary"
+      },
+      {
+        "label": "Nenhum",
+        "value": "none"
+      },
+      {
+        "label": "Neutro",
+        "value": "neutral"
       },
       {
         "label": "Outro",
@@ -778,22 +830,73 @@
     },
     "genders": [
       {
-        "label": "Male",
+        "label": "Masculino",
         "value": "male",
         "value2": "masculino"
       },
       {
-        "label": "Female",
+        "label": "Feminino",
         "value": "female",
         "value2": "feminino"
       },
       {
-        "label": "Trans",
-        "value": "trans",
-        "value2": "transexual"
+        "label": "Transgender",
+        "value": "transgender"
       },
       {
-        "label": "Other",
+        "label": "Agender",
+        "value": "agender"
+      },
+      {
+        "label": "Androgynous",
+        "value": "androgynous"
+      },
+      {
+        "label": "Bigender",
+        "value": "bigender"
+      },
+      {
+        "label": "Cisgender",
+        "value": "cisgender"
+      },
+      {
+        "label": "Two-Spirit 212",
+        "value": "two-Spirit 212"
+      },
+      {
+        "label": "Genderqueer",
+        "value": "genderqueer"
+      },
+      {
+        "label": "Gender in Doubt",
+        "value": "gender in Doubt"
+      },
+      {
+        "label": "Gender Fluid",
+        "value": "gender Fluid"
+      },
+      {
+        "label": "Variant Genre",
+        "value": "variant Genre,"
+      },
+      {
+        "label": "Intersex",
+        "value": "intersex"
+      },
+      {
+        "label": "Non-binary",
+        "value": "non-binary"
+      },
+      {
+        "label": "None",
+        "value": "none"
+      },
+      {
+        "label": "Neutral",
+        "value": "neutral"
+      },
+      {
+        "label": "Outro",
         "value": "other"
       }
     ],
