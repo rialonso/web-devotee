@@ -27,6 +27,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AdsCardsComponent } from './components/google-ads/ads-cards/ads-cards/ads-cards.component';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 
 const components = [
   FooterComponent,
@@ -66,6 +67,7 @@ const angularMaterialModules = [
     ReactiveFormsModule,
     CommonModule,
     RouterModule,
+    GooglePlaceModule,
 
   ],
   exports: [

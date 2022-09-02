@@ -10,6 +10,8 @@ import { EditProfilePicturesComponent } from './edit-profile-pictures/edit-profi
 import { EditAboutMeComponent } from './edit-about-me/edit-about-me.component';
 import { UseOfTermsComponent } from './use-of-terms/use-of-terms.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { DevoteePlusComponent } from './devotee-plus/devotee-plus.component';
 
 const dialogsComponent = [
   LoginQrCodeComponent,
@@ -19,16 +21,19 @@ const dialogsComponent = [
   EditProfilePicturesComponent,
   EditAboutMeComponent,
   UseOfTermsComponent,
+  PrivacyPolicyComponent,
+  DevoteePlusComponent,
 ]
 
 @NgModule({
   declarations: [
     ...dialogsComponent,
-    PrivacyPolicyComponent,
+
   ],
   imports: [
     SharedModule,
     QRCodeModule,
+    GooglePlaceModule
   ],
   exports: [
     ...dialogsComponent,

@@ -74,6 +74,14 @@ export class UserConfigurationsComponent implements OnInit {
       .subscribe((closed: ModelChangePassword) => {
 
       })
+  }
+  devoteePlus() {
+    this.dialogService
+      .openDevoteePlus()
+      .afterClosed()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((closed: ModelChangePassword) => {
 
+      })
   }
 }

@@ -30,7 +30,11 @@ export class ActivateLocationComponent implements OnInit {
   errorsEnum = ErrorsEnum;
   formGroup: FormGroup;
   options: ModelPlacesAutocomplete.Prediction[] = [null];
+  optionsa = {
+    componentRestrictions: {
 
+    }
+  }
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     protected store: Store<IAppState>,
@@ -100,29 +104,14 @@ export class ActivateLocationComponent implements OnInit {
   returnModal() {
     this.showAddManually = false;
   }
-  async searchPlace(inputValue: string) {
-    const params: Params = {
-      input: inputValue,
-      key: environment.googleApis.key
-    }
-    const places = await this.placesAutoCompleteService.getWithOutOptions(false, params).toPromise();
-    this.options = places.predictions;
-    console.log(places);
-
-  }
-  async continueRegister() {
-    this.loadingGetLocation = true;
-    const params: Params = {
-      address: this.formGroup.get('address_description').value,
-      key: environment.googleApis.key
-    }
-    const address: ModelGetAddressLatLong.IRootObjetct = await this.getAddressLatLongService.getWithOutOptions(false, params).toPromise();
-    const locationResponse = address.results[0].geometry.location;
+  async searchPlace(address: any) {
     this.store.dispatch(new AddDataRegister({
-      lat: locationResponse.lat,
-      lng: locationResponse.lng
+      lat: address.geometry.location.lat(),
+      lng: address.geometry.location.lng(),
+      address_description: address.formatted_address,
     }));
-    this.loadingGetLocation = false;
+  }
+  continueRegister() {
     this.matDialogRef.close();
   }
   locationSelected() {

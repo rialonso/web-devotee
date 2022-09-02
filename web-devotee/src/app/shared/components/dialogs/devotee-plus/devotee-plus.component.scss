@@ -1,0 +1,77 @@
+@import '_custom';
+
+#container-dialog-activate-location {
+  .container-main {
+    @include dp-flex-alignment(column);
+
+    max-width: 900px;
+    box-sizing: border-box;
+    margin: auto;
+  }
+  .container-close {
+    margin-bottom: 30px;
+    mat-icon {
+      color: $gray-dark;
+    }
+  }
+  .container-title-dialog-devotee-plus {
+    @include dp-flex-alignment(column, flex-end, flex-end);
+    text-align: end;
+    width: 100%;
+  }
+  .container-new-features {
+    @include dp-flex-alignment();
+    position: relative;
+    left: -20%;
+    margin: 40px 0;
+    @include min-tablet {
+      left: 0;
+      gap: 40px;
+
+    }
+    .container-phone-feature {
+      @include min-tablet {
+        flex: 1;
+      }
+
+      img {
+        max-width: 170px;
+        @include min-tablet {
+          max-width: 220px;
+        }
+      }
+    }
+    .container-features {
+      @include dp-flex-alignment(column, initial, initial);
+      gap: 20px;
+      .feature {
+        color: $blue-dark;
+        @include dp-flex-alignment(row, center, initial);
+        gap: 10px;
+
+      }
+    }
+
+  }
+  .container-btn-conclusion {
+    @include dp-flex-alignment(column);
+    gap: 30px;
+    .buttons-download {
+      @include dp-flex-alignment();
+      gap: 10px;
+
+    }
+
+  }
+  .mobile {
+    @include min-tablet {
+      display: none;
+    }
+  }
+  .desk {
+    display: none;
+    @include min-tablet {
+      @include dp-flex-alignment(column);
+    }
+  }
+}

@@ -10,7 +10,7 @@
           <div class="more-pictures">
             <div class="more-photos flex-1 cursor-pointer">
               <label for="more-photos-1" class="cursor-pointer">
-                <mat-icon svgIcon="camera_add_picture" *ngIf="!imagesURL?.firstImage"></mat-icon>
+                <mat-icon class="profile-img" svgIcon="camera_add_picture" *ngIf="!imagesURL?.firstImage"></mat-icon>
                 <div *ngIf="imagesURL?.firstImage">
                   <img class="" src={{imagesURL?.firstImage}} alt="">
                 </div>
@@ -137,8 +137,10 @@
                 [matDatepicker]="picker"
                 maxlength="10"
                 (dateChange)="dateSelected($event)"
+                (keypress)="false"
                 >
                 <input
+                (keypress)="false"
                   matInput
                   [mask]=""
                   (click)="picker.open()"

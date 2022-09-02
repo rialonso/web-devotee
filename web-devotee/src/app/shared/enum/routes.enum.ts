@@ -6,5 +6,7 @@ export enum EnumRoutesApplication {
   REGISTER_USER_DATA = '/register/user-data',
   FILTERS = '/filters',
   MATCHS = '/matchs',
+  RULES = '/rules',
   LANDING_PAGE = '/'
+
 }

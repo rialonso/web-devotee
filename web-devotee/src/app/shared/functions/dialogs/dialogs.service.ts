@@ -12,6 +12,7 @@ import { EditAboutMeComponent } from '../../components/dialogs/edit-about-me/edi
 import { ChangePasswordComponent } from '../../components/dialogs/change-password/change-password.component';
 import { UseOfTermsComponent } from '../../components/dialogs/use-of-terms/use-of-terms.component';
 import { PrivacyPolicyComponent } from '../../components/dialogs/privacy-policy/privacy-policy.component';
+import { DevoteePlusComponent } from '../../components/dialogs/devotee-plus/devotee-plus.component';
 
 @Injectable({
   providedIn: 'root'
@@ -125,6 +126,9 @@ export class DialogsService {
         panelClass: 'container-change-password',
       },
     );
+    const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
+      size.matches ? modal.updateSize('100vw', ''): undefined ;
+    });
     return modal;
   }
   openTerms() {
@@ -148,6 +152,20 @@ export class DialogsService {
         width: 'calc(80%)',
         maxWidth: '1100px',
         panelClass: 'container-terms-use',
+      },
+    );
+    const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
+      size.matches ? modal.updateSize('100vw', '100vh'): undefined ;
+    });
+    return modal;
+  }
+  openDevoteePlus() {
+    const modal =  this.dialog.open(
+      DevoteePlusComponent,
+      {
+        width: 'calc(80%)',
+        maxWidth: '1100px',
+        panelClass: 'profile-container',
       },
     );
     const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
