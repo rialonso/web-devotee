@@ -17,6 +17,17 @@
       "altAppStore": "Botão Apple Store"
     },
     "login": "Entrar",
+    "lading": {
+      "welcome" : {
+        "title": "Seja bem vindo(a) ao Devotee.",
+        "text": "O maior aplicativo de relacionamento feito para pessoas especiais"
+      },
+      "simpleMatch": "Now it's easy to meet your soul mate.",
+      "devoteeShop": {
+        "title": "Meet Devotee Shop",
+        "text": "Purchase Devotee products to show your support."
+      }
+    },
     "signin": {
       "register": "Começar cadastro!",
       "alreadyAccount": "Já possui conta",
@@ -51,7 +62,11 @@
       "btnQrCode": "Continuar com",
       "btnGoogle": "Continuar com Google",
       "btnSave": "Salvar",
-      "btnCancel": "Cancelar"
+      "btnCancel": "Cancelar",
+      "btnEntry" : "Entrar",
+      "btnAccess": "Acesse",
+      "btnRegisterSe": "Cadastre-se",
+      "btnShop": "Loja"
     },
     "inputs": {
       "genericErrors": {
@@ -547,6 +562,17 @@
       "altAppStore": "Button Apple Store"
     },
     "login": "Login",
+    "lading": {
+      "welcome" : {
+        "title": "Welcome to Devotee",
+        "text": "The biggest app to persons with special needs."
+      },
+      "simpleMatch": "Now is simple meet your soulmate",
+      "devoteeShop": {
+        "title": "Meet devotee shop",
+        "text": "Get products to show your support"
+      }
+    },
     "signin": {
       "register": "Register",
       "alreadyAccount": "already have an account",
@@ -581,7 +607,11 @@
       "btnQrCode": "Continue with",
       "btnGoogle": "Continue with Google",
       "btnSave": "Save",
-      "btnCancel": "Cancel"
+      "btnCancel": "Cancel",
+      "btnEntry" : "Login",
+      "btnAccess": "Sign in",
+      "btnRegisterSe": "Register",
+      "btnShop": "Shop"
 
     },
     "inputs": {

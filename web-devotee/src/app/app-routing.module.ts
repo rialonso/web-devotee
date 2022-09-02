@@ -6,8 +6,13 @@ import { LoggedService } from './core/guards/logged/logged.guard.service';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/login',
+    redirectTo: '/',
     pathMatch: 'full'
+  },
+  {
+    path: '',
+    loadChildren: () => import('src/app/pages/landing-page/landing-page.module').then(m => m.LandingPageModule),
+    canActivate: [LoggedService]
   },
   {
     path: '',

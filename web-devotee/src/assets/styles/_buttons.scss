@@ -12,15 +12,16 @@
   cursor: pointer;
   box-sizing: border-box;
   font-family: 'Booster-next-bold' "Roboto", "Helvetica Neue", sans-serif;
-
+  @include min-tablet {
+    font-size: 18px;
+  }
   &.primary {
     background: $principal-gradient;
     color: $white;
     &:hover {
       background: $principal-gradient-hover;
-      // background: $black;
-      // opacity: 0.2;
     }
+
   }
   &.secondary {
     background: $magenta-soft-20;
@@ -106,6 +107,34 @@
   }
   &:disabled {
     opacity: .2;
+  }
+  &.link {
+    color: $blue-dark;
+    background-color: transparent;
+    padding: 0;
+    font-size: 16px;
+    a {
+      text-decoration: none;
+      &:visited {
+        text-decoration: none;
+        color: $blue-dark;
+      }
+    }
+  }
+  &.link-icon-text {
+    @include dp-flex-alignment(row, center, center);
+    color: $blue-dark;
+    background-color: transparent;
+    gap: 5px;
+    padding: 0;
+    font-size: 16px;
+    a {
+      text-decoration: none;
+      &:visited {
+        text-decoration: none;
+        color: $blue-dark;
+      }
+    }
   }
 }
 .container-close {
