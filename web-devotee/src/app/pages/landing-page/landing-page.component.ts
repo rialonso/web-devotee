@@ -29,4 +29,8 @@ export class LandingPageComponent implements OnInit {
     // this.store.dispatch(new AddControlApp({ openSingIn: true }));
 
   }
+  goToLoginOrRegister(route: EnumRoutesApplication) {
+    this.navigateTo(route);
+    this.store.dispatch(new AddControlApp({ openSingIn: true }));
+  }
 }
