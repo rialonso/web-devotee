@@ -26,6 +26,12 @@
       "devoteeShop": {
         "title": "Conheça o Devotee Shop",
         "text": "Adquira produtos Devotee para demonstrar seu apoio."
+      },
+      "devoteeVideo": {
+        "title": "Acompanhe o Devotee"
+      },
+      "followUs": {
+        "title": "Siga-nos"
       }
     },
     "signin": {
@@ -571,6 +577,12 @@
       "devoteeShop": {
         "title": "Meet devotee shop",
         "text": "Get products to show your support"
+      },
+      "devoteeVideo": {
+        "title": "Follow Devotee"
+      },
+      "followUs": {
+        "title": "Follow-us"
       }
     },
     "signin": {

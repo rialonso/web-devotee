@@ -117,12 +117,14 @@
       font-size: 30px;
     }
   }
+  .max-size {
+    max-width: 1150px;
+    margin: auto;
+  }
   .container-devotee-shop {
     @include dp-flex-alignment(column, flex-end, flex-end);
-    background:  transparent linear-gradient(180deg, #DDE6F0 0%, #E9EFEF 100%) 0% 0% no-repeat padding-box;
-    &.max-size {
-      max-width: 1150px;
-    }
+    background:  transparent linear-gradient(180deg, $sand-medium 0%, $sand-soft 100%) 0% 0% no-repeat padding-box;
+
     .container-cellphone-button {
       @include dp-flex-alignment(row, center, space-between);
       gap: 10px;
@@ -147,6 +149,29 @@
         text-align: right;
         .button {
           padding: 8px 18px;
+        }
+      }
+    }
+
+  }
+  .container-devotee-video {
+    background: transparent linear-gradient(180deg, $sand-soft 0%, $sand-medium 100%) 0% 0% no-repeat padding-box;
+    .content-devotee-video {
+      @include dp-flex-alignment(column, initial, initial);
+      gap: 30px;
+      iframe {
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+        @include min-tablet {
+          min-height: 500px;
+        }
+      }
+      .social-media {
+        @include dp-flex-alignment(column, center, initial);
+        .social-icons {
+          @include dp-flex-alignment();
+          gap: 10px;
         }
       }
     }
