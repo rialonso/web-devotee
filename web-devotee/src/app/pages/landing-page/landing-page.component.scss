@@ -29,12 +29,12 @@
     }
     .container-button-header {
       @include dp-flex-alignment(row, initial, initial);
-      gap: 20px;
+      gap: 50px;
       .container-buttons-desk {
         display: none;
         @include min-tablet {
           @include dp-flex-alignment(row, initial, initial);
-          gap: 20px;
+          gap: 50px;
         }
       }
       .btn-login {
@@ -54,16 +54,6 @@
       .content-title-text {
         @include dp-flex-alignment(column, initial, initial);
 
-      }
-      h2 {
-        @include min-tablet {
-          font-size: 50px;
-        }
-      }
-      p {
-        @include min-tablet {
-          font-size: 30px;
-        }
       }
     }
     .container-desk-register {
@@ -117,18 +107,21 @@
       }
     }
   }
+  h2 {
+    @include min-tablet {
+      font-size: 50px;
+    }
+  }
+  p {
+    @include min-tablet {
+      font-size: 30px;
+    }
+  }
   .container-devotee-shop {
     @include dp-flex-alignment(column, flex-end, flex-end);
     background:  transparent linear-gradient(180deg, #DDE6F0 0%, #E9EFEF 100%) 0% 0% no-repeat padding-box;
-    h2 {
-      @include min-tablet {
-        font-size: 50px;
-      }
-    }
-    p {
-      @include min-tablet {
-        font-size: 30px;
-      }
+    &.max-size {
+      max-width: 1150px;
     }
     .container-cellphone-button {
       @include dp-flex-alignment(row, center, space-between);

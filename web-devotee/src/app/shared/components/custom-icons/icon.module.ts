@@ -23,6 +23,7 @@ export class IconModule {
       .addSvgIcon('change_password', this.setPath(`${this.path}/change-password.svg`))
       .addSvgIcon('interests', this.setPath(`${this.path}/interests.svg`))
       .addSvgIcon('account_circle', this.setPath(`${this.path}/account_circle.svg`))
+      .addSvgIcon('local_mall', this.setPath(`${this.path}/local_mall.svg`))
 
       ;
 
