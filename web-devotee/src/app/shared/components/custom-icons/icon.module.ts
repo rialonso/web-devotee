@@ -24,6 +24,9 @@ export class IconModule {
       .addSvgIcon('interests', this.setPath(`${this.path}/interests.svg`))
       .addSvgIcon('account_circle', this.setPath(`${this.path}/account_circle.svg`))
       .addSvgIcon('local_mall', this.setPath(`${this.path}/local_mall.svg`))
+      .addSvgIcon('logo_facebook', this.setPath(`${this.path}/logo-facebook.svg`))
+      .addSvgIcon('logo_instagram', this.setPath(`${this.path}/logo-instagram.svg`))
+      .addSvgIcon('logo_youtube', this.setPath(`${this.path}/logo-youtube.svg`))
 
       ;
 
