@@ -32,6 +32,9 @@
       },
       "followUs": {
         "title": "Siga-nos"
+      },
+      "devoteeMidia" : {
+        "title": "O Devotee na mídia"
       }
     },
     "signin": {
@@ -583,6 +586,9 @@
       },
       "followUs": {
         "title": "Follow-us"
+      },
+      "devoteeMidia" : {
+        "title": "The devotee in the media"
       }
     },
     "signin": {
