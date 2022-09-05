@@ -31,8 +31,9 @@ const routes: Routes = [
     path: '',
     loadChildren: () => import('src/app/pages/logged/logged.module').then(m => m.LoggedModule),
     canActivate: [AuthGuardService]
-  }
-
+  },
+  { path: '**',  redirectTo: '/', pathMatch: 'full'  },
+  { path: 'error',  redirectTo: '/',}
 ];
 
 @NgModule({

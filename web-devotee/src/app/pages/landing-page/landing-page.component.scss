@@ -175,9 +175,24 @@
         }
       }
     }
-
+    .content-devotee-midia {
+      @include dp-flex-alignment(column, initial, initial);
+      gap: 30px;
+      margin-top: 30px;
+      p {
+        text-align: center
+      }
+      .container-imgs {
+        @include dp-flex-alignment(row, center, center);
+        flex-wrap: wrap;
+        gap: 10px;
+        img {
+          max-width: 165px;
+          width: 100%;
+        }
+      }
+    }
   }
-
 }
 .container-default-lp {
   padding: 20px 30px;
