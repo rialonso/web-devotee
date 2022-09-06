@@ -27,13 +27,15 @@
               "src/assets"
             ],
             "styles": [
-              "./src/assets/styles/theme/devotee.theme.scss",
+              "src/assets/styles/theme/devotee.theme.scss",
               "src/styles.scss",
               "src/assets/styles/_fonts.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "src/assets/styles"
+                "src/assets/styles",
+                "src/assets/styles/theme/devotee.theme.scss"
+
               ]
             },
             "scripts": [],
@@ -42,7 +44,11 @@
             "buildOptimizer": false,
             "sourceMap": true,
             "optimization": false,
-            "namedChunks": true
+            "namedChunks": true,
+            "allowedCommonJsDependencies": [
+              "ngx-google-places-autocomplete",
+              "qrcode"
+            ]
           },
           "configurations": {
             "production": {
@@ -67,8 +73,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "100kb"
+                  "maximumWarning": "10kb",
+                  "maximumError": "15kb"
                 }
               ]
             }
@@ -105,7 +111,7 @@
               "src/assets"
             ],
             "styles": [
-              "./src/assets/styles/devotee.theme.scss",
+              "src/assets/styles/theme/devotee.theme.scss",
               "src/styles.scss"
             ],
             "scripts": []

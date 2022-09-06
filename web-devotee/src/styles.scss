@@ -36,6 +36,12 @@
   align-items: center;
   flex-direction: column;
 }
+.dp-flex-column-initial {
+  @include dp-flex-alignment(column, initial, initial);
+}
+.dp-flex-row-initial {
+  @include dp-flex-alignment(row, initial, initial);
+}
 p, a {
   font-family: 'Booster-next-regular';
 }
