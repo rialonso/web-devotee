@@ -5,8 +5,8 @@
         <img src="/assets/images/logo-blue.png" alt="Logo Devotee" srcset="">
         <span class="font-booster-next-bold color-blue-dark title-logo">Devotee</span>
       </section>
-      <section class="container-button-header">
-        <div class="container-buttons-desk">
+      <section class="container-button-header dp-flex-row-initial">
+        <div class="container-buttons-desk dp-flex-row-initial">
           <div class="button link-icon-text font-booster-next-bold">
               <mat-icon svgIcon="local_mall"></mat-icon>
             <a class="font-booster-next-bold color-blue-dark" href="https://www.loja.devotee.com.br/" target="_blank" rel="noopener noreferrer">
@@ -27,8 +27,8 @@
 
   <article class="container-welcome-app container-default-lp">
     <div class="container-welcome-app container-default width-100-per">
-      <section class="container-title-text">
-        <div class="content-title-text">
+      <section class="container-title-text dp-flex-column-initial">
+        <div class="content-title-text dp-flex-column-initial">
           <h2 class="font-booster-next-bold color-magenta-soft">
             {{dataTexts.lading.welcome.title}}
           </h2>
@@ -37,7 +37,7 @@
           </p>
         </div>
 
-        <div class="container-desk-register only-desk">
+        <div class="container-desk-register only-desk dp-flex-column-initial">
           <p class="font-booster-next-bold color-blue-dark desk-register-title"> {{dataTexts.lading.simpleMatch}}</p>
           <section class="btn-register-desk">
             <button class="button third font-booster-next-bold " (click)="goToLoginOrRegister(routesApp.PRE_REGISTER)">
@@ -58,7 +58,7 @@
                 {{dataTexts.buttons.btnRegisterSe}}
               </button>
             </section>
-            <section class="buttons-download">
+            <section class="buttons-download dp-flex-row-initial">
               <a href="https://play.google.com/store/apps/details?id=com.phurshell.devotee&hl=pt_BR" target="_blank"
                 rel="noopener noreferrer">
                 <img src={{dataTexts.buttonsDownload.btnPlayStore}} alt={{dataTexts.buttonsDownload.altPlaySotre}}></a>
@@ -96,7 +96,7 @@
 
   </article>
   <section class="container-devotee-video container-default-lp">
-    <div class="content-devotee-video max-size" >
+    <div class="content-devotee-video max-size dp-flex-column-initial" >
       <h2 class="font-booster-next-bold color-magenta-soft">
         {{dataTexts.lading.devoteeVideo.title}}
       </h2>
@@ -117,7 +117,7 @@
       </section>
     </div>
 
-    <div class="content-devotee-midia">
+    <div class="content-devotee-midia dp-flex-column-initial" >
       <p class="color-blue-dark">{{dataTexts.lading.devoteeMidia.title}}</p>
       <div class="container-imgs">
         <a href="https://epocanegocios.globo.com/Tecnologia/noticia/2019/06/app-brasileiro-promove-paquera-entre-pessoas-com-deficiencia.html" target="_blank" rel="noopener noreferrer">

@@ -5,7 +5,6 @@
       display: none;
     }
   }
-
   .container-logo-login {
     @include dp-flex-alignment(row, center, space-between);
     background: transparent linear-gradient(180deg, $sand-medium 0%, $sand-soft 100%) 0% 0% no-repeat padding-box;;
@@ -28,12 +27,10 @@
       }
     }
     .container-button-header {
-      @include dp-flex-alignment(row, initial, initial);
       gap: 50px;
       .container-buttons-desk {
         display: none;
         @include min-tablet {
-          @include dp-flex-alignment(row, initial, initial);
           gap: 50px;
         }
       }
@@ -49,15 +46,9 @@
 
     }
     .container-title-text {
-      @include dp-flex-alignment(column, initial, initial);
       gap: 40px;
-      .content-title-text {
-        @include dp-flex-alignment(column, initial, initial);
-
-      }
     }
     .container-desk-register {
-      @include dp-flex-alignment(column, initial, initial);
       gap: 10px;
       @media screen and (max-width: $min-tablet){
         display: none;
@@ -94,7 +85,6 @@
             padding: 8px 18px;
           }
           .buttons-download {
-            @include dp-flex-alignment(row, initial, initial);
             gap: 10px;
             img {
               height: 25px;
@@ -157,7 +147,6 @@
   .container-devotee-video {
     background: transparent linear-gradient(180deg, $sand-soft 0%, $sand-medium 100%) 0% 0% no-repeat padding-box;
     .content-devotee-video {
-      @include dp-flex-alignment(column, initial, initial);
       gap: 30px;
       iframe {
         width: 100%;
@@ -176,7 +165,6 @@
       }
     }
     .content-devotee-midia {
-      @include dp-flex-alignment(column, initial, initial);
       gap: 30px;
       margin-top: 30px;
       p {
