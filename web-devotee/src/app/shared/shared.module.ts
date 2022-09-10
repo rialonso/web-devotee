@@ -28,6 +28,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AdsCardsComponent } from './components/google-ads/ads-cards/ads-cards/ads-cards.component';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { PaypalPaymentComponent } from './components/paypal-payment/paypal-payment.component';
+import { NgxPayPalModule } from 'ngx-paypal';
 
 const components = [
   FooterComponent,
@@ -54,11 +56,13 @@ const angularMaterialModules = [
   MatDatepickerModule,
   MatNativeDateModule,
   DragDropModule,
+  NgxPayPalModule,
 ]
 @NgModule({
   declarations: [
     ...components,
     AdsCardsComponent,
+    PaypalPaymentComponent,
   ],
   imports: [
     ...angularMaterialModules,
