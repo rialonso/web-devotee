@@ -26,15 +26,10 @@
   display: flex;
 }
 .dp-flex-all-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @include dp-flex-alignment();
 }
 .dp-flex-column-all-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+    @include dp-flex-alignment(column);
 }
 .dp-flex-column-initial {
   @include dp-flex-alignment(column, initial, initial);
