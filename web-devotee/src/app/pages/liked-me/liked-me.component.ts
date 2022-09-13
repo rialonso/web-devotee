@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LikedMeService } from 'src/app/core/services/liked-me/liked-me.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
+import { UserProfileService } from 'src/app/core/services/user-profile/user-profile.service';
+import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
 import { TransformAgeService } from 'src/app/shared/functions/transform-age/transform-age.service';
 import { ILikedMe } from 'src/app/shared/model/response/get-liked-me/get-liked-me.model';
 import { environment } from 'src/environments/environment';
@@ -17,6 +19,8 @@ export class LikedMeComponent implements OnInit {
     private translateService: TranslateService,
     private likedMeService: LikedMeService,
     private transformAgeService: TransformAgeService,
+    private userProfileService: UserProfileService,
+    private dialogsService: DialogsService,
   ) {
     this.dataTexts = this.translateService?.textTranslate;
 
@@ -32,7 +36,9 @@ export class LikedMeComponent implements OnInit {
 
   }
   changeUserImageInBackground(profilePicture): string {
-    return `background-image: url(${environment.urlImages}${profilePicture[0]?.path}); background-color: #D9D9D9;`;
+    return `background-image: url(${environment.urlImages}${profilePicture[0]?.path});
+    background-color: #D9D9D9;
+    background-size: cover;`;
   }
   transformAge(birthDate) {
     if(birthDate) {
@@ -79,5 +85,11 @@ export class LikedMeComponent implements OnInit {
       ${Math.abs(Math.floor(diffInDays))}
       ${this.dataTexts.days} ${this.dataTexts.ago}`
     }
+  }
+  async openProfile(userId) {
+    // this.loading = true;
+    const userData = await this.userProfileService.get(userId).toPromise();
+    // this.loading = false;
+    this.dialogsService.openProfile(userData.data);
   }
 }

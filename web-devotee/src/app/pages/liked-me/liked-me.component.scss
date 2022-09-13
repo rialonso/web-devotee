@@ -4,7 +4,14 @@
   max-width: 730px;
   margin: auto;
   .content-title {
-    @include dp-flex-alignment(row, flex-end, initial);
+    @include dp-flex-alignment(row, center, initial);
+    margin-bottom: 20px;
+    gap: 10px;
+    mat-icon {
+      width: initial;
+      height: initial;
+      font-size: 29px;
+    }
   }
   .container-user-infos {
     max-width: 300px;

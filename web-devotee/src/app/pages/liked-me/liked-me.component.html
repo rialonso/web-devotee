@@ -1,12 +1,15 @@
 <main class="container-liked-me">
   <section class="content-title">
-    <mat-icon class="mat-18 color-magenta-soft">favorite
+    <mat-icon class="color-magenta-soft">favorite
     </mat-icon>
-    <span class="color-blue-dark font-booster-next-bold ">{{dataTexts.likedMe.title}}</span>
+    <span class="color-blue-dark font-booster-next-bold f-size-24">{{dataTexts.likedMe.title}}</span>
   </section>
   <section class="container-likeds">
     <div class="container-liked">
-      <div class="container-user-infos" *ngFor="let liked of userLikeds">
+      <div
+        class="container-user-infos"
+        *ngFor="let liked of userLikeds"
+        (click)="openProfile(liked.user.id)">
         <div class="container-infos" [style]="changeUserImageInBackground(liked.user.profile_picture)">
           <div>
 
