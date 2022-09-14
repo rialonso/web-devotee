@@ -6,8 +6,12 @@
   </section>
   <section class="container-likeds">
     <div class="container-liked">
+      <div class="dp-flex-all-center width-100-per" *ngIf="loading">
+        <mat-spinner></mat-spinner>
+      </div>
       <div
-        class="container-user-infos"
+        class="container-user-infos cursor-pointer"
+        [style.filter]="this.userPlanType === 'free' ? 'blur(3px)': null"
         *ngFor="let liked of userLikeds"
         (click)="openProfile(liked.user.id)">
         <div class="container-infos" [style]="changeUserImageInBackground(liked.user.profile_picture)">

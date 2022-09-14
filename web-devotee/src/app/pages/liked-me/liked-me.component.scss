@@ -13,10 +13,16 @@
       font-size: 29px;
     }
   }
+  .container-liked {
+    @include dp-flex-alignment(row, center, initial);
+    gap: 20px;
+    flex-wrap: wrap;
+  }
   .container-user-infos {
     max-width: 300px;
     max-height: 300px;
     border-radius: 20px;
+    width: 100%;
     .container-infos {
       min-height: 250px;
       padding: 10px;
