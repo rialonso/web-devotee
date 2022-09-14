@@ -1,0 +1,48 @@
+@import '_custom';
+
+.container-liked-me {
+  max-width: 730px;
+  margin: auto;
+  .content-title {
+    @include dp-flex-alignment(row, center, initial);
+    margin-bottom: 20px;
+    gap: 10px;
+    mat-icon {
+      width: initial;
+      height: initial;
+      font-size: 29px;
+    }
+  }
+  .container-liked {
+    @include dp-flex-alignment(row, center, initial);
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .container-user-infos {
+    max-width: 300px;
+    max-height: 300px;
+    border-radius: 20px;
+    width: 100%;
+    .container-infos {
+      min-height: 250px;
+      padding: 10px;
+      box-sizing: border-box;
+      border-radius: 20px;
+
+      @include dp-flex-alignment(row, flex-end, initial);
+
+      .tip-user-type {
+
+        @include dp-flex-alignment();
+        max-width: 80px;
+        border-radius: 30px;
+        font-size: 14px;
+        padding: 2px 0;
+      }
+    }
+    .container-hour-ago {
+      @include dp-flex-alignment(row, center, space-between);
+    }
+  }
+
+}

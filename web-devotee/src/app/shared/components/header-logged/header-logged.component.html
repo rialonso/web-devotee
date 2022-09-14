@@ -11,6 +11,12 @@
         [routerLinkActive]="['icon-route-is-active']"
         class="icon-menu-logged" >people_alt</mat-icon>
       </div>
+      <div class="likes-config">
+        <mat-icon
+          class="icon-menu-logged"
+          [routerLink]="['/likes']"
+          [routerLinkActive]="['icon-route-is-active']">favorite</mat-icon>
+      </div>
       <div class="chat">
         <mat-icon
         class="icon-menu-logged"
@@ -23,6 +29,7 @@
           [routerLink]="['/settings']"
           [routerLinkActive]="['icon-route-is-active']">settings</mat-icon>
       </div>
+
     </section>
   </div>
 

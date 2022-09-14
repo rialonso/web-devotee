@@ -24,6 +24,10 @@ const routes: Routes = [
       {
         path: 'matchs',
         loadChildren: () => import('src/app/pages/user-matchs/user-matchs.module').then(m => m.UserMatchsModule),
+      },
+      {
+        path: 'likes',
+        loadChildren: () => import('src/app/pages/liked-me/liked-me.module').then(m => m.LikedMeModule),
       }
     ]
   },

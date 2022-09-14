@@ -44,7 +44,8 @@ export const environment = {
     termsOfUsePt: 'api/settings/terms',
     termsOfUseEn: 'api/settings/terms_en',
     privacyPolicyPt: 'api/settings/privacy',
-    privacyPolicyEn: 'api/settings/privacy_en'
+    privacyPolicyEn: 'api/settings/privacy_en',
+    likedMe: 'api/liked-me'
 
   },
   googleApis: {

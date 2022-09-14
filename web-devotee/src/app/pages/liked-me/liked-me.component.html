@@ -1,0 +1,41 @@
+<main class="container-liked-me">
+  <section class="content-title">
+    <mat-icon class="color-magenta-soft">favorite
+    </mat-icon>
+    <span class="color-blue-dark font-booster-next-bold f-size-24">{{dataTexts.likedMe.title}}</span>
+  </section>
+  <section class="container-likeds">
+    <div class="container-liked">
+      <div class="dp-flex-all-center width-100-per" *ngIf="loading">
+        <mat-spinner></mat-spinner>
+      </div>
+      <div
+        class="container-user-infos cursor-pointer"
+        [style.filter]="this.userPlanType === 'free' ? 'blur(3px)': null"
+        *ngFor="let liked of userLikeds"
+        (click)="openProfile(liked.user.id)">
+        <div class="container-infos" [style]="changeUserImageInBackground(liked.user.profile_picture)">
+          <div>
+
+          </div>
+          <div class="width-100-per">
+            <section class="tip-user-type font-booster-next-bold bg-color-blue-dark color-white">
+              {{liked?.user?.account_type? liked?.user?.account_type: 'sem'}}
+            </section>
+            <section class="container-user-name-age font-booster-next-bold color-white">
+              {{liked?.user?.name}}, {{transformAge(liked?.user?.birthdate)}}
+
+            </section>
+            <section class="container-hour-ago color-magenta-soft font-booster-next-bold">
+              <span> {{calculateHoursAgo(liked?.updated_at)}}</span>
+              <span>
+                <mat-icon class="mat-18 color-white">info</mat-icon>
+              </span>
+            </section>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

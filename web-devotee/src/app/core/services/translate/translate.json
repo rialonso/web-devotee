@@ -551,7 +551,20 @@
       },
       "conclusion": "<h2 class='color-blue-dark'>Para assinar o <span class='font-booster-next-bold'>Devotee<span class='color-magenta-soft'>+</span></span>, faça o download do App Devotee em seu celular, acesse o <span class='font-booster-next-bold'>perfil</span>no menu inferior e selecione <span class='font-booster-next-bold'>Plano atual</span>.</h2>"
 
-    }
+    },
+    "likedMe": {
+      "title": "Curtidas"
+    },
+    "ago": "atrás",
+    "days": "dias",
+    "day": "dia",
+    "hours" : "horas",
+    "hour" : "hora",
+    "minutes": "minutos",
+    "minute": "minuto"
+
+
+
   },
   "us": {
     "firstPage": {
@@ -1113,6 +1126,17 @@
       },
       "conclusion": "<h3 class='color-blue-dark'>Subscribe to <span class='font-booster-next-bold'>Devotee<span class='color-magenta-soft'>+</span></span>, download the Devotee App on your mobile, go to <span class='font-booster-next-bold'>your profile </span>in the bottom menu and select <span class='font-booster-next-bold'>current plan</span></h3>"
 
-    }
+    },
+    "likedMe": {
+      "title": "Likes"
+    },
+    "ago": "ago",
+    "days": "days",
+    "day": "day",
+    "hours" : "hours",
+    "hour" : "hour",
+    "minutes": "minutes",
+    "minute": "minute"
+
   }
 }
