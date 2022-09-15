@@ -32,7 +32,7 @@ export class ActivateLocationComponent implements OnInit {
   options: ModelPlacesAutocomplete.Prediction[] = [null];
   optionsa = {
     componentRestrictions: {
-
+      country: []
     }
   }
   constructor(

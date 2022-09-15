@@ -316,7 +316,6 @@ export class RegisterDataComponent implements OnInit {
     return formData;
   }
   genderChanged(value) {
-    debugger;
     if (
         value !== 'male'
         && value !== 'man'
