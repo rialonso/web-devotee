@@ -44,11 +44,12 @@ export const environment = {
     termsOfUsePt: 'api/settings/terms',
     termsOfUseEn: 'api/settings/terms_en',
     privacyPolicyPt: 'api/settings/privacy',
-    privacyPolicyEn: 'api/settings/privacy_en'
+    privacyPolicyEn: 'api/settings/privacy_en',
+    likedMe: 'api/liked-me'
 
   },
   googleApis: {
-    key: 'AIzaSyBRuDbRuGoy6vxVAYSPCRqTcKxnlTbZwVs',
+    key: 'AIzaSyCYUz4sGa9i9jwNwomxPywGVN13kMN4q3c',
     api: 'https://maps.googleapis.com/maps/',
     getAddrress: 'api/geocode/json',
     getPlacesAutocomplete: 'api/place/autocomplete/json'
