@@ -1,33 +1,48 @@
 <header id="container-header-logged">
   <div class="content-header-logged container-default">
     <section class="container-logo">
-      <img class="logo" src="/assets/images/logo.png" alt="Logo Devotee" data-alt="altlogo" id="altfootlogo">
-      <p>Devotee</p>
+      <img class="logo" src="/assets/images/logo-blue.png" alt="Logo Devotee" data-alt="altlogo" id="altfootlogo">
     </section>
     <section class="container-menu-logged">
-      <div class="matches">
-        <mat-icon
+      <div
         [routerLink]="['/matchs']"
         [routerLinkActive]="['icon-route-is-active']"
-        class="icon-menu-logged" >people_alt</mat-icon>
+        class="matches container-item-menu cursor-pointer">
+        <mat-icon
+        class="icon-menu-logged" >contact_page
+      </mat-icon>
+      <p>{{dataTexts.header.menu.home}}</p>
+
       </div>
-      <div class="likes-config">
+      <div
+        [routerLink]="['/likes']"
+        [routerLinkActive]="['icon-route-is-active']"
+        class="likes-config container-item-menu cursor-pointer">
         <mat-icon
           class="icon-menu-logged"
-          [routerLink]="['/likes']"
-          [routerLinkActive]="['icon-route-is-active']">favorite</mat-icon>
+          >favorite</mat-icon>
+          <p>{{dataTexts.header.menu.likes}}</p>
+
       </div>
-      <div class="chat">
+      <div
+        [routerLink]="['/chat']"
+        [routerLinkActive]="['icon-route-is-active']"
+        class="chat container-item-menu cursor-pointer">
         <mat-icon
         class="icon-menu-logged"
-        [routerLink]="['/chat']"
-        [routerLinkActive]="['icon-route-is-active']">forum</mat-icon>
+        >forum</mat-icon>
+        <p>{{dataTexts.header.menu.message}}</p>
+
       </div>
-      <div class="perfil-config">
+      <div
+        [routerLink]="['/settings']"
+        [routerLinkActive]="['icon-route-is-active']"
+        class="perfil-config container-item-menu cursor-pointer">
         <mat-icon
           class="icon-menu-logged"
-          [routerLink]="['/settings']"
-          [routerLinkActive]="['icon-route-is-active']">settings</mat-icon>
+          >settings</mat-icon>
+          <p>{{dataTexts.header.menu.config}}</p>
+
       </div>
 
     </section>

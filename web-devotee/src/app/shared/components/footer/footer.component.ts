@@ -9,6 +9,8 @@ import { DialogsService } from '../../functions/dialogs/dialogs.service';
 })
 export class FooterComponent implements OnInit {
   @Input() backgroudColor: string;
+  @Input() logo = '/assets/images/logo.png';
+
 
   dataTexts;
   buttonsDownload;

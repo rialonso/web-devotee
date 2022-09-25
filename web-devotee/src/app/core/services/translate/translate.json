@@ -555,6 +555,14 @@
     "likedMe": {
       "title": "Curtidas"
     },
+    "header": {
+      "menu": {
+        "home": "Home",
+        "likes": "Curtidas",
+        "message": "Mensagens",
+        "config": "Configurações"
+      }
+    },
     "ago": "atrás",
     "days": "dias",
     "day": "dia",
@@ -1129,6 +1137,14 @@
     },
     "likedMe": {
       "title": "Likes"
+    },
+    "header": {
+      "menu": {
+        "home": "Home",
+        "likes": "Likes",
+        "message": "Menssages",
+        "config": "Configurations"
+      }
     },
     "ago": "ago",
     "days": "days",

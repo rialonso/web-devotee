@@ -1,6 +1,6 @@
 @import '_custom';
 :host {
-  background-color: $gray-ultra-light-soft;
+  background: transparent linear-gradient(180deg, $sand-soft 0%, $sand-medium 100%) 0% 0% no-repeat padding-box;;
   height: 100%;
 }
 .ads {

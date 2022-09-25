@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from 'src/app/core/services/translate/translate.service';
 
 @Component({
   selector: 'app-header-logged',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-logged.component.scss']
 })
 export class HeaderLoggedComponent implements OnInit {
+  dataTexts;
+  constructor(
+    private translateService: TranslateService,
+  ) {
+    this.dataTexts = this.translateService?.textTranslate;
 
-  constructor() { }
+   }
 
   ngOnInit() {
   }

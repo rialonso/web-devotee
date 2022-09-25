@@ -7,6 +7,8 @@ export enum EnumRoutesApplication {
   FILTERS = '/filters',
   MATCHS = '/matchs',
   RULES = '/rules',
+  SETTINGS = '/settings',
+
   LANDING_PAGE = '/'
 
 }

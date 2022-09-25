@@ -2,7 +2,6 @@
 :host {
   width: 100%;
   height: 100%;
-  background-color: $gray-ultra-light-soft;
 }
 #container-user-settings {
   .container-cards-settings {
@@ -11,7 +10,11 @@
     margin-top: 1.4rem;
     grid-column-gap: 20px;
     justify-content: space-between;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
+    @media screen and(min-width: $epecific-mobile-configurations) {
+      grid-template-columns: 1fr 1fr;
+
+    }
     @include min-tablet {
       grid-template-columns: 1fr 1fr 1fr;
     }
@@ -23,19 +26,22 @@
       justify-items: center;
       color: $blue-dark;
       border-radius: 10px;
+      min-height: 150px;
+      padding: 40px;
+      box-sizing: border-box;
+      border: 1px solid transparent;
+
       &:hover{
-        -webkit-box-shadow: 1px 4px 15px -2px rgba(0,0,0,0.65);
-        -moz-box-shadow: 1px 4px 15px -2px rgba(0,0,0,0.65);
-        box-shadow: 1px 4px 15px -2px rgba(0,0,0,0.65);
-        transition: 0.4s;
+        border: 1px solid $magenta-soft;
+        background-color: $blue-soft;
+        transition: 0.2s;
       }
       mat-icon{
         display: flex;
         color: $magenta-soft;
-
         justify-content: center;
         align-items: center;
-        margin-bottom: 10px;
+        margin-bottom: 25px;
         font-size: 50px;
         width: 100%;
         height: 100%;
@@ -47,7 +53,4 @@
       }
     }
   }
-  // button {
-  //   max-width: 150px;
-  // }
 }

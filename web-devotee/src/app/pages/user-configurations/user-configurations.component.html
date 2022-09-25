@@ -1,7 +1,11 @@
 <div id="container-user-settings" class="container-default-cards-register">
   <main>
     <mat-card class="container-title-register">
-      <mat-card-title>{{dataTexts.userConfigurations.headerYourProfile}}</mat-card-title>
+      <div class="container-title-register cursor-pointer" (click)="return()">
+        <mat-icon class="mat-18 color-magenta-soft">arrow_back_ios</mat-icon>
+        <mat-card-title>{{dataTexts.userConfigurations.headerYourProfile}}</mat-card-title>
+      </div>
+
     </mat-card>
     <section class="container-cards-settings">
       <mat-card class="card-settings" (click)="viewMyProfile()">
@@ -35,14 +39,5 @@
       </mat-card>
     </section>
   </main>
-  <section class="contianer-btns">
-    <button
-      class="button-stroke-primary"
-      mat-stroked-button
-      color="primary"
-     >
-      {{ dataTexts.buttons.btnBack }}
-    </button>
-  </section>
 </div>
 <app-principal-loading *ngIf="loading"></app-principal-loading>

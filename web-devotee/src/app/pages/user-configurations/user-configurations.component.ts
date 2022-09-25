@@ -10,8 +10,9 @@ import { StateManagementFuncService } from 'src/app/shared/functions/state-manag
 import { SnackBarService } from 'src/app/core/services/snack-bar/snack-bar.service';
 import { ChangePasswordService } from 'src/app/core/services/change-password/change-password.service';
 import { ReplaySubject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { takeUntil, filter, pairwise } from 'rxjs/operators';
 import { ModelChangePassword } from 'src/app/shared/model/change-password/change-password.model';
+import { NavigationEnd, NavigationStart, Router, RoutesRecognized } from '@angular/router';
 
 @Component({
   selector: 'app-user-configurations',
@@ -23,7 +24,7 @@ export class UserConfigurationsComponent implements OnInit {
   enumRoutes = EnumRoutesApplication;
 
   loading = false;
-
+  lastUrl: string;
   destroy$ = new ReplaySubject();
   constructor(
     protected state: State<IAppState>,
@@ -34,7 +35,14 @@ export class UserConfigurationsComponent implements OnInit {
     private routeService: RouteService,
     private stateManagementFuncService: StateManagementFuncService,
     private snackBarService: SnackBarService,
-  ) { }
+    private router: Router,
+  ) {
+    // this.router.events
+    // .pipe(filter(event => event instanceof NavigationStart))
+    // .subscribe((event: NavigationStart) => {
+    //   this.lastUrl = event.url
+    // });
+   }
 
   ngOnInit() {
     this.dataTexts = this.translateService?.textTranslate;
@@ -64,7 +72,6 @@ export class UserConfigurationsComponent implements OnInit {
   logout() {
     localStorage.clear();
     window.location.href = this.enumRoutes.LOGIN;
-
   }
   changePassword() {
     this.dialogService
@@ -83,5 +90,12 @@ export class UserConfigurationsComponent implements OnInit {
       .subscribe((closed: ModelChangePassword) => {
 
       })
+  }
+  return() {
+    this.navigateTo(EnumRoutesApplication.MATCHS);
+
+  //  this.lastUrl !== EnumRoutesApplication.SETTINGS ?
+  //     this.navigateTo(EnumRoutesApplication.MATCHS):
+  //     this.navigateTo(this.lastUrl);
   }
 }

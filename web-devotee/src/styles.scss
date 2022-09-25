@@ -115,16 +115,18 @@ p, a {
     width: 100%;
     margin: 40px auto;
   }
-  mat-card {
+  mat-card, div {
     &.container-title-register {
-      background-color: $blue-dark;
+      background-color: transparent;
       border-radius: 10px;
       margin-bottom: 20px;
+      box-shadow: none;
+      @include dp-flex-alignment(row, center, initial);
       @include min-tablet {
-        padding: 20px 40px;
+        padding: 20px 0;
       }
       mat-card-title {
-        color: $white;
+        color: $blue-dark;
         font-size: 24px;
         margin: 0;
       }
