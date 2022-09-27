@@ -1,13 +1,12 @@
 <div id="container-user-matchs" class="container-default">
-  <section class="container-infos">
-    <div class="container-icon-info" [routerLink]="enumRoutesApplication.FILTERS">
-      <mat-icon class="">filter_alt</mat-icon>
-    </div>
-    <!-- <div class="container-icon-info">
-      <mat-icon svgIcon="heart"></mat-icon>
-    </div> -->
-  </section>
+
   <main class="sugestion-matchs">
+    <section class="container-infos" *ngIf="!loading">
+      <div class="container-icon-info" [routerLink]="enumRoutesApplication.FILTERS">
+        <mat-icon>tune</mat-icon>
+      </div>
+    </section>
+
     <div class="container-loading" *ngIf="loading">
       <mat-spinner></mat-spinner>
     </div>
@@ -31,12 +30,6 @@
             >
           </ins>
         </div>
-        <!-- <div *ngIf="showAds" class=" container-cards-matchs sugestion-match">
-          <div class="ads">
-            <app-ads-cards class="ads container-cards-matchs sugestion-match"></app-ads-cards>
-
-          </div>
-        </div> -->
         <section
 
           class="container-cards-matchs sugestion-match cursor-grab"

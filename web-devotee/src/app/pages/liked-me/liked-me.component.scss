@@ -1,8 +1,6 @@
 @import '_custom';
 
 .container-liked-me {
-  max-width: 730px;
-  margin: auto;
   .content-title {
     @include dp-flex-alignment(row, center, initial);
     margin-bottom: 20px;
