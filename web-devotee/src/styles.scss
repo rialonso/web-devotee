@@ -119,11 +119,14 @@ p, a {
     &.container-title-register {
       background-color: transparent;
       border-radius: 10px;
-      margin-bottom: 20px;
       box-shadow: none;
       @include dp-flex-alignment(row, center, initial);
+      gap: 10px;
+      mat-icon {
+        font-size: 28px;
+      }
       @include min-tablet {
-        padding: 20px 0;
+        padding: 10px 0;
       }
       mat-card-title {
         color: $blue-dark;
