@@ -787,7 +787,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
-  color: #2E4664
+  color: $magenta-soft;
 }
 
 .mat-accent .mat-option.mat-selected:not(.mat-option-disabled) {
@@ -2339,7 +2339,7 @@ td.mat-footer-cell {
 }
 
 .mat-select-value {
-  color: rgba(0, 0, 0, .87)
+  color: $blue-dark;
 }
 
 .mat-select-placeholder {
