@@ -1,15 +1,26 @@
+@import '_custom';
+
 #container-filters-preferences {
   .container-type-data-default {
-    padding: 20px 30px;
+    padding: 20px 0;
+
   }
   .content-preferences {
+    @include dp-flex-alignment(column);
+    gap: 20px;
+    mat-card {
+      width: 100%;
+      border-radius: 20px;
+      box-shadow: none!important;
+      padding: 30px 20px;
+      box-sizing: border-box;
+    }
     .first-title {
       margin-top: 0;
     }
     .content-deafult-preference-sections {
       .slider {
         width: 100%;
-        max-width: 50%;
       }
     }
     .text-age {

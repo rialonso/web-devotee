@@ -163,6 +163,16 @@ p, a {
       max-width: 150px;
     }
   }
+  &.out-container {
+    max-width: 844px;
+    margin: 20px auto;
+    button {
+      padding: 12px;
+      @include min-tablet {
+        max-width: initial;
+      }
+    }
+  }
 }
 .container-close {
   width: 100%;
@@ -279,4 +289,5 @@ body { margin: 0; font-family: "Booster-next-regular", "Helvetica Neue", sans-se
   }
 
 }
+
 

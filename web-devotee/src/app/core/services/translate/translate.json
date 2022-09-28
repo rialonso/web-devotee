@@ -510,7 +510,7 @@
       "prejudice":"Exemplo de superção"
     },
     "preferences": {
-      "title": "Preferências",
+      "title": "Editar preferências",
       "locale": {
         "title":  "Localização",
         "distance": "Raio de busca:",
@@ -1095,7 +1095,7 @@
       "prejudice":"Example of perseverance"
     },
     "preferences": {
-      "title": "Preferences",
+      "title": "Edit preferences",
       "locale": {
         "title":  "Localization",
         "distance": "Search radius:",
