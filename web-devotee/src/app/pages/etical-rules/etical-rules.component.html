@@ -3,13 +3,13 @@
   <header class="logo-devote dp-flex-all-center">
     <img src="/assets/images/logo-blue.png" alt="Logo Devotee" data-alt="altlogo" id="altfootlogo">
     <div class="container-text-logo dp-flex-column-all-center">
-      <h2 class="color-blue-dark">Bem-vindo(a) ao</h2>
+      <h2 class="color-blue-dark">{{dataTexts.eticalRules.welcome}}</h2>
       <h1 class="color-blue-dark font-booster-next-bold">Devotee</h1>
     </div>
   </header>
   <main id="etical-rules">
     <div class="content-rules dp-flex-column-all-center">
-      <h3 class="color-blue-dark">Siga as regras abaixo</h3>
+      <h3 class="color-blue-dark">{{dataTexts.eticalRules.followRules}}</h3>
 
       <app-card-img-title-text [data]="firstRule"></app-card-img-title-text>
       <app-card-img-title-text [data]="secondRule"></app-card-img-title-text>
@@ -17,7 +17,7 @@
     </div>
 
     <div class="container-buttons dp-flex">
-      <button class="button secondary flex-1" (click)="navigateTo(enumRoutes.PRE_REGISTER)">
+      <button class="button stroke-primary flex-1" (click)="navigateTo(enumRoutes.PRE_REGISTER)">
         {{dataTexts.buttons.btnBack}}
       </button>
       <button class="button primary flex-1" (click)="navigateTo(enumRoutes.REGISTER_USER_DATA)">
@@ -27,5 +27,5 @@
     </div>
   </main>
 </div>
-<app-footer [backgroudColor]="'bg-color-blue-dark'"></app-footer>
+<app-footer [backgroudColor]="'bg-gradient-magenta-blue'" [logo]="'/assets/images/logo-blue.png'"></app-footer>
 </div>

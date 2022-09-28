@@ -1,6 +1,9 @@
 <div id="container-change-user-type" class="container-default-cards-register">
   <mat-card class="container-title-register">
-    <mat-card-title>{{dataTexts.changeUserType.headerYourProfile}}</mat-card-title>
+    <div class="container-title-register cursor-pointer" (click)="navigateTo(enumRouteApp.PRE_REGISTER)">
+      <mat-icon class="mat-18 color-magenta-soft">arrow_back_ios</mat-icon>
+      <mat-card-title>{{dataTexts.changeUserType.headerYourProfile}}</mat-card-title>
+    </div>
   </mat-card>
   <form [formGroup]="formGroup" class="content-change-user-type">
     <label
@@ -87,22 +90,20 @@
       </mat-card>
     </label>
   </form>
-  <section class="contianer-btns">
-    <button
-      class="button-stroke-primary"
-      mat-stroked-button
-      color="primary"
-      (click)="navigateTo(enumRouteApp.PRE_REGISTER)">
-      {{ dataTexts.buttons.btnBack }}
-    </button>
-    <button
-      mat-flat-button
-      color="primary"
-      [disabled]="formGroup.invalid"
-      (click)="navigateTo(enumRouteApp.RULES)">
 
-      {{ dataTexts.buttons.btnContinue }}
-    </button>
-
-  </section>
 </div>
+<section class="contianer-btns out-container">
+  <button
+    class="button stroke-primary"
+    (click)="navigateTo(enumRouteApp.PRE_REGISTER)">
+    {{ dataTexts.buttons.btnBack }}
+  </button>
+  <button
+    class="button primary"
+    [disabled]="formGroup.invalid"
+    (click)="navigateTo(enumRouteApp.RULES)">
+
+    {{ dataTexts.buttons.btnContinue }}
+  </button>
+
+</section>
