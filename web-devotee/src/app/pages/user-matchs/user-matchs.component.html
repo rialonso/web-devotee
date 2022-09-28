@@ -31,7 +31,6 @@
           </ins>
         </div>
         <section
-
           class="container-cards-matchs sugestion-match cursor-grab"
           [style]="changeUserImageInBackground(match.profile_picture)"
           draggable="true"
@@ -57,13 +56,13 @@
             <div class="container-buttons-action" style="visibility: hidden;">
               <button
               (click)="this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.UNLIKE)"
-                class="button like-dislike"
+                class="button like-dislike dislike"
                 >
                 <mat-icon>close</mat-icon>
               </button>
               <button
               (click)="this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.LIKE)"
-                class="button like-dislike liked"
+                class="button like-dislike like"
                 >
                 <mat-icon svgIcon="heart"></mat-icon>
               </button>
@@ -73,14 +72,14 @@
         <section [class.display-none]="!showAds" class="container-buttons-action action-active">
           <button
           (click)="clickAddMoreMatchAndTransition(enumLikeDislikeAction.UNLIKE)"
-            class="button like-dislike"
+            class="button like-dislike dislike"
             [class.disliked]="disliked"
             >
             <mat-icon>close</mat-icon>
           </button>
           <button
           (click)="clickAddMoreMatchAndTransition(enumLikeDislikeAction.LIKE)"
-            class="button like-dislike"
+            class="button like-dislike like"
             [class.liked]="liked"
             >
             <mat-icon svgIcon="heart"></mat-icon>

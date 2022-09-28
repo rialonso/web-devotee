@@ -91,6 +91,20 @@
         }
       }
     }
+    &.like {
+      background-color: $pink-soft;
+      mat-icon {
+        svg {
+          path {
+            fill: $magenta-soft;
+            opacity: 1;
+          }
+        }
+      }
+    }
+    &.dislike {
+      background: #FFFFFF4D 0% 0% no-repeat padding-box;;
+    }
     &.liked {
       border: 1px solid $green-info;
       svg {
