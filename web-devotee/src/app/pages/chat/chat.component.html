@@ -3,57 +3,72 @@ class="container-default-cards-register"
 [ngClass]="{'chat-mobile': showChatMobile }">
   <section class="container-default-itens-chat flex-1 width-100-per">
     <mat-card class="container-title-register">
-      <mat-card-title>{{dataTexts.chat.matches.title}}</mat-card-title>
-    </mat-card>
-    <mat-card class="container-type-data-default container-matches">
-      <div
-        class="container-person-message"
-        *ngFor="let match of dataMatches.data"
-        (click)="showChat(match)"
-        >
-        <div class="content-person-message cursor-pointer" >
-          <section
-            matBadge="0"
-            [matBadgeHidden]="true"
-            matBadgeSize="small"
-            class="container-person-image hide-text "
-            [ngClass]="{
-              'skeleton': match.loading,
-              'notification-chat': (!match?.latest_message?.read && !(match?.latest_message?.user_id === userId))
-            }">
-            <img #profileImg [src]="urlImages + match?.target_user?.profile_picture[0]?.path" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
-            <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
-              <mat-icon>
-                no_photography
-              </mat-icon>
-            </div>
-          </section>
-          <section class="container-info color-blue-dark">
-            <p
-              class="person-name font-booster-next-bold"
-              [ngClass]="{'skeleton skeleton-text': match.loading}">{{ match?.target_user?.name }}</p>
-            <p
-              *ngIf="match?.latest_message?.content"
-              class="last-message "
-              [ngClass]="{'skeleton skeleton-text': match.loading}">
-              <span *ngIf="match.latest_message.user_id === userId">
-                {{dataTexts.chat.matches.sentByYou}}
-              </span>
-              <span class="last-msg-txt">
-                {{ match?.latest_message?.content }}
-
-              </span>
-            </p>
-            <p
-              *ngIf="match?.latest_message?.path"
-              class="last-message "
-              [ngClass]="{'skeleton skeleton-text': match.loading}">
-              {{ dataTexts.chat.matches.lastMessageImg }}
-            </p>
-          </section>
-        </div>
+      <div class="container-title-register cursor-pointer">
+        <mat-icon class="mat-18 color-magenta-soft">chat_bubble</mat-icon>
+        <mat-card-title>{{dataTexts.chat.matches.title}}</mat-card-title>
       </div>
     </mat-card>
+    <div class="container-matches-chat">
+      <div class="container-type-data-default container-matches flex-1">
+        <mat-card
+          class="container-person-message"
+          *ngFor="let match of dataMatches.data"
+          (click)="showChat(match)"
+          >
+          <div class="content-person-message cursor-pointer" >
+            <section
+              matBadge="0"
+              [matBadgeHidden]="true"
+              matBadgeSize="small"
+              class="container-person-image hide-text "
+              [ngClass]="{
+                'skeleton': match.loading,
+                'notification-chat': (!match?.latest_message?.read && !(match?.latest_message?.user_id === userId))
+              }">
+              <img #profileImg [src]="urlImages + match?.target_user?.profile_picture[0]?.path" onerror="this.onerror = null; this.style.display = 'none'" alt="Foto de perfil">
+              <div class="mat-icon-size border-radius-100" *ngIf="profileImg.onerror === null">
+                <mat-icon>
+                  no_photography
+                </mat-icon>
+              </div>
+            </section>
+            <section class="container-info color-blue-dark">
+              <p
+                class="person-name font-booster-next-bold"
+                [ngClass]="{'skeleton skeleton-text': match.loading}">{{ match?.target_user?.name }}</p>
+              <p
+                *ngIf="match?.latest_message?.content"
+                class="last-message "
+                [ngClass]="{'skeleton skeleton-text': match.loading}">
+                <span *ngIf="match.latest_message.user_id === userId">
+                  {{dataTexts.chat.matches.sentByYou}}
+                </span>
+                <span class="last-msg-txt">
+                  {{ match?.latest_message?.content }}
+
+                </span>
+              </p>
+              <p
+                *ngIf="match?.latest_message?.path"
+                class="last-message "
+                [ngClass]="{'skeleton skeleton-text': match.loading}">
+                {{ dataTexts.chat.matches.lastMessageImg }}
+              </p>
+            </section>
+          </div>
+        </mat-card>
+      </div>
+      <section class="container-default-itens-chat flex-2 width-100-per chat-section-desktop" >
+        <app-chat-messages
+          [dataChat]="dataChat"
+          [userData]="userMatchData"
+          [matchId]="matchId"
+          [showChatSkeleton]="showChatMobile"
+          [showChatLoadingAll]="showChatLoadingAll"
+          ></app-chat-messages>
+      </section>
+    </div>
+
   </section>
   <section
     class="container-default-itens-chat flex-2 width-100-per chat-section-mobile"
@@ -66,13 +81,5 @@ class="container-default-cards-register"
       [showChatLoadingAll]=""
       (closeChatMobile)="closeChatMobile($event)"></app-chat-messages>
   </section>
-  <section class="container-default-itens-chat flex-2 width-100-per chat-section-desktop" >
-    <app-chat-messages
-      [dataChat]="dataChat"
-      [userData]="userMatchData"
-      [matchId]="matchId"
-      [showChatSkeleton]="showChatMobile"
-      [showChatLoadingAll]="showChatLoadingAll"
-      ></app-chat-messages>
-  </section>
+
 </main>

@@ -7,15 +7,16 @@
   display: none;
 }
 #container-change-user-type {
+  max-width: 500px;
+
   .content-change-user-type {
-    @include dp-flex-alignment(column, stretch);
+    margin: auto;
+    @include dp-flex-alignment(column, stretch, center);
     gap: 20px;
-    @include min-tablet {
-      @include dp-flex-alignment(row, stretch);
-    }
     mat-card {
       border-radius: 10px;
       width: 100%;
+      box-shadow: none;
     }
     label {
       &.container-type-data-default {
@@ -32,6 +33,12 @@
         @include dp-flex-alignment(row, flex-start, flex-start);
         gap: 20px;
         cursor: pointer;
+        border: 1px solid transparent;
+        &.border-checked {
+          border: 1px solid $magenta-soft;
+          border-radius: 10px;
+          background: $blue-soft 0% 0% no-repeat padding-box;;
+        }
       }
       mat-icon {
         font-size: 30px;
@@ -46,7 +53,4 @@
     }
   }
 }
-.border-checked {
-  border: 1px solid $magenta-soft;
-  border-radius: 10px;
-}
+

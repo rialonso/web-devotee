@@ -1,6 +1,4 @@
-@import '_sizes';
-@import '_buttons';
-@import '_mixins';
+@import '_custom';
 
 #container-etical-rules {
   display: flex;
@@ -12,6 +10,8 @@
     flex-direction: column;
     justify-content: center;
     width: $s-100vw;
+    background: $princiapl-background-gradient;
+
     .logo-devote {
       gap: $s-20px;
       padding: $s-15px;

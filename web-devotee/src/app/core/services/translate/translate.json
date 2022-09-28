@@ -510,7 +510,7 @@
       "prejudice":"Exemplo de superção"
     },
     "preferences": {
-      "title": "Preferências",
+      "title": "Editar preferências",
       "locale": {
         "title":  "Localização",
         "distance": "Raio de busca:",
@@ -554,6 +554,14 @@
     },
     "likedMe": {
       "title": "Curtidas"
+    },
+    "header": {
+      "menu": {
+        "home": "Home",
+        "likes": "Curtidas",
+        "message": "Mensagens",
+        "config": "Configurações"
+      }
     },
     "ago": "atrás",
     "days": "dias",
@@ -1087,7 +1095,7 @@
       "prejudice":"Example of perseverance"
     },
     "preferences": {
-      "title": "Preferences",
+      "title": "Edit preferences",
       "locale": {
         "title":  "Localization",
         "distance": "Search radius:",
@@ -1129,6 +1137,14 @@
     },
     "likedMe": {
       "title": "Likes"
+    },
+    "header": {
+      "menu": {
+        "home": "Home",
+        "likes": "Likes",
+        "message": "Menssages",
+        "config": "Configurations"
+      }
     },
     "ago": "ago",
     "days": "days",

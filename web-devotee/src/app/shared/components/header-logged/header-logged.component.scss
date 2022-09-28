@@ -1,8 +1,9 @@
 @import '_custom';
 #container-header-logged {
-  background-color: $blue-dark;
+  background: $sand-soft 0% 0% no-repeat padding-box;
+
   .content-header-logged {
-    @include dp-flex-alignment(row, flex-start, space-between);
+    @include dp-flex-alignment(row, center, space-between);
     padding: 15px;
     gap: 15px;
   }
@@ -23,16 +24,20 @@
     @include min-tablet {
       gap: 40px;
     }
-    div{
-      max-width: 30px;
-      max-height: 30px;
+    .container-item-menu {
+      @include dp-flex-alignment(column, center, center);
+      p {
+        font-size: 15px;
+        color: $gray-dark;
+      }
     }
     mat-icon{
+      width: 35px;
+      height: 35px;
       cursor: pointer;
     }
     .icon-menu-logged{
-      color: #fff;
-      opacity: 0.7;
+      color: $gray-dark;
       @include min-tablet {
         font-size: 35px;
       }
@@ -44,8 +49,12 @@
       }
     }
     .icon-route-is-active{
-      opacity: 1;
-
+      .icon-menu-logged{
+        color: $magenta-soft;
+      }
+      p {
+        color: $blue-dark;
+      }
     }
   }
 }

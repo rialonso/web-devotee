@@ -115,16 +115,21 @@ p, a {
     width: 100%;
     margin: 40px auto;
   }
-  mat-card {
+  mat-card, div {
     &.container-title-register {
-      background-color: $blue-dark;
+      background-color: transparent;
       border-radius: 10px;
-      margin-bottom: 20px;
+      box-shadow: none;
+      @include dp-flex-alignment(row, center, initial);
+      gap: 10px;
+      mat-icon {
+        font-size: 28px;
+      }
       @include min-tablet {
-        padding: 20px 40px;
+        padding: 10px 0;
       }
       mat-card-title {
-        color: $white;
+        color: $blue-dark;
         font-size: 24px;
         margin: 0;
       }
@@ -136,7 +141,6 @@ p, a {
       }
       mat-card-title {
         color: $blue-dark;
-        margin-top: 30px;
       }
     }
   }
@@ -156,6 +160,16 @@ p, a {
     border-radius: 10px;
     @include min-tablet {
       max-width: 150px;
+    }
+  }
+  &.out-container {
+    max-width: 844px;
+    margin: 20px auto;
+    button {
+      padding: 12px;
+      @include min-tablet {
+        max-width: initial;
+      }
     }
   }
 }
@@ -274,4 +288,5 @@ body { margin: 0; font-family: "Booster-next-regular", "Helvetica Neue", sans-se
   }
 
 }
+
 

@@ -1,13 +1,12 @@
 <div id="container-user-matchs" class="container-default">
-  <section class="container-infos">
-    <div class="container-icon-info" [routerLink]="enumRoutesApplication.FILTERS">
-      <mat-icon class="">filter_alt</mat-icon>
-    </div>
-    <!-- <div class="container-icon-info">
-      <mat-icon svgIcon="heart"></mat-icon>
-    </div> -->
-  </section>
+
   <main class="sugestion-matchs">
+    <section class="container-infos" *ngIf="!loading">
+      <div class="container-icon-info" [routerLink]="enumRoutesApplication.FILTERS">
+        <mat-icon>tune</mat-icon>
+      </div>
+    </section>
+
     <div class="container-loading" *ngIf="loading">
       <mat-spinner></mat-spinner>
     </div>
@@ -31,14 +30,7 @@
             >
           </ins>
         </div>
-        <!-- <div *ngIf="showAds" class=" container-cards-matchs sugestion-match">
-          <div class="ads">
-            <app-ads-cards class="ads container-cards-matchs sugestion-match"></app-ads-cards>
-
-          </div>
-        </div> -->
         <section
-
           class="container-cards-matchs sugestion-match cursor-grab"
           [style]="changeUserImageInBackground(match.profile_picture)"
           draggable="true"
@@ -64,13 +56,13 @@
             <div class="container-buttons-action" style="visibility: hidden;">
               <button
               (click)="this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.UNLIKE)"
-                class="button like-dislike"
+                class="button like-dislike dislike"
                 >
                 <mat-icon>close</mat-icon>
               </button>
               <button
               (click)="this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.LIKE)"
-                class="button like-dislike liked"
+                class="button like-dislike like"
                 >
                 <mat-icon svgIcon="heart"></mat-icon>
               </button>
@@ -80,14 +72,14 @@
         <section [class.display-none]="!showAds" class="container-buttons-action action-active">
           <button
           (click)="clickAddMoreMatchAndTransition(enumLikeDislikeAction.UNLIKE)"
-            class="button like-dislike"
+            class="button like-dislike dislike"
             [class.disliked]="disliked"
             >
             <mat-icon>close</mat-icon>
           </button>
           <button
           (click)="clickAddMoreMatchAndTransition(enumLikeDislikeAction.LIKE)"
-            class="button like-dislike"
+            class="button like-dislike like"
             [class.liked]="liked"
             >
             <mat-icon svgIcon="heart"></mat-icon>

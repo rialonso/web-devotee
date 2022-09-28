@@ -125,7 +125,7 @@ h6 {
 }
 
 .mat-card-title {
-  font-size: 24px;
+  font-size: 18px;
   font-weight: 500
 }
 
@@ -787,7 +787,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
-  color: #2E4664
+  color: $magenta-soft;
 }
 
 .mat-accent .mat-option.mat-selected:not(.mat-option-disabled) {
@@ -1253,7 +1253,7 @@ textarea.cdk-textarea-autosize-measuring-firefox {
 }
 
 .mat-stroked-button:not(.mat-button-disabled) {
-  border: .5px solid $blue-dark;
+  border: .5px solid $magenta-soft;
 
 }
 
@@ -2339,7 +2339,7 @@ td.mat-footer-cell {
 }
 
 .mat-select-value {
-  color: rgba(0, 0, 0, .87)
+  color: $blue-dark;
 }
 
 .mat-select-placeholder {
@@ -2497,7 +2497,7 @@ td.mat-footer-cell {
 .mat-accent .mat-slider-track-fill,
 .mat-accent .mat-slider-thumb,
 .mat-accent .mat-slider-thumb-label {
-  background-color: $blue-dark
+  background-color: $magenta-soft
 }
 
 .mat-accent .mat-slider-thumb-label-text {
@@ -3059,7 +3059,7 @@ td.mat-footer-cell {
 }
 
 .mat-snack-bar-container {
-  color:  $blue-dark;
+  color:  $magenta-soft;
   background: $white;
   box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
   max-width: 45vw;

@@ -1,21 +1,24 @@
 <div id="container-filters-preferences" class="container-default-cards-register">
   <mat-card class="container-title-register">
-    <mat-card-title>{{dataTexts.preferences.title}}</mat-card-title>
+    <div class="container-title-register cursor-pointer" (click)="returnBackRoute()">
+      <mat-icon class="mat-18 color-magenta-soft">arrow_back_ios</mat-icon>
+      <mat-card-title>{{dataTexts.preferences.title}}</mat-card-title>
+    </div>
   </mat-card>
-  <mat-card class="container-type-data-default">
+  <div class="container-type-data-default">
     <form [formGroup]="formGroup" class="content-preferences">
-      <section class="content-deafult-preference-sections">
+      <mat-card class="content-deafult-preference-sections">
         <mat-card-title class="first-title">{{dataTexts.preferences.locale.title}}</mat-card-title>
         <mat-slider
         class="slider"
-        tickInterval="1000"
+        tickInterval="0"
         min="1"
         max="5000"
         formControlName="max_distance"
         #searchRadius>  </mat-slider>
-        <p class="color-blue-dark">{{dataTexts.preferences.locale.distance}} {{searchRadius.value}} {{dataTexts.preferences.locale.sufixDistance}}</p>
-      </section>
-      <section class="content-deafult-preference-sections">
+        <p class="color-blue-dark text-center">{{dataTexts.preferences.locale.distance}} <span class="font-booster-next-bold">{{searchRadius.value}} {{dataTexts.preferences.locale.sufixDistance}}</span> </p>
+      </mat-card>
+      <mat-card class="content-deafult-preference-sections">
         <mat-card-title>{{dataTexts.preferences.userPreference.title}}</mat-card-title>
         <div class="container-default-inputs-orientation">
           <mat-form-field appearance="fill">
@@ -62,8 +65,8 @@
             </mat-select>
           </mat-form-field>
         </div>
-      </section>
-      <section class="content-deafult-preference-sections">
+      </mat-card>
+      <mat-card  class="content-deafult-preference-sections">
         <mat-card-title>{{dataTexts.preferences.age.title}}</mat-card-title>
         <div class="container-default-inputs-orientation">
           <section class="content-age width-100-per">
@@ -74,7 +77,7 @@
               formControlName="age_min"
               #minAge>
             </mat-slider>
-            <p class="color-blue-dark text-age">
+            <p class="color-blue-dark text-age text-center">
               {{dataTexts.preferences.age.minAge}}
               {{minAge.value}}
               {{dataTexts.preferences.age.years}}
@@ -89,7 +92,7 @@
               formControlName="age_max"
               #maxAge>
             </mat-slider>
-            <p class="color-blue-dark text-age">
+            <p class="color-blue-dark text-age text-center">
               {{dataTexts.preferences.age.maxAge}}
               {{maxAge.value}}
               {{dataTexts.preferences.age.years}}
@@ -98,26 +101,25 @@
           </section>
 
         </div>
-      </section>
+      </mat-card>
     </form>
-  </mat-card>
-  <section class="contianer-btns">
-    <button
-      (click)="returnBackRoute()"
-      class="button-stroke-primary"
-      mat-stroked-button
-      color="primary"
-      >
-      {{ dataTexts.buttons.btnBack }}
-    </button>
-    <button
-    (click)="setFilters()"
-      mat-flat-button
-      color="primary"
-        >
+  </div>
 
-      {{ dataTexts.buttons.btnSave }}
-    </button>
-
-  </section>
 </div>
+<section class="contianer-btns out-container">
+  <button
+    (click)="returnBackRoute()"
+    class="button stroke-primary"
+    >
+    {{ dataTexts.buttons.btnBack }}
+  </button>
+  <button
+  (click)="setFilters()"
+    mat-flat-button
+    class="button primary"
+      >
+
+    {{ dataTexts.buttons.btnSave }}
+  </button>
+
+</section>

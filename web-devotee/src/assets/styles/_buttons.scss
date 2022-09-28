@@ -40,7 +40,8 @@
   }
   &.stroke-primary {
     background-color: #fff;
-    border: 1px solid $blue-dark;
+    border: 1px solid $magenta-soft;
+    color: $magenta-soft;
   }
   &.icon-text {
     display: flex;
@@ -89,6 +90,20 @@
           opacity: 1;
         }
       }
+    }
+    &.like {
+      background-color: $pink-soft;
+      mat-icon {
+        svg {
+          path {
+            fill: $magenta-soft;
+            opacity: 1;
+          }
+        }
+      }
+    }
+    &.dislike {
+      background: #FFFFFF4D 0% 0% no-repeat padding-box;;
     }
     &.liked {
       border: 1px solid $green-info;

@@ -1,6 +1,6 @@
 @import '_custom';
 :host {
-  background-color: $gray-ultra-light-soft;
+  background: transparent linear-gradient(180deg, $sand-soft 0%, $sand-medium 100%) 0% 0% no-repeat padding-box;;
   height: 100%;
 }
 .ads {
@@ -21,22 +21,22 @@
 
   }
   .container-infos {
-    @include dp-flex-alignment();
+    @include dp-flex-alignment(row, center, flex-end);
     gap: 15px;
     margin: 10px;
-    @include min-tablet {
-      @include dp-flex-alignment(column, initial, initial);
-    }
+    max-width: 400px;
+    width: 100%;
     .container-icon-info {
-      background-color: $white;
       @include dp-flex-alignment();
       width: 50px;
       height: 50px;
       border-radius: 100%;
-      box-shadow: 0px 3px 6px #00000029;
       cursor: pointer;
       mat-icon {
         color: $gray-icons-50;
+        width: 30px;
+        height: 30px;
+        font-size: 30px;
         &.activated {
           color: $gray-icons;
         }
@@ -48,7 +48,7 @@
     height: 100%;
     min-height: 650px;
     position: relative;
-    @include dp-flex-alignment();
+    @include dp-flex-alignment(column);
   }
   .container-havent-match {
     @include dp-flex-alignment(column);

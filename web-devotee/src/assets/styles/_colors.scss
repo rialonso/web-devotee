@@ -14,7 +14,7 @@ $gray-icons: #909090;
 $gray-icons-50: #90909080;
 
 $blue-dark: #2E4664;
-
+$blue-soft: #F5FCFC;
 $magenta-soft: #F97688;
 $magenta-soft-20: #F9768833;
 $magenta-soft-30: #F976884D;
@@ -25,6 +25,7 @@ $magenta-ulta-soft: #F57DA1;
 $magenta-soft-hover: #f55d72;
 
 $magenta-ulta-soft-hover: #f46f97;
+$pink-soft: #FFE6E8;
 
 $sand-soft: #E9EFEF;
 $sand-medium: #DDE6F0;
@@ -35,7 +36,7 @@ $color-success: #007E33;
 
 $principal-gradient: linear-gradient(90deg, $magenta-ulta-soft 0%, $magenta-soft 100%) 0% 0% no-repeat padding-box;
 $principal-gradient-hover: linear-gradient(90deg,  $magenta-ulta-soft-hover 0%, $magenta-soft-hover 100%) 0% 0% no-repeat padding-box;
-
+$princiapl-background-gradient: transparent linear-gradient(180deg, $sand-soft 0%, $sand-medium 100%) 0% 0% no-repeat padding-box;
 .color-black {
   color: $black;
 }
@@ -60,4 +61,7 @@ $principal-gradient-hover: linear-gradient(90deg,  $magenta-ulta-soft-hover 0%, 
 }
 .bg-gray-ultra-light-soft {
   background-color: $gray-ultra-light-soft;
+}
+.bg-gradient-magenta-blue{
+  background: transparent linear-gradient(180deg, $sand-medium 0%, $pink-soft 100%) 0% 0% no-repeat padding-box;
 }
