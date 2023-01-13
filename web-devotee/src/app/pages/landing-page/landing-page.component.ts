@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
@@ -12,7 +12,7 @@ import { AddControlApp } from 'src/app/state-management/controls/copntrols-app.a
   styleUrls: ['./landing-page.component.scss']
 })
 export class LandingPageComponent implements OnInit {
-  dataTexts;
+  @Input() dataTexts;
   routesApp = EnumRoutesApplication;
   constructor(
     protected store: Store<IAppState>,
