@@ -65,11 +65,14 @@ export class UserMatchsComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit() {
     setTimeout(() => {
-    try {
-        (window["adsbygoogle"] = window["adsbygoogle"] || []).push({});
-      } catch (e) {
-        console.error(e);
+      if (this.showAds) {
+        try {
+          (window["adsbygoogle"] = window["adsbygoogle"] || []).push({});
+        } catch (e) {
+          console.error(e);
+        }
       }
+
     }, 2000);
   }
   subscribeCountsAds() {
