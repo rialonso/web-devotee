@@ -106,7 +106,7 @@ export class RegisterComponent implements OnInit {
         .subscribe(
           responseVerifyEmail => {},
           responseVerifyEmail => {
-            console.log(responseVerifyEmail);
+            // console.log(responseVerifyEmail);
             const responseError = responseVerifyEmail?.error?.errors;
             if (responseError.email
               && responseError.email[0] === "Email já está em uso.") {

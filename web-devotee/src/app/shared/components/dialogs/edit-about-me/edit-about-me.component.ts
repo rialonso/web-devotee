@@ -237,10 +237,8 @@ export class EditAboutMeComponent implements OnInit {
         .setValue(drugs);
 
     userData?.my_hospitals.forEach(element => {
-      console.log(element);
       hospital.push(element?.hospital.id);
     });
-    console.log(hospital);
     this.formGroup.get('my_hospitals')
         .setValue(hospital);
   }

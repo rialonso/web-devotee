@@ -82,7 +82,7 @@ export class UserMatchsComponent implements OnInit, AfterViewInit {
     .select((state: IAppState) => state.controlsApp.countShowAds)
     .pipe(takeUntil(this.destroy$))
     .subscribe(state => {
-      console.log(state);
+      // console.log(state);
 
       if (state === 10) {
         this.buttonDisabled('add')

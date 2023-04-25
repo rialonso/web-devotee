@@ -116,7 +116,7 @@ export class ChatComponent implements OnInit {
     this.matchesConnectorService
       .connectWebSocketChatMessages(this.userId)
       .bind(environment.webSocket.events.matches, (res) => {
-        console.log(res);
+        // console.log(res);
       });
   }
   closeChatMobile(event) {

@@ -116,7 +116,7 @@ export class SignInComponent implements OnInit {
 async loginWithGoogle() {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
     .then(async (res) => {
-      console.log(res);
+      // console.log(res);
       const dataToLoginGoogle = new ISignInGoogle(
         res.email,
         res.response.idpId,
