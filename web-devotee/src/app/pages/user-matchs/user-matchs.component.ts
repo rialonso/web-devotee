@@ -9,6 +9,7 @@ import { EnumLikeDislikeActions } from 'src/app/shared/enum/like-dislike/likes-d
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
 import { StateManagementFuncService } from 'src/app/shared/functions/state-management/state-management-func.service';
+import { TransformAgeService } from 'src/app/shared/functions/transform-age/transform-age.service';
 import { ModelLikeDislikeRequest } from 'src/app/shared/model/request/like-dislike-request/like-dislike.model';
 import { IAppState } from 'src/app/state-management/app.model';
 import { IControlsApp } from 'src/app/state-management/controls/controls-app.state';
@@ -52,6 +53,7 @@ export class UserMatchsComponent implements OnInit, AfterViewInit {
     private translateService: TranslateService,
     private dialogsService: DialogsService,
     private stateManagementFuncService: StateManagementFuncService,
+    private transformAgeService: TransformAgeService,
   ) {
 
 
@@ -240,16 +242,9 @@ export class UserMatchsComponent implements OnInit, AfterViewInit {
     return `background-image: url(${environment.urlImages}${profilePicture[0]?.path}); background-color: #D9D9D9;`;
   }
   transformAge(birthdateUser) {
-    const birthdate = birthdateUser.replace(/-/g, '')
-    const year = Number(birthdate.substr(0, 4));
-    const today = new Date();
-    const month = Number(birthdate.substr(4, 2)) - 1;
-    const day = Number(birthdate.substr(6, 2));
-    let age = today.getFullYear() - year;
-    if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
-      age--;
+    if(birthdateUser) {
+      return this.transformAgeService.transformAge(birthdateUser);
     }
-    return age;
   }
   getDistance(distanceFull: number) {
     return Math.trunc(distanceFull);
