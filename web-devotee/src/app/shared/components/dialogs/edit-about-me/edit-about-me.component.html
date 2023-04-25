@@ -2,17 +2,7 @@
   <section class="container-data-person container-register-default">
     <mat-card-title>{{dataTexts.iamEspecialAndDevotee.titleAboutYourself}}</mat-card-title>
     <div class="container-default-inputs-orientation content-data-person">
-      <!-- <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>{{dataTexts.inputs.name.label}}</mat-label>
-        <input
-          matInput
-          [placeholder]="dataTexts.inputs.name.placeHolder"
-          type="name"
-          autocomplete="name"
-          formControlName="name"
-          >
 
-      </mat-form-field> -->
     </div>
     <div class="container-default-inputs-orientation content-data-person">
       <mat-form-field class="example-full-width" appearance="fill">
@@ -25,24 +15,7 @@
           formControlName="occupation"
           >
       </mat-form-field>
-      <!-- <mat-form-field appearance="fill">
-        <mat-label>{{dataTexts.inputs.birthdate.label}}</mat-label>
-        <input
-          type="hidden"
-          [min]="minDate"
-          [max]="maxDate"
-          [matDatepicker]="picker"
-          maxlength="10"
-          (dateChange)="dateSelected($event)"
-          >
-          <input
-            matInput
-            [mask]=""
-            formControlName="birthdate">
-        <mat-hint>{{dataTexts.inputs.birthdate.placeHolder}}</mat-hint>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field> -->
+
     </div>
     <div class="container-default-inputs-orientation content-data-person">
       <mat-form-field appearance="fill">
@@ -208,7 +181,7 @@
               >
           </mat-form-field>
           <div>
-            <mat-option [value]="hosptal" *ngFor="let hosptal of filteredHosptals">
+            <mat-option [value]="hosptal.id" *ngFor="let hosptal of filteredHosptals">
               {{hosptal.name}}
             </mat-option>
           </div>

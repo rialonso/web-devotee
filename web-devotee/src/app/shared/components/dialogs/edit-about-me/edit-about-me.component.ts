@@ -235,10 +235,13 @@ export class EditAboutMeComponent implements OnInit {
     });
       this.formGroup.get('my_drugs')
         .setValue(drugs);
+
     userData?.my_hospitals.forEach(element => {
-      hospital.push(element?.hosptal.id);
+      console.log(element);
+      hospital.push(element?.hospital.id);
     });
-      this.formGroup.get('my_hospitals')
+    console.log(hospital);
+    this.formGroup.get('my_hospitals')
         .setValue(hospital);
   }
   changeViewValueSexualOrientation(value) {
@@ -255,10 +258,10 @@ export class EditAboutMeComponent implements OnInit {
     let disabilitys;
     if(this.specialAccount) {
       disabilitys = {
-        cids: this.addKeyInDisabilitys(this.formGroup.get('my_cids').value),
+        cid: this.addKeyInDisabilitys(this.formGroup.get('my_cids').value),
         medical_procedures: this.addKeyInDisabilitys(this.formGroup.get('medical_procedures').value),
-        medicament: this.addKeyInDisabilitys(this.formGroup.get('my_drugs').value),
-        hospital: this.addKeyInDisabilitys(this.formGroup.get('my_hospitals').value),
+        drugs: this.addKeyInDisabilitys(this.formGroup.get('my_drugs').value),
+        hospitals: this.addKeyInDisabilitys(this.formGroup.get('my_hospitals').value),
       }
     }
 
