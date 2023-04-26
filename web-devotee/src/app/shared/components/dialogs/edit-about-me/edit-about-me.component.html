@@ -75,6 +75,7 @@
       <mat-form-field appearance="fill">
         <mat-label>{{ dataTexts.inputs.selectICD.label }}</mat-label>
         <mat-select
+        #cids
         formControlName="my_cids"
         multiple>
           <mat-form-field class="example-full-width width-100-per" appearance="fill">
@@ -104,6 +105,7 @@
       <mat-form-field appearance="fill">
         <mat-label>{{ dataTexts.inputs.selectMedicalProcedures.label }}</mat-label>
         <mat-select
+          #medicalProcedures
           multiple
           formControlName="medical_procedures"
 

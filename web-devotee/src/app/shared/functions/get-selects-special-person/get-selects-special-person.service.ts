@@ -19,17 +19,19 @@ export class GetSelectsSpecialPersonService {
     private getMedicalProceduresService: GetMedicalProceduresService,
     private getMedicinesService: GetMedicinesService,
   ) { }
-  async getCids(valueSearch: string = '') {
+  async getCids(valueSearch: string = '', pg=1) {
     const params: Params = {
-      q: valueSearch
+      q: valueSearch,
+      page: pg
     }
     const responseSelect = await this.getCidsService.get(false, params).toPromise();
     return responseSelect;
 
   }
-  async getMedicalProcedures(valueSearch: string = '') {
+  async getMedicalProcedures(valueSearch: string = '', pg =1) {
     const params: Params = {
-      q: valueSearch
+      q: valueSearch,
+      page: pg
     }
     const responseSelect = await this.getMedicalProceduresService.get(false, params).toPromise();
     return responseSelect;
