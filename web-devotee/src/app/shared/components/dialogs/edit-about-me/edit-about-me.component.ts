@@ -30,10 +30,10 @@ export class EditAboutMeComponent implements OnInit {
   formGroup: FormGroup;
 
 
-  filteredCids: Observable<any[]>;
-  filteredMedicalProcedures: Observable<any[]>;
-  filteredDrugs: Observable<any[]>;
-  filteredHosptals: Observable<any[]>;
+  filteredCids: any[];
+  filteredMedicalProcedures: any[];
+  filteredDrugs: any[];
+  filteredHosptals: any[];
 
   showWasBorn = false;
 
@@ -53,12 +53,12 @@ export class EditAboutMeComponent implements OnInit {
 
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.initForm();
     if (this.state.getValue()?.userData?.data?.account_type == EnumUserType.SPECIAL) {
       this.specialAccount = true;
       this.addControlsTypeSpecial();
-      this.getDatasSelectTypeSpecial();
+      await this.getDatasSelectTypeSpecial();
       this.valueChangesInputsSearchSelects();
     };
     this.setInitialValues()
@@ -127,24 +127,30 @@ export class EditAboutMeComponent implements OnInit {
       this.formGroup.removeControl(value);
     });
   }
-  getDatasSelectTypeSpecial() {
+ getDatasSelectTypeSpecial() {
+  return new Promise(async (resolve, reject) => {
     this.getSelectsSpecialPersonService
       .getCids().then(res => {
         this.filteredCids = res.data;
+        this.setCidsInitialValue();
       });
     this.getSelectsSpecialPersonService
       .getMedicalProcedures().then(res => {
         this.filteredMedicalProcedures = res.data;
-        this.setSpecialInitialValues();
+        this.setMedicalProceduresInitialValues();
       });
     this.getSelectsSpecialPersonService
       .getDrugsMedicines().then(res => {
         this.filteredDrugs = res.data;
+        this.setDrugsInitialValue();
       });
     this.getSelectsSpecialPersonService
       .getHosptalsLogged().then(res => {
         this.filteredHosptals = res.data;
+        this.setHospitalsInitialValues();
       });
+  })
+
 
   }
   valueChangesInputsSearchSelects() {
@@ -208,39 +214,64 @@ export class EditAboutMeComponent implements OnInit {
       ...userData,
     })
   }
-  setSpecialInitialValues() {
+  setMedicalProceduresInitialValues() {
     const userData = this.state.getValue()?.userData?.data;
     let medicalProcedure = []
-    let cids = []
-    let drugs = []
-    let hospital = []
-
     userData?.medical_procedures.forEach(element => {
+      if(this.filteredMedicalProcedures.find(filteredMedicalProcedure => filteredMedicalProcedure.id != element.medical_procedures.id)) {
+        this.filteredMedicalProcedures.push(element.medical_procedures);
+      }
       medicalProcedure.push(element?.medical_procedures?.id);
-
     });
     this.formGroup.get('medical_procedures')
       .setValue(medicalProcedure);
 
     //cids
+
+    //drugs
+
+  }
+  setCidsInitialValue() {
+    const userData = this.state.getValue()?.userData?.data;
+    let cids = []
     userData?.my_cids.forEach(element => {
+      if(this.filteredCids.find(filteredCid => filteredCid.id != element.cid.id)) {
+        this.filteredCids.push(element.cid);
+      }
       cids.push(element?.cid.id);
     });
 
     this.formGroup.get('my_cids')
       .setValue(cids);
-    //drugs
+
+  }
+  setDrugsInitialValue() {
+    const userData = this.state.getValue()?.userData?.data;
+    let drugs = []
+
     userData?.my_drugs.forEach(element => {
+      if(this.filteredDrugs.find(filteredDrug => filteredDrug.id != element.drug.id)) {
+        this.filteredDrugs.push(element.drug);
+      }
       drugs.push(element?.drug.id);
     });
       this.formGroup.get('my_drugs')
         .setValue(drugs);
 
+  }
+  setHospitalsInitialValues() {
+    const userData = this.state.getValue()?.userData?.data;
+
+    let hospital = []
     userData?.my_hospitals.forEach(element => {
+      if(this.filteredHosptals.find(filteredHospital => filteredHospital.id != element.hospital.id)) {
+        this.filteredHosptals.push(element.hospital);
+      }
       hospital.push(element?.hospital.id);
     });
     this.formGroup.get('my_hospitals')
         .setValue(hospital);
+
   }
   changeViewValueSexualOrientation(value) {
     return this.formGroup.get('sexual_orientation').value || value;
