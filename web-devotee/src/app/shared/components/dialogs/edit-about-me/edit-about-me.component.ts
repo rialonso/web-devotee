@@ -47,6 +47,8 @@ export class EditAboutMeComponent implements OnInit {
 
   @ViewChild('cids') selectElemCids: MatSelect;
   @ViewChild('medicalProcedures') selectElemMedicalProcedures: MatSelect;
+  @ViewChild('drugs') selectElemDrugs: MatSelect;
+  @ViewChild('hospitals') selectElemHospitals: MatSelect;
 
   constructor(
     protected state: State<IAppState>,
@@ -76,11 +78,10 @@ export class EditAboutMeComponent implements OnInit {
   }
   registerPanelScrollEvent(element, matSelect) {
     const panel = element?.panel?.nativeElement;
-    panel.addEventListener('scroll', event => { this.loadAllOnScroll(event, matSelect)});
+    panel?.addEventListener('scroll', event => { this.loadAllOnScroll(event, matSelect)});
   }
 
   loadAllOnScroll(event, matSelect) {
-    console.log(event)
     if (event.target.scrollTop +  event.target.offsetHeight == event.target.scrollHeight) {
       switch (matSelect) {
         case 'my_cids':
@@ -88,6 +89,12 @@ export class EditAboutMeComponent implements OnInit {
           break;
         case 'medical_procedures':
           this.getMedicalProcedures(this.currentPageMedicalProcedures);
+          break;
+        case 'drugs':
+          this.getDrugs(this.currentPageMedicalDrugs);
+          break;
+        case 'hospitals':
+          this.getDrugs(this.currentPageMedicalHospitals);
           break;
         default:
           break;
@@ -169,7 +176,12 @@ export class EditAboutMeComponent implements OnInit {
       this.currentPageCid = res.current_page + 1;
       this.filteredCids = res.data;
       this.setCidsInitialValue();
-      this.selectElemCids.openedChange.subscribe(() => this.registerPanelScrollEvent(this.selectElemCids, 'my_cids'));
+      this.selectElemCids.openedChange.subscribe((a) => {
+        if (!a) {
+          this.getCids(1)
+        }
+        this.registerPanelScrollEvent(this.selectElemCids, 'my_cids')
+      });
     });
   }
   getMedicalProcedures(pg= 1, search = '') {
@@ -178,23 +190,48 @@ export class EditAboutMeComponent implements OnInit {
       this.currentPageMedicalProcedures = res.current_page + 1;
       this.filteredMedicalProcedures = res.data;
       this.setMedicalProceduresInitialValues();
-      this.selectElemMedicalProcedures.openedChange.subscribe(() => this.registerPanelScrollEvent(this.selectElemMedicalProcedures, 'medical_procedures'));
+      this.selectElemMedicalProcedures.openedChange.subscribe((a) => {
+        if (!a) {
+          this.getMedicalProcedures(1);
+        }
+        this.registerPanelScrollEvent(this.selectElemMedicalProcedures, 'medical_procedures')
+      });
+    });
+  }
+  getDrugs(pg= 1, search = '') {
+    this.getSelectsSpecialPersonService
+    .getDrugsMedicines(search, pg).then(res => {
+      this.currentPageMedicalDrugs = res.current_page + 1;
+      this.filteredDrugs = res.data;
+      this.setDrugsInitialValue();
+      this.selectElemDrugs.openedChange.subscribe((a) => {
+        if (!a) {
+          this.getDrugs(1);
+        }
+        this.registerPanelScrollEvent(this.selectElemDrugs, 'drugs')
+      });
+    });
+  }
+  getHospitals(pg= 1, search = '') {
+    this.getSelectsSpecialPersonService
+    .getHosptalsLogged(search, pg).then(res => {
+      this.currentPageMedicalHospitals = res.current_page + 1;
+      this.filteredHosptals = res.data;
+        this.setHospitalsInitialValues();
+      this.selectElemHospitals.openedChange.subscribe((a) => {
+        if (!a) {
+          this.getHospitals(1);
+        }
+        this.registerPanelScrollEvent(this.selectElemHospitals, 'hospitals')
+      });
     });
   }
  getDatasSelectTypeSpecial() {
   return new Promise(async (resolve, reject) => {
     this.getCids();
     this.getMedicalProcedures();
-    this.getSelectsSpecialPersonService
-      .getDrugsMedicines().then(res => {
-        this.filteredDrugs = res.data;
-        this.setDrugsInitialValue();
-      });
-    this.getSelectsSpecialPersonService
-      .getHosptalsLogged().then(res => {
-        this.filteredHosptals = res.data;
-        this.setHospitalsInitialValues();
-      });
+    this.getDrugs();
+    this.getHospitals();
   })
 
 
@@ -300,27 +337,36 @@ export class EditAboutMeComponent implements OnInit {
   setDrugsInitialValue() {
     const userData = this.state.getValue()?.userData?.data;
     let drugs = []
+    let newFiltered = [];
 
     userData?.my_drugs.forEach(element => {
       if(this.filteredDrugs.find(filteredDrug => filteredDrug.id != element.drug.id)) {
-        this.filteredDrugs.push(element.drug);
+        newFiltered.push(element.drug);
       }
       drugs.push(element?.drug.id);
     });
-      this.formGroup.get('my_drugs')
-        .setValue(drugs);
+    let difference = this.filteredDrugs.filter(x => !newFiltered.includes(x.id));
+    newFiltered.push(...difference);
+    this.filteredDrugs = newFiltered;
+    this.formGroup.get('my_drugs')
+      .setValue(drugs);
 
   }
   setHospitalsInitialValues() {
     const userData = this.state.getValue()?.userData?.data;
 
-    let hospital = []
+    let hospital = [];
+    let newFiltered = [];
+
     userData?.my_hospitals.forEach(element => {
       if(this.filteredHosptals.find(filteredHospital => filteredHospital.id != element.hospital.id)) {
-        this.filteredHosptals.push(element.hospital);
+        newFiltered.push(element.hospital);
       }
       hospital.push(element?.hospital.id);
     });
+    let difference = this.filteredHosptals.filter(x => !newFiltered.includes(x.id));
+    newFiltered.push(...difference);
+    this.filteredHosptals = newFiltered;
     this.formGroup.get('my_hospitals')
         .setValue(hospital);
 

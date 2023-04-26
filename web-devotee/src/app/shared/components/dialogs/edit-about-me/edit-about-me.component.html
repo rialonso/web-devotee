@@ -140,6 +140,7 @@
       <mat-form-field appearance="fill">
         <mat-label>{{ dataTexts.inputs.selectMedications.label }}</mat-label>
         <mat-select
+        #drugs
         formControlName="my_drugs"
         multiple
         >
@@ -169,6 +170,7 @@
       <mat-form-field appearance="fill">
         <mat-label>{{ dataTexts.inputs.selectHospitals.label }}</mat-label>
         <mat-select
+        #hospitals
         formControlName="my_hospitals"
         multiple>
           <mat-form-field class="example-full-width width-100-per" appearance="fill">

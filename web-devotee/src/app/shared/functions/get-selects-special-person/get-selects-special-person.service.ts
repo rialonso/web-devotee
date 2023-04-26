@@ -37,9 +37,10 @@ export class GetSelectsSpecialPersonService {
     return responseSelect;
 
   }
-  async getDrugsMedicines(valueSearch: string = '') {
+  async getDrugsMedicines(valueSearch: string = '', pg =1) {
     const params: Params = {
-      q: valueSearch
+      q: valueSearch,
+      page: pg
     }
     const responseSelect = await this.getMedicinesService.get(false, params).toPromise();
     return responseSelect;
