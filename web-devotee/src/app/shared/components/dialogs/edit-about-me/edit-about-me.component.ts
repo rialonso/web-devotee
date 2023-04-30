@@ -1,6 +1,6 @@
 import { takeUntil } from 'rxjs/operators';
 import { nameValidatorSpecialCharacteres } from 'src/app/shared/validators/name/name-special-characteres.validator';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { State } from '@ngrx/store';
@@ -16,6 +16,7 @@ import { EnumControlsSpecialPerson } from 'src/app/pages/continue-register/compo
 import { UpdateDataService } from 'src/app/core/services/update-data/update-data.service';
 import { MatSelect } from '@angular/material/select';
 import { Scroll } from '@angular/router';
+import { EnumControlsForm } from 'src/app/shared/enum/controls-form/controls-form';
 
 @Component({
   selector: 'app-edit-about-me',
@@ -50,6 +51,10 @@ export class EditAboutMeComponent implements OnInit {
   @ViewChild('drugs') selectElemDrugs: MatSelect;
   @ViewChild('hospitals') selectElemHospitals: MatSelect;
 
+  @ViewChild('searchCids') inputElemCids: ElementRef;
+  @ViewChild('searchMedicalProcedures') inputElemMedicalProcedures: ElementRef;
+  @ViewChild('searchDrugs') inputElemDrugs: ElementRef;
+  @ViewChild('searchHospitals') inputElemHospitals: ElementRef;
   constructor(
     protected state: State<IAppState>,
     private matDialogRef: MatDialogRef<EditAboutMeComponent>,
@@ -78,23 +83,35 @@ export class EditAboutMeComponent implements OnInit {
   }
   registerPanelScrollEvent(element, matSelect) {
     const panel = element?.panel?.nativeElement;
-    panel?.addEventListener('scroll', event => { this.loadAllOnScroll(event, matSelect)});
+    panel?.addEventListener('scroll', event => {
+        this.loadAllOnScroll(event, matSelect);
+      }
+    );
   }
 
   loadAllOnScroll(event, matSelect) {
     if (event.target.scrollTop +  event.target.offsetHeight == event.target.scrollHeight) {
       switch (matSelect) {
-        case 'my_cids':
-          this.getCids(this.currentPageCid);
+        case EnumControlsForm.myCids:
+          if (this.inputElemCids?.nativeElement.value == '') {
+            this.getCids(this.currentPageCid);
+
+          }
           break;
-        case 'medical_procedures':
-          this.getMedicalProcedures(this.currentPageMedicalProcedures);
+        case EnumControlsForm.medicalProcedures:
+          if (this.inputElemMedicalProcedures?.nativeElement.value == '') {
+            this.getMedicalProcedures(this.currentPageMedicalProcedures);
+          }
           break;
-        case 'drugs':
-          this.getDrugs(this.currentPageMedicalDrugs);
+        case EnumControlsForm.myDrugs:
+          if (this.inputElemDrugs?.nativeElement.value == '') {
+            this.getDrugs(this.currentPageMedicalDrugs);
+          }
           break;
-        case 'hospitals':
-          this.getDrugs(this.currentPageMedicalHospitals);
+        case EnumControlsForm.myHospitals:
+          if (this.inputElemHospitals?.nativeElement.value == '') {
+            this.getHospitals(this.currentPageMedicalHospitals);
+          }
           break;
         default:
           break;
@@ -175,13 +192,17 @@ export class EditAboutMeComponent implements OnInit {
     .getCids(search, pg).then(res => {
       this.currentPageCid = res.current_page + 1;
       this.filteredCids = res.data;
-      this.setCidsInitialValue();
-      this.selectElemCids.openedChange.subscribe((a) => {
-        if (!a) {
-          this.getCids(1)
-        }
-        this.registerPanelScrollEvent(this.selectElemCids, 'my_cids')
-      });
+      if (search == '') {
+        this.setCidsInitialValue();
+
+        this.selectElemCids.openedChange.subscribe((a) => {
+          if (!a) {
+            this.getCids(1)
+          }
+          this.registerPanelScrollEvent(this.selectElemCids, EnumControlsForm.myCids)
+        });
+      }
+
     });
   }
   getMedicalProcedures(pg= 1, search = '') {
@@ -189,13 +210,17 @@ export class EditAboutMeComponent implements OnInit {
     .getMedicalProcedures(search, pg).then(res => {
       this.currentPageMedicalProcedures = res.current_page + 1;
       this.filteredMedicalProcedures = res.data;
-      this.setMedicalProceduresInitialValues();
-      this.selectElemMedicalProcedures.openedChange.subscribe((a) => {
-        if (!a) {
-          this.getMedicalProcedures(1);
-        }
-        this.registerPanelScrollEvent(this.selectElemMedicalProcedures, 'medical_procedures')
-      });
+      if (search == '') {
+        this.setMedicalProceduresInitialValues();
+
+        this.selectElemMedicalProcedures.openedChange.subscribe((a) => {
+          if (!a) {
+            this.getMedicalProcedures(1);
+          }
+          this.registerPanelScrollEvent(this.selectElemMedicalProcedures, EnumControlsForm.medicalProcedures)
+        });
+      }
+
     });
   }
   getDrugs(pg= 1, search = '') {
@@ -203,13 +228,17 @@ export class EditAboutMeComponent implements OnInit {
     .getDrugsMedicines(search, pg).then(res => {
       this.currentPageMedicalDrugs = res.current_page + 1;
       this.filteredDrugs = res.data;
-      this.setDrugsInitialValue();
-      this.selectElemDrugs.openedChange.subscribe((a) => {
-        if (!a) {
-          this.getDrugs(1);
-        }
-        this.registerPanelScrollEvent(this.selectElemDrugs, 'drugs')
-      });
+      if (search == '') {
+        this.setDrugsInitialValue();
+
+        this.selectElemDrugs.openedChange.subscribe((a) => {
+          if (!a) {
+            this.getDrugs(1);
+          }
+          this.registerPanelScrollEvent(this.selectElemDrugs, EnumControlsForm.myDrugs)
+        });
+      }
+
     });
   }
   getHospitals(pg= 1, search = '') {
@@ -217,16 +246,18 @@ export class EditAboutMeComponent implements OnInit {
     .getHosptalsLogged(search, pg).then(res => {
       this.currentPageMedicalHospitals = res.current_page + 1;
       this.filteredHosptals = res.data;
-        this.setHospitalsInitialValues();
-      this.selectElemHospitals.openedChange.subscribe((a) => {
-        if (!a) {
-          this.getHospitals(1);
+        if (search == '') {
+          this.setHospitalsInitialValues();
+          this.selectElemHospitals.openedChange.subscribe((a) => {
+            if (!a) {
+              this.getHospitals(1);
+            }
+            this.registerPanelScrollEvent(this.selectElemHospitals, EnumControlsForm.myHospitals)
+          });
         }
-        this.registerPanelScrollEvent(this.selectElemHospitals, 'hospitals')
-      });
     });
   }
- getDatasSelectTypeSpecial() {
+  getDatasSelectTypeSpecial() {
   return new Promise(async (resolve, reject) => {
     this.getCids();
     this.getMedicalProcedures();
@@ -311,7 +342,7 @@ export class EditAboutMeComponent implements OnInit {
     let difference = this.filteredMedicalProcedures.filter(x => !newFiltered.includes(x.id));
     newFiltered.push(...difference);
     this.filteredMedicalProcedures = newFiltered;
-    this.formGroup.get('medical_procedures')
+    this.formGroup.get(EnumControlsForm.medicalProcedures)
       .setValue(medicalProcedure);
 
   }
@@ -330,7 +361,7 @@ export class EditAboutMeComponent implements OnInit {
     let difference = this.filteredCids.filter(x => !newFiltered.includes(x.id));
     newFiltered.push(...difference);
     this.filteredCids = newFiltered;
-    this.formGroup.get('my_cids')
+    this.formGroup.get(EnumControlsForm.myCids)
       .setValue(cids);
 
   }
@@ -385,8 +416,8 @@ export class EditAboutMeComponent implements OnInit {
     let disabilitys;
     if(this.specialAccount) {
       disabilitys = {
-        cid: this.addKeyInDisabilitys(this.formGroup.get('my_cids').value),
-        medical_procedures: this.addKeyInDisabilitys(this.formGroup.get('medical_procedures').value),
+        cid: this.addKeyInDisabilitys(this.formGroup.get(EnumControlsForm.myCids).value),
+        medical_procedures: this.addKeyInDisabilitys(this.formGroup.get(EnumControlsForm.medicalProcedures).value),
         drugs: this.addKeyInDisabilitys(this.formGroup.get('my_drugs').value),
         hospitals: this.addKeyInDisabilitys(this.formGroup.get('my_hospitals').value),
       }
@@ -417,5 +448,17 @@ export class EditAboutMeComponent implements OnInit {
   }
   closeModal(action: string = 'close') {
     this.matDialogRef.close(action);
+  }
+  searchCid(value: string) {
+    this.getCids(undefined, value);
+  }
+  searchDrug(value: string) {
+    this.getDrugs(undefined, value);
+  }
+  searchMedicalProcedure(value: string) {
+    this.getMedicalProcedures(undefined, value);
+  }
+  searchHospital(value: string) {
+    this.getHospitals(undefined, value);
   }
 }

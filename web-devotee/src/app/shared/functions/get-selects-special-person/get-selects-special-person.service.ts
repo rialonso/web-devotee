@@ -20,27 +20,46 @@ export class GetSelectsSpecialPersonService {
     private getMedicinesService: GetMedicinesService,
   ) { }
   async getCids(valueSearch: string = '', pg=1) {
-    const params: Params = {
-      q: valueSearch,
-      page: pg
+    let params: Params;
+    if(pg > 1) {
+      params = {
+        page: pg
+      }
+    } else {
+      params = {
+        q: valueSearch
+      }
     }
+
     const responseSelect = await this.getCidsService.get(false, params).toPromise();
     return responseSelect;
 
   }
   async getMedicalProcedures(valueSearch: string = '', pg =1) {
-    const params: Params = {
-      q: valueSearch,
-      page: pg
+    let params: Params;
+    if(pg > 1) {
+      params = {
+        page: pg
+      }
+    } else {
+      params = {
+        q: valueSearch
+      }
     }
     const responseSelect = await this.getMedicalProceduresService.get(false, params).toPromise();
     return responseSelect;
 
   }
   async getDrugsMedicines(valueSearch: string = '', pg =1) {
-    const params: Params = {
-      q: valueSearch,
-      page: pg
+    let params: Params;
+    if(pg > 1) {
+      params = {
+        page: pg
+      }
+    } else {
+      params = {
+        q: valueSearch
+      }
     }
     const responseSelect = await this.getMedicinesService.get(false, params).toPromise();
     return responseSelect;
@@ -48,24 +67,34 @@ export class GetSelectsSpecialPersonService {
   }
   async getHosptals(valueSearch: string = '', pg = 1) {
     const registerData = this.state.getValue().registerData;
-    const params: Params = {
-      lat: registerData.lat,
-      lng: registerData.lng,
-      page: pg,
-      q: valueSearch
-
+    let params: Params;
+    if(pg > 1) {
+      params = {
+        lat: registerData.lat,
+        lng: registerData.lng,
+        page: pg,
+      }
+    } else {
+      params = {
+        q: valueSearch
+      }
     }
     const responseSelect = await this.getHosptalsService.get(false, params).toPromise();
     return responseSelect;
   }
   async getHosptalsLogged(valueSearch: string = '', pg = 1) {
     const registerData = this.state.getValue().userData.data;
-    const params: Params = {
-      lat: registerData.lat,
-      lng: registerData.lng,
-      page: pg,
-      q: valueSearch
-
+    let params: Params;
+    if(pg > 1) {
+      params = {
+        lat: registerData.lat,
+        lng: registerData.lng,
+        page: pg,
+      }
+    } else {
+      params = {
+        q: valueSearch
+      }
     }
     const responseSelect = await this.getHosptalsService.get(false, params).toPromise();
     return responseSelect;
