@@ -552,7 +552,7 @@ export class RegisterDataComponent implements OnInit {
     newFiltered.push(...difference);
     this.filteredMedicalProcedures = newFiltered;
     this.formGroup.get(EnumControlsForm.medicalProcedures)
-      .setValue(medicalProcedure);
+      .setValue([...medicalProcedure, ... this.formGroup.get(EnumControlsForm.medicalProcedures).value]);
 
   }
 
@@ -571,7 +571,7 @@ export class RegisterDataComponent implements OnInit {
     newFiltered.push(...difference);
     this.filteredCids = newFiltered;
     this.formGroup.get(EnumControlsForm.myCids)
-      .setValue(cids);
+      .setValue([...cids, ...this.formGroup.get(EnumControlsForm.myCids).value]);
 
   }
   setDrugsInitialValue() {
@@ -589,9 +589,26 @@ export class RegisterDataComponent implements OnInit {
     newFiltered.push(...difference);
     this.filteredDrugs = newFiltered;
     this.formGroup.get('my_drugs')
-      .setValue(drugs);
+      .setValue([...drugs, ...this.formGroup.get('my_drugs').value]);
 
   }
   setHospitalsInitialValues() {
+    const userData = this.state.getValue()?.userData?.data;
+
+    let hospital = [];
+    let newFiltered = [];
+
+    userData?.my_hospitals.forEach(element => {
+      if(this.filteredHosptals.find(filteredHospital => filteredHospital.id != element.hospital.id)) {
+        newFiltered.push(element.hospital);
+      }
+      hospital.push(element?.hospital.id);
+    });
+    let difference = this.filteredHosptals.filter(x => !newFiltered.includes(x.id));
+    newFiltered.push(...difference);
+    this.filteredHosptals = newFiltered;
+    this.formGroup.get('my_hospitals')
+        .setValue([...hospital, ...this.formGroup.get('my_hospitals').value]);
+
   }
 }
