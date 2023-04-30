@@ -343,7 +343,7 @@ export class EditAboutMeComponent implements OnInit {
     newFiltered.push(...difference);
     this.filteredMedicalProcedures = newFiltered;
     this.formGroup.get(EnumControlsForm.medicalProcedures)
-      .setValue(medicalProcedure);
+      .setValue([...medicalProcedure, ...this.formGroup.get(EnumControlsForm.medicalProcedures).value]);
 
   }
 
@@ -362,7 +362,7 @@ export class EditAboutMeComponent implements OnInit {
     newFiltered.push(...difference);
     this.filteredCids = newFiltered;
     this.formGroup.get(EnumControlsForm.myCids)
-      .setValue(cids);
+      .setValue([...cids, ...this.formGroup.get(EnumControlsForm.myCids).value]);
 
   }
   setDrugsInitialValue() {
@@ -380,7 +380,7 @@ export class EditAboutMeComponent implements OnInit {
     newFiltered.push(...difference);
     this.filteredDrugs = newFiltered;
     this.formGroup.get('my_drugs')
-      .setValue(drugs);
+      .setValue([...drugs, ...this.formGroup.get('my_drugs').value]);
 
   }
   setHospitalsInitialValues() {
@@ -399,7 +399,7 @@ export class EditAboutMeComponent implements OnInit {
     newFiltered.push(...difference);
     this.filteredHosptals = newFiltered;
     this.formGroup.get('my_hospitals')
-        .setValue(hospital);
+        .setValue([...hospital, ...this.formGroup.get('my_hospitals').value]);
 
   }
   changeViewValueSexualOrientation(value) {
