@@ -109,17 +109,24 @@ export class RegisterDataComponent implements OnInit {
     this.minDate = moment().subtract(100, 'years').toDate();
     this.maxDate = moment().subtract(18, 'years').toDate();
   }
-  ngOnInit() {
+  async ngOnInit() {
     this.initForm();
     if (this.state.getValue()?.registerData?.account_type === EnumUserType.SPECIAL) {
       this.specialAccount = true;
       this.addControlsTypeSpecial();
-      this.getDatasSelectTypeSpecial();
+      await this.getDatasSelectTypeSpecial();
       this.valueChangesInputsSearchSelects();
 
     };
+    this.setInitialValues()
     this.setDataInFormWheDataRecovered();
     this.openModalActivateLocation();
+  }
+  setInitialValues() {
+    const userData = this.state.getValue()?.userData?.data;
+    this.formGroup.patchValue({
+      ...userData,
+    });
   }
   setDataInFormWheDataRecovered() {
     const registerData = this.state.getValue()?.registerData
@@ -405,10 +412,9 @@ export class RegisterDataComponent implements OnInit {
       this.filteredCids = res.data;
       if (search == '' && init) {
         this.setCidsInitialValue();
-
         this.selectElemCids.openedChange.subscribe((a) => {
           if (!a) {
-            this.getCids(1)
+            this.getCids(1);
           }
           this.registerPanelScrollEvent(this.selectElemCids, EnumControlsForm.myCids)
         });
