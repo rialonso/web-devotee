@@ -187,12 +187,12 @@ export class EditAboutMeComponent implements OnInit {
       this.formGroup.removeControl(value);
     });
   }
-  getCids(pg= 1, search = '') {
+  getCids(pg= 1, search = '', init = false) {
     this.getSelectsSpecialPersonService
     .getCids(search, pg).then(res => {
       this.currentPageCid = res.current_page + 1;
       this.filteredCids = res.data;
-      if (search == '') {
+      if (search == ''&& init) {
         this.setCidsInitialValue();
 
         this.selectElemCids.openedChange.subscribe((a) => {
@@ -205,12 +205,12 @@ export class EditAboutMeComponent implements OnInit {
 
     });
   }
-  getMedicalProcedures(pg= 1, search = '') {
+  getMedicalProcedures(pg= 1, search = '', init = false) {
     this.getSelectsSpecialPersonService
     .getMedicalProcedures(search, pg).then(res => {
       this.currentPageMedicalProcedures = res.current_page + 1;
       this.filteredMedicalProcedures = res.data;
-      if (search == '') {
+      if (search == ''&& init) {
         this.setMedicalProceduresInitialValues();
 
         this.selectElemMedicalProcedures.openedChange.subscribe((a) => {
@@ -223,12 +223,12 @@ export class EditAboutMeComponent implements OnInit {
 
     });
   }
-  getDrugs(pg= 1, search = '') {
+  getDrugs(pg= 1, search = '', init = false) {
     this.getSelectsSpecialPersonService
     .getDrugsMedicines(search, pg).then(res => {
       this.currentPageMedicalDrugs = res.current_page + 1;
       this.filteredDrugs = res.data;
-      if (search == '') {
+      if (search == '' && init) {
         this.setDrugsInitialValue();
 
         this.selectElemDrugs.openedChange.subscribe((a) => {
@@ -241,12 +241,12 @@ export class EditAboutMeComponent implements OnInit {
 
     });
   }
-  getHospitals(pg= 1, search = '') {
+  getHospitals(pg= 1, search = '', init = false) {
     this.getSelectsSpecialPersonService
     .getHosptalsLogged(search, pg).then(res => {
       this.currentPageMedicalHospitals = res.current_page + 1;
       this.filteredHosptals = res.data;
-        if (search == '') {
+        if (search == ''&& init) {
           this.setHospitalsInitialValues();
           this.selectElemHospitals.openedChange.subscribe((a) => {
             if (!a) {
@@ -259,10 +259,11 @@ export class EditAboutMeComponent implements OnInit {
   }
   getDatasSelectTypeSpecial() {
   return new Promise(async (resolve, reject) => {
-    this.getCids();
-    this.getMedicalProcedures();
-    this.getDrugs();
-    this.getHospitals();
+    this.getCids(undefined, undefined, true);
+    this.getMedicalProcedures(undefined, undefined, true);
+    this.getDrugs(undefined, undefined, true);
+    this.getHospitals(undefined, undefined, true);
+    resolve(true);
   })
 
 
@@ -326,7 +327,7 @@ export class EditAboutMeComponent implements OnInit {
     const userData = this.state.getValue()?.userData?.data;
     this.formGroup.patchValue({
       ...userData,
-    })
+    });
   }
   setMedicalProceduresInitialValues() {
     const userData = this.state.getValue()?.userData?.data;
@@ -343,7 +344,7 @@ export class EditAboutMeComponent implements OnInit {
     newFiltered.push(...difference);
     this.filteredMedicalProcedures = newFiltered;
     this.formGroup.get(EnumControlsForm.medicalProcedures)
-      .setValue([...medicalProcedure, ...this.formGroup.get(EnumControlsForm.medicalProcedures).value]);
+      .setValue(medicalProcedure);
 
   }
 
@@ -362,7 +363,7 @@ export class EditAboutMeComponent implements OnInit {
     newFiltered.push(...difference);
     this.filteredCids = newFiltered;
     this.formGroup.get(EnumControlsForm.myCids)
-      .setValue([...cids, ...this.formGroup.get(EnumControlsForm.myCids).value]);
+      .setValue(cids);
 
   }
   setDrugsInitialValue() {
@@ -380,7 +381,7 @@ export class EditAboutMeComponent implements OnInit {
     newFiltered.push(...difference);
     this.filteredDrugs = newFiltered;
     this.formGroup.get('my_drugs')
-      .setValue([...drugs, ...this.formGroup.get('my_drugs').value]);
+      .setValue(drugs);
 
   }
   setHospitalsInitialValues() {
@@ -399,7 +400,7 @@ export class EditAboutMeComponent implements OnInit {
     newFiltered.push(...difference);
     this.filteredHosptals = newFiltered;
     this.formGroup.get('my_hospitals')
-        .setValue([...hospital, ...this.formGroup.get('my_hospitals').value]);
+        .setValue(hospital);
 
   }
   changeViewValueSexualOrientation(value) {
