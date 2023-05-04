@@ -113,8 +113,8 @@ export class MultipleSelectDrugsComponent implements OnInit {
     });
     var b = new Set(newFiltered);
     let difference = [...this.filteredDrugs].filter(x => !b.has(x));
-    newFiltered = difference;
-    this.filteredDrugs = newFiltered;
+    newFiltered.push(difference);
+    this.filteredDrugs.push(newFiltered);
     this.formGroup.get('my_drugs')
       .setValue(drugs);
 

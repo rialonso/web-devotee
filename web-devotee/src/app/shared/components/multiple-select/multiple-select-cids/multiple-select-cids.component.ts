@@ -98,9 +98,9 @@ export class MultipleSelectCidsComponent implements OnInit {
       cids.push(element?.cid.id);
     });
     var b = new Set(newFiltered);
-    let difference = [...this.filteredCids].filter(x => !b.has(x));
-    newFiltered = difference;
-    this.filteredCids = newFiltered;
+    let difference = [...this.filteredCids].filter(x => b.has(x));
+    newFiltered.push(difference);
+    this.filteredCids.push(newFiltered);
     this.formGroup.get(EnumControlsForm.myCids)
       .setValue(cids);
 
@@ -129,7 +129,10 @@ export class MultipleSelectCidsComponent implements OnInit {
         this.getSelectsSpecialPersonService
           .getCids(res)
           .then(selectData => {
-            this.filteredCids = selectData.data;
+            var b = new Set(this.formGroup.get(EnumControlsForm.myCids).value);
+            let intersection = [...this.filteredCids].filter(x => b.has(x.id));
+            // const intersection =  this.filteredCids.filter(element => this.formGroup.get(EnumControlsForm.myCids).value.includes(element.id));
+            this.filteredCids =[...selectData.data, ...intersection];
         })
       });
       this.formGroup

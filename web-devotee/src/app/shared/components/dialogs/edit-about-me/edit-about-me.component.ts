@@ -242,28 +242,6 @@ export class EditAboutMeComponent implements OnInit {
   }
   valueChangesInputsSearchSelects() {
     this.formGroup
-      .get(EnumControlsSpecialPerson.INPUT_MY_CID)
-      .valueChanges
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(res => {
-        this.getSelectsSpecialPersonService
-          .getCids(res)
-          .then(selectData => {
-            this.filteredCids = selectData.data;
-        })
-      });
-    this.formGroup
-      .get(EnumControlsSpecialPerson.INPUT_MY_DRUGS)
-      .valueChanges
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(res => {
-        this.getSelectsSpecialPersonService
-          .getDrugsMedicines(res)
-          .then(selectData => {
-            this.filteredDrugs = selectData.data;
-        })
-      });
-    this.formGroup
       .get(EnumControlsSpecialPerson.INPUT_MEDICAL_PROCEDURES)
       .valueChanges
       .pipe(takeUntil(this.destroy$))
@@ -332,25 +310,6 @@ export class EditAboutMeComponent implements OnInit {
     console.log(drugs)
     this.formGroup.get(EnumControlsSpecialPerson.MY_DRUGS)
     .setValue(drugs);
-  }
-  setCidsInitialValue() {
-    const userData = this.state.getValue()?.userData?.data;
-    let cids = [];
-    let newFiltered = [];
-    userData?.my_cids.forEach(element => {
-      // console.log(this.filteredCids.filter(filteredCid => filteredCid.id == element.cid.id))
-      if(this.filteredCids.some(filteredCid => filteredCid.id != element.cid.id)) {
-        newFiltered.push(element.cid);
-      }
-      cids.push(element?.cid.id);
-    });
-    console.log(this.filteredCids);
-    let difference = this.filteredCids.filter(x => !newFiltered.includes(x.id));
-    newFiltered.push(...difference);
-    this.filteredCids = newFiltered;
-    this.formGroup.get(EnumControlsForm.myCids)
-      .setValue(cids);
-
   }
   setDrugsInitialValue() {
     const userData = this.state.getValue()?.userData?.data;
