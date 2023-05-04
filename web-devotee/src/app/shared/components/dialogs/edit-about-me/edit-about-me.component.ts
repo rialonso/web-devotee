@@ -37,10 +37,12 @@ export class EditAboutMeComponent implements OnInit {
   currentPageMedicalDrugs = 1;
   currentPageMedicalHospitals = 1;
 
-  filteredCids: any[];
-  filteredMedicalProcedures: any[];
-  filteredDrugs: any[];
-  filteredHosptals: any[];
+  filteredCids: any[] = [];
+  filteredMedicalProcedures: any[] = [];
+  filteredDrugs: any[] = [];
+  filteredHosptals: any[] = [];
+
+  cidsSelecteds: any[];
 
   showWasBorn = false;
 
@@ -116,11 +118,6 @@ export class EditAboutMeComponent implements OnInit {
         default:
           break;
       }
-      event.target.scroll({
-        top: 0,
-        left: 0,
-        behavior: 'smooth'
-      });
     }
   }
   private initForm() {
@@ -191,7 +188,7 @@ export class EditAboutMeComponent implements OnInit {
     this.getSelectsSpecialPersonService
     .getCids(search, pg).then(res => {
       this.currentPageCid = res.current_page + 1;
-      this.filteredCids = res.data;
+      this.filteredCids.push(...res.data);
       if (search == ''&& init) {
         this.setCidsInitialValue();
 
@@ -209,7 +206,7 @@ export class EditAboutMeComponent implements OnInit {
     this.getSelectsSpecialPersonService
     .getMedicalProcedures(search, pg).then(res => {
       this.currentPageMedicalProcedures = res.current_page + 1;
-      this.filteredMedicalProcedures = res.data;
+      this.filteredMedicalProcedures.push(...res.data);
       if (search == ''&& init) {
         this.setMedicalProceduresInitialValues();
 
@@ -227,7 +224,7 @@ export class EditAboutMeComponent implements OnInit {
     this.getSelectsSpecialPersonService
     .getDrugsMedicines(search, pg).then(res => {
       this.currentPageMedicalDrugs = res.current_page + 1;
-      this.filteredDrugs = res.data;
+      this.filteredDrugs.push(...res.data);
       if (search == '' && init) {
         this.setDrugsInitialValue();
 
@@ -245,7 +242,7 @@ export class EditAboutMeComponent implements OnInit {
     this.getSelectsSpecialPersonService
     .getHosptalsLogged(search, pg).then(res => {
       this.currentPageMedicalHospitals = res.current_page + 1;
-      this.filteredHosptals = res.data;
+      this.filteredHosptals.push(...res.data);
         if (search == ''&& init) {
           this.setHospitalsInitialValues();
           this.selectElemHospitals.openedChange.subscribe((a) => {
@@ -347,7 +344,10 @@ export class EditAboutMeComponent implements OnInit {
       .setValue(medicalProcedure);
 
   }
-
+  inject(value) {
+    // const cidsToInject = this.filteredCids.find(cid =>  cid.id === value[value.length - 1]);
+    // this.filteredCids.push(cidsToInject);
+  }
   setCidsInitialValue() {
     const userData = this.state.getValue()?.userData?.data;
     let cids = [];
@@ -359,6 +359,7 @@ export class EditAboutMeComponent implements OnInit {
       }
       cids.push(element?.cid.id);
     });
+    console.log(this.filteredCids);
     let difference = this.filteredCids.filter(x => !newFiltered.includes(x.id));
     newFiltered.push(...difference);
     this.filteredCids = newFiltered;

@@ -75,6 +75,7 @@
       <mat-form-field appearance="fill">
         <mat-label>{{ dataTexts.inputs.selectICD.label }}</mat-label>
         <mat-select
+        (selectionChange)="inject($event.value)"
         #cids
         formControlName="my_cids"
         multiple>

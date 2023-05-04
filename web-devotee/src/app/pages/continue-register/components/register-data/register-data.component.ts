@@ -409,7 +409,7 @@ export class RegisterDataComponent implements OnInit {
     this.getSelectsSpecialPersonService
     .getCids(search, pg).then(res => {
       this.currentPageCid = res.current_page + 1;
-      this.filteredCids = res.data;
+      this.filteredCids.push(...res.data);
       if (search == '' && init) {
         this.setCidsInitialValue();
         this.selectElemCids.openedChange.subscribe((a) => {
@@ -426,7 +426,7 @@ export class RegisterDataComponent implements OnInit {
     this.getSelectsSpecialPersonService
     .getMedicalProcedures(search, pg).then(res => {
       this.currentPageMedicalProcedures = res.current_page + 1;
-      this.filteredMedicalProcedures = res.data;
+      this.filteredMedicalProcedures.push(...res.data);
       if (search == '' && init) {
         this.setMedicalProceduresInitialValues();
 
@@ -444,7 +444,7 @@ export class RegisterDataComponent implements OnInit {
     this.getSelectsSpecialPersonService
     .getDrugsMedicines(search, pg).then(res => {
       this.currentPageMedicalDrugs = res.current_page + 1;
-      this.filteredDrugs = res.data;
+      this.filteredDrugs.push(...res.data);
       if (search == '' && init) {
         this.setDrugsInitialValue();
 
@@ -462,7 +462,7 @@ export class RegisterDataComponent implements OnInit {
     this.getSelectsSpecialPersonService
     .getHosptalsLogged(search, pg).then(res => {
       this.currentPageMedicalHospitals = res.current_page + 1;
-      this.filteredHosptals = res.data;
+      this.filteredHosptals.push(...res.data);
         if (search == '' && init) {
           this.setHospitalsInitialValues();
           this.selectElemHospitals.openedChange.subscribe((a) => {
