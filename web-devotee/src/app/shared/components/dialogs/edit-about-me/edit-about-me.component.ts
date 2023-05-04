@@ -94,12 +94,6 @@ export class EditAboutMeComponent implements OnInit {
   loadAllOnScroll(event, matSelect) {
     if (event.target.scrollTop +  event.target.offsetHeight == event.target.scrollHeight) {
       switch (matSelect) {
-        case EnumControlsForm.myCids:
-          if (this.inputElemCids?.nativeElement.value == '') {
-            this.getCids(this.currentPageCid);
-
-          }
-          break;
         case EnumControlsForm.medicalProcedures:
           if (this.inputElemMedicalProcedures?.nativeElement.value == '') {
             this.getMedicalProcedures(this.currentPageMedicalProcedures);
@@ -184,24 +178,6 @@ export class EditAboutMeComponent implements OnInit {
       this.formGroup.removeControl(value);
     });
   }
-  getCids(pg= 1, search = '', init = false) {
-    this.getSelectsSpecialPersonService
-    .getCids(search, pg).then(res => {
-      this.currentPageCid = res.current_page + 1;
-      this.filteredCids.push(...res.data);
-      if (search == ''&& init) {
-        this.setCidsInitialValue();
-
-        this.selectElemCids.openedChange.subscribe((a) => {
-          if (!a) {
-            this.getCids(1)
-          }
-          this.registerPanelScrollEvent(this.selectElemCids, EnumControlsForm.myCids)
-        });
-      }
-
-    });
-  }
   getMedicalProcedures(pg= 1, search = '', init = false) {
     this.getSelectsSpecialPersonService
     .getMedicalProcedures(search, pg).then(res => {
@@ -256,7 +232,6 @@ export class EditAboutMeComponent implements OnInit {
   }
   getDatasSelectTypeSpecial() {
   return new Promise(async (resolve, reject) => {
-    this.getCids(undefined, undefined, true);
     this.getMedicalProcedures(undefined, undefined, true);
     this.getDrugs(undefined, undefined, true);
     this.getHospitals(undefined, undefined, true);
@@ -347,6 +322,11 @@ export class EditAboutMeComponent implements OnInit {
   inject(value) {
     // const cidsToInject = this.filteredCids.find(cid =>  cid.id === value[value.length - 1]);
     // this.filteredCids.push(cidsToInject);
+  }
+  setCids(cids) {
+    console.log(cids)
+    this.formGroup.get(EnumControlsForm.myCids)
+    .setValue(cids);
   }
   setCidsInitialValue() {
     const userData = this.state.getValue()?.userData?.data;
@@ -450,9 +430,6 @@ export class EditAboutMeComponent implements OnInit {
   }
   closeModal(action: string = 'close') {
     this.matDialogRef.close(action);
-  }
-  searchCid(value: string) {
-    this.getCids(undefined, value);
   }
   searchDrug(value: string) {
     this.getDrugs(undefined, value);

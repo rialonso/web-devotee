@@ -28,6 +28,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AdsCardsComponent } from './components/google-ads/ads-cards/ads-cards/ads-cards.component';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { MultipleSelectCidsComponent } from './components/multiple-select/multiple-select-cids/multiple-select-cids.component';
 
 const components = [
   FooterComponent,
@@ -37,6 +38,7 @@ const components = [
   PrincipalLoadingComponent,
   ChatMessagesComponent,
   AdsCardsComponent,
+  MultipleSelectCidsComponent,
 ]
 const angularMaterialModules = [
   MatInputModule,
