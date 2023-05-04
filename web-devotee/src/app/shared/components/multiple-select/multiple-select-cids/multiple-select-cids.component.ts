@@ -97,9 +97,9 @@ export class MultipleSelectCidsComponent implements OnInit {
       }
       cids.push(element?.cid.id);
     });
-    console.log(this.filteredCids);
-    let difference = this.filteredCids.filter(x => !newFiltered.includes(x.id));
-    newFiltered.push(...difference);
+    var b = new Set(newFiltered);
+    let difference = [...this.filteredCids].filter(x => !b.has(x));
+    newFiltered = difference;
     this.filteredCids = newFiltered;
     this.formGroup.get(EnumControlsForm.myCids)
       .setValue(cids);

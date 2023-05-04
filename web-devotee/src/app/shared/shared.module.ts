@@ -29,6 +29,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { AdsCardsComponent } from './components/google-ads/ads-cards/ads-cards/ads-cards.component';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { MultipleSelectCidsComponent } from './components/multiple-select/multiple-select-cids/multiple-select-cids.component';
+import { MultipleSelectDrugsComponent } from './components/multiple-select/multiple-select-drugs/multiple-select-drugs.component';
 
 const components = [
   FooterComponent,
@@ -39,6 +40,7 @@ const components = [
   ChatMessagesComponent,
   AdsCardsComponent,
   MultipleSelectCidsComponent,
+  MultipleSelectDrugsComponent,
 ]
 const angularMaterialModules = [
   MatInputModule,

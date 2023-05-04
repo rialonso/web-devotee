@@ -1,0 +1,35 @@
+<form [formGroup]="formGroup">
+  <mat-form-field appearance="fill">
+    <mat-label>{{ dataTexts.inputs.selectMedications.label }}</mat-label>
+    <mat-select
+    #drugs
+    formControlName="my_drugs"
+    multiple
+    >
+      <mat-form-field class="example-full-width width-100-per" appearance="fill">
+        <mat-label>{{ dataTexts.inputs.searchs.medicines.label }}</mat-label>
+        <input
+          #searchDrugs
+          matInput
+          [placeholder]="dataTexts.inputs.searchs.medicines.placeholder"
+          type="name"
+          autocomplete="name"
+          formControlName="input_my_drugs"
+          (ngModelChange)="searchDrug($event)"
+          (keydown)="$event.stopPropagation()"
+          >
+      </mat-form-field>
+      <div *ngIf="usageLaguage === laguagesApplication.PT">
+        <mat-option [value]="drug.id" *ngFor="let drug of filteredDrugs">
+          {{drug.name}}
+        </mat-option>
+      </div>
+      <div *ngIf="usageLaguage === laguagesApplication.US ">
+        <mat-option [value]="drug.id" *ngFor="let drug of filteredDrugs">
+          {{drug.name_en}}
+        </mat-option>
+      </div>
+    </mat-select>
+  </mat-form-field>
+
+</form>

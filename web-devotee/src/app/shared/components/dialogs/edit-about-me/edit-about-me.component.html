@@ -72,7 +72,7 @@
   <section *ngIf="specialAccount" class="container-data-disability container-register-default">
     <mat-card-title>{{dataTexts.iamEspecialAndDevotee.titleAboutYourDisability}}</mat-card-title>
     <div class="container-default-inputs-orientation content-data-person">
-      <app-multiple-select-cids class="example-full-width width-100-per" (selectedCids)="setCids()"></app-multiple-select-cids>
+      <app-multiple-select-cids class="example-full-width width-100-per" (selectedCids)="setCids($event)"></app-multiple-select-cids>
       <mat-form-field appearance="fill">
         <mat-label>{{ dataTexts.inputs.selectMedicalProcedures.label }}</mat-label>
         <mat-select
@@ -107,38 +107,7 @@
       </mat-form-field>
     </div>
     <div class="container-default-inputs-orientation content-data-person">
-      <mat-form-field appearance="fill">
-        <mat-label>{{ dataTexts.inputs.selectMedications.label }}</mat-label>
-        <mat-select
-        #drugs
-        formControlName="my_drugs"
-        multiple
-        >
-          <mat-form-field class="example-full-width width-100-per" appearance="fill">
-            <mat-label>{{ dataTexts.inputs.searchs.medicines.label }}</mat-label>
-            <input
-              #searchDrugs
-              matInput
-              [placeholder]="dataTexts.inputs.searchs.medicines.placeholder"
-              type="name"
-              autocomplete="name"
-              formControlName="input_my_drugs"
-              (ngModelChange)="searchDrug($event)"
-              (keydown)="$event.stopPropagation()"
-              >
-          </mat-form-field>
-          <div *ngIf="usageLaguage === laguagesApplication.PT">
-            <mat-option [value]="drug.id" *ngFor="let drug of filteredDrugs">
-              {{drug.name}}
-            </mat-option>
-          </div>
-          <div *ngIf="usageLaguage === laguagesApplication.US ">
-            <mat-option [value]="drug.id" *ngFor="let drug of filteredDrugs">
-              {{drug.name_en}}
-            </mat-option>
-          </div>
-        </mat-select>
-      </mat-form-field>
+      <app-multiple-select-drugs class="example-full-width width-100-per" (selectedDrugs)="setDrugs($event)"></app-multiple-select-drugs>
       <mat-form-field appearance="fill">
         <mat-label>{{ dataTexts.inputs.selectHospitals.label }}</mat-label>
         <mat-select
