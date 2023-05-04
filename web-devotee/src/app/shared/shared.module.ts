@@ -30,6 +30,7 @@ import { AdsCardsComponent } from './components/google-ads/ads-cards/ads-cards/a
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { MultipleSelectCidsComponent } from './components/multiple-select/multiple-select-cids/multiple-select-cids.component';
 import { MultipleSelectDrugsComponent } from './components/multiple-select/multiple-select-drugs/multiple-select-drugs.component';
+import { MultipleSelectMedicalProceduresComponent } from './components/multiple-select/multiple-select-medical-procedures/multiple-select-medical-procedures.component';
 
 const components = [
   FooterComponent,
@@ -41,6 +42,7 @@ const components = [
   AdsCardsComponent,
   MultipleSelectCidsComponent,
   MultipleSelectDrugsComponent,
+  MultipleSelectMedicalProceduresComponent,
 ]
 const angularMaterialModules = [
   MatInputModule,

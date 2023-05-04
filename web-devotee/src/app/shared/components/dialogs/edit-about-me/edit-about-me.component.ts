@@ -232,7 +232,7 @@ export class EditAboutMeComponent implements OnInit {
   }
   getDatasSelectTypeSpecial() {
   return new Promise(async (resolve, reject) => {
-    this.getMedicalProcedures(undefined, undefined, true);
+    // this.getMedicalProcedures(undefined, undefined, true);
     // this.getDrugs(undefined, undefined, true);
     this.getHospitals(undefined, undefined, true);
     resolve(true);
@@ -302,14 +302,16 @@ export class EditAboutMeComponent implements OnInit {
     // this.filteredCids.push(cidsToInject);
   }
   setCids(cids) {
-    console.log(cids)
     this.formGroup.get(EnumControlsForm.myCids)
     .setValue(cids);
   }
   setDrugs(drugs) {
-    console.log(drugs)
     this.formGroup.get(EnumControlsSpecialPerson.MY_DRUGS)
     .setValue(drugs);
+  }
+  setMedicalProcedures(medicalProcedures) {
+    this.formGroup.get(EnumControlsSpecialPerson.MEDICAL_PROCEDURES)
+    .setValue(medicalProcedures);
   }
   setDrugsInitialValue() {
     const userData = this.state.getValue()?.userData?.data;

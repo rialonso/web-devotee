@@ -1,0 +1,35 @@
+<form [formGroup]="formGroup">
+  <mat-form-field appearance="fill">
+    <mat-label>{{ dataTexts.inputs.selectMedicalProcedures.label }}</mat-label>
+    <mat-select
+      #medicalProcedures
+      multiple
+      formControlName="medical_procedures"
+
+      >
+      <mat-form-field class="example-full-width width-100-per" appearance="fill">
+        <mat-label>{{ dataTexts.inputs.searchs.medicalProcedures.label }}</mat-label>
+        <input
+          #searchMedicalProcedures
+          matInput
+          [placeholder]="dataTexts.inputs.searchs.medicalProcedures.placeholder"
+          formControlName="input_medical_procedures"
+          (ngModelChange)="searchMedicalProcedure($event)"
+          (keydown)="$event.stopPropagation()"
+
+          >
+      </mat-form-field>
+      <div *ngIf="usageLaguage === laguagesApplication.PT">
+        <mat-option [value]="medicalProcedure.id" *ngFor="let medicalProcedure of filteredMedicalProcedures">
+          {{medicalProcedure.name}}
+        </mat-option>
+      </div>
+      <div *ngIf="usageLaguage === laguagesApplication.US ">
+        <mat-option [value]="medicalProcedure.id" *ngFor="let medicalProcedure of filteredMedicalProcedures">
+          {{medicalProcedure.name_en}}
+        </mat-option>
+      </div>
+    </mat-select>
+  </mat-form-field>
+
+</form>

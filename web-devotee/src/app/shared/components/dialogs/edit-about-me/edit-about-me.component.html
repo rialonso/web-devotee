@@ -73,38 +73,7 @@
     <mat-card-title>{{dataTexts.iamEspecialAndDevotee.titleAboutYourDisability}}</mat-card-title>
     <div class="container-default-inputs-orientation content-data-person">
       <app-multiple-select-cids class="example-full-width width-100-per" (selectedCids)="setCids($event)"></app-multiple-select-cids>
-      <mat-form-field appearance="fill">
-        <mat-label>{{ dataTexts.inputs.selectMedicalProcedures.label }}</mat-label>
-        <mat-select
-          #medicalProcedures
-          multiple
-          formControlName="medical_procedures"
-
-          >
-          <mat-form-field class="example-full-width width-100-per" appearance="fill">
-            <mat-label>{{ dataTexts.inputs.searchs.medicalProcedures.label }}</mat-label>
-            <input
-              #searchMedicalProcedures
-              matInput
-              [placeholder]="dataTexts.inputs.searchs.medicalProcedures.placeholder"
-              formControlName="input_medical_procedures"
-              (ngModelChange)="searchMedicalProcedure($event)"
-              (keydown)="$event.stopPropagation()"
-
-              >
-          </mat-form-field>
-          <div *ngIf="usageLaguage === laguagesApplication.PT">
-            <mat-option [value]="medicalProcedure.id" *ngFor="let medicalProcedure of filteredMedicalProcedures">
-              {{medicalProcedure.name}}
-            </mat-option>
-          </div>
-          <div *ngIf="usageLaguage === laguagesApplication.US ">
-            <mat-option [value]="medicalProcedure.id" *ngFor="let medicalProcedure of filteredMedicalProcedures">
-              {{medicalProcedure.name_en}}
-            </mat-option>
-          </div>
-        </mat-select>
-      </mat-form-field>
+      <app-multiple-select-medical-procedures class="example-full-width width-100-per" (selectedMedicalProcedures)="setMedicalProcedures($event)"></app-multiple-select-medical-procedures>
     </div>
     <div class="container-default-inputs-orientation content-data-person">
       <app-multiple-select-drugs class="example-full-width width-100-per" (selectedDrugs)="setDrugs($event)"></app-multiple-select-drugs>
