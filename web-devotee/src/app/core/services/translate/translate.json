@@ -531,8 +531,8 @@
       "matches": {
         "title": "Meus matches",
         "lastMessageImg": "Imagem",
-        "sentByYou": "você:"
-
+        "sentByYou": "você:",
+        "dontHave": "Não possui matchs"
       }
     },
     "sugestionMatchs": {
@@ -1115,7 +1115,8 @@
       "matches": {
         "title": "My matches",
         "lastMessageImg": "picture",
-        "sentByYou": "You:"
+        "sentByYou": "You:",
+        "dontHave": "Don`t have matchs"
       }
     },
     "sugestionMatchs": {

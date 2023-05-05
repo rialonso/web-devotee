@@ -46,6 +46,15 @@ body{
       @include dp-flex-alignment(column, initial, initial);
        gap: 10px;
     }
+    .container-no-matches {
+      font-size: 20px;
+      height: 100%;
+      max-height: 600px;
+      min-height: 400px;
+      overflow: auto;
+      @include dp-flex-alignment(column, center, center);
+
+    }
   }
   .container-title-register {
     box-sizing: border-box;
