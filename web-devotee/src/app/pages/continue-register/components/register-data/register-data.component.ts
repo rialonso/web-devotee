@@ -114,7 +114,7 @@ export class RegisterDataComponent implements OnInit {
     if (this.state.getValue()?.registerData?.account_type === EnumUserType.SPECIAL) {
       this.specialAccount = true;
       this.addControlsTypeSpecial();
-      await this.getDatasSelectTypeSpecial();
+      // await this.getDatasSelectTypeSpecial();
       this.valueChangesInputsSearchSelects();
 
     };
@@ -252,13 +252,17 @@ export class RegisterDataComponent implements OnInit {
     });
   }
   removeControlsIputSearchSpecialThings() {
-    const controlsSpecial = [
-      ...searchSpecialPerson,
-      ...inputsSpecialPerson,
-    ];
-    controlsSpecial.forEach((value: string) => {
-      this.formGroup.removeControl(value);
-    });
+    return new Promise<boolean>((resolve, reject) => {
+      const controlsSpecial = [
+        ...searchSpecialPerson,
+        ...inputsSpecialPerson,
+      ];
+      controlsSpecial.forEach((value: string) => {
+        this.formGroup.removeControl(value);
+      });
+      resolve(true);
+    })
+
   }
   navigateTo(route: EnumRoutesApplication) {
     this.routeService.navigateToURL(route);
@@ -282,18 +286,28 @@ export class RegisterDataComponent implements OnInit {
     if (this.formGroup.valid) {
       this.loading = true;
       let updateData;
-      this.store.dispatch(new AddDataRegister({
-        ...this.formGroup.value,
-        birthdate: this.dateFormatedToSend,
-      }));
+      // this.store.dispatch(new AddDataRegister({
+      //   ...this.formGroup.value,
+      //   birthdate: this.dateFormatedToSend,
+      // }));
+      const disabilitys = {
+        cid: this.addKeyInDisabilitys(this.formGroup.get('my_cids').value),
+        medical_procedures: this.addKeyInDisabilitys(this.formGroup.get('medical_procedures').value),
+        drugs: this.addKeyInDisabilitys(this.formGroup.get('my_drugs').value),
+        hospitals: this.addKeyInDisabilitys(this.formGroup.get('my_hospitals').value),
+      }
+      //
+      await this.removeControlsIputSearchSpecialThings();
+
       updateData = {
-        ...this.state.getValue().registerData,
+        ...this.formGroup.value,
         target_gender: this.changeTargetGender()
       }
+
       if (this.state.getValue()?.registerData?.account_type === EnumUserType.SPECIAL) {
         updateData = {
           ...updateData,
-          disability: this.setDataToSpecialPerson()
+          disability: disabilitys
         }
       }
       if(this.imagesList.length > 0) {
@@ -326,7 +340,7 @@ export class RegisterDataComponent implements OnInit {
     let newArrayValue = [];
     if (value) {
       value.forEach(element => {
-        newArrayValue.push(  element);
+        newArrayValue.push(  {id: element});
       });
     }
 
@@ -568,7 +582,6 @@ export class RegisterDataComponent implements OnInit {
     let cids = [];
     let newFiltered = [];
     userData?.my_cids.forEach(element => {
-      // console.log(this.filteredCids.filter(filteredCid => filteredCid.id == element.cid.id))
       if(this.filteredCids.some(filteredCid => filteredCid.id != element.cid.id)) {
         newFiltered.push(element.cid);
       }
@@ -617,5 +630,22 @@ export class RegisterDataComponent implements OnInit {
     this.formGroup.get('my_hospitals')
         .setValue(hospital);
 
+  }
+
+  setCids(cids) {
+    this.formGroup.get(EnumControlsForm.myCids)
+    .setValue(cids);
+  }
+  setDrugs(drugs) {
+    this.formGroup.get(EnumControlsSpecialPerson.MY_DRUGS)
+    .setValue(drugs);
+  }
+  setMedicalProcedures(medicalProcedures) {
+    this.formGroup.get(EnumControlsSpecialPerson.MEDICAL_PROCEDURES)
+    .setValue(medicalProcedures);
+  }
+  setHospitals(hospitals) {
+    this.formGroup.get(EnumControlsSpecialPerson.MY_HOSPTALS)
+    .setValue(hospitals);
   }
 }
