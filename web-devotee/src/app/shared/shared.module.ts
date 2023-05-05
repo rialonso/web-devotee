@@ -31,6 +31,7 @@ import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { MultipleSelectCidsComponent } from './components/multiple-select/multiple-select-cids/multiple-select-cids.component';
 import { MultipleSelectDrugsComponent } from './components/multiple-select/multiple-select-drugs/multiple-select-drugs.component';
 import { MultipleSelectMedicalProceduresComponent } from './components/multiple-select/multiple-select-medical-procedures/multiple-select-medical-procedures.component';
+import { MultipleSelectHospitalsComponent } from './components/multiple-select/multiple-select-hospitals/multiple-select-hospitals.component';
 
 const components = [
   FooterComponent,
@@ -43,6 +44,7 @@ const components = [
   MultipleSelectCidsComponent,
   MultipleSelectDrugsComponent,
   MultipleSelectMedicalProceduresComponent,
+  MultipleSelectHospitalsComponent
 ]
 const angularMaterialModules = [
   MatInputModule,

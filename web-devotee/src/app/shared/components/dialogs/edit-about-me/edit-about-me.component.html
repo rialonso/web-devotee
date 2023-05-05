@@ -77,33 +77,8 @@
     </div>
     <div class="container-default-inputs-orientation content-data-person">
       <app-multiple-select-drugs class="example-full-width width-100-per" (selectedDrugs)="setDrugs($event)"></app-multiple-select-drugs>
-      <mat-form-field appearance="fill">
-        <mat-label>{{ dataTexts.inputs.selectHospitals.label }}</mat-label>
-        <mat-select
-        #hospitals
-        formControlName="my_hospitals"
-        multiple>
-          <mat-form-field class="example-full-width width-100-per" appearance="fill">
-            <mat-label>{{ dataTexts.inputs.searchs.hospitals.label }}</mat-label>
-            <input
-              #searchHospitals
-              matInput
-              [placeholder]="dataTexts.inputs.searchs.hospitals.placeholder"
-              type="name"
-              autocomplete="name"
-              formControlName="input_my_hospitals"
-              (ngModelChange)="searchHospital($event)"
+      <app-multiple-select-hospitals class="example-full-width width-100-per" (selectedHospitals)="setHospitals($event)"></app-multiple-select-hospitals>
 
-              (keydown)="$event.stopPropagation()"
-              >
-          </mat-form-field>
-          <div>
-            <mat-option [value]="hosptal.id" *ngFor="let hosptal of filteredHosptals">
-              {{hosptal.name}}
-            </mat-option>
-          </div>
-        </mat-select>
-      </mat-form-field>
     </div>
   </section>
   <section class="contianer-btns">

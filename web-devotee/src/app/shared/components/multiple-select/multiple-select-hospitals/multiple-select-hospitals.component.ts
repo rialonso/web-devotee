@@ -12,14 +12,14 @@ import { GetSelectsSpecialPersonService } from 'src/app/shared/functions/get-sel
 import { IAppState } from 'src/app/state-management/app.model';
 
 @Component({
-  selector: 'app-multiple-select-medical-procedures',
-  templateUrl: './multiple-select-medical-procedures.component.html',
-  styleUrls: ['./multiple-select-medical-procedures.component.scss']
+  selector: 'app-multiple-select-hospitals',
+  templateUrl: './multiple-select-hospitals.component.html',
+  styleUrls: ['./multiple-select-hospitals.component.scss']
 })
-export class MultipleSelectMedicalProceduresComponent implements OnInit {
-  @ViewChild('medicalProcedures') selectElemMedicalProcedures: MatSelect;
-  @ViewChild('searchMedicalProcedures') inputElemMedicalProcedures: ElementRef;
-  @Output() selectedMedicalProcedures = new EventEmitter();
+export class MultipleSelectHospitalsComponent implements OnInit {
+  @ViewChild('hospitals') selectElemHospitals: MatSelect;
+  @ViewChild('searchHospitals') inputElemHospitals: ElementRef;
+  @Output() selectedHospitals = new EventEmitter();
   laguagesApplication = EnumLanguages;
 
   dataTexts;
@@ -27,9 +27,9 @@ export class MultipleSelectMedicalProceduresComponent implements OnInit {
   usageLaguage;
   formGroup: FormGroup;
 
-  currentPageMedicalProcedures = 1;
+  currentPageMedicalHospitals = 1;
 
-  filteredMedicalProcedures: any[] = [];
+  filteredHosptals: any[] = [];
 
   destroy$ = new ReplaySubject(1);
   constructor(
@@ -44,18 +44,18 @@ export class MultipleSelectMedicalProceduresComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this.getMedicalProcedures(undefined, undefined, true);
+    this.getHospitals(undefined, undefined, true);
     this.valueChangesInputsSearchSelects();
   }
   initForm() {
     this.formGroup = this.formBuilder.group({
 
-      medical_procedures: [
+      my_hospitals: [
         '',
         [
         ]
       ],
-      input_medical_procedures: [
+      input_my_hospitals: [
         '',
         [
         ]
@@ -65,58 +65,58 @@ export class MultipleSelectMedicalProceduresComponent implements OnInit {
   }
   valueChangesInputsSearchSelects() {
     this.formGroup
-      .get(EnumControlsSpecialPerson.INPUT_MEDICAL_PROCEDURES)
+      .get(EnumControlsSpecialPerson.INPUT_MY_HOSPTALS)
       .valueChanges
       .pipe(takeUntil(this.destroy$))
       .subscribe(res => {
         this.getSelectsSpecialPersonService
-          .getMedicalProcedures(res)
+          .getHosptals(res)
           .then(selectData => {
-            this.filteredMedicalProcedures = selectData.data;
+            this.filteredHosptals = selectData.data;
         })
       });
       this.formGroup
-      .get(EnumControlsSpecialPerson.MEDICAL_PROCEDURES)
+      .get(EnumControlsSpecialPerson.MY_HOSPTALS)
       .valueChanges
       .pipe(takeUntil(this.destroy$))
       .subscribe(res => {
-        this.selectedMedicalProcedures.emit(res);
+        this.selectedHospitals.emit(res);
       });
   }
-  getMedicalProcedures(pg= 1, search = '', init = false) {
+  getHospitals(pg= 1, search = '', init = false) {
     this.getSelectsSpecialPersonService
-    .getMedicalProcedures(search, pg).then(res => {
-      this.currentPageMedicalProcedures = res.current_page + 1;
-      this.filteredMedicalProcedures.push(...res.data);
-      if (search == ''&& init) {
-        this.setMedicalProceduresInitialValues();
-
-        this.selectElemMedicalProcedures.openedChange.subscribe((a) => {
-          if (!a) {
-            this.getMedicalProcedures(1);
-          }
-          this.registerPanelScrollEvent(this.selectElemMedicalProcedures, EnumControlsForm.medicalProcedures)
-        });
-      }
-
+    .getHosptalsLogged(search, pg).then(res => {
+      this.currentPageMedicalHospitals = res.current_page + 1;
+      this.filteredHosptals.push(...res.data);
+        if (search == ''&& init) {
+          this.setHospitalsInitialValues();
+          this.selectElemHospitals.openedChange.subscribe((a) => {
+            if (!a) {
+              this.getHospitals(1);
+            }
+            this.registerPanelScrollEvent(this.selectElemHospitals, EnumControlsForm.myHospitals)
+          });
+        }
     });
   }
-  setMedicalProceduresInitialValues() {
+  setHospitalsInitialValues() {
     const userData = this.state.getValue()?.userData?.data;
-    let medicalProcedure = [];
+
+    let hospital = [];
     let newFiltered = [];
 
-    userData?.medical_procedures.forEach(element => {
-      if(this.filteredMedicalProcedures.find(filteredMedicalProcedure => filteredMedicalProcedure.id != element.medical_procedures.id)) {
-        newFiltered.push(element.medical_procedures);
+    userData?.my_hospitals.forEach(element => {
+      if(this.filteredHosptals.find(filteredHospital => filteredHospital.id != element.hospital.id)) {
+        newFiltered.push(element.hospital);
       }
-      medicalProcedure.push(element?.medical_procedures?.id);
+      hospital.push(element?.hospital.id);
     });
-    let difference = this.filteredMedicalProcedures.filter(x => !newFiltered.includes(x.id));
+    let difference = this.filteredHosptals.filter(x => !newFiltered.includes(x.id));
     newFiltered.push(...difference);
-    this.filteredMedicalProcedures.push(newFiltered);
-    this.formGroup.get(EnumControlsForm.medicalProcedures)
-      .setValue(medicalProcedure);
+    this.filteredHosptals.push(newFiltered);
+    this.formGroup.get('my_hospitals')
+        .setValue(hospital);
+
   }
   registerPanelScrollEvent(element, matSelect) {
     const panel = element?.panel?.nativeElement;
@@ -128,12 +128,12 @@ export class MultipleSelectMedicalProceduresComponent implements OnInit {
 
   loadAllOnScroll(event, matSelect) {
     if (event.target.scrollTop +  event.target.offsetHeight == event.target.scrollHeight) {
-      if (this.inputElemMedicalProcedures?.nativeElement.value == '') {
-        this.getMedicalProcedures(this.currentPageMedicalProcedures);
+      if (this.inputElemHospitals?.nativeElement.value == '') {
+        this.getHospitals(this.currentPageMedicalHospitals);
       }
     }
   }
-  searchMedicalProcedure(value: string) {
-    this.getMedicalProcedures(undefined, value);
+  searchHospital(value: string) {
+    this.getHospitals(undefined, value);
   }
 }

@@ -1,0 +1,29 @@
+<form [formGroup]="formGroup">
+  <mat-form-field appearance="fill">
+    <mat-label>{{ dataTexts.inputs.selectHospitals.label }}</mat-label>
+    <mat-select
+    #hospitals
+    formControlName="my_hospitals"
+    multiple>
+      <mat-form-field class="example-full-width width-100-per" appearance="fill">
+        <mat-label>{{ dataTexts.inputs.searchs.hospitals.label }}</mat-label>
+        <input
+          #searchHospitals
+          matInput
+          [placeholder]="dataTexts.inputs.searchs.hospitals.placeholder"
+          type="name"
+          autocomplete="name"
+          formControlName="input_my_hospitals"
+          (ngModelChange)="searchHospital($event)"
+
+          (keydown)="$event.stopPropagation()"
+          >
+      </mat-form-field>
+      <div>
+        <mat-option [value]="hosptal.id" *ngFor="let hosptal of filteredHosptals">
+          {{hosptal.name}}
+        </mat-option>
+      </div>
+    </mat-select>
+  </mat-form-field>
+</form>

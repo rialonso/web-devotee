@@ -78,7 +78,7 @@ export class EditAboutMeComponent implements OnInit {
     if (this.state.getValue()?.userData?.data?.account_type == EnumUserType.SPECIAL) {
       this.specialAccount = true;
       this.addControlsTypeSpecial();
-      await this.getDatasSelectTypeSpecial();
+      // await this.getDatasSelectTypeSpecial();
       this.valueChangesInputsSearchSelects();
     };
     this.setInitialValues()
@@ -312,6 +312,10 @@ export class EditAboutMeComponent implements OnInit {
   setMedicalProcedures(medicalProcedures) {
     this.formGroup.get(EnumControlsSpecialPerson.MEDICAL_PROCEDURES)
     .setValue(medicalProcedures);
+  }
+  setHospitals(hospitals) {
+    this.formGroup.get(EnumControlsSpecialPerson.MY_HOSPTALS)
+    .setValue(hospitals);
   }
   setDrugsInitialValue() {
     const userData = this.state.getValue()?.userData?.data;
