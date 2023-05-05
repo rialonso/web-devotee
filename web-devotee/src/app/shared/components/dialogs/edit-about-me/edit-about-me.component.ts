@@ -78,41 +78,8 @@ export class EditAboutMeComponent implements OnInit {
     if (this.state.getValue()?.userData?.data?.account_type == EnumUserType.SPECIAL) {
       this.specialAccount = true;
       this.addControlsTypeSpecial();
-      // await this.getDatasSelectTypeSpecial();
-      this.valueChangesInputsSearchSelects();
     };
     this.setInitialValues()
-  }
-  registerPanelScrollEvent(element, matSelect) {
-    const panel = element?.panel?.nativeElement;
-    panel?.addEventListener('scroll', event => {
-        this.loadAllOnScroll(event, matSelect);
-      }
-    );
-  }
-
-  loadAllOnScroll(event, matSelect) {
-    if (event.target.scrollTop +  event.target.offsetHeight == event.target.scrollHeight) {
-      switch (matSelect) {
-        case EnumControlsForm.medicalProcedures:
-          if (this.inputElemMedicalProcedures?.nativeElement.value == '') {
-            this.getMedicalProcedures(this.currentPageMedicalProcedures);
-          }
-          break;
-        case EnumControlsForm.myDrugs:
-          if (this.inputElemDrugs?.nativeElement.value == '') {
-            this.getDrugs(this.currentPageMedicalDrugs);
-          }
-          break;
-        case EnumControlsForm.myHospitals:
-          if (this.inputElemHospitals?.nativeElement.value == '') {
-            this.getHospitals(this.currentPageMedicalHospitals);
-          }
-          break;
-        default:
-          break;
-      }
-    }
   }
   private initForm() {
     this.formGroup = this.formBuilder.group({
@@ -178,92 +145,7 @@ export class EditAboutMeComponent implements OnInit {
       this.formGroup.removeControl(value);
     });
   }
-  getMedicalProcedures(pg= 1, search = '', init = false) {
-    this.getSelectsSpecialPersonService
-    .getMedicalProcedures(search, pg).then(res => {
-      this.currentPageMedicalProcedures = res.current_page + 1;
-      this.filteredMedicalProcedures.push(...res.data);
-      if (search == ''&& init) {
-        this.setMedicalProceduresInitialValues();
 
-        this.selectElemMedicalProcedures.openedChange.subscribe((a) => {
-          if (!a) {
-            this.getMedicalProcedures(1);
-          }
-          this.registerPanelScrollEvent(this.selectElemMedicalProcedures, EnumControlsForm.medicalProcedures)
-        });
-      }
-
-    });
-  }
-  getDrugs(pg= 1, search = '', init = false) {
-    this.getSelectsSpecialPersonService
-    .getDrugsMedicines(search, pg).then(res => {
-      this.currentPageMedicalDrugs = res.current_page + 1;
-      this.filteredDrugs.push(...res.data);
-      if (search == '' && init) {
-        this.setDrugsInitialValue();
-
-        this.selectElemDrugs.openedChange.subscribe((a) => {
-          if (!a) {
-            this.getDrugs(1);
-          }
-          this.registerPanelScrollEvent(this.selectElemDrugs, EnumControlsForm.myDrugs)
-        });
-      }
-
-    });
-  }
-  getHospitals(pg= 1, search = '', init = false) {
-    this.getSelectsSpecialPersonService
-    .getHosptalsLogged(search, pg).then(res => {
-      this.currentPageMedicalHospitals = res.current_page + 1;
-      this.filteredHosptals.push(...res.data);
-        if (search == ''&& init) {
-          this.setHospitalsInitialValues();
-          this.selectElemHospitals.openedChange.subscribe((a) => {
-            if (!a) {
-              this.getHospitals(1);
-            }
-            this.registerPanelScrollEvent(this.selectElemHospitals, EnumControlsForm.myHospitals)
-          });
-        }
-    });
-  }
-  getDatasSelectTypeSpecial() {
-  return new Promise(async (resolve, reject) => {
-    // this.getMedicalProcedures(undefined, undefined, true);
-    // this.getDrugs(undefined, undefined, true);
-    this.getHospitals(undefined, undefined, true);
-    resolve(true);
-  })
-
-
-  }
-  valueChangesInputsSearchSelects() {
-    this.formGroup
-      .get(EnumControlsSpecialPerson.INPUT_MEDICAL_PROCEDURES)
-      .valueChanges
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(res => {
-        this.getSelectsSpecialPersonService
-          .getMedicalProcedures(res)
-          .then(selectData => {
-            this.filteredMedicalProcedures = selectData.data;
-        })
-      });
-    this.formGroup
-      .get(EnumControlsSpecialPerson.INPUT_MY_HOSPTALS)
-      .valueChanges
-      .pipe(takeUntil(this.destroy$))
-      .subscribe(res => {
-        this.getSelectsSpecialPersonService
-          .getHosptals(res)
-          .then(selectData => {
-            this.filteredHosptals = selectData.data;
-        })
-      });
-  }
   genderChanged(value) {
     if (value === 'trans') {
       this.showWasBorn = true;
@@ -278,28 +160,6 @@ export class EditAboutMeComponent implements OnInit {
     this.formGroup.patchValue({
       ...userData,
     });
-  }
-  setMedicalProceduresInitialValues() {
-    const userData = this.state.getValue()?.userData?.data;
-    let medicalProcedure = [];
-    let newFiltered = [];
-
-    userData?.medical_procedures.forEach(element => {
-      if(this.filteredMedicalProcedures.find(filteredMedicalProcedure => filteredMedicalProcedure.id != element.medical_procedures.id)) {
-        newFiltered.push(element.medical_procedures);
-      }
-      medicalProcedure.push(element?.medical_procedures?.id);
-    });
-    let difference = this.filteredMedicalProcedures.filter(x => !newFiltered.includes(x.id));
-    newFiltered.push(...difference);
-    this.filteredMedicalProcedures = newFiltered;
-    this.formGroup.get(EnumControlsForm.medicalProcedures)
-      .setValue(medicalProcedure);
-
-  }
-  inject(value) {
-    // const cidsToInject = this.filteredCids.find(cid =>  cid.id === value[value.length - 1]);
-    // this.filteredCids.push(cidsToInject);
   }
   setCids(cids) {
     this.formGroup.get(EnumControlsForm.myCids)
@@ -316,43 +176,6 @@ export class EditAboutMeComponent implements OnInit {
   setHospitals(hospitals) {
     this.formGroup.get(EnumControlsSpecialPerson.MY_HOSPTALS)
     .setValue(hospitals);
-  }
-  setDrugsInitialValue() {
-    const userData = this.state.getValue()?.userData?.data;
-    let drugs = []
-    let newFiltered = [];
-
-    userData?.my_drugs.forEach(element => {
-      if(this.filteredDrugs.find(filteredDrug => filteredDrug.id != element.drug.id)) {
-        newFiltered.push(element.drug);
-      }
-      drugs.push(element?.drug.id);
-    });
-    let difference = this.filteredDrugs.filter(x => !newFiltered.includes(x.id));
-    newFiltered.push(...difference);
-    this.filteredDrugs = newFiltered;
-    this.formGroup.get('my_drugs')
-      .setValue(drugs);
-
-  }
-  setHospitalsInitialValues() {
-    const userData = this.state.getValue()?.userData?.data;
-
-    let hospital = [];
-    let newFiltered = [];
-
-    userData?.my_hospitals.forEach(element => {
-      if(this.filteredHosptals.find(filteredHospital => filteredHospital.id != element.hospital.id)) {
-        newFiltered.push(element.hospital);
-      }
-      hospital.push(element?.hospital.id);
-    });
-    let difference = this.filteredHosptals.filter(x => !newFiltered.includes(x.id));
-    newFiltered.push(...difference);
-    this.filteredHosptals = newFiltered;
-    this.formGroup.get('my_hospitals')
-        .setValue(hospital);
-
   }
   changeViewValueSexualOrientation(value) {
     return this.formGroup.get('sexual_orientation').value || value;
@@ -400,14 +223,5 @@ export class EditAboutMeComponent implements OnInit {
   }
   closeModal(action: string = 'close') {
     this.matDialogRef.close(action);
-  }
-  searchDrug(value: string) {
-    this.getDrugs(undefined, value);
-  }
-  searchMedicalProcedure(value: string) {
-    this.getMedicalProcedures(undefined, value);
-  }
-  searchHospital(value: string) {
-    this.getHospitals(undefined, value);
   }
 }
