@@ -269,6 +269,8 @@ export class RegisterDataComponent implements OnInit {
 
       updateData = {
         ...this.formGroup.value,
+        lat: this.state.getValue()?.registerData?.lat,
+        lng: this.state.getValue()?.registerData?.lng,
         target_gender: this.changeTargetGender()
       }
 

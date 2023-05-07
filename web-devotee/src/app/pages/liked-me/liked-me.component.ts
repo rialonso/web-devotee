@@ -1,3 +1,4 @@
+import { CalculateHoursAgoService } from './../../shared/functions/calculate-hours-ago/calculate-hours-ago.service';
 import { Component, OnInit } from '@angular/core';
 import { State } from '@ngrx/store';
 import { LikedMeService } from 'src/app/core/services/liked-me/liked-me.service';
@@ -27,6 +28,7 @@ export class LikedMeComponent implements OnInit {
     private transformAgeService: TransformAgeService,
     private userProfileService: UserProfileService,
     private dialogsService: DialogsService,
+    private calculateHoursAgoService: CalculateHoursAgoService,
   ) {
     this.dataTexts = this.translateService?.textTranslate;
 
@@ -53,43 +55,7 @@ export class LikedMeComponent implements OnInit {
     }
   }
   calculateHoursAgo(updateAt: string) {
-    const dateLiked: any = new Date(updateAt);
-    const nowDate: any = new Date();
-    const diffInMs = dateLiked - nowDate;
-    const diffInDays = diffInMs / (1000 * 60 * 60 * 24);
-    const diffInHours = diffInMs / (1000 * 60 * 60);
-    const diffInMinutes = diffInMs / (1000 * 60);
-
-    if (dateLiked.getDate() === nowDate.getDate()) {
-      if (Math.abs(diffInHours) < 1) {
-        if (Math.abs(diffInMinutes) == 1 ) {
-          return `
-          ${Math.abs(Math.floor(diffInMinutes))}
-          ${this.dataTexts.minute} ${this.dataTexts.ago}`
-
-        }
-        return `
-          ${Math.abs(Math.floor(diffInMinutes))}
-          ${this.dataTexts.minutes} ${this.dataTexts.ago}`
-      }
-      if (Math.abs(diffInHours) == 1) {
-        return `
-          ${Math.abs(Math.floor(diffInHours))}
-          ${this.dataTexts.hour} ${this.dataTexts.ago}`
-      }
-      return `
-        ${Math.abs(Math.floor(diffInHours))}
-        ${this.dataTexts.hours} ${this.dataTexts.ago}`
-    } else {
-      if (Math.abs(diffInDays) == 1) {
-        return `
-        ${Math.abs(Math.floor(diffInDays))}
-        ${this.dataTexts.day} ${this.dataTexts.ago}`
-      }
-      return `
-      ${Math.abs(Math.floor(diffInDays))}
-      ${this.dataTexts.days} ${this.dataTexts.ago}`
-    }
+    return this.calculateHoursAgoService.calculateHoursAgo(updateAt);
   }
   async openProfile(userId) {
     if (this.userPlanType === 'free') {
