@@ -11,8 +11,6 @@ import { SignInService } from 'src/app/core/services/sign-in/sign-in.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StateManagementFuncService } from 'src/app/shared/functions/state-management/state-management-func.service';
 import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
-import { MatDialog } from '@angular/material/dialog';
-import { LoginQrCodeComponent } from 'src/app/shared/components/dialogs/login-qr-code/login-qr-code.component';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { ModelErrors } from 'src/app/shared/model/errors/errors.model';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
@@ -116,7 +114,6 @@ export class SignInComponent implements OnInit {
 async loginWithGoogle() {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
     .then(async (res) => {
-      // console.log(res);
       const dataToLoginGoogle = new ISignInGoogle(
         res.email,
         res.response.idpId,
