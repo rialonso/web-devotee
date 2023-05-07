@@ -225,7 +225,7 @@
             </mat-form-field>
           </div>
         </mat-card>
-        <mat-card *ngIf="specialAccount" class="container-data-disability container-register-default cotainer-data-register">
+        <mat-card *ngIf="specialAccount && activeLocation" class="container-data-disability container-register-default cotainer-data-register">
           <mat-card-title>{{dataTexts.iamEspecialAndDevotee.titleAboutYourDisability}}</mat-card-title>
           <div class="container-default-inputs-orientation content-data-person">
             <app-multiple-select-cids class="example-full-width width-100-per" (selectedCids)="setCids($event)"></app-multiple-select-cids>
@@ -233,7 +233,7 @@
           </div>
           <div class="container-default-inputs-orientation content-data-person">
             <app-multiple-select-drugs class="example-full-width width-100-per" (selectedDrugs)="setDrugs($event)"></app-multiple-select-drugs>
-            <app-multiple-select-hospitals class="example-full-width width-100-per" (selectedHospitals)="setHospitals($event)"></app-multiple-select-hospitals>
+            <app-multiple-select-hospitals class="example-full-width width-100-per" (selectedHospitals)="setHospitals($event)" [filteredHospitalsLatLong]="filteredHosptals"></app-multiple-select-hospitals>
           </div>
         </mat-card>
       </form>

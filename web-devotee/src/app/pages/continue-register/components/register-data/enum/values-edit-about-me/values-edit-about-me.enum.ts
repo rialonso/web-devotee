@@ -10,6 +10,8 @@ export enum ValueAboutME {
   HOMO = "homo",
   HOMOSEXUAL = "homosexual",
   BI = "bi",
-  BISEXUAL = "bisexual"
+  BISEXUAL = "bisexual",
+  MAN = "man",
+  WOMEN = "women"
 
 }

@@ -1,4 +1,4 @@
-import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSelect } from '@angular/material/select';
 import { State } from '@ngrx/store';
@@ -20,6 +20,8 @@ export class MultipleSelectHospitalsComponent implements OnInit {
   @ViewChild('hospitals') selectElemHospitals: MatSelect;
   @ViewChild('searchHospitals') inputElemHospitals: ElementRef;
   @Output() selectedHospitals = new EventEmitter();
+
+  @Input() filteredHospitalsLatLong = [];
   laguagesApplication = EnumLanguages;
 
   dataTexts;
@@ -43,8 +45,14 @@ export class MultipleSelectHospitalsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const userData = this.state.getValue()?.userData?.data;
+
     this.initForm();
-    this.getHospitals(undefined, undefined, true);
+    if (userData.lat && userData.lng) {
+      this.getHospitals(undefined, undefined, true);
+    } else {
+      this.filteredHosptals = this.filteredHospitalsLatLong;
+    }
     this.valueChangesInputsSearchSelects();
   }
   initForm() {
