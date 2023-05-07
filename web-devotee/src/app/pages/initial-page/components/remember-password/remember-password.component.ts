@@ -26,10 +26,7 @@ export class RememberPasswordComponent implements OnInit {
   constructor(
     protected state: State<IAppState>,
     protected store: Store<IAppState>,
-
     private translateService: TranslateService,
-    private router: Router,
-
     public routeService: RouteService,
 
   ) {

@@ -13,7 +13,6 @@ import { ModelErrors } from 'src/app/shared/model/errors/errors.model';
 import { MHeaderCardsInitialPage } from 'src/app/shared/model/header-cards-initial-page/header-cards-initial-page.enum';
 import { IAppState } from 'src/app/state-management/app.model';
 import { AddControlApp } from 'src/app/state-management/controls/copntrols-app.action';
-import { AddDataRegister } from 'src/app/state-management/register/register.action';
 import { RegisterService } from 'src/app/core/services/register/register.service';
 import { AddAllDataUser } from 'src/app/state-management/user-data/user-data.action';
 import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
