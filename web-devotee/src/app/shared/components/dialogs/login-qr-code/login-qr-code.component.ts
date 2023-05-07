@@ -3,7 +3,6 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ReplaySubject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { GenerateHashQrcodeService } from 'src/app/core/services/generate-hash-qrcode/generate-hash-qrcode.service';
-import { ReadHashQrcodeService } from 'src/app/core/services/read-hash-qrcode/read-hash-qrcode.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { LoginQrcodeConnectorService } from 'src/app/core/services/websockets/login-qrcode-connector/login-qrcode-connector.service';
 import { PusherAuthService } from 'src/app/core/services/websockets/pusher/pusher-auth/pusher-auth.service';
@@ -30,7 +29,6 @@ export class LoginQrCodeComponent implements OnInit {
     private translateService: TranslateService,
     private matDialogRef: MatDialogRef<LoginQrCodeComponent>,
     private generateHashQrcodeService: GenerateHashQrcodeService,
-    private readHashQrcodeService: ReadHashQrcodeService,
     private loginQrcodeConnectorService: LoginQrcodeConnectorService,
     private stateManagementFuncService: StateManagementFuncService,
     private routeService: RouteService,

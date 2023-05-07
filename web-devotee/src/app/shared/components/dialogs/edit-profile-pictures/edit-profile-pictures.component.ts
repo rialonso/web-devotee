@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { State } from '@ngrx/store';
-import { ProfilePicturesService } from 'src/app/core/services/profile-pictures/profile-pictures.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { UpdatePictureByOrderService } from 'src/app/core/services/update-picture-by-order/update-picture-by-order.service';
 import { UserProfileService } from 'src/app/core/services/user-profile/user-profile.service';
@@ -28,7 +27,6 @@ export class EditProfilePicturesComponent implements OnInit {
     protected state: State<IAppState>,
     private matDialogRef: MatDialogRef<EditProfilePicturesComponent>,
     private translateService: TranslateService,
-    private profilePicturesService: ProfilePicturesService,
     private updatePictureByOrderService: UpdatePictureByOrderService,
     private userProfileService: UserProfileService,
   ) { }
