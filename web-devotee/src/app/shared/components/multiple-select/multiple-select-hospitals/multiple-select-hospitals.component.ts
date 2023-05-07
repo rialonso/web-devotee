@@ -52,6 +52,7 @@ export class MultipleSelectHospitalsComponent implements OnInit {
       this.getHospitals(undefined, undefined, true);
     } else {
       this.filteredHosptals = this.filteredHospitalsLatLong;
+      this.setHospitalsInitialValues();
     }
     this.valueChangesInputsSearchSelects();
   }
