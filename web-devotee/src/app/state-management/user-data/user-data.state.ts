@@ -1,4 +1,4 @@
-export declare module IUserData {
+export module IUserData {
 
   export class ProfilePicture {
       id: number;

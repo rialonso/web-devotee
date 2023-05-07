@@ -2,7 +2,7 @@
   <mat-card class="container-title-register">
     <div class="container-title-register cursor-pointer" (click)="navigateTo(enumRouteApp.PRE_REGISTER)">
       <mat-icon class="mat-18 color-magenta-soft">arrow_back_ios</mat-icon>
-      <mat-card-title>{{dataTexts.changeUserType.headerYourProfile}}</mat-card-title>
+      <mat-card-title>{{dataTexts?.changeUserType.headerYourProfile}}</mat-card-title>
     </div>
   </mat-card>
   <form [formGroup]="formGroup" class="content-change-user-type">
@@ -18,7 +18,7 @@
         </section>
         <section class="container-title-text">
           <div class="container-title-check">
-            <h2 class="font-booster-next-bold color-blue-dark">{{dataTexts.changeUserType.iam.devotee.title}}</h2>
+            <h2 class="font-booster-next-bold color-blue-dark">{{dataTexts?.changeUserType.iam.devotee.title}}</h2>
             <label >
               <input
                 type="radio"
@@ -30,7 +30,7 @@
                 (change)="changeUserType(enumUserType.DEVOTEE)">
             </label>
           </div>
-          <p class="color-blue-dark">{{dataTexts.changeUserType.iam.devotee.text}}</p>
+          <p class="color-blue-dark">{{dataTexts?.changeUserType.iam.devotee.text}}</p>
         </section>
       </mat-card>
     </label>
@@ -46,7 +46,7 @@
         </section>
         <section class="container-title-text">
           <div class="container-title-check">
-            <h2 class="font-booster-next-bold color-blue-dark">{{dataTexts.changeUserType.iam.special.title}}</h2>
+            <h2 class="font-booster-next-bold color-blue-dark">{{dataTexts?.changeUserType.iam.special.title}}</h2>
             <label >
               <input
                 #radioDevotee
@@ -59,7 +59,7 @@
                 (change)="changeUserType(enumUserType.SPECIAL)">
             </label>
           </div>
-          <p class="color-blue-dark">{{dataTexts.changeUserType.iam.special.text}}</p>
+          <p class="color-blue-dark">{{dataTexts?.changeUserType.iam.special.text}}</p>
         </section>
       </mat-card>
     </label>
@@ -73,7 +73,7 @@
         </section>
         <section class="container-title-text">
           <div class="container-title-check">
-            <h2 class="font-booster-next-bold color-blue-dark">{{dataTexts.changeUserType.iam.curious.title}}</h2>
+            <h2 class="font-booster-next-bold color-blue-dark">{{dataTexts?.changeUserType.iam.curious.title}}</h2>
             <label >
               <input
                 type="radio"
@@ -85,7 +85,7 @@
                 (change)="changeUserType(enumUserType.CURIOUS)">
             </label>
           </div>
-          <p class="color-blue-dark">{{dataTexts.changeUserType.iam.curious.text}}</p>
+          <p class="color-blue-dark">{{dataTexts?.changeUserType.iam.curious.text}}</p>
         </section>
       </mat-card>
     </label>
@@ -96,14 +96,14 @@
   <button
     class="button stroke-primary"
     (click)="navigateTo(enumRouteApp.PRE_REGISTER)">
-    {{ dataTexts.buttons.btnBack }}
+    {{ dataTexts?.buttons.btnBack }}
   </button>
   <button
     class="button primary"
     [disabled]="formGroup.invalid"
     (click)="navigateTo(enumRouteApp.RULES)">
 
-    {{ dataTexts.buttons.btnContinue }}
+    {{ dataTexts?.buttons.btnContinue }}
   </button>
 
 </section>

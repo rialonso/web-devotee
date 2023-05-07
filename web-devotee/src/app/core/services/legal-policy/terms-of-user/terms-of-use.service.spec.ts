@@ -1,16 +1,21 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TermsOfUseService } from './terms-of-use.service';
+import { TermsOfUseServiceEn, TermsOfUseServicePt } from './terms-of-use.service';
 
 describe('TermsOfUseService', () => {
-  let service: TermsOfUseService;
+  let servicePt: TermsOfUseServicePt;
+  let serviceEn: TermsOfUseServiceEn;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(TermsOfUseService);
+    servicePt = TestBed.inject(TermsOfUseServicePt);
+    serviceEn = TestBed.inject(TermsOfUseServiceEn);
+
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(servicePt).toBeTruthy();
+    expect(serviceEn).toBeTruthy();
+
   });
 });

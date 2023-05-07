@@ -10,7 +10,7 @@ describe('Service: HttpService', () => {
     });
   });
 
-  it('should ...', inject([HttpService], (service: HttpService) => {
+  it('should ...', inject([HttpService], (service: HttpService<any>) => {
     expect(service).toBeTruthy();
   }));
 });

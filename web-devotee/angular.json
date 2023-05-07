@@ -112,9 +112,17 @@
             ],
             "styles": [
               "src/assets/styles/theme/devotee.theme.scss",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/styles/_fonts.scss"
             ],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/styles",
+                "src/assets/styles/theme/devotee.theme.scss"
+
+              ]
+            }
           }
         },
         "lint": {
