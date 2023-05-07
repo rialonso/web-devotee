@@ -35,13 +35,7 @@ export class UserConfigurationsComponent implements OnInit {
     private routeService: RouteService,
     private stateManagementFuncService: StateManagementFuncService,
     private snackBarService: SnackBarService,
-    private router: Router,
   ) {
-    // this.router.events
-    // .pipe(filter(event => event instanceof NavigationStart))
-    // .subscribe((event: NavigationStart) => {
-    //   this.lastUrl = event.url
-    // });
    }
 
   ngOnInit() {
@@ -93,9 +87,5 @@ export class UserConfigurationsComponent implements OnInit {
   }
   return() {
     this.navigateTo(EnumRoutesApplication.MATCHS);
-
-  //  this.lastUrl !== EnumRoutesApplication.SETTINGS ?
-  //     this.navigateTo(EnumRoutesApplication.MATCHS):
-  //     this.navigateTo(this.lastUrl);
   }
 }
