@@ -1,5 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { PrivacyPolicyServiceEn, PrivacyPolicyServicePt } from './privacy-policy.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 
 describe('PrivacyPolicyService', () => {
@@ -7,7 +8,11 @@ describe('PrivacyPolicyService', () => {
   let serviceEn: PrivacyPolicyServiceEn;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule
+      ]
+    });
     servicePt = TestBed.inject(PrivacyPolicyServicePt);
     serviceEn = TestBed.inject(PrivacyPolicyServiceEn);
 

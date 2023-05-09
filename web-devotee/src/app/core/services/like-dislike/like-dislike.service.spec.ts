@@ -1,12 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
 import { LikeDislikeService } from './like-dislike.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('LikeDislikeService', () => {
   let service: LikeDislikeService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule
+      ]
+    });
     service = TestBed.inject(LikeDislikeService);
   });
 

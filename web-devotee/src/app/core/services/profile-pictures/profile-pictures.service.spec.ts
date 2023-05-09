@@ -1,12 +1,17 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ProfilePicturesService } from './profile-pictures.service';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ProfilePicturesService', () => {
   let service: ProfilePicturesService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [
+        HttpClientTestingModule
+      ]
+    });
     service = TestBed.inject(ProfilePicturesService);
   });
 
