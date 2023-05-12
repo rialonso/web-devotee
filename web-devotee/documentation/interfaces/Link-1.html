@@ -65,7 +65,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/shared/model/response/get-medical-procedures/get-medical-procedures.mode.ts</code>
+            <code>src/app/shared/model/response/get-hosptals/get-hosptals.model.ts</code>
         </p>
 
 
@@ -216,12 +216,17 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export declare module ModelGetMedicalProceduresReponse {
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export declare module ModelHosptals {
 
   export interface Datum {
       id: number;
       name: string;
-      name_en: string;
+      lat: number;
+      lng: number;
+      country: string;
+      codeiso2: string;
+      codeiso3: string;
+      distance: number;
   }
 
   export interface Link {
@@ -242,7 +247,7 @@
       next_page_url: string;
       path: string;
       per_page: number;
-      prev_page_url?: any;
+      prev_page_url: string;
       to: number;
       total: number;
   }

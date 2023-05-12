@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/core/services/legal-policy/privacy-policy/privacy-policy.service.ts</code>
+            <code>src/app/core/services/legal-policy/terms-of-user/terms-of-use.service.ts</code>
         </p>
 
 
@@ -112,7 +112,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/core/services/legal-policy/privacy-policy/privacy-policy.service.ts:23</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/core/services/legal-policy/terms-of-user/terms-of-use.service.ts:24</a></div>
                             </td>
                         </tr>
 
@@ -146,8 +146,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="26"
-                            class="link-to-prism">src/app/core/services/legal-policy/privacy-policy/privacy-policy.service.ts:26</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/core/services/legal-policy/terms-of-user/terms-of-use.service.ts:27</a></div>
                 </td>
             </tr>
 
@@ -215,8 +215,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="33"
-                            class="link-to-prism">src/app/core/services/legal-policy/privacy-policy/privacy-policy.service.ts:33</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="34"
+                            class="link-to-prism">src/app/core/services/legal-policy/terms-of-user/terms-of-use.service.ts:34</a></div>
                 </td>
             </tr>
 
@@ -284,14 +284,15 @@ import { TranslateService } from &#x27;../../translate/translate.service&#x27;;
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
-export class PrivacyPolicyServicePt extends HttpService&lt;any&gt;{
+export class TermsOfUseServicePt extends HttpService&lt;any&gt;{
   constructor(
     httpClient: HttpClient,
+
     ) {
     super(
       httpClient,
       environment.api,
-      environment.urls.privacyPolicyPt,
+      environment.urls.termsOfUsePt,
       new TermsOfUseSerializer());
   }
 }
@@ -313,14 +314,14 @@ class TermsOfUseSerializer {
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
-export class PrivacyPolicyServiceEn extends HttpService&lt;any&gt;{
+export class TermsOfUseServiceEn extends HttpService&lt;any&gt;{
   constructor(
     httpClient: HttpClient,
     ) {
     super(
       httpClient,
       environment.api,
-      environment.urls.privacyPolicyEn,
+      environment.urls.termsOfUseEn,
       new TermsOfUseSerializer());
   }
 }
