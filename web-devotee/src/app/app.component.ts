@@ -6,25 +6,42 @@ import { IAppState } from './state-management/app.model';
 import { AddAllDataUser } from './state-management/user-data/user-data.action';
 import { IUserData } from './state-management/user-data/user-data.state';
 
+/**
+ * Continue AppComponent
+ *
+ * @export
+ * @class AppComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  /**title aplication */
   title = 'web-devotee';
-
+  /** boolean to activated loading */
   loading = false;
+    /**
+     * The "constructor"
+     */
   constructor(
     protected state: State<IAppState>,
     protected store: Store<IAppState>,
     private translateService: TranslateService,
     private userProfileService: UserProfileService,
     ) {}
+    /**
+     * onInit"
+     */
   ngOnInit(): void {
     this.translateService.veriyLanguage();
     this.getUserWithoutData();
   }
+  /**
+  * getUser without data, search userID
+  */
   async getUserWithoutData() {
     if (localStorage.getItem('userId') ) {
       this.loading = true;

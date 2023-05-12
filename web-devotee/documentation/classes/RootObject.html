@@ -62,7 +62,7 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app/state-management/list-cards/list-cards.state.ts</code>
+            <code>src/app/shared/model/response/get-matches/get-matches.response.ts</code>
         </p>
 
 
@@ -120,13 +120,13 @@
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>Array&lt;IUserData.IData&gt;</code>
+                        <i>Type : </i>        <code><a href="../classes/IData.html" target="_self" >IData[]</a></code>
 
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="7" class="link-to-prism">src/app/state-management/list-cards/list-cards.state.ts:7</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/shared/model/response/get-matches/get-matches.response.ts:6</a></div>
                         </td>
                     </tr>
 
@@ -152,7 +152,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/app/state-management/list-cards/list-cards.state.ts:6</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/app/shared/model/response/get-matches/get-matches.response.ts:5</a></div>
                         </td>
                     </tr>
 
@@ -171,19 +171,37 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="c-source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IUserData } from &quot;../user-data/user-data.state&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { IUserData } from &quot;src/app/state-management/user-data/user-data.state&quot;;
 
-export declare module IListCards {
-
-  class RootObject {
+export declare module ModelGetMatchesResponse {
+  export class RootObject {
     status: boolean;
-    data: Array&lt;IUserData.IData&gt;;
+    data: IData[];
   }
-}
+  export class IData {
+    match_id: number;
+    target_user: ITargetUser;
+    latest_message: any;
+  }
+  export class ITargetUser extends IUserData.IData {
 
-export const INITIAL_STATE_LIST_CARDS: IListCards.RootObject &#x3D; {
-  status: null,
-  data: null,
+  }
+  export class ILastedMessage {
+    id: number;
+    match_id: number;
+    user_id: number;
+    recipient_id: number;
+    content: string;
+    type: string;
+    path: any;
+    read: boolean;
+    created_at: string;
+    updated_at: string;
+    user: IUserDataMatches;
+  }
+  export class IUserDataMatches extends IUserData.IData {
+
+  }
 }
 </code></pre>
     </div>

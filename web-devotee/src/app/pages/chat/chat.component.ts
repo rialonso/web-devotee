@@ -12,14 +12,22 @@ import { IAppState } from 'src/app/state-management/app.model';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { environment } from 'src/environments/environment';
 import { EnumParamsChat } from './enum/params-chat.enum';
-
+/**
+ * Continue ChatComponent
+ *
+ * @export
+ * @class ChatComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })
 export class ChatComponent implements OnInit {
+  /** text to translate*/
   dataTexts;
+  /**data Macths */
   dataMatches: ModelGetMatchesResponse.RootObject | any = {
     data: [
       {loading: true},
@@ -28,19 +36,32 @@ export class ChatComponent implements OnInit {
       {loading: true}
     ]
   };
+  /**data Chat */
   dataChat: any;
-
+  /** url images */
   urlImages = environment.urlImages;
-
+  /**Show chat only mobile */
   showChatMobile = false;
+  /**ShowChat Loading all */
   showChatLoadingAll = false;
-
+  /**Match actualy id */
   matchId: number;
+  /** oldUserId to not loading old messages*/
   oldMatchId: number;
-
+  /** userId*/
   userId: number;
-
+  /** Data user match*/
   userMatchData: ModelGetMatchesResponse.ITargetUser;
+  /**
+   * Constructor
+   * @param state
+   * @param translateService
+   * @param getMatchesService
+   * @param getChatService
+   * @param transformAgeService
+   * @param chatConnectorService
+   * @param matchesConnectorService
+   */
   constructor(
     protected state: State<IAppState>,
     private translateService: TranslateService,
@@ -51,11 +72,12 @@ export class ChatComponent implements OnInit {
     private matchesConnectorService: MatchesConnectorService,
 
   ) { }
-
+  /**OnInit */
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
     this.getMacthes();
   }
+  /**GetMatches to list */
   private async getMacthes() {
     const dataMatches = await this.getMatchesService.get().toPromise();
     this.dataMatches = dataMatches;
@@ -63,6 +85,8 @@ export class ChatComponent implements OnInit {
     this.connectMatches();
 
   }
+  /**getChat to match selected*/
+
   private async getChat(matchId: number, pageNumber?: number) {
     let params;
     if (matchId && pageNumber) {
@@ -82,6 +106,7 @@ export class ChatComponent implements OnInit {
     }
 
   }
+  /**Show chat Selected*/
   showChat(match: ModelGetMatchesResponse.IData) {
     this.showChatLoadingAll = true;
     this.showChatMobile = true;
@@ -92,6 +117,7 @@ export class ChatComponent implements OnInit {
     this.connectChat();
     this.oldMatchId = match.match_id;
   }
+  /**Connect web socket on chat */
   private connectChat() {
     //use in connction this.userMatchData.id
     if (this.oldMatchId && (this.oldMatchId === this.matchId)) {
@@ -112,6 +138,7 @@ export class ChatComponent implements OnInit {
       });
     }
   }
+  /**Connect Matchs in websocket */
   private connectMatches() {
     this.matchesConnectorService
       .connectWebSocketChatMessages(this.userId)
@@ -119,6 +146,8 @@ export class ChatComponent implements OnInit {
         // console.log(res);
       });
   }
+   /**Close chatMobile */
+
   closeChatMobile(event) {
     if (event) {
       this.showChatMobile = !event;

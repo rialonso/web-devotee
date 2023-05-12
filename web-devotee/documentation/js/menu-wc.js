@@ -473,46 +473,13 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/GetSugestionSerializer.html" data-type="entity-link" >GetSugestionSerializer</a>
                             </li>
                             <li class="link">
-                                <a href="classes/ICid.html" data-type="entity-link" >ICid</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/IData.html" data-type="entity-link" >IData</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/IData-1.html" data-type="entity-link" >IData</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/IDrug.html" data-type="entity-link" >IDrug</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/IHosptal.html" data-type="entity-link" >IHosptal</a>
                             </li>
                             <li class="link">
                                 <a href="classes/ILastedMessage.html" data-type="entity-link" >ILastedMessage</a>
                             </li>
                             <li class="link">
-                                <a href="classes/IMedicalProcedures.html" data-type="entity-link" >IMedicalProcedures</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/IMedicaPocedureData.html" data-type="entity-link" >IMedicaPocedureData</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/IMyDrugs.html" data-type="entity-link" >IMyDrugs</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/IMyHosptals.html" data-type="entity-link" >IMyHosptals</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/IMyICDs.html" data-type="entity-link" >IMyICDs</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/IncrementCountShowAds.html" data-type="entity-link" >IncrementCountShowAds</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/IRegisterUser.html" data-type="entity-link" >IRegisterUser</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/ISignIn.html" data-type="entity-link" >ISignIn</a>
                             </li>
                             <li class="link">
                                 <a href="classes/ISignInGoogle.html" data-type="entity-link" >ISignInGoogle</a>
@@ -560,9 +527,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="classes/PlacesAutoCompleteSerializer.html" data-type="entity-link" >PlacesAutoCompleteSerializer</a>
                             </li>
                             <li class="link">
-                                <a href="classes/ProfilePicture.html" data-type="entity-link" >ProfilePicture</a>
-                            </li>
-                            <li class="link">
                                 <a href="classes/ProfilePicturesSerializer.html" data-type="entity-link" >ProfilePicturesSerializer</a>
                             </li>
                             <li class="link">
@@ -582,12 +546,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="classes/RootObject.html" data-type="entity-link" >RootObject</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/RootObject-1.html" data-type="entity-link" >RootObject</a>
-                            </li>
-                            <li class="link">
-                                <a href="classes/RootObject-2.html" data-type="entity-link" >RootObject</a>
                             </li>
                             <li class="link">
                                 <a href="classes/SendMessageSerializer.html" data-type="entity-link" >SendMessageSerializer</a>
@@ -812,9 +770,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                                 <a href="interfaces/IAppState.html" data-type="entity-link" >IAppState</a>
                             </li>
                             <li class="link">
-                                <a href="interfaces/IControlsApp.html" data-type="entity-link" >IControlsApp</a>
-                            </li>
-                            <li class="link">
                                 <a href="interfaces/IData.html" data-type="entity-link" >IData</a>
                             </li>
                             <li class="link">
@@ -828,9 +783,6 @@ customElements.define('compodoc-menu', class extends HTMLElement {
                             </li>
                             <li class="link">
                                 <a href="interfaces/IModelCardImgTitleText.html" data-type="entity-link" >IModelCardImgTitleText</a>
-                            </li>
-                            <li class="link">
-                                <a href="interfaces/IPayload.html" data-type="entity-link" >IPayload</a>
                             </li>
                             <li class="link">
                                 <a href="interfaces/IRootObject.html" data-type="entity-link" >IRootObject</a>
