@@ -68,6 +68,13 @@
 </p>
 
 
+    <p class="comment">
+        <h3>Description</h3>
+    </p>
+    <p class="comment">
+        <p>Continue Register Component</p>
+
+    </p>
 
 
     <p class="comment">
@@ -163,12 +170,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/pages/continue-register/continue-register.component.ts:11</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/pages/continue-register/continue-register.component.ts:17</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The &quot;constructor&quot;</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -177,6 +186,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -191,6 +201,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>A VerifyStageRegisterDataService</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>userProfileService</td>
@@ -203,6 +217,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>A UserProfileService</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -242,14 +260,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="22"
-                            class="link-to-prism">src/app/pages/continue-register/continue-register.component.ts:22</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="39"
+                            class="link-to-prism">src/app/pages/continue-register/continue-register.component.ts:39</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Local getUserDataVerify</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -279,14 +299,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="18"
-                            class="link-to-prism">src/app/pages/continue-register/continue-register.component.ts:18</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/pages/continue-register/continue-register.component.ts:32</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Local onInit</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
@@ -306,23 +328,40 @@
 import { UserProfileService } from &#x27;src/app/core/services/user-profile/user-profile.service&#x27;;
 import { VerifyStageRegisterDataService } from &#x27;src/app/shared/functions/verify-stage-register-data/verify-stage-register-data.service&#x27;;
 import { IUserData } from &#x27;src/app/state-management/user-data/user-data.state&#x27;;
-
+/**
+ * Continue Register Component
+ *
+ * @export
+ * @class ContinueRegisterComponent
+ * @implements {OnInit}
+ */
 @Component({
   selector: &#x27;app-continue-register&#x27;,
   templateUrl: &#x27;./continue-register.component.html&#x27;,
   styleUrls: [&#x27;./continue-register.component.scss&#x27;]
 })
 export class ContinueRegisterComponent implements OnInit {
+    /**
+     * The &quot;constructor&quot;
+     *
+     * @param {VerifyStageRegisterDataService} verifyStageRegisterDataService A VerifyStageRegisterDataService
+     * @param {UserProfileService} userProfileService A UserProfileService
 
+     */
   constructor(
     private verifyStageRegisterDataService: VerifyStageRegisterDataService,
     private userProfileService: UserProfileService,
   ) { }
-
+/**
+     * Local onInit
+     */
   ngOnInit() {
 
     this.getUserDataVerify();
   }
+   /**
+     * Local getUserDataVerify
+     */
    getUserDataVerify() {
     this.verifyStageRegisterDataService.redirectRouteWithDataRegistered();
   }
