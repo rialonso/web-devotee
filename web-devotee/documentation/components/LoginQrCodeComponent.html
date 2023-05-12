@@ -1,0 +1,1028 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>web-devotee documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">web-devotee documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  LoginQrCodeComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/components/dialogs/login-qr-code/login-qr-code.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-login-qr-code</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./login-qr-code.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./login-qr-code.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#data" >data</a>
+                            </li>
+                            <li>
+                                <a href="#dataTexts" >dataTexts</a>
+                            </li>
+                            <li>
+                                <a href="#destroy$" >destroy$</a>
+                            </li>
+                            <li>
+                                <a href="#intervalValidadeHash" >intervalValidadeHash</a>
+                            </li>
+                            <li>
+                                <a href="#qrCodeHash" >qrCodeHash</a>
+                            </li>
+                            <li>
+                                <a href="#showLoading" >showLoading</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#generateHashToQrcode" >generateHashToQrcode</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onNoClick" >onNoClick</a>
+                            </li>
+                            <li>
+                                <a href="#readHashQrcode" >readHashQrcode</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(data: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, translateService: <a href="../injectables/TranslateService.html" target="_self">TranslateService</a>, matDialogRef: <a href="../components/LoginQrCodeComponent.html" target="_self">MatDialogRef&lt;LoginQrCodeComponent&gt;</a>, generateHashQrcodeService: <a href="../injectables/GenerateHashQrcodeService.html" target="_self">GenerateHashQrcodeService</a>, loginQrcodeConnectorService: <a href="../injectables/LoginQrcodeConnectorService.html" target="_self">LoginQrcodeConnectorService</a>, stateManagementFuncService: <a href="../injectables/StateManagementFuncService.html" target="_self">StateManagementFuncService</a>, routeService: <a href="../injectables/RouteService.html" target="_self">RouteService</a>, pusherAuthService: <a href="../injectables/PusherAuthService.html" target="_self">PusherAuthService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/shared/components/dialogs/login-qr-code/login-qr-code.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>data</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translateService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TranslateService.html" target="_self" >TranslateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>matDialogRef</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../components/LoginQrCodeComponent.html" target="_self" >MatDialogRef&lt;LoginQrCodeComponent&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>generateHashQrcodeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GenerateHashQrcodeService.html" target="_self" >GenerateHashQrcodeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>loginQrcodeConnectorService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LoginQrcodeConnectorService.html" target="_self" >LoginQrcodeConnectorService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>stateManagementFuncService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/StateManagementFuncService.html" target="_self" >StateManagementFuncService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>routeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RouteService.html" target="_self" >RouteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>pusherAuthService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PusherAuthService.html" target="_self" >PusherAuthService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateHashToQrcode"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>generateHashToQrcode</b></span>
+                        <a href="#generateHashToQrcode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateHashToQrcode()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="46"
+                            class="link-to-prism">src/app/shared/components/dialogs/login-qr-code/login-qr-code.component.ts:46</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="38"
+                            class="link-to-prism">src/app/shared/components/dialogs/login-qr-code/login-qr-code.component.ts:38</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onNoClick"></a>
+                    <span class="name">
+                        <span ><b>onNoClick</b></span>
+                        <a href="#onNoClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onNoClick()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="42"
+                            class="link-to-prism">src/app/shared/components/dialogs/login-qr-code/login-qr-code.component.ts:42</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="readHashQrcode"></a>
+                    <span class="name">
+                        <span ><b>readHashQrcode</b></span>
+                        <a href="#readHashQrcode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>readHashQrcode()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="57"
+                            class="link-to-prism">src/app/shared/components/dialogs/login-qr-code/login-qr-code.component.ts:57</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="data"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>data</b></span>
+                        <a href="#data"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @Inject(MAT_DIALOG_DATA)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/shared/components/dialogs/login-qr-code/login-qr-code.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataTexts"></a>
+                    <span class="name">
+                        <span ><b>dataTexts</b></span>
+                        <a href="#dataTexts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/shared/components/dialogs/login-qr-code/login-qr-code.component.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroy$"></a>
+                    <span class="name">
+                        <span ><b>destroy$</b></span>
+                        <a href="#destroy$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ReplaySubject()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/shared/components/dialogs/login-qr-code/login-qr-code.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="intervalValidadeHash"></a>
+                    <span class="name">
+                        <span ><b>intervalValidadeHash</b></span>
+                        <a href="#intervalValidadeHash"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/shared/components/dialogs/login-qr-code/login-qr-code.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="qrCodeHash"></a>
+                    <span class="name">
+                        <span ><b>qrCodeHash</b></span>
+                        <a href="#qrCodeHash"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/shared/components/dialogs/login-qr-code/login-qr-code.component.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showLoading"></a>
+                    <span class="name">
+                        <span ><b>showLoading</b></span>
+                        <a href="#showLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="21" class="link-to-prism">src/app/shared/components/dialogs/login-qr-code/login-qr-code.component.ts:21</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject, OnInit } from &#x27;@angular/core&#x27;;
+import { MatDialogRef, MAT_DIALOG_DATA } from &#x27;@angular/material/dialog&#x27;;
+import { ReplaySubject } from &#x27;rxjs&#x27;;
+import { takeUntil } from &#x27;rxjs/operators&#x27;;
+import { GenerateHashQrcodeService } from &#x27;src/app/core/services/generate-hash-qrcode/generate-hash-qrcode.service&#x27;;
+import { TranslateService } from &#x27;src/app/core/services/translate/translate.service&#x27;;
+import { LoginQrcodeConnectorService } from &#x27;src/app/core/services/websockets/login-qrcode-connector/login-qrcode-connector.service&#x27;;
+import { PusherAuthService } from &#x27;src/app/core/services/websockets/pusher/pusher-auth/pusher-auth.service&#x27;;
+import { EnumRoutesApplication } from &#x27;src/app/shared/enum/routes.enum&#x27;;
+import { RouteService } from &#x27;src/app/shared/functions/routes/route.service&#x27;;
+import { StateManagementFuncService } from &#x27;src/app/shared/functions/state-management/state-management-func.service&#x27;;
+import { environment } from &#x27;src/environments/environment&#x27;;
+
+@Component({
+  selector: &#x27;app-login-qr-code&#x27;,
+  templateUrl: &#x27;./login-qr-code.component.html&#x27;,
+  styleUrls: [&#x27;./login-qr-code.component.scss&#x27;]
+})
+export class LoginQrCodeComponent implements OnInit {
+  dataTexts;
+  showLoading &#x3D; false;
+
+  qrCodeHash: string;
+  intervalValidadeHash;
+
+  destroy$ &#x3D; new ReplaySubject();
+  constructor(
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private translateService: TranslateService,
+    private matDialogRef: MatDialogRef&lt;LoginQrCodeComponent&gt;,
+    private generateHashQrcodeService: GenerateHashQrcodeService,
+    private loginQrcodeConnectorService: LoginQrcodeConnectorService,
+    private stateManagementFuncService: StateManagementFuncService,
+    private routeService: RouteService,
+    private pusherAuthService: PusherAuthService,
+  ) { }
+
+  ngOnInit() {
+    this.dataTexts &#x3D; this.translateService?.textTranslate;
+    this.generateHashToQrcode();
+  }
+  onNoClick(){
+    clearInterval(this.intervalValidadeHash);
+    this.matDialogRef.close();
+  }
+  async generateHashToQrcode() {
+    this.showLoading &#x3D; true;
+    const hashReponse &#x3D;
+    await this.generateHashQrcodeService
+      .post()
+      .pipe(takeUntil(this.destroy$))
+      .toPromise();
+    this.showLoading &#x3D; false;
+    this.qrCodeHash &#x3D; hashReponse.data.hash;
+    this.readHashQrcode();
+  }
+  readHashQrcode() {
+    this.loginQrcodeConnectorService
+      .connectWebSOcket(this.qrCodeHash)
+      .bind(environment.webSocket.events.loginQrCode, (res) &#x3D;&gt; {
+        localStorage.setItem(&#x27;access_token&#x27;, &#x60;${res?.payload.access_token}&#x60;);
+        localStorage.setItem(&#x27;userId&#x27;, &#x60;${res?.payload.data.id}&#x60;);
+        this.stateManagementFuncService.funcAddAllDataUser({access_token: res?.payload.access_token, ...res?.payload.data});
+        this.routeService.navigateToURL(EnumRoutesApplication.MATCHS);
+        this.pusherAuthService
+          .pusherConnect()
+          .unsubscribe(&#x60;${environment.webSocket.channels.loginQrCode}${this.qrCodeHash}&#x60;);
+      })
+
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;container-modal-qr&quot;&gt;
+  &lt;div class&#x3D;&quot;content-close&quot;&gt;
+       &lt;div class&#x3D;&quot;close close-terms&quot; (click)&#x3D;&quot;onNoClick()&quot;&gt;&amp;times;&lt;/div&gt;
+   &lt;/div&gt;
+ &lt;div class&#x3D;&quot;container-itens-qr&quot;&gt;
+   &lt;div class&#x3D;&quot;text-qr&quot;&gt;
+     &lt;div class&#x3D;&quot;qr-title&quot;&gt;{{ dataTexts.qrSignIn.qrTitle }}&lt;/div&gt;
+     &lt;div&gt;
+       &lt;div class&#x3D;&quot;qr-subtitle&quot;&gt;&lt;span&gt;1.&lt;/span&gt; {{ dataTexts.qrSignIn.qrSubTitleFirst }}&lt;/div&gt;
+       &lt;div class&#x3D;&quot;qr-subtitle&quot;&gt;&lt;span&gt;2.&lt;/span&gt; {{ dataTexts.qrSignIn.qrSubTitleSecond.qrFirstTouch }} &lt;b&gt;{{ dataTexts.qrSignIn.qrSubTitleSecond.qrSecondPerfil }} &lt;/b&gt; &lt;span&gt;&lt;img src&#x3D;&quot;/assets/icon-person@2x.png&quot; alt&#x3D;&quot;&quot;&gt;&lt;/span&gt;{{ dataTexts.qrSignIn.qrSubTitleSecond.qrThirdSelect }} &lt;b&gt; {{ dataTexts.qrSignIn.qrSubTitleSecond.qrFourthDevotee }}&lt;/b&gt;&lt;/div&gt;
+       &lt;div class&#x3D;&quot;qr-subtitle&quot;&gt;&lt;span&gt;3.&lt;/span&gt; {{ dataTexts.qrSignIn.qrSubTitleThird.qrFirstTouch }} &lt;b&gt; {{ dataTexts.qrSignIn.qrSubTitleThird.qrSecondBold }}&lt;/b&gt;&lt;/div&gt;
+       &lt;div class&#x3D;&quot;qr-subtitle&quot;&gt;&lt;span&gt;4.&lt;/span&gt; {{ dataTexts.qrSignIn.qrSubTitleFouth }}&lt;/div&gt;
+     &lt;/div&gt;
+   &lt;/div&gt;
+   &lt;div class&#x3D;&quot;container-img-qr&quot;&gt;
+    &lt;mat-spinner class&#x3D;&quot;spinner&quot; *ngIf&#x3D;&quot;showLoading&quot;&gt;&lt;/mat-spinner&gt;
+
+     &lt;qrcode
+        *ngIf&#x3D;&quot;!showLoading&quot;
+        [qrdata]&#x3D;&quot;qrCodeHash&quot; [width]&#x3D;&quot;256&quot; [errorCorrectionLevel]&#x3D;&quot;&#x27;M&#x27;&quot; [elementType]&#x3D;&quot;&#x27;svg&#x27;&quot;&gt;&lt;/qrcode&gt;
+   &lt;/div&gt;
+   &lt;div class&#x3D;&quot;container-creat-buttons&quot;&gt;
+     &lt;div class&#x3D;&quot;create-account&quot;&gt;
+       {{ dataTexts.qrSignIn.qrCreateAccount.qrNotAccount }} &lt;a &gt;{{ dataTexts.qrSignIn.qrCreateAccount.qrCreateAccount }}&lt;/a&gt;
+     &lt;/div&gt;
+     &lt;div class&#x3D;&quot;download-copyright&quot;&gt;
+       &lt;div class&#x3D;&quot;download-app&quot;&gt;
+           &lt;p&gt;{{dataTexts.getApp}}&lt;/p&gt;
+           &lt;div class&#x3D;&quot;buttons-download&quot;&gt;
+               &lt;a href&#x3D;&quot;https://play.google.com/store/apps/details?id&#x3D;com.phurshell.devotee&amp;hl&#x3D;pt_BR&quot; target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener noreferrer&quot;&gt;
+               &lt;img src&#x3D;{{dataTexts.buttonsDownload.btnPlayStore}} alt&#x3D;{{dataTexts.buttonsDownload.altPlayStore}}  &gt;&lt;/a&gt;
+               &lt;a href&#x3D;&quot;https://apps.apple.com/br/app/devotee/id1331331692&quot; target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener noreferrer&quot;&gt;
+               &lt;img src&#x3D;{{dataTexts.buttonsDownload.btnAppStore}} alt&#x3D;{{dataTexts.buttonsDownload.altAppStore}} &gt;&lt;/a&gt;
+           &lt;/div&gt;
+       &lt;/div&gt;
+     &lt;/div&gt;
+   &lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./login-qr-code.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &#x27;_colors&#x27;;
+@import &#x27;_mixins&#x27;;
+.close {
+  display: flex;
+  top: 15px;
+  left: 346px;
+  width: 30px;
+  height: 30px;
+  transform: matrix(0, 1, -1, 0, 0, 0);
+  color: $blue-dark;
+  font-size: 28px;
+  font-weight: bold;
+  :hover,
+  :focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+  }
+  ::after{
+      content: &#x27;asa&#x27;;
+      width: 20px;
+      height: 20px;
+      background-color: #000;
+  }
+}
+.container-modal-qr{
+  display: grid;
+  grid-template-rows: 1fr 8fr;
+  height: 100%;
+  color: $blue-dark;
+  .close-terms{
+    cursor: pointer;
+  }
+  .content-close{
+      display: flex;
+      justify-content: flex-end;
+  }
+  .container-itens-qr{
+    display: grid;
+    grid-template-columns: 1fr;
+    .container-img-qr{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 30px 0;
+      img{
+        max-width: 185px;
+      }
+    }
+  }
+}
+.create-account{
+  text-align: center;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+.qr-subtitle{
+  img{
+    width: 15px;
+    margin: 0 5px;
+  }
+}
+.download-app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.1rem;
+  .buttons-download{
+    display: flex;
+    :first-child{
+      margin-right: 10px;
+    }
+    img{
+      height: 30px;
+    }
+  }
+}
+
+@include medium-tablet {
+  .create-account{
+    text-align: center;
+    font-size: 1.1rem;
+    margin: 1rem 0;
+  }
+  .download-app{
+    p{
+      font-size: 1.1rem;
+    }
+  }
+}
+@include min-tablet {
+
+  .container-modal-qr {
+    padding-left: 70px;
+    .container-itens-qr {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-areas:
+      &quot;text-qr qr-code-image &quot;
+      &quot;create-buttons create-buttons&quot;
+      ;
+      .container-img-qr {
+        grid-area: qr-code-image;
+        img{
+          max-width: 220px;
+        }
+      }
+      .container-creat-buttons {
+        grid-area: create-buttons;
+        display: grid;
+        grid-template-columns: 3fr 1fr;
+        .download-copyright{
+          display: flex;
+          align-items: flex-start;
+        }
+        .create-account {
+          display: flex;
+          text-align: center;
+          font-size: 1.5rem;
+        }
+      }
+      .text-qr {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        grid-area: text-qr;
+      }
+      .download-app {
+        font-size: 1.5rem;
+      }
+    }
+
+  }
+  .qr-title{
+    font-size: 2rem;
+    margin: 10px 0 ;
+  }
+  .qr-subtitle{
+    margin: 10px 0;
+    font-size: 1.1rem;
+  }
+}
+.qr-subtitle {
+  img {
+    width: 20px;
+    margin: 0 5px;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="container-modal-qr">  <div class="content-close">       <div class="close close-terms" (click)="onNoClick()">&times;</div>   </div> <div class="container-itens-qr">   <div class="text-qr">     <div class="qr-title">{{ dataTexts.qrSignIn.qrTitle }}</div>     <div>       <div class="qr-subtitle"><span>1.</span> {{ dataTexts.qrSignIn.qrSubTitleFirst }}</div>       <div class="qr-subtitle"><span>2.</span> {{ dataTexts.qrSignIn.qrSubTitleSecond.qrFirstTouch }} <b>{{ dataTexts.qrSignIn.qrSubTitleSecond.qrSecondPerfil }} </b> <span><img src="/assets/icon-person@2x.png" alt=""></span>{{ dataTexts.qrSignIn.qrSubTitleSecond.qrThirdSelect }} <b> {{ dataTexts.qrSignIn.qrSubTitleSecond.qrFourthDevotee }}</b></div>       <div class="qr-subtitle"><span>3.</span> {{ dataTexts.qrSignIn.qrSubTitleThird.qrFirstTouch }} <b> {{ dataTexts.qrSignIn.qrSubTitleThird.qrSecondBold }}</b></div>       <div class="qr-subtitle"><span>4.</span> {{ dataTexts.qrSignIn.qrSubTitleFouth }}</div>     </div>   </div>   <div class="container-img-qr">    <mat-spinner class="spinner" *ngIf="showLoading"></mat-spinner>     <qrcode        *ngIf="!showLoading"        [qrdata]="qrCodeHash" [width]="256" [errorCorrectionLevel]="\'M\'" [elementType]="\'svg\'"></qrcode>   </div>   <div class="container-creat-buttons">     <div class="create-account">       {{ dataTexts.qrSignIn.qrCreateAccount.qrNotAccount }} <a >{{ dataTexts.qrSignIn.qrCreateAccount.qrCreateAccount }}</a>     </div>     <div class="download-copyright">       <div class="download-app">           <p>{{dataTexts.getApp}}</p>           <div class="buttons-download">               <a href="https://play.google.com/store/apps/details?id=com.phurshell.devotee&hl=pt_BR" target="_blank" rel="noopener noreferrer">               <img src={{dataTexts.buttonsDownload.btnPlayStore}} alt={{dataTexts.buttonsDownload.altPlayStore}}  ></a>               <a href="https://apps.apple.com/br/app/devotee/id1331331692" target="_blank" rel="noopener noreferrer">               <img src={{dataTexts.buttonsDownload.btnAppStore}} alt={{dataTexts.buttonsDownload.altAppStore}} ></a>           </div>       </div>     </div>   </div> </div></div></div>'
+    var COMPONENTS = [{'name': 'ActivateLocationComponent', 'selector': 'app-activate-location'},{'name': 'AdsCardsComponent', 'selector': 'app-ads-cards'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardImgTitleTextComponent', 'selector': 'app-card-img-title-text'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChangeUserTypeComponent', 'selector': 'app-change-user-type'},{'name': 'ChatComponent', 'selector': 'app-chat'},{'name': 'ChatMessagesComponent', 'selector': 'app-chat-messages'},{'name': 'ContinueRegisterComponent', 'selector': 'app-continue-register'},{'name': 'DevoteePlusComponent', 'selector': 'app-devotee-plus'},{'name': 'EditAboutMeComponent', 'selector': 'app-edit-about-me'},{'name': 'EditProfilePicturesComponent', 'selector': 'app-edit-profile-pictures'},{'name': 'EticalRulesComponent', 'selector': 'app-etical-rules'},{'name': 'FilterPreferencesComponent', 'selector': 'app-filter-preferences'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderCardsInitialPageComponent', 'selector': 'app-header-cards-initial-page'},{'name': 'HeaderLoggedComponent', 'selector': 'app-header-logged'},{'name': 'InitialPageComponent', 'selector': 'app-initial-page'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LikedMeComponent', 'selector': 'app-liked-me'},{'name': 'LoggedComponent', 'selector': 'app-logged'},{'name': 'LoginQrCodeComponent', 'selector': 'app-login-qr-code'},{'name': 'MultipleSelectCidsComponent', 'selector': 'app-multiple-select-cids'},{'name': 'MultipleSelectDrugsComponent', 'selector': 'app-multiple-select-drugs'},{'name': 'MultipleSelectHospitalsComponent', 'selector': 'app-multiple-select-hospitals'},{'name': 'MultipleSelectMedicalProceduresComponent', 'selector': 'app-multiple-select-medical-procedures'},{'name': 'PrincipalLoadingComponent', 'selector': 'app-principal-loading'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RegisterDataComponent', 'selector': 'app-register-data'},{'name': 'RememberPasswordComponent', 'selector': 'app-remember-password'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'UseOfTermsComponent', 'selector': 'app-use-of-terms'},{'name': 'UserConfigurationsComponent', 'selector': 'app-user-configurations'},{'name': 'UserMatchsComponent', 'selector': 'app-user-matchs'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LoginQrCodeComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LoginQrCodeComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

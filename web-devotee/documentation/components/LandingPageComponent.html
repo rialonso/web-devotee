@@ -1,0 +1,975 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>web-devotee documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">web-devotee documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  LandingPageComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/landing-page/landing-page.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-landing-page</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./landing-page.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./landing-page.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dataTexts" >dataTexts</a>
+                            </li>
+                            <li>
+                                <a href="#routesApp" >routesApp</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#goToLoginOrRegister" >goToLoginOrRegister</a>
+                            </li>
+                            <li>
+                                <a href="#navigateTo" >navigateTo</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(store: <a href="../interfaces/IAppState.html" target="_self">Store&lt;IAppState&gt;</a>, translateService: <a href="../injectables/TranslateService.html" target="_self">TranslateService</a>, routeService: <a href="../injectables/RouteService.html" target="_self">RouteService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/landing-page/landing-page.component.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/IAppState.html" target="_self" >Store&lt;IAppState&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translateService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TranslateService.html" target="_self" >TranslateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>routeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RouteService.html" target="_self" >RouteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToLoginOrRegister"></a>
+                    <span class="name">
+                        <span ><b>goToLoginOrRegister</b></span>
+                        <a href="#goToLoginOrRegister"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>goToLoginOrRegister(route: <a href="../undefineds/EnumRoutesApplication.html" target="_self">EnumRoutesApplication</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="32"
+                            class="link-to-prism">src/app/pages/landing-page/landing-page.component.ts:32</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>route</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#EnumRoutesApplication" target="_self" >EnumRoutesApplication</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateTo"></a>
+                    <span class="name">
+                        <span ><b>navigateTo</b></span>
+                        <a href="#navigateTo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateTo(route: <a href="../undefineds/EnumRoutesApplication.html" target="_self">EnumRoutesApplication</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="27"
+                            class="link-to-prism">src/app/pages/landing-page/landing-page.component.ts:27</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>route</td>
+                                    <td>
+                                                <code><a href="../miscellaneous/enumerations.html#EnumRoutesApplication" target="_self" >EnumRoutesApplication</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/pages/landing-page/landing-page.component.ts:25</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataTexts"></a>
+                    <span class="name">
+                        <span ><b>dataTexts</b></span>
+                        <a href="#dataTexts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/pages/landing-page/landing-page.component.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="routesApp"></a>
+                    <span class="name">
+                        <span ><b>routesApp</b></span>
+                        <a href="#routesApp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EnumRoutesApplication</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/pages/landing-page/landing-page.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { Store } from &#x27;@ngrx/store&#x27;;
+import { TranslateService } from &#x27;src/app/core/services/translate/translate.service&#x27;;
+import { EnumRoutesApplication } from &#x27;src/app/shared/enum/routes.enum&#x27;;
+import { RouteService } from &#x27;src/app/shared/functions/routes/route.service&#x27;;
+import { IAppState } from &#x27;src/app/state-management/app.model&#x27;;
+import { AddControlApp } from &#x27;src/app/state-management/controls/copntrols-app.action&#x27;;
+
+@Component({
+  selector: &#x27;app-landing-page&#x27;,
+  templateUrl: &#x27;./landing-page.component.html&#x27;,
+  styleUrls: [&#x27;./landing-page.component.scss&#x27;]
+})
+export class LandingPageComponent implements OnInit {
+  dataTexts;
+  routesApp &#x3D; EnumRoutesApplication;
+  constructor(
+    protected store: Store&lt;IAppState&gt;,
+    private translateService: TranslateService,
+    private routeService: RouteService,
+  ) {
+    this.dataTexts &#x3D; this.translateService?.textTranslate;
+  }
+
+  ngOnInit(): void {
+  }
+  navigateTo(route: EnumRoutesApplication) {
+    this.routeService.navigateToURL(route);
+    // this.store.dispatch(new AddControlApp({ openSingIn: true }));
+
+  }
+  goToLoginOrRegister(route: EnumRoutesApplication) {
+    this.navigateTo(route);
+    this.store.dispatch(new AddControlApp({ openSingIn: true }));
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div id&#x3D;&quot;landing-page&quot;&gt;
+  &lt;header class&#x3D;&quot;container-logo-login&quot;&gt;
+    &lt;div class&#x3D;&quot;container-logo-login width-100-per container-default-lp container-default&quot;&gt;
+      &lt;section class&#x3D;&quot;logo&quot;&gt;
+        &lt;img src&#x3D;&quot;/assets/images/logo-blue.png&quot; alt&#x3D;&quot;Logo Devotee&quot; srcset&#x3D;&quot;&quot;&gt;
+        &lt;span class&#x3D;&quot;font-booster-next-bold color-blue-dark title-logo&quot;&gt;Devotee&lt;/span&gt;
+      &lt;/section&gt;
+      &lt;section class&#x3D;&quot;container-button-header dp-flex-row-initial&quot;&gt;
+        &lt;div class&#x3D;&quot;container-buttons-desk dp-flex-row-initial&quot;&gt;
+          &lt;div class&#x3D;&quot;button link-icon-text font-booster-next-bold&quot;&gt;
+              &lt;mat-icon svgIcon&#x3D;&quot;local_mall&quot;&gt;&lt;/mat-icon&gt;
+            &lt;a class&#x3D;&quot;font-booster-next-bold color-blue-dark&quot; href&#x3D;&quot;https://www.loja.devotee.com.br/&quot; target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener noreferrer&quot;&gt;
+              {{dataTexts.buttons.btnShop}}
+            &lt;/a&gt;
+          &lt;/div&gt;
+          &lt;button class&#x3D;&quot;button link font-booster-next-bold&quot; (click)&#x3D;&quot;goToLoginOrRegister(routesApp.PRE_REGISTER)&quot;&gt;
+            {{dataTexts.buttonsSignin.btnRegister}}
+          &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;button class&#x3D;&quot;button primary font-booster-next-bold btn-login&quot; (click)&#x3D;&quot;goToLoginOrRegister(routesApp.LOGIN)&quot;&gt;
+          {{dataTexts.buttons.btnEntry}}
+        &lt;/button&gt;
+      &lt;/section&gt;
+    &lt;/div&gt;
+
+  &lt;/header&gt;
+
+  &lt;article class&#x3D;&quot;container-welcome-app container-default-lp&quot;&gt;
+    &lt;div class&#x3D;&quot;container-welcome-app container-default width-100-per&quot;&gt;
+      &lt;section class&#x3D;&quot;container-title-text dp-flex-column-initial&quot;&gt;
+        &lt;div class&#x3D;&quot;content-title-text dp-flex-column-initial&quot;&gt;
+          &lt;h2 class&#x3D;&quot;font-booster-next-bold color-magenta-soft&quot;&gt;
+            {{dataTexts.lading.welcome.title}}
+          &lt;/h2&gt;
+          &lt;p class&#x3D;&quot;color-blue-dark f-size-18&quot;&gt;
+            {{dataTexts.lading.welcome.text}}
+          &lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;container-desk-register only-desk dp-flex-column-initial&quot;&gt;
+          &lt;p class&#x3D;&quot;font-booster-next-bold color-blue-dark desk-register-title&quot;&gt; {{dataTexts.lading.simpleMatch}}&lt;/p&gt;
+          &lt;section class&#x3D;&quot;btn-register-desk&quot;&gt;
+            &lt;button class&#x3D;&quot;button third font-booster-next-bold &quot; (click)&#x3D;&quot;goToLoginOrRegister(routesApp.PRE_REGISTER)&quot;&gt;
+              {{dataTexts.buttons.btnRegisterSe}}
+            &lt;/button&gt;
+          &lt;/section&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+      &lt;section class&#x3D;&quot;container-cellphone-button&quot;&gt;
+        &lt;div class&#x3D;&quot;content-cellphone&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/images/cellphone-lp.png&quot; alt&#x3D;&quot;&quot;&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;container-buttons-text&quot;&gt;
+          &lt;p class&#x3D;&quot;only-mobile font-booster-next-bold color-blue-dark&quot;&gt; {{dataTexts.lading.simpleMatch}}&lt;/p&gt;
+          &lt;div class&#x3D;&quot;content-buttons&quot;&gt;
+            &lt;section class&#x3D;&quot;only-mobile&quot;&gt;
+              &lt;button class&#x3D;&quot;button third font-booster-next-bold&quot; (click)&#x3D;&quot;goToLoginOrRegister(routesApp.PRE_REGISTER)&quot;&gt;
+                {{dataTexts.buttons.btnRegisterSe}}
+              &lt;/button&gt;
+            &lt;/section&gt;
+            &lt;section class&#x3D;&quot;buttons-download dp-flex-row-initial&quot;&gt;
+              &lt;a href&#x3D;&quot;https://play.google.com/store/apps/details?id&#x3D;com.phurshell.devotee&amp;hl&#x3D;pt_BR&quot; target&#x3D;&quot;_blank&quot;
+                rel&#x3D;&quot;noopener noreferrer&quot;&gt;
+                &lt;img src&#x3D;{{dataTexts.buttonsDownload.btnPlayStore}} alt&#x3D;{{dataTexts.buttonsDownload.altPlaySotre}}&gt;&lt;/a&gt;
+              &lt;a href&#x3D;&quot;https://apps.apple.com/br/app/devotee/id1331331692&quot; target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener noreferrer&quot;&gt;
+                &lt;img src&#x3D;{{dataTexts.buttonsDownload.btnAppStore}} alt&#x3D;{{dataTexts.buttonsDownload.altAppStore}}&gt;&lt;/a&gt;
+            &lt;/section&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+    &lt;/div&gt;
+
+  &lt;/article&gt;
+
+  &lt;article class&#x3D;&quot;container-devotee-shop  container-default-lp&quot;&gt;
+    &lt;div class&#x3D;&quot;container-devotee-shop max-size container-default width-100-per&quot;&gt;
+      &lt;h2 class&#x3D;&quot;font-booster-next-bold color-magenta-soft&quot;&gt;
+        {{dataTexts.lading.devoteeShop.title}}
+      &lt;/h2&gt;
+      &lt;div class&#x3D;&quot;container-cellphone-button&quot;&gt;
+        &lt;div class&#x3D;&quot;content-cellphone&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/images/cellphone-lp-shop.png&quot; alt&#x3D;&quot;&quot;&gt;
+        &lt;/div&gt;
+        &lt;section class&#x3D;&quot;container-text-button&quot;&gt;
+          &lt;p class&#x3D;&quot;color-blue-dark f-size-18&quot;&gt;
+            {{dataTexts.lading.devoteeShop.text}}
+          &lt;/p&gt;
+          &lt;section&gt;
+            &lt;button class&#x3D;&quot;button third font-booster-next-bold&quot; (click)&#x3D;&quot;navigateTo(routesApp.LOGIN)&quot;&gt;
+              {{dataTexts.buttons.btnAccess}}
+            &lt;/button&gt;
+          &lt;/section&gt;
+        &lt;/section&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+
+  &lt;/article&gt;
+  &lt;section class&#x3D;&quot;container-devotee-video container-default-lp&quot;&gt;
+    &lt;div class&#x3D;&quot;content-devotee-video max-size dp-flex-column-initial&quot; &gt;
+      &lt;h2 class&#x3D;&quot;font-booster-next-bold color-magenta-soft&quot;&gt;
+        {{dataTexts.lading.devoteeVideo.title}}
+      &lt;/h2&gt;
+      &lt;iframe width&#x3D;&quot;560&quot; height&#x3D;&quot;315&quot; src&#x3D;&quot;https://www.youtube-nocookie.com/embed/OH4eJYvaLlc&quot; title&#x3D;&quot;YouTube video player&quot; frameborder&#x3D;&quot;0&quot; allow&#x3D;&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+      &lt;section class&#x3D;&quot;social-media&quot;&gt;
+        &lt;p class&#x3D;&quot;f-size-18 color-gray-dark&quot;&gt;{{dataTexts.lading.followUs.title}}&lt;/p&gt;
+        &lt;div class&#x3D;&quot;social-icons&quot;&gt;
+          &lt;a href&#x3D;&quot;https://www.youtube.com/channel/UCP_fhk3MM9ULx_5qkqgX27Q&quot; target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener noreferrer&quot;&gt;
+            &lt;mat-icon svgIcon&#x3D;&quot;logo_youtube&quot;&gt;&lt;/mat-icon&gt;
+          &lt;/a&gt;
+          &lt;a href&#x3D;&quot;https://pt-br.facebook.com/devotee.network&quot; target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener noreferrer&quot;&gt;
+            &lt;mat-icon svgIcon&#x3D;&quot;logo_facebook&quot;&gt;&lt;/mat-icon&gt;
+          &lt;/a&gt;
+          &lt;a href&#x3D;&quot;https://www.instagram.com/devotee.deficiente&quot; target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener noreferrer&quot;&gt;
+            &lt;mat-icon svgIcon&#x3D;&quot;logo_instagram&quot;&gt;&lt;/mat-icon&gt;
+          &lt;/a&gt;
+        &lt;/div&gt;
+      &lt;/section&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;content-devotee-midia dp-flex-column-initial&quot; &gt;
+      &lt;p class&#x3D;&quot;color-blue-dark&quot;&gt;{{dataTexts.lading.devoteeMidia.title}}&lt;/p&gt;
+      &lt;div class&#x3D;&quot;container-imgs&quot;&gt;
+        &lt;a href&#x3D;&quot;https://epocanegocios.globo.com/Tecnologia/noticia/2019/06/app-brasileiro-promove-paquera-entre-pessoas-com-deficiencia.html&quot; target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener noreferrer&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/images/logo-epoca.png&quot; alt&#x3D;&quot;&quot;&gt;
+        &lt;/a&gt;
+        &lt;a href&#x3D;&quot;https://emais.estadao.com.br/noticias/comportamento,brasileiro-cria-aplicativo-de-relacionamento-para-pessoas-com-deficiencia,70002860948&quot; target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener noreferrer&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/images/logo-estadao.png&quot; alt&#x3D;&quot;&quot;&gt;
+        &lt;/a&gt;
+        &lt;a href&#x3D;&quot;https://casadaptada.com.br/2018/09/conheca-o-aplicativo-devotee-o-melhor-lugar-para-conectar-voce-com-pessoas-especiais/&quot; target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener noreferrer&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/images/logo-ansa.png&quot; alt&#x3D;&quot;&quot;&gt;
+        &lt;/a&gt;
+        &lt;a href&#x3D;&quot;https://ansabrasil.com.br/brasil/noticias/brasil/tecnologia/2019/06/07/app-brasileiro-promove-paquera-entre-pessoas-com-deficiencia_634943f4-a377-4656-aa52-508083528e55.html&quot; target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener noreferrer&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/images/logo-casadaptada.png&quot; alt&#x3D;&quot;&quot;&gt;
+        &lt;/a&gt;
+        &lt;a href&#x3D;&quot;https://somostodosgigantes.com.br/tag/app-devotee/&quot; target&#x3D;&quot;_blank&quot; rel&#x3D;&quot;noopener noreferrer&quot;&gt;
+          &lt;img src&#x3D;&quot;/assets/images/logo-inn.png&quot; alt&#x3D;&quot;&quot;&gt;
+        &lt;/a&gt;
+      &lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/section&gt;
+  &lt;app-footer [backgroudColor]&#x3D;&quot;&#x27;bg-color-blue-dark&#x27;&quot;&gt;&lt;/app-footer&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./landing-page.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &#x27;_custom&#x27;;
+#landing-page {
+  .only-mobile {
+    @include min-tablet {
+      display: none;
+    }
+  }
+  .container-logo-login {
+    @include dp-flex-alignment(row, center, space-between);
+    background: transparent linear-gradient(180deg, $sand-medium 0%, $sand-soft 100%) 0% 0% no-repeat padding-box;;
+    .logo {
+      @include dp-flex-alignment(row, center, initial);
+      gap: 5px;
+      img {
+        width: 25px;
+        max-width: 45px;
+        height: auto;
+        @include min-tablet {
+          width: 100%;
+        }
+      }
+      .title-logo {
+        font-size: 1.2rem;
+        @include min-tablet {
+          font-size: 2.5rem;
+        }
+      }
+    }
+    .container-button-header {
+      gap: 50px;
+      .container-buttons-desk {
+        display: none;
+        @include min-tablet {
+          gap: 50px;
+        }
+      }
+      .btn-login {
+        padding: 8px 34px;
+      }
+    }
+  }
+  .container-welcome-app {
+    background: transparent linear-gradient(180deg, $sand-soft 0%, $sand-medium 100%) 0% 0% no-repeat padding-box;
+    @include min-tablet {
+      @include dp-flex-alignment(row, center, space-between);
+
+    }
+    .container-title-text {
+      gap: 40px;
+    }
+    .container-desk-register {
+      gap: 10px;
+      @media screen and (max-width: $min-tablet){
+        display: none;
+      }
+      .desk-register-title {
+        font-size: 28px
+      }
+      .btn-register-desk {
+        @include dp-flex-alignment();
+        max-width: 200px;
+      }
+    }
+
+    .container-cellphone-button {
+      .content-cellphone {
+        img {
+          width: 100%;
+          @include min-tablet {
+            max-width: 400px;
+          }
+          @include medium-tablet {
+            max-width: 600px;
+          }
+        }
+      }
+      .container-buttons-text {
+        .content-buttons {
+          padding: 0;
+          @include dp-flex-alignment(row, center, space-between);
+          @include min-tablet {
+            justify-content: flex-end;
+          }
+          .button {
+            padding: 8px 18px;
+          }
+          .buttons-download {
+            gap: 10px;
+            img {
+              height: 25px;
+              @include min-tablet {
+                height: 35px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  h2 {
+    @include min-tablet {
+      font-size: 50px;
+    }
+  }
+  p {
+    @include min-tablet {
+      font-size: 30px;
+    }
+  }
+  .max-size {
+    max-width: 1150px;
+    margin: auto;
+  }
+  .container-devotee-shop {
+    @include dp-flex-alignment(column, flex-end, flex-end);
+    background:  transparent linear-gradient(180deg, $sand-medium 0%, $sand-soft 100%) 0% 0% no-repeat padding-box;
+
+    .container-cellphone-button {
+      @include dp-flex-alignment(row, center, space-between);
+      gap: 10px;
+      width: 100%;
+      .button {
+        @include min-tablet {
+          width: 200px;
+        }
+      }
+      img {
+        max-width: 150px;
+        @include min-tablet {
+          max-width: 400px
+        }
+        @include medium-tablet {
+          max-width: 600px;
+        }
+      }
+      .container-text-button {
+        @include dp-flex-alignment(column, flex-end, flex-end);
+        gap: 10px;
+        text-align: right;
+        .button {
+          padding: 8px 18px;
+        }
+      }
+    }
+
+  }
+  .container-devotee-video {
+    background: transparent linear-gradient(180deg, $sand-soft 0%, $sand-medium 100%) 0% 0% no-repeat padding-box;
+    .content-devotee-video {
+      gap: 30px;
+      iframe {
+        width: 100%;
+        height: auto;
+        min-height: 300px;
+        @include min-tablet {
+          min-height: 500px;
+        }
+      }
+      .social-media {
+        @include dp-flex-alignment(column, center, initial);
+        .social-icons {
+          @include dp-flex-alignment();
+          gap: 10px;
+        }
+      }
+    }
+    .content-devotee-midia {
+      gap: 30px;
+      margin-top: 30px;
+      p {
+        text-align: center
+      }
+      .container-imgs {
+        @include dp-flex-alignment(row, center, center);
+        flex-wrap: wrap;
+        gap: 10px;
+        img {
+          max-width: 165px;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+.container-default-lp {
+  padding: 20px 30px;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div id="landing-page">  <header class="container-logo-login">    <div class="container-logo-login width-100-per container-default-lp container-default">      <section class="logo">        <img src="/assets/images/logo-blue.png" alt="Logo Devotee" srcset="">        <span class="font-booster-next-bold color-blue-dark title-logo">Devotee</span>      </section>      <section class="container-button-header dp-flex-row-initial">        <div class="container-buttons-desk dp-flex-row-initial">          <div class="button link-icon-text font-booster-next-bold">              <mat-icon svgIcon="local_mall"></mat-icon>            <a class="font-booster-next-bold color-blue-dark" href="https://www.loja.devotee.com.br/" target="_blank" rel="noopener noreferrer">              {{dataTexts.buttons.btnShop}}            </a>          </div>          <button class="button link font-booster-next-bold" (click)="goToLoginOrRegister(routesApp.PRE_REGISTER)">            {{dataTexts.buttonsSignin.btnRegister}}          </button>        </div>        <button class="button primary font-booster-next-bold btn-login" (click)="goToLoginOrRegister(routesApp.LOGIN)">          {{dataTexts.buttons.btnEntry}}        </button>      </section>    </div>  </header>  <article class="container-welcome-app container-default-lp">    <div class="container-welcome-app container-default width-100-per">      <section class="container-title-text dp-flex-column-initial">        <div class="content-title-text dp-flex-column-initial">          <h2 class="font-booster-next-bold color-magenta-soft">            {{dataTexts.lading.welcome.title}}          </h2>          <p class="color-blue-dark f-size-18">            {{dataTexts.lading.welcome.text}}          </p>        </div>        <div class="container-desk-register only-desk dp-flex-column-initial">          <p class="font-booster-next-bold color-blue-dark desk-register-title"> {{dataTexts.lading.simpleMatch}}</p>          <section class="btn-register-desk">            <button class="button third font-booster-next-bold " (click)="goToLoginOrRegister(routesApp.PRE_REGISTER)">              {{dataTexts.buttons.btnRegisterSe}}            </button>          </section>        </div>      </section>      <section class="container-cellphone-button">        <div class="content-cellphone">          <img src="/assets/images/cellphone-lp.png" alt="">        </div>        <div class="container-buttons-text">          <p class="only-mobile font-booster-next-bold color-blue-dark"> {{dataTexts.lading.simpleMatch}}</p>          <div class="content-buttons">            <section class="only-mobile">              <button class="button third font-booster-next-bold" (click)="goToLoginOrRegister(routesApp.PRE_REGISTER)">                {{dataTexts.buttons.btnRegisterSe}}              </button>            </section>            <section class="buttons-download dp-flex-row-initial">              <a href="https://play.google.com/store/apps/details?id=com.phurshell.devotee&hl=pt_BR" target="_blank"                rel="noopener noreferrer">                <img src={{dataTexts.buttonsDownload.btnPlayStore}} alt={{dataTexts.buttonsDownload.altPlaySotre}}></a>              <a href="https://apps.apple.com/br/app/devotee/id1331331692" target="_blank" rel="noopener noreferrer">                <img src={{dataTexts.buttonsDownload.btnAppStore}} alt={{dataTexts.buttonsDownload.altAppStore}}></a>            </section>          </div>        </div>      </section>    </div>  </article>  <article class="container-devotee-shop  container-default-lp">    <div class="container-devotee-shop max-size container-default width-100-per">      <h2 class="font-booster-next-bold color-magenta-soft">        {{dataTexts.lading.devoteeShop.title}}      </h2>      <div class="container-cellphone-button">        <div class="content-cellphone">          <img src="/assets/images/cellphone-lp-shop.png" alt="">        </div>        <section class="container-text-button">          <p class="color-blue-dark f-size-18">            {{dataTexts.lading.devoteeShop.text}}          </p>          <section>            <button class="button third font-booster-next-bold" (click)="navigateTo(routesApp.LOGIN)">              {{dataTexts.buttons.btnAccess}}            </button>          </section>        </section>      </div>    </div>  </article>  <section class="container-devotee-video container-default-lp">    <div class="content-devotee-video max-size dp-flex-column-initial" >      <h2 class="font-booster-next-bold color-magenta-soft">        {{dataTexts.lading.devoteeVideo.title}}      </h2>      <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/OH4eJYvaLlc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>      <section class="social-media">        <p class="f-size-18 color-gray-dark">{{dataTexts.lading.followUs.title}}</p>        <div class="social-icons">          <a href="https://www.youtube.com/channel/UCP_fhk3MM9ULx_5qkqgX27Q" target="_blank" rel="noopener noreferrer">            <mat-icon svgIcon="logo_youtube"></mat-icon>          </a>          <a href="https://pt-br.facebook.com/devotee.network" target="_blank" rel="noopener noreferrer">            <mat-icon svgIcon="logo_facebook"></mat-icon>          </a>          <a href="https://www.instagram.com/devotee.deficiente" target="_blank" rel="noopener noreferrer">            <mat-icon svgIcon="logo_instagram"></mat-icon>          </a>        </div>      </section>    </div>    <div class="content-devotee-midia dp-flex-column-initial" >      <p class="color-blue-dark">{{dataTexts.lading.devoteeMidia.title}}</p>      <div class="container-imgs">        <a href="https://epocanegocios.globo.com/Tecnologia/noticia/2019/06/app-brasileiro-promove-paquera-entre-pessoas-com-deficiencia.html" target="_blank" rel="noopener noreferrer">          <img src="/assets/images/logo-epoca.png" alt="">        </a>        <a href="https://emais.estadao.com.br/noticias/comportamento,brasileiro-cria-aplicativo-de-relacionamento-para-pessoas-com-deficiencia,70002860948" target="_blank" rel="noopener noreferrer">          <img src="/assets/images/logo-estadao.png" alt="">        </a>        <a href="https://casadaptada.com.br/2018/09/conheca-o-aplicativo-devotee-o-melhor-lugar-para-conectar-voce-com-pessoas-especiais/" target="_blank" rel="noopener noreferrer">          <img src="/assets/images/logo-ansa.png" alt="">        </a>        <a href="https://ansabrasil.com.br/brasil/noticias/brasil/tecnologia/2019/06/07/app-brasileiro-promove-paquera-entre-pessoas-com-deficiencia_634943f4-a377-4656-aa52-508083528e55.html" target="_blank" rel="noopener noreferrer">          <img src="/assets/images/logo-casadaptada.png" alt="">        </a>        <a href="https://somostodosgigantes.com.br/tag/app-devotee/" target="_blank" rel="noopener noreferrer">          <img src="/assets/images/logo-inn.png" alt="">        </a>      </div>    </div>  </section>  <app-footer [backgroudColor]="\'bg-color-blue-dark\'"></app-footer></div></div>'
+    var COMPONENTS = [{'name': 'ActivateLocationComponent', 'selector': 'app-activate-location'},{'name': 'AdsCardsComponent', 'selector': 'app-ads-cards'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardImgTitleTextComponent', 'selector': 'app-card-img-title-text'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChangeUserTypeComponent', 'selector': 'app-change-user-type'},{'name': 'ChatComponent', 'selector': 'app-chat'},{'name': 'ChatMessagesComponent', 'selector': 'app-chat-messages'},{'name': 'ContinueRegisterComponent', 'selector': 'app-continue-register'},{'name': 'DevoteePlusComponent', 'selector': 'app-devotee-plus'},{'name': 'EditAboutMeComponent', 'selector': 'app-edit-about-me'},{'name': 'EditProfilePicturesComponent', 'selector': 'app-edit-profile-pictures'},{'name': 'EticalRulesComponent', 'selector': 'app-etical-rules'},{'name': 'FilterPreferencesComponent', 'selector': 'app-filter-preferences'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderCardsInitialPageComponent', 'selector': 'app-header-cards-initial-page'},{'name': 'HeaderLoggedComponent', 'selector': 'app-header-logged'},{'name': 'InitialPageComponent', 'selector': 'app-initial-page'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LikedMeComponent', 'selector': 'app-liked-me'},{'name': 'LoggedComponent', 'selector': 'app-logged'},{'name': 'LoginQrCodeComponent', 'selector': 'app-login-qr-code'},{'name': 'MultipleSelectCidsComponent', 'selector': 'app-multiple-select-cids'},{'name': 'MultipleSelectDrugsComponent', 'selector': 'app-multiple-select-drugs'},{'name': 'MultipleSelectHospitalsComponent', 'selector': 'app-multiple-select-hospitals'},{'name': 'MultipleSelectMedicalProceduresComponent', 'selector': 'app-multiple-select-medical-procedures'},{'name': 'PrincipalLoadingComponent', 'selector': 'app-principal-loading'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RegisterDataComponent', 'selector': 'app-register-data'},{'name': 'RememberPasswordComponent', 'selector': 'app-remember-password'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'UseOfTermsComponent', 'selector': 'app-use-of-terms'},{'name': 'UserConfigurationsComponent', 'selector': 'app-user-configurations'},{'name': 'UserMatchsComponent', 'selector': 'app-user-matchs'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'LandingPageComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'LandingPageComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

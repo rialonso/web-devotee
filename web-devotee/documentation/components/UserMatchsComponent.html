@@ -1,0 +1,2751 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>web-devotee documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">web-devotee documentation</a>
+            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li
+  >
+  UserMatchsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="active">
+            <a href="#info" role="tab" id="info-tab" data-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li >
+            <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li >
+            <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li >
+            <a href="#styleData" role="tab" id="styleData-tab" data-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li >
+            <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="c-info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/user-matchs/user-matchs.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="https://angular.io/api/core/OnInit" target="_blank" >OnInit</a></code>
+                    <code><a href="https://angular.io/api/core/AfterViewInit" target="_blank" >AfterViewInit</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-user-matchs</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./user-matchs.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./user-matchs.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#active" >active</a>
+                            </li>
+                            <li>
+                                <a href="#allSugestionMatchs" >allSugestionMatchs</a>
+                            </li>
+                            <li>
+                                <a href="#countMatchsSlided" >countMatchsSlided</a>
+                            </li>
+                            <li>
+                                <a href="#currentX" >currentX</a>
+                            </li>
+                            <li>
+                                <a href="#currentY" >currentY</a>
+                            </li>
+                            <li>
+                                <a href="#dataTexts" >dataTexts</a>
+                            </li>
+                            <li>
+                                <a href="#deslikePosition" >deslikePosition</a>
+                            </li>
+                            <li>
+                                <a href="#destroy$" >destroy$</a>
+                            </li>
+                            <li>
+                                <a href="#disliked" >disliked</a>
+                            </li>
+                            <li>
+                                <a href="#enumLikeDislikeAction" >enumLikeDislikeAction</a>
+                            </li>
+                            <li>
+                                <a href="#enumRoutesApplication" >enumRoutesApplication</a>
+                            </li>
+                            <li>
+                                <a href="#initialX" >initialX</a>
+                            </li>
+                            <li>
+                                <a href="#initialY" >initialY</a>
+                            </li>
+                            <li>
+                                <a href="#liked" >liked</a>
+                            </li>
+                            <li>
+                                <a href="#likePosition" >likePosition</a>
+                            </li>
+                            <li>
+                                <a href="#loading" >loading</a>
+                            </li>
+                            <li>
+                                <a href="#matchUser" >matchUser</a>
+                            </li>
+                            <li>
+                                <a href="#showAds" >showAds</a>
+                            </li>
+                            <li>
+                                <a href="#xOffset" >xOffset</a>
+                            </li>
+                            <li>
+                                <a href="#yOffset" >yOffset</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addClassAnimation" >addClassAnimation</a>
+                            </li>
+                            <li>
+                                <a href="#buttonDisabled" >buttonDisabled</a>
+                            </li>
+                            <li>
+                                <a href="#changeUserImageInBackground" >changeUserImageInBackground</a>
+                            </li>
+                            <li>
+                                <a href="#clickAddMoreMatchAndTransition" >clickAddMoreMatchAndTransition</a>
+                            </li>
+                            <li>
+                                <a href="#countShowAdsAndExecLikeDislike" >countShowAdsAndExecLikeDislike</a>
+                            </li>
+                            <li>
+                                <a href="#drag" >drag</a>
+                            </li>
+                            <li>
+                                <a href="#dragCard" >dragCard</a>
+                            </li>
+                            <li>
+                                <a href="#dragEnd" >dragEnd</a>
+                            </li>
+                            <li>
+                                <a href="#dragExecDislikeAddMore" >dragExecDislikeAddMore</a>
+                            </li>
+                            <li>
+                                <a href="#dragExecLikeAddMore" >dragExecLikeAddMore</a>
+                            </li>
+                            <li>
+                                <a href="#dragStart" >dragStart</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#execDragSplitSugestions" >execDragSplitSugestions</a>
+                            </li>
+                            <li>
+                                <a href="#getDistance" >getDistance</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getSugestionMatchs" >getSugestionMatchs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#likeUnlikeMatch" >likeUnlikeMatch</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#resetCountEnableButtons" >resetCountEnableButtons</a>
+                            </li>
+                            <li>
+                                <a href="#subscribeCountsAds" >subscribeCountsAds</a>
+                            </li>
+                            <li>
+                                <a href="#transformAge" >transformAge</a>
+                            </li>
+                            <li>
+                                <a href="#transitionOptionMatch" >transitionOptionMatch</a>
+                            </li>
+                            <li>
+                                <a href="#viewProfile" >viewProfile</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(state: <a href="../interfaces/IAppState.html" target="_self">State&lt;IAppState&gt;</a>, store: Store, likeDislikeService: <a href="../injectables/LikeDislikeService.html" target="_self">LikeDislikeService</a>, getSugestionMatchsService: <a href="../injectables/GetSugestionMatchsService.html" target="_self">GetSugestionMatchsService</a>, translateService: <a href="../injectables/TranslateService.html" target="_self">TranslateService</a>, dialogsService: <a href="../injectables/DialogsService.html" target="_self">DialogsService</a>, stateManagementFuncService: <a href="../injectables/StateManagementFuncService.html" target="_self">StateManagementFuncService</a>, transformAgeService: <a href="../injectables/TransformAgeService.html" target="_self">TransformAgeService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:47</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>state</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/IAppState.html" target="_self" >State&lt;IAppState&gt;</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>store</td>
+                                                  
+                                                        <td>
+                                                                    <code>Store</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>likeDislikeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LikeDislikeService.html" target="_self" >LikeDislikeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>getSugestionMatchsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GetSugestionMatchsService.html" target="_self" >GetSugestionMatchsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translateService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TranslateService.html" target="_self" >TranslateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DialogsService.html" target="_self" >DialogsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>stateManagementFuncService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/StateManagementFuncService.html" target="_self" >StateManagementFuncService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>transformAgeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TransformAgeService.html" target="_self" >TransformAgeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section>
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addClassAnimation"></a>
+                    <span class="name">
+                        <span ><b>addClassAnimation</b></span>
+                        <a href="#addClassAnimation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addClassAnimation(likeOrDeslike)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="210"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:210</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>likeOrDeslike</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="buttonDisabled"></a>
+                    <span class="name">
+                        <span ><b>buttonDisabled</b></span>
+                        <a href="#buttonDisabled"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>buttonDisabled(addOrRemove)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="225"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:225</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>addOrRemove</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeUserImageInBackground"></a>
+                    <span class="name">
+                        <span ><b>changeUserImageInBackground</b></span>
+                        <a href="#changeUserImageInBackground"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>changeUserImageInBackground(profilePicture)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="241"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:241</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>profilePicture</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clickAddMoreMatchAndTransition"></a>
+                    <span class="name">
+                        <span ><b>clickAddMoreMatchAndTransition</b></span>
+                        <a href="#clickAddMoreMatchAndTransition"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clickAddMoreMatchAndTransition(likeOrDeslike)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="231"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:231</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>likeOrDeslike</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="countShowAdsAndExecLikeDislike"></a>
+                    <span class="name">
+                        <span ><b>countShowAdsAndExecLikeDislike</b></span>
+                        <a href="#countShowAdsAndExecLikeDislike"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>countShowAdsAndExecLikeDislike(likeOrDislike)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="148"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:148</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>likeOrDislike</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="drag"></a>
+                    <span class="name">
+                        <span ><b>drag</b></span>
+                        <a href="#drag"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>drag(e)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="158"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:158</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>e</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dragCard"></a>
+                    <span class="name">
+                        <span ><b>dragCard</b></span>
+                        <a href="#dragCard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dragCard()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="106"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:106</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dragEnd"></a>
+                    <span class="name">
+                        <span ><b>dragEnd</b></span>
+                        <a href="#dragEnd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dragEnd(e)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="203"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:203</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>e</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dragExecDislikeAddMore"></a>
+                    <span class="name">
+                        <span ><b>dragExecDislikeAddMore</b></span>
+                        <a href="#dragExecDislikeAddMore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dragExecDislikeAddMore()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="155"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:155</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dragExecLikeAddMore"></a>
+                    <span class="name">
+                        <span ><b>dragExecLikeAddMore</b></span>
+                        <a href="#dragExecLikeAddMore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dragExecLikeAddMore()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="152"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:152</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dragStart"></a>
+                    <span class="name">
+                        <span ><b>dragStart</b></span>
+                        <a href="#dragStart"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dragStart(e)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="188"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:188</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>e</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="execDragSplitSugestions"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>execDragSplitSugestions</b></span>
+                        <a href="#execDragSplitSugestions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>execDragSplitSugestions()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="126"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:126</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDistance"></a>
+                    <span class="name">
+                        <span ><b>getDistance</b></span>
+                        <a href="#getDistance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDistance(distanceFull: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="249"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:249</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>distanceFull</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSugestionMatchs"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>getSugestionMatchs</b></span>
+                        <a href="#getSugestionMatchs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getSugestionMatchs()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="96"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:96</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="likeUnlikeMatch"></a>
+                    <span class="name">
+                        <span class="modifier">Async</span>
+                        <span ><b>likeUnlikeMatch</b></span>
+                        <a href="#likeUnlikeMatch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                    <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>likeUnlikeMatch(action: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="117"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:117</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Type</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>action</td>
+                                    <td>
+                                                <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                    </td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="68"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:68</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:62</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetCountEnableButtons"></a>
+                    <span class="name">
+                        <span ><b>resetCountEnableButtons</b></span>
+                        <a href="#resetCountEnableButtons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetCountEnableButtons()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="144"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:144</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subscribeCountsAds"></a>
+                    <span class="name">
+                        <span ><b>subscribeCountsAds</b></span>
+                        <a href="#subscribeCountsAds"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>subscribeCountsAds()</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="80"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:80</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transformAge"></a>
+                    <span class="name">
+                        <span ><b>transformAge</b></span>
+                        <a href="#transformAge"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>transformAge(birthdateUser)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="244"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:244</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>birthdateUser</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transitionOptionMatch"></a>
+                    <span class="name">
+                        <span ><b>transitionOptionMatch</b></span>
+                        <a href="#transitionOptionMatch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>transitionOptionMatch(likeOrDeslike)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="216"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:216</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>likeOrDeslike</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>Promise&lt;boolean&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="viewProfile"></a>
+                    <span class="name">
+                        <span ><b>viewProfile</b></span>
+                        <a href="#viewProfile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>viewProfile(id)</code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-line">Defined in <a href="" data-line="252"
+                            class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:252</a></div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>id</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section>
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="active"></a>
+                    <span class="name">
+                        <span ><b>active</b></span>
+                        <a href="#active"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allSugestionMatchs"></a>
+                    <span class="name">
+                        <span ><b>allSugestionMatchs</b></span>
+                        <a href="#allSugestionMatchs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="countMatchsSlided"></a>
+                    <span class="name">
+                        <span ><b>countMatchsSlided</b></span>
+                        <a href="#countMatchsSlided"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentX"></a>
+                    <span class="name">
+                        <span ><b>currentX</b></span>
+                        <a href="#currentX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentY"></a>
+                    <span class="name">
+                        <span ><b>currentY</b></span>
+                        <a href="#currentY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dataTexts"></a>
+                    <span class="name">
+                        <span ><b>dataTexts</b></span>
+                        <a href="#dataTexts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deslikePosition"></a>
+                    <span class="name">
+                        <span ><b>deslikePosition</b></span>
+                        <a href="#deslikePosition"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="destroy$"></a>
+                    <span class="name">
+                        <span ><b>destroy$</b></span>
+                        <a href="#destroy$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ReplaySubject()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="disliked"></a>
+                    <span class="name">
+                        <span ><b>disliked</b></span>
+                        <a href="#disliked"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enumLikeDislikeAction"></a>
+                    <span class="name">
+                        <span ><b>enumLikeDislikeAction</b></span>
+                        <a href="#enumLikeDislikeAction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EnumLikeDislikeActions</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enumRoutesApplication"></a>
+                    <span class="name">
+                        <span ><b>enumRoutesApplication</b></span>
+                        <a href="#enumRoutesApplication"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EnumRoutesApplication</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialX"></a>
+                    <span class="name">
+                        <span ><b>initialX</b></span>
+                        <a href="#initialX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialY"></a>
+                    <span class="name">
+                        <span ><b>initialY</b></span>
+                        <a href="#initialY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="liked"></a>
+                    <span class="name">
+                        <span ><b>liked</b></span>
+                        <a href="#liked"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="likePosition"></a>
+                    <span class="name">
+                        <span ><b>likePosition</b></span>
+                        <a href="#likePosition"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loading"></a>
+                    <span class="name">
+                        <span ><b>loading</b></span>
+                        <a href="#loading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="matchUser"></a>
+                    <span class="name">
+                        <span ><b>matchUser</b></span>
+                        <a href="#matchUser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showAds"></a>
+                    <span class="name">
+                        <span ><b>showAds</b></span>
+                        <a href="#showAds"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="xOffset"></a>
+                    <span class="name">
+                        <span ><b>xOffset</b></span>
+                        <a href="#xOffset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="yOffset"></a>
+                    <span class="name">
+                        <span ><b>yOffset</b></span>
+                        <a href="#yOffset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/pages/user-matchs/user-matchs.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="c-source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild } from &#x27;@angular/core&#x27;;
+import { State, Store } from &#x27;@ngrx/store&#x27;;
+import { ReplaySubject } from &#x27;rxjs&#x27;;
+import { takeUntil } from &#x27;rxjs/operators&#x27;;
+import { GetSugestionMatchsService } from &#x27;src/app/core/services/get-sugestion-matchs/get-sugestion-matchs.service&#x27;;
+import { LikeDislikeService } from &#x27;src/app/core/services/like-dislike/like-dislike.service&#x27;;
+import { TranslateService } from &#x27;src/app/core/services/translate/translate.service&#x27;;
+import { EnumLikeDislikeActions } from &#x27;src/app/shared/enum/like-dislike/likes-dislike.enum&#x27;;
+import { EnumRoutesApplication } from &#x27;src/app/shared/enum/routes.enum&#x27;;
+import { DialogsService } from &#x27;src/app/shared/functions/dialogs/dialogs.service&#x27;;
+import { StateManagementFuncService } from &#x27;src/app/shared/functions/state-management/state-management-func.service&#x27;;
+import { TransformAgeService } from &#x27;src/app/shared/functions/transform-age/transform-age.service&#x27;;
+import { ModelLikeDislikeRequest } from &#x27;src/app/shared/model/request/like-dislike-request/like-dislike.model&#x27;;
+import { IAppState } from &#x27;src/app/state-management/app.model&#x27;;
+import { IControlsApp } from &#x27;src/app/state-management/controls/controls-app.state&#x27;;
+import { environment } from &#x27;src/environments/environment&#x27;;
+
+@Component({
+  selector: &#x27;app-user-matchs&#x27;,
+  templateUrl: &#x27;./user-matchs.component.html&#x27;,
+  styleUrls: [&#x27;./user-matchs.component.scss&#x27;]
+})
+export class UserMatchsComponent implements OnInit, AfterViewInit {
+  enumLikeDislikeAction &#x3D; EnumLikeDislikeActions;
+  enumRoutesApplication &#x3D; EnumRoutesApplication
+  dataTexts;
+
+  active &#x3D; false;
+  loading &#x3D; false;
+  showAds &#x3D; false;
+  liked &#x3D; false;
+  disliked &#x3D; false;
+
+  matchUser;
+  allSugestionMatchs;
+  currentX;
+  currentY;
+  initialX;
+  initialY;
+  likePosition;
+  deslikePosition;
+  xOffset: number &#x3D; 0;
+  yOffset: number &#x3D; 0;
+
+  countMatchsSlided &#x3D; 0;
+
+  destroy$ &#x3D; new ReplaySubject();
+  constructor(
+    protected state: State&lt;IAppState&gt;,
+    protected store: Store,
+    private likeDislikeService: LikeDislikeService,
+    private getSugestionMatchsService: GetSugestionMatchsService,
+    private translateService: TranslateService,
+    private dialogsService: DialogsService,
+    private stateManagementFuncService: StateManagementFuncService,
+    private transformAgeService: TransformAgeService,
+  ) {
+
+
+  }
+
+  ngOnInit() {
+    this.getSugestionMatchs();
+    this.execDragSplitSugestions();
+    this.subscribeCountsAds();
+
+  }
+  ngAfterViewInit() {
+    setTimeout(() &#x3D;&gt; {
+      if (this.showAds) {
+        try {
+          (window[&quot;adsbygoogle&quot;] &#x3D; window[&quot;adsbygoogle&quot;] || []).push({});
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+    }, 2000);
+  }
+  subscribeCountsAds() {
+    this.store
+    .select((state: IAppState) &#x3D;&gt; state.controlsApp.countShowAds)
+    .pipe(takeUntil(this.destroy$))
+    .subscribe(state &#x3D;&gt; {
+      // console.log(state);
+
+      if (state &#x3D;&#x3D;&#x3D; 10) {
+        this.buttonDisabled(&#x27;add&#x27;)
+        this.showAds &#x3D; true;
+
+      } else {
+        this.showAds &#x3D; false;
+      }
+    })
+  }
+  async getSugestionMatchs() {
+    this.loading &#x3D; true;
+    this.dataTexts &#x3D; this.translateService?.textTranslate;
+    const sugestionMatchs &#x3D; await this.getSugestionMatchsService.get().toPromise();
+    this.matchUser &#x3D; sugestionMatchs?.data?.slice(0, 3);
+    this.allSugestionMatchs &#x3D; sugestionMatchs.data;
+    this.loading &#x3D; false;
+    this.dragCard();
+
+  }
+  dragCard(): void {
+    const container &#x3D; document.querySelector(&#x27;#container-drag&#x27;);
+    container?.addEventListener(&#x27;touchstart&#x27;, this.dragStart, false);
+    container?.addEventListener(&#x27;touchend&#x27;, this.dragEnd, false);
+    container?.addEventListener(&#x27;touchmove&#x27;, this.drag, false);
+
+    container?.addEventListener(&#x27;mousedown&#x27;, this.dragStart, false);
+    container?.addEventListener(&#x27;mouseup&#x27;, this.dragEnd, false);
+    container?.addEventListener(&#x27;mousemove&#x27;, this.drag, false);
+    // elm.style.transform &#x3D; &#x60;translate3d(${pos1}px, ${pos2}px, 20px)&#x60;;
+  }
+  async likeUnlikeMatch( action: string) {
+    const data &#x3D; new ModelLikeDislikeRequest(
+      this.matchUser[0]?.id,
+      action
+    )
+    const a &#x3D; await this.likeDislikeService.post(data).toPromise();
+    const sugestionMatchs &#x3D; await this.getSugestionMatchsService.get().toPromise();
+    this.matchUser &#x3D; sugestionMatchs?.data?.slice(0, 3);
+  }
+  async execDragSplitSugestions() {
+    if (document.querySelectorAll(&#x27;.ads&#x27;)[0] &#x3D;&#x3D;&#x3D; undefined) {
+      const dragItemInterval &#x3D; setInterval(() &#x3D;&gt; {
+        const dragItem: any &#x3D; document.querySelectorAll(&#x27;.sugestion-match&#x27;)[0];
+        const dragDataPosition: any &#x3D; dragItem?.getAttribute(&#x27;data-position&#x27;);
+        dragDataPosition &#x3D;&#x3D;&#x3D; &#x27;150&#x27; ? this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.LIKE) : dragItem?.setAttribute(&#x27;data-position&#x27;, 0 );
+        dragDataPosition &#x3D;&#x3D;&#x3D; &#x27;-150&#x27; ? this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.UNLIKE) :  dragItem?.setAttribute(&#x27;data-position&#x27;, 0 );
+      }, 1000);
+      setTimeout(() &#x3D;&gt; {
+        clearInterval(dragItemInterval);
+      }, 1500);
+    } else {
+      const dragItem: any &#x3D; document.querySelectorAll(&#x27;.sugestion-match&#x27;)[0];
+      const dragDataPosition: any &#x3D; dragItem?.getAttribute(&#x27;data-position&#x27;);
+      dragDataPosition &#x3D;&#x3D;&#x3D; &#x27;150&#x27; ? this.resetCountEnableButtons() : dragItem?.setAttribute(&#x27;data-position&#x27;, 0 );
+      dragDataPosition &#x3D;&#x3D;&#x3D; &#x27;-150&#x27; ? this.resetCountEnableButtons() :  dragItem?.setAttribute(&#x27;data-position&#x27;, 0 );
+    }
+  }
+  resetCountEnableButtons() {
+    this.buttonDisabled(&#x27;remove&#x27;);
+    this.stateManagementFuncService.resetCountShowAdsense();
+  }
+  countShowAdsAndExecLikeDislike(likeOrDislike) {
+    this.likeUnlikeMatch(likeOrDislike);
+    this.stateManagementFuncService.incrementCountShowAdsense();
+  }
+  dragExecLikeAddMore(): any {
+    this.likeUnlikeMatch(this.enumLikeDislikeAction.LIKE);
+  }
+  dragExecDislikeAddMore(): any {
+    this.likeUnlikeMatch(this.enumLikeDislikeAction.UNLIKE);
+  }
+  drag(e): void {
+    if (this.active) {
+      const dragItem: any &#x3D; document.querySelectorAll(&#x27;.sugestion-match&#x27;)[0];
+      const buttons &#x3D; document.querySelectorAll(&#x27;.container-buttons-action&#x27;);
+      e.preventDefault();
+      if (e.type &#x3D;&#x3D;&#x3D; &#x27;touchmove&#x27;) {
+        this.currentX &#x3D; e.touches[0].clientX - this.initialX;
+        this.currentY &#x3D; e.touches[0].clientY - this.initialY;
+      } else {
+        this.currentX &#x3D; e.clientX - this.initialX;
+        this.currentY &#x3D; e.clientY - this.initialY;
+      }
+
+      if (this.currentX &gt;&#x3D; 140 &amp;&amp; this.currentX &lt;&#x3D; 150){
+        dragItem.setAttribute(&#x27;data-position&#x27;, 150 );
+        dragItem.classList.add(&#x27;like-animation&#x27;);
+        buttons.forEach((value) &#x3D;&gt; {value.setAttribute(&#x27;disabled&#x27;, &#x27;true&#x27;); });
+      }
+      if (this.currentX &lt;&#x3D; -150 &amp;&amp; this.currentX &gt;&#x3D; -160) {
+        dragItem.setAttribute(&#x27;data-position&#x27;, -150 );
+        dragItem.classList.add(&#x27;dislike-animation&#x27;);
+        buttons.forEach((value) &#x3D;&gt; {value.removeAttribute(&#x27;disabled&#x27;); });
+
+      }
+      this.xOffset &#x3D; this.currentX;
+      this.yOffset &#x3D; this.currentY;
+      dragItem.style.transform &#x3D; &#x60;rotate(${this.currentX / 10}deg) translate3d(${this.currentX}px, ${ this.currentY}px, 0)&#x60;;
+
+    }
+  }
+  dragStart(e): void {
+    const dragItem: any &#x3D; document.querySelectorAll(&#x27;.sugestion-match&#x27;)[0];
+    const imgDragItem: any &#x3D; document.querySelectorAll(&#x27;.container-sugestion-perfil&#x27;)[0];
+    const nameProfileDrag: any &#x3D; document.querySelectorAll(&#x27;.profile-img&#x27;)[0];
+    if (e.type &#x3D;&#x3D;&#x3D; &#x27;touchstart&#x27;) {
+      this.initialX &#x3D; e.touches[0].clientX;
+      this.initialY &#x3D; e.touches[0].clientY;
+    } else {
+      this.initialX &#x3D; e.clientX;
+      this.initialY &#x3D; e.clientY;
+    }
+    if (e.target &#x3D;&#x3D;&#x3D; dragItem || e.target &#x3D;&#x3D;&#x3D; imgDragItem || e.target &#x3D;&#x3D;&#x3D; nameProfileDrag ) {
+      this.active &#x3D; true;
+    }
+  }
+  dragEnd(e): any {
+    const dragItem: any &#x3D; document.querySelectorAll(&#x27;.sugestion-match&#x27;)[0];
+    this.initialX &#x3D;  this.initialX - this.currentX;
+    this.initialY &#x3D;  this.initialY - this.currentY;
+    dragItem.style.transform &#x3D; &#x60;translate3d(0px, 0px, 0)&#x60;;
+    this.active &#x3D; false;
+  }
+  addClassAnimation(likeOrDeslike): void {
+    const addAnimation: any &#x3D; document.querySelectorAll(&#x27;.sugestion-match&#x27;)[0];
+    likeOrDeslike &#x3D;&#x3D;&#x3D; &#x27;like&#x27; ?
+      addAnimation.classList.add(&#x27;like-animation&#x27;) :
+      addAnimation.classList.add(&#x27;dislike-animation&#x27;);
+  }
+  transitionOptionMatch(likeOrDeslike): Promise&lt;boolean&gt;{
+    return new Promise((resolve: any, reject: any) &#x3D;&gt; {
+      this.addClassAnimation(likeOrDeslike);
+      this.buttonDisabled(&#x27;add&#x27;);
+      setInterval(() &#x3D;&gt; {
+        resolve(true);
+      }, 1000);
+    });
+  }
+  buttonDisabled(addOrRemove): void {
+    const buttons &#x3D; document.querySelectorAll(&#x27;.container-buttons-action&#x27;);
+    addOrRemove &#x3D;&#x3D;&#x3D; &#x27;add&#x27; ?
+      buttons.forEach((value) &#x3D;&gt; {value.setAttribute(&#x27;disabled&#x27;, &#x27;true&#x27;); }) :
+      buttons.forEach((value) &#x3D;&gt; {value.removeAttribute(&#x27;disabled&#x27;); });
+  }
+  clickAddMoreMatchAndTransition(likeOrDeslike): void {
+    this.transitionOptionMatch(likeOrDeslike).then((res: boolean) &#x3D;&gt; {
+      if (res) {
+        likeOrDeslike &#x3D;&#x3D;&#x3D; this.enumLikeDislikeAction.LIKE ? this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.LIKE) : &#x27;&#x27;;
+        likeOrDeslike &#x3D;&#x3D;&#x3D; this.enumLikeDislikeAction.UNLIKE ? this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.UNLIKE) : &#x27;&#x27;;
+        this.buttonDisabled(&#x27;remove&#x27;);
+        // this.addMoreMatch();
+      }
+    });
+  }
+  changeUserImageInBackground(profilePicture): string {
+    return &#x60;background-image: url(${environment.urlImages}${profilePicture[0]?.path}); background-color: #D9D9D9;&#x60;;
+  }
+  transformAge(birthdateUser) {
+    if(birthdateUser) {
+      return this.transformAgeService.transformAge(birthdateUser);
+    }
+  }
+  getDistance(distanceFull: number) {
+    return Math.trunc(distanceFull);
+  }
+  viewProfile(id) {
+    this.dialogsService.openProfile(id);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div id&#x3D;&quot;container-user-matchs&quot; class&#x3D;&quot;container-default&quot;&gt;
+
+  &lt;main class&#x3D;&quot;sugestion-matchs&quot;&gt;
+    &lt;section class&#x3D;&quot;container-infos&quot; *ngIf&#x3D;&quot;!loading&quot;&gt;
+      &lt;div class&#x3D;&quot;container-icon-info&quot; [routerLink]&#x3D;&quot;enumRoutesApplication.FILTERS&quot;&gt;
+        &lt;mat-icon&gt;tune&lt;/mat-icon&gt;
+      &lt;/div&gt;
+    &lt;/section&gt;
+
+    &lt;div class&#x3D;&quot;container-loading&quot; *ngIf&#x3D;&quot;loading&quot;&gt;
+      &lt;mat-spinner&gt;&lt;/mat-spinner&gt;
+    &lt;/div&gt;
+    &lt;div *ngIf&#x3D;&quot;matchUser?.length &#x3D;&#x3D;&#x3D; 0&quot; class&#x3D;&quot;container-havent-match&quot;&gt;
+      &lt;mat-icon class&#x3D;&quot;icon-havent-match color-blue-dark&quot;&gt;account_box&lt;/mat-icon&gt;
+      &lt;div class&#x3D;&quot;not-found-message&quot;&gt;
+        &lt;p class&#x3D;&quot;font-booster-next-bold color-blue-dark&quot;&gt;{{dataTexts.sugestionMatchs.noProfileFound.title}}&lt;/p&gt;
+        &lt;p class&#x3D;&quot;font-booster-next-regular color-blue-dark&quot;&gt;{{dataTexts.sugestionMatchs.noProfileFound.text}}&lt;/p&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div [class.display-none]&#x3D;&quot;matchUser?.length &#x3D;&#x3D;&#x3D; 0 || loading&quot; class&#x3D;&quot;container-sugestion-matchs&quot;&gt;
+      &lt;div class&#x3D;&quot;container-match-and-action&quot;id&#x3D;&quot;container-drag&quot;&gt;
+        &lt;div *ngIf&#x3D;&quot;showAds&quot; class&#x3D;&quot;ads container-cards-matchs sugestion-match cursor-grab&quot;&gt;
+          &lt;ins
+            class&#x3D;&quot;adsbygoogle&quot;
+            style&#x3D;&quot;display:block&quot;
+            data-ad-client&#x3D;&quot;ca-pub-4813221246235159&quot;
+            data-ad-slot&#x3D;&quot;3610382183&quot;
+            data-ad-format&#x3D;&quot;auto&quot;
+            data-full-width-responsive&#x3D;&quot;true&quot;
+            &gt;
+          &lt;/ins&gt;
+        &lt;/div&gt;
+        &lt;section
+          class&#x3D;&quot;container-cards-matchs sugestion-match cursor-grab&quot;
+          [style]&#x3D;&quot;changeUserImageInBackground(match.profile_picture)&quot;
+          draggable&#x3D;&quot;true&quot;
+          data-position&#x3D;&quot;0&quot;
+          *ngFor&#x3D;&quot;let match of matchUser&quot;
+          data-position&#x3D;&quot;0&quot;
+          (mouseenter)&#x3D;&quot;execDragSplitSugestions()&quot;
+          &gt;
+          &lt;div class&#x3D;&quot;nd&quot; &gt;&lt;/div&gt;
+          &lt;div class&#x3D;&quot;container-gradient-see-infos cursor-pointer&quot;&gt;
+            &lt;div class&#x3D;&quot;container-user-info&quot; (click)&#x3D;&quot;viewProfile(match)&quot;&gt;
+              &lt;section class&#x3D;&quot;tip-user-type font-booster-next-bold bg-color-blue-dark color-white&quot;&gt;
+                {{match?.account_type}}
+              &lt;/section&gt;
+              &lt;section class&#x3D;&quot;container-user-name-age font-booster-next-bold color-white&quot;&gt;
+                {{match?.name}}, {{transformAge(match.birthdate)}}
+              &lt;/section&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;distance-match&quot;&gt;
+              &lt;mat-icon class&#x3D;&quot;color-white&quot;&gt; location_on&lt;/mat-icon&gt;
+              &lt;p class&#x3D;&quot;color-white &quot;&gt;{{ getDistance(match.distance)}} km from you&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;container-buttons-action&quot; style&#x3D;&quot;visibility: hidden;&quot;&gt;
+              &lt;button
+              (click)&#x3D;&quot;this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.UNLIKE)&quot;
+                class&#x3D;&quot;button like-dislike dislike&quot;
+                &gt;
+                &lt;mat-icon&gt;close&lt;/mat-icon&gt;
+              &lt;/button&gt;
+              &lt;button
+              (click)&#x3D;&quot;this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.LIKE)&quot;
+                class&#x3D;&quot;button like-dislike like&quot;
+                &gt;
+                &lt;mat-icon svgIcon&#x3D;&quot;heart&quot;&gt;&lt;/mat-icon&gt;
+              &lt;/button&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/section&gt;
+        &lt;section [class.display-none]&#x3D;&quot;!showAds&quot; class&#x3D;&quot;container-buttons-action action-active&quot;&gt;
+          &lt;button
+          (click)&#x3D;&quot;clickAddMoreMatchAndTransition(enumLikeDislikeAction.UNLIKE)&quot;
+            class&#x3D;&quot;button like-dislike dislike&quot;
+            [class.disliked]&#x3D;&quot;disliked&quot;
+            &gt;
+            &lt;mat-icon&gt;close&lt;/mat-icon&gt;
+          &lt;/button&gt;
+          &lt;button
+          (click)&#x3D;&quot;clickAddMoreMatchAndTransition(enumLikeDislikeAction.LIKE)&quot;
+            class&#x3D;&quot;button like-dislike like&quot;
+            [class.liked]&#x3D;&quot;liked&quot;
+            &gt;
+            &lt;mat-icon svgIcon&#x3D;&quot;heart&quot;&gt;&lt;/mat-icon&gt;
+          &lt;/button&gt;
+        &lt;/section&gt;
+
+      &lt;/div&gt;
+
+
+    &lt;/div&gt;
+
+
+  &lt;/main&gt;
+
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-styleData">
+                <p class="comment">
+                    <code>./user-matchs.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">@import &#x27;_custom&#x27;;
+:host {
+  background: transparent linear-gradient(180deg, $sand-soft 0%, $sand-medium 100%) 0% 0% no-repeat padding-box;;
+  height: 100%;
+}
+.ads {
+  width: 100%;
+  height: 100% !important;
+  min-height: 650px;
+  position: absolute;
+  background-color: $gray-medium-soft;
+}
+#container-user-matchs {
+  @include dp-flex-alignment(column);
+  height: 100%;
+  min-height: 100%;
+  margin: 45px auto;
+
+  @include min-tablet {
+    @include dp-flex-alignment(row, initial, center);
+
+  }
+  .container-infos {
+    @include dp-flex-alignment(row, center, flex-end);
+    gap: 15px;
+    margin: 10px;
+    max-width: 400px;
+    width: 100%;
+    .container-icon-info {
+      @include dp-flex-alignment();
+      width: 50px;
+      height: 50px;
+      border-radius: 100%;
+      cursor: pointer;
+      mat-icon {
+        color: $gray-icons-50;
+        width: 30px;
+        height: 30px;
+        font-size: 30px;
+        &amp;.activated {
+          color: $gray-icons;
+        }
+      }
+    }
+  }
+  .sugestion-matchs {
+    width: 100%;
+    height: 100%;
+    min-height: 650px;
+    position: relative;
+    @include dp-flex-alignment(column);
+  }
+  .container-havent-match {
+    @include dp-flex-alignment(column);
+
+    .icon-havent-match {
+      font-size: 40px;
+      width: 40px;
+      height: 40px;
+    }
+    .not-found-message {
+      text-align: center;
+    }
+  }
+  .container-sugestion-matchs {
+    width: 100%;
+    height: 100%;
+    @include dp-flex-alignment();
+    .container-match-and-action {
+      width: 100%;
+      height: 100%;
+
+
+      position: relative;
+      @include dp-flex-alignment(column);
+      overflow: hidden;
+      border-radius: 10px;
+      .action-active {
+        position: absolute;
+        bottom: 10px;
+        z-index: 6;
+        gap: 10px;
+        width: 100%;
+        padding: 0 10px;
+        box-sizing: border-box;
+        @include dp-flex-alignment();
+        max-width: 400px;
+
+
+      }
+    }
+    .container-cards-matchs {
+      @include dp-flex-alignment(column, initial, flex-end);
+      background-repeat: no-repeat;
+      background-attachment: inherit;
+      background-position: center;
+      background-size: cover;
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      min-height: 560px;
+      max-width: 400px;
+
+      .container-gradient-see-infos {
+        background-image: linear-gradient($black-01, $black-80);
+        @include dp-flex-alignment(column, initial, flex-end);
+        gap: 10px;
+        padding: 20px 10px;
+        border-radius: 10px;
+        .container-user-info {
+          .tip-user-type {
+            @include dp-flex-alignment();
+            max-width: 80px;
+            border-radius: 30px;
+            font-size: 14px;
+            padding: 2px 0;
+          }
+        }
+        .distance-match {
+          @include dp-flex-alignment(row, center, flex-start);
+          mat-icon {
+            font-size: 20px;
+            width: 20px;
+            height: 20px;
+          }
+          p {
+            font-size: 14px;
+          }
+        }
+        .container-buttons-action {
+          @include dp-flex-alignment();
+          gap: 15px;
+        }
+
+      }
+      &amp;:nth-child(1) {
+        z-index: 5;
+        top: 0;
+        width: 100%;
+
+      }
+      &amp;:nth-child(2) {
+        z-index: 4;
+        position: absolute;
+        // top: 20px;
+        width: 100%;
+      }
+      &amp;:nth-child(3) {
+        position: absolute;
+        // top: 40px;
+        z-index: 3;
+        width: 100%;
+      }
+    }
+    .like-animation {
+      transform: rotate(45deg) translate3d(640px,240px,20px)!important;
+      transition: 1.5s!important;
+      background-color: #00DB92;
+    }
+
+    .dislike-animation {
+      transform: rotate(-45deg) translate3d(-640px,240px,20px)!important;
+      transition: 1.5s!important;
+      background-color: red;
+    }
+  }
+  .display-none {
+    display: none;
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="c-tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div id="container-user-matchs" class="container-default">  <main class="sugestion-matchs">    <section class="container-infos" *ngIf="!loading">      <div class="container-icon-info" [routerLink]="enumRoutesApplication.FILTERS">        <mat-icon>tune</mat-icon>      </div>    </section>    <div class="container-loading" *ngIf="loading">      <mat-spinner></mat-spinner>    </div>    <div *ngIf="matchUser?.length === 0" class="container-havent-match">      <mat-icon class="icon-havent-match color-blue-dark">account_box</mat-icon>      <div class="not-found-message">        <p class="font-booster-next-bold color-blue-dark">{{dataTexts.sugestionMatchs.noProfileFound.title}}</p>        <p class="font-booster-next-regular color-blue-dark">{{dataTexts.sugestionMatchs.noProfileFound.text}}</p>      </div>    </div>    <div [class.display-none]="matchUser?.length === 0 || loading" class="container-sugestion-matchs">      <div class="container-match-and-action"id="container-drag">        <div *ngIf="showAds" class="ads container-cards-matchs sugestion-match cursor-grab">          <ins            class="adsbygoogle"            style="display:block"            data-ad-client="ca-pub-4813221246235159"            data-ad-slot="3610382183"            data-ad-format="auto"            data-full-width-responsive="true"            >          </ins>        </div>        <section          class="container-cards-matchs sugestion-match cursor-grab"          [style]="changeUserImageInBackground(match.profile_picture)"          draggable="true"          data-position="0"          *ngFor="let match of matchUser"          data-position="0"          (mouseenter)="execDragSplitSugestions()"          >          <div class="nd" ></div>          <div class="container-gradient-see-infos cursor-pointer">            <div class="container-user-info" (click)="viewProfile(match)">              <section class="tip-user-type font-booster-next-bold bg-color-blue-dark color-white">                {{match?.account_type}}              </section>              <section class="container-user-name-age font-booster-next-bold color-white">                {{match?.name}}, {{transformAge(match.birthdate)}}              </section>            </div>            <div class="distance-match">              <mat-icon class="color-white"> location_on</mat-icon>              <p class="color-white ">{{ getDistance(match.distance)}} km from you</p>            </div>            <div class="container-buttons-action" style="visibility: hidden;">              <button              (click)="this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.UNLIKE)"                class="button like-dislike dislike"                >                <mat-icon>close</mat-icon>              </button>              <button              (click)="this.countShowAdsAndExecLikeDislike(this.enumLikeDislikeAction.LIKE)"                class="button like-dislike like"                >                <mat-icon svgIcon="heart"></mat-icon>              </button>            </div>          </div>        </section>        <section [class.display-none]="!showAds" class="container-buttons-action action-active">          <button          (click)="clickAddMoreMatchAndTransition(enumLikeDislikeAction.UNLIKE)"            class="button like-dislike dislike"            [class.disliked]="disliked"            >            <mat-icon>close</mat-icon>          </button>          <button          (click)="clickAddMoreMatchAndTransition(enumLikeDislikeAction.LIKE)"            class="button like-dislike like"            [class.liked]="liked"            >            <mat-icon svgIcon="heart"></mat-icon>          </button>        </section>      </div>    </div>  </main></div></div>'
+    var COMPONENTS = [{'name': 'ActivateLocationComponent', 'selector': 'app-activate-location'},{'name': 'AdsCardsComponent', 'selector': 'app-ads-cards'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CardImgTitleTextComponent', 'selector': 'app-card-img-title-text'},{'name': 'ChangePasswordComponent', 'selector': 'app-change-password'},{'name': 'ChangeUserTypeComponent', 'selector': 'app-change-user-type'},{'name': 'ChatComponent', 'selector': 'app-chat'},{'name': 'ChatMessagesComponent', 'selector': 'app-chat-messages'},{'name': 'ContinueRegisterComponent', 'selector': 'app-continue-register'},{'name': 'DevoteePlusComponent', 'selector': 'app-devotee-plus'},{'name': 'EditAboutMeComponent', 'selector': 'app-edit-about-me'},{'name': 'EditProfilePicturesComponent', 'selector': 'app-edit-profile-pictures'},{'name': 'EticalRulesComponent', 'selector': 'app-etical-rules'},{'name': 'FilterPreferencesComponent', 'selector': 'app-filter-preferences'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HeaderCardsInitialPageComponent', 'selector': 'app-header-cards-initial-page'},{'name': 'HeaderLoggedComponent', 'selector': 'app-header-logged'},{'name': 'InitialPageComponent', 'selector': 'app-initial-page'},{'name': 'LandingPageComponent', 'selector': 'app-landing-page'},{'name': 'LikedMeComponent', 'selector': 'app-liked-me'},{'name': 'LoggedComponent', 'selector': 'app-logged'},{'name': 'LoginQrCodeComponent', 'selector': 'app-login-qr-code'},{'name': 'MultipleSelectCidsComponent', 'selector': 'app-multiple-select-cids'},{'name': 'MultipleSelectDrugsComponent', 'selector': 'app-multiple-select-drugs'},{'name': 'MultipleSelectHospitalsComponent', 'selector': 'app-multiple-select-hospitals'},{'name': 'MultipleSelectMedicalProceduresComponent', 'selector': 'app-multiple-select-medical-procedures'},{'name': 'PrincipalLoadingComponent', 'selector': 'app-principal-loading'},{'name': 'PrivacyPolicyComponent', 'selector': 'app-privacy-policy'},{'name': 'ProfileComponent', 'selector': 'app-profile'},{'name': 'RegisterComponent', 'selector': 'app-register'},{'name': 'RegisterDataComponent', 'selector': 'app-register-data'},{'name': 'RememberPasswordComponent', 'selector': 'app-remember-password'},{'name': 'SignInComponent', 'selector': 'app-sign-in'},{'name': 'UseOfTermsComponent', 'selector': 'app-use-of-terms'},{'name': 'UserConfigurationsComponent', 'selector': 'app-user-configurations'},{'name': 'UserMatchsComponent', 'selector': 'app-user-matchs'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'UserMatchsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserMatchsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
