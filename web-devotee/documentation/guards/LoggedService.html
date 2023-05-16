@@ -64,6 +64,13 @@
             </p>
 
 
+                <p class="comment">
+                <h3>Description</h3>
+                </p>
+                <p class="comment">
+                    <p>Logged Guard</p>
+
+                </p>
 
 
 
@@ -107,12 +114,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="9" class="link-to-prism">src/app/core/guards/logged/logged.guard.service.ts:9</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/app/core/guards/logged/logged.guard.service.ts:11</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -121,6 +130,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -135,6 +145,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>AS router</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -170,14 +184,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="14"
-                            class="link-to-prism">src/app/core/guards/logged/logged.guard.service.ts:14</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="25"
+                            class="link-to-prism">src/app/core/guards/logged/logged.guard.service.ts:25</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>method to validate route</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -188,6 +204,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -202,6 +219,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>AS route</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>state</td>
@@ -214,6 +235,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>As state</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -225,7 +250,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>boolean</p>
+
                     </div>
                 </td>
             </tr>
@@ -240,15 +266,26 @@
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot } from &#x27;@angular/router&#x27;;
 import { Observable } from &#x27;rxjs&#x27;;
 import { EnumRoutesApplication } from &#x27;src/app/shared/enum/routes.enum&#x27;;
-
+/**
+ * Logged Guard
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class LoggedService implements CanActivate {
-
+  /**
+   *The constructor
+   * @param router AS router
+   */
   constructor(
     private router: Router,
   ) { }
+  /**
+   * method to validate route
+   * @param route AS route
+   * @param state As state
+   * @returns boolean
+   */
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot

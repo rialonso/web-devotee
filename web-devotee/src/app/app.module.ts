@@ -10,6 +10,9 @@ import { StoreModule } from '@ngrx/store';
 import { IConfig, NgxMaskModule } from "ngx-mask";
 import { AuthGuardService } from "./core/guards/auth-guard/auth.guard.service";
 import { GoogleLoginProvider } from "angularx-social-login";
+/**
+ * Mask config
+ */
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };

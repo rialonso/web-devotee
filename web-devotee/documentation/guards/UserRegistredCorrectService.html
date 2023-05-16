@@ -64,6 +64,13 @@
             </p>
 
 
+                <p class="comment">
+                <h3>Description</h3>
+                </p>
+                <p class="comment">
+                    <p>UserRegistered guard</p>
+
+                </p>
 
 
 
@@ -111,12 +118,14 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/core/guards/user-registred-correct/user-registred-correct.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/core/guards/user-registred-correct/user-registred-correct.service.ts:16</a></div>
                             </td>
                         </tr>
 
                 <tr>
                     <td class="col-md-4">
+                            <div class="io-description"><p>The constructor</p>
+</div>
                             <div>
                                     <b>Parameters :</b>
                                     <table class="params">
@@ -125,6 +134,7 @@
                                                 <td>Name</td>
                                                     <td>Type</td>
                                                 <td>Optional</td>
+                                                    <td>Description</td>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -139,6 +149,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>State</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>router</td>
@@ -151,6 +165,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>AS route</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>verifyStageRegisterDataService</td>
@@ -163,6 +181,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>as VerifyStageRegistered</p>
+
+                                                        </td>
                                                 </tr>
                                                 <tr>
                                                         <td>routeService</td>
@@ -175,6 +197,10 @@
                                                             No
                                                     </td>
                                                     
+                                                        <td>
+                                                                <p>RouterService</p>
+
+                                                        </td>
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -210,14 +236,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="23"
-                            class="link-to-prism">src/app/core/guards/user-registred-correct/user-registred-correct.service.ts:23</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="37"
+                            class="link-to-prism">src/app/core/guards/user-registred-correct/user-registred-correct.service.ts:37</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>method to validate route</p>
+</div>
 
                     <div class="io-description">
                         <b>Parameters :</b>
@@ -228,6 +256,7 @@
                                     <td>Name</td>
                                     <td>Type</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -242,6 +271,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>AS route</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>state</td>
@@ -254,6 +287,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>As state</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -265,7 +302,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>boolean</p>
+
                     </div>
                 </td>
             </tr>
@@ -293,14 +331,16 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-line">Defined in <a href="" data-line="47"
-                            class="link-to-prism">src/app/core/guards/user-registred-correct/user-registred-correct.service.ts:47</a></div>
+                    <div class="io-line">Defined in <a href="" data-line="62"
+                            class="link-to-prism">src/app/core/guards/user-registred-correct/user-registred-correct.service.ts:62</a></div>
                 </td>
             </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                    <div class="io-description"><p>Method to verify Route</p>
+</div>
 
                     <div class="io-description">
                         <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
@@ -324,12 +364,20 @@ import { RouteService } from &#x27;src/app/shared/functions/routes/route.service
 import { VerifyStageRegisterDataService } from &#x27;src/app/shared/functions/verify-stage-register-data/verify-stage-register-data.service&#x27;;
 import { IAppState } from &#x27;src/app/state-management/app.model&#x27;;
 import { IRegisterUser } from &#x27;src/app/state-management/register/register.state&#x27;;
-
+/**
+ * UserRegistered guard
+ */
 @Injectable({
   providedIn: &#x27;root&#x27;
 })
 export class UserRegistredCorrectService implements CanActivate {
-
+  /**
+   * The constructor
+   * @param state State
+   * @param router AS route
+   * @param verifyStageRegisterDataService as VerifyStageRegistered
+   * @param routeService RouterService
+   */
   constructor(
     protected state: State&lt;IAppState&gt;,
     private router: Router,
@@ -337,6 +385,12 @@ export class UserRegistredCorrectService implements CanActivate {
     private routeService: RouteService,
 
   ) { }
+   /**
+   * method to validate route
+   * @param route AS route
+   * @param state As state
+   * @returns boolean
+   */
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -361,6 +415,7 @@ export class UserRegistredCorrectService implements CanActivate {
       this.router.navigate([EnumRoutesApplication.MATCHS]);
       return false;
     }
+  /** Method to verify Route*/
   async verifyRoute() {
     const routeReturned &#x3D; await this.verifyStageRegisterDataService.redirectRouteWithDataRegistered();
 
