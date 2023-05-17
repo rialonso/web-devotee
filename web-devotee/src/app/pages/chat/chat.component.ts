@@ -4,12 +4,9 @@ import { GetChatService } from 'src/app/core/services/get-chat/get-chat.service'
 import { GetMatchesService } from 'src/app/core/services/get-matches/get-matches.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
 import { ChatConnectorService } from 'src/app/core/services/websockets/chat-connector/chat-connector.service';
-import { LoginQrcodeConnectorService } from 'src/app/core/services/websockets/login-qrcode-connector/login-qrcode-connector.service';
 import { MatchesConnectorService } from 'src/app/core/services/websockets/matches-connector/matches-connector.service';
-import { TransformAgeService } from 'src/app/shared/functions/transform-age/transform-age.service';
 import { ModelGetMatchesResponse } from 'src/app/shared/model/response/get-matches/get-matches.response';
 import { IAppState } from 'src/app/state-management/app.model';
-import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { environment } from 'src/environments/environment';
 import { EnumParamsChat } from './enum/params-chat.enum';
 
@@ -46,7 +43,6 @@ export class ChatComponent implements OnInit {
     private translateService: TranslateService,
     private getMatchesService: GetMatchesService,
     private getChatService: GetChatService,
-    private transformAgeService: TransformAgeService,
     private chatConnectorService: ChatConnectorService,
     private matchesConnectorService: MatchesConnectorService,
 

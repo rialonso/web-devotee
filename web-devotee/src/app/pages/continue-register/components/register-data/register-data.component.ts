@@ -18,7 +18,7 @@ import { ReplaySubject } from 'rxjs';
 import { ProfilePicturesService } from 'src/app/core/services/profile-pictures/profile-pictures.service';
 import { environment } from 'src/environments/environment';
 import { GetSelectsSpecialPersonService } from 'src/app/shared/functions/get-selects-special-person/get-selects-special-person.service';
-import { inputsSpecialPerson, searchSpecialPerson } from './consts/inputs-special-person.const';
+import { inputsSpecialPerson } from './consts/inputs-special-person.const';
 import { EnumControlsSpecialPerson } from './enum/constrols-inputs-special-person.enum';
 import { UpdateDataService } from 'src/app/core/services/update-data/update-data.service';
 import { EnumGenders } from 'src/app/shared/enum/genders/genders.enum';
@@ -196,31 +196,17 @@ export class RegisterDataComponent implements OnInit {
   }
   get controlsForm() { return this.formGroup.controls; }
   addControlsTypeSpecial(): void {
-    const controlsSpecial = [
-      ...searchSpecialPerson,
-      ...inputsSpecialPerson,
-    ]
+    const controlsSpecial = inputsSpecialPerson;
     controlsSpecial.forEach((value: string) => {
-      if (value.includes('input_')) {
-        this.formGroup
-        .addControl(
-          value,
-          this.formBuilder.control(''));
-      }else {
         this.formGroup
         .addControl(
           value,
           this.formBuilder.control('', Validators.required));
-      }
-
     });
   }
   removeControlsIputSearchSpecialThings() {
     return new Promise<boolean>((resolve, reject) => {
-      const controlsSpecial = [
-        ...searchSpecialPerson,
-        ...inputsSpecialPerson,
-      ];
+      const controlsSpecial = inputsSpecialPerson;
       controlsSpecial.forEach((value: string) => {
         this.formGroup.removeControl(value);
       });
