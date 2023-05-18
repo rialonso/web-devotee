@@ -65,6 +65,7 @@ export class LoginQrCodeComponent implements OnInit {
         this.pusherAuthService
           .pusherConnect()
           .unsubscribe(`${environment.webSocket.channels.loginQrCode}${this.qrCodeHash}`);
+        this.onNoClick();
       })
 
   }
