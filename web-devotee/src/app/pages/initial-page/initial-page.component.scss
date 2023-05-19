@@ -1,7 +1,7 @@
 @import '_mixins';
 @import '_sizes';
 #container-initial-page {
-  @media screen and(min-width: $min-tablet) and (min-height: 800px){
+  @media screen and (min-width: $min-tablet) and (min-height: 800px){
     height: 100vh;
   }
   .container-photos-cards {
@@ -83,7 +83,7 @@
       @include min-tablet {
         font-size: 4rem;
       }
-      @media screen and(min-width: $min-desk) {
+      @media screen and (min-width: $min-desk) {
         font-size: 5rem;
       }
     }

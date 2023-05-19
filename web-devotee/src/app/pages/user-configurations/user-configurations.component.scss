@@ -11,7 +11,7 @@
     grid-column-gap: 20px;
     justify-content: space-between;
     grid-template-columns: 1fr;
-    @media screen and(min-width: $epecific-mobile-configurations) {
+    @media screen and (min-width: $epecific-mobile-configurations) {
       grid-template-columns: 1fr 1fr;
 
     }
