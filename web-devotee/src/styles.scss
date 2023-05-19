@@ -63,11 +63,11 @@ p, a {
     padding: $s-40px;
     background-color: $white;
     border-radius: $s-10px;
-    @media screen and(max-width: $max-mobile){
+    @media screen and (max-width: $max-mobile){
       display: none;
     }
     &-mobile {
-      @media screen and(max-width: $max-mobile){
+      @media screen and (max-width: $max-mobile){
 
         display: initial;
         background-color: #FFFFFF;

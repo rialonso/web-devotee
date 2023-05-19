@@ -9,7 +9,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { IConfig, NgxMaskModule } from "ngx-mask";
 import { AuthGuardService } from "./core/guards/auth-guard/auth.guard.service";
+<<<<<<< HEAD
 import { GoogleLoginProvider } from "angularx-social-login";
+=======
+import { GoogleLoginProvider, SocialLoginModule } from "@abacritt/angularx-social-login";
+/**
+ * Mask config
+ */
+>>>>>>> c995d2e... feat:update version angular 15
 const maskConfig: Partial<IConfig> = {
   validation: false,
 };
@@ -25,7 +32,7 @@ const maskConfig: Partial<IConfig> = {
     BrowserAnimationsModule,
     StoreModule.forRoot(rootReducer),
     NgxMaskModule.forRoot(maskConfig),
-
+    SocialLoginModule,
   ],
   exports:[
     AppRoutingModule,
