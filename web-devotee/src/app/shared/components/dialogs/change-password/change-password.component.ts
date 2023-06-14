@@ -64,6 +64,8 @@ export class ChangePasswordComponent implements OnInit {
       .post(this.formGroup.value, this.state.getValue().userData.data.id)
       .pipe(takeUntil(this.destroy$))
       .toPromise();
+      console.log(userData.status);
+
     if (userData.status) {
       this.closeModal();
       this.snackBarService.openSnackbarSuccess(
@@ -71,10 +73,11 @@ export class ChangePasswordComponent implements OnInit {
         this.dataTexts.snacksBars.successChangePassword.button
       );
     } else {
+      console.log(userData.status);
+
       this.snackBarService.openSnackbarWarning(
         this.dataTexts.snacksBars.wrongChangePassword.mensage,
         this.dataTexts.snacksBars.wrongChangePassword.button,
-        3000
       );
     }
   }

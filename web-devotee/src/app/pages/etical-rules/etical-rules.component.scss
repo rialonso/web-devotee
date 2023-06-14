@@ -16,12 +16,12 @@
       gap: $s-20px;
       padding: $s-15px;
       box-sizing: border-box;
-      @media screen and(max-width: $epecific-mobile) {
+      @media screen and (max-width: $epecific-mobile) {
        flex-direction: column;
       }
       img {
         max-width: 115px;
-        @media screen and(max-width: $epecific-mobile) {
+        @media screen and (max-width: $epecific-mobile) {
           max-width: 5rem;
         }
       }

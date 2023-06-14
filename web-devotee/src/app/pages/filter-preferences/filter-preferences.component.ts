@@ -8,6 +8,7 @@ import { UpdateDataService } from 'src/app/core/services/update-data/update-data
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { RouteService } from 'src/app/shared/functions/routes/route.service';
 import { IAppState } from 'src/app/state-management/app.model';
+import { StateManagementFuncService } from '../../shared/functions/state-management/state-management-func.service';
 
 @Component({
   selector: 'app-filter-preferences',
@@ -26,6 +27,7 @@ export class FilterPreferencesComponent implements OnInit {
     private updateDataService: UpdateDataService,
     private routerService: RouteService,
     private snackBarService: SnackBarService,
+    private stateManagementFuncService: StateManagementFuncService,
   ) { }
 
   ngOnInit(): void {
@@ -44,6 +46,9 @@ export class FilterPreferencesComponent implements OnInit {
       target_account_type: [
         ''
       ],
+      relationship_type: [
+        ''
+      ],
       age_min: [
         ''
       ],
@@ -57,6 +62,7 @@ export class FilterPreferencesComponent implements OnInit {
   }
   setValuesRegitered() {
     // const
+    console.log(this.state.getValue()?.userData?.data);
     this.formGroup.patchValue(
       {
         ...this.state.getValue()?.userData?.data
@@ -70,6 +76,10 @@ export class FilterPreferencesComponent implements OnInit {
       ...this.formGroup.value
     }
     const data = await this.updateDataService.post(dataUpdate, stateUser.id).toPromise();
+    console.log(data);
+
+    this.stateManagementFuncService.funcAddAllDataUser(data);
+
     this.snackBarService.openSnackbarSuccess(
       this.dataTexts.snacksBars.successSaveFilters.mensage,
       this.dataTexts.snacksBars.successSaveFilters.button);

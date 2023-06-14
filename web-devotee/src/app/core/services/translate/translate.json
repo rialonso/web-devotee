@@ -414,11 +414,11 @@
     "userTypeValues": [
       {
         "label": "Devotee",
-        "value": "Devotee"
+        "value": "devotee"
       },
       {
         "label": "Especial",
-        "value": "Special"
+        "value": "special"
       },
       {
         "label": "Todos",
@@ -480,7 +480,7 @@
         "mensage": "Dados salvos com sucesso",
         "button": "entendi"
       },
-      "errorChangePassword": {
+      "wrongChangePassword": {
         "mensage": "Ops.. algo deu errado, confira as senhas digitadas",
         "button": "entendi"
       }
@@ -989,11 +989,11 @@
     "userTypeValues": [
       {
         "label": "Devotee",
-        "value": "Devotee"
+        "value": "devotee"
       },
       {
         "label": "Special",
-        "value": "Special"
+        "value": "special"
       },
       {
         "label": "All",

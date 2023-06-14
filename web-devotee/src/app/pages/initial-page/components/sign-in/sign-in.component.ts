@@ -15,7 +15,7 @@ import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { ModelErrors } from 'src/app/shared/model/errors/errors.model';
 import { IUserData } from 'src/app/state-management/user-data/user-data.state';
 import { UserProfileService } from 'src/app/core/services/user-profile/user-profile.service';
-import { GoogleLoginProvider, SocialAuthService } from 'angularx-social-login';
+import { GoogleLoginProvider, SocialAuthService } from '@abacritt/angularx-social-login';
 import { ISignInGoogle } from 'src/app/shared/model/others-sign-in/sign-in.model';
 import { LoginGoogleService } from 'src/app/core/services/others-sign-in/login-google/login-google.service';
 import { VerifyStageRegisterDataService } from 'src/app/shared/functions/verify-stage-register-data/verify-stage-register-data.service';
