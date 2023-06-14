@@ -14,3 +14,10 @@ export class AddAllDataUser implements CustomAction {
     return createAction(this.type);
   }
 }
+export class SpreadDataUser implements CustomAction {
+  type = UserDataEnum.spreadDataUser;
+  constructor(public payload?: any){}
+  creatAction(): ActionCreator {
+    return createAction(this.type);
+  }
+}

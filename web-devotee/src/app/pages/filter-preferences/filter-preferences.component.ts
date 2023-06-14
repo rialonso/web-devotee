@@ -76,7 +76,10 @@ export class FilterPreferencesComponent implements OnInit {
       ...this.formGroup.value
     }
     const data = await this.updateDataService.post(dataUpdate, stateUser.id).toPromise();
+    console.log(data);
+
     this.stateManagementFuncService.funcAddAllDataUser(data);
+
     this.snackBarService.openSnackbarSuccess(
       this.dataTexts.snacksBars.successSaveFilters.mensage,
       this.dataTexts.snacksBars.successSaveFilters.button);
