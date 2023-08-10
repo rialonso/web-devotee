@@ -12,6 +12,7 @@ import { UseOfTermsComponent } from './use-of-terms/use-of-terms.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { DevoteePlusComponent } from './devotee-plus/devotee-plus.component';
+import { DeleteProfileComponent } from './delete-profile/delete-profile.component';
 
 const dialogsComponent = [
   LoginQrCodeComponent,
@@ -28,6 +29,7 @@ const dialogsComponent = [
 @NgModule({
   declarations: [
     ...dialogsComponent,
+    DeleteProfileComponent,
 
   ],
   imports: [

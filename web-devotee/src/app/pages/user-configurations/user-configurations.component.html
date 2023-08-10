@@ -21,7 +21,7 @@
         <mat-icon svgIcon="change_password"></mat-icon>
         <mat-card-title>{{dataTexts.userConfigurations.features.changePassword}}</mat-card-title>
       </mat-card>
-      <mat-card class="card-settings" *ngIf="false">
+      <mat-card class="card-settings" (click)="deleteAccount()">
         <mat-icon>delete</mat-icon>
         <mat-card-title>{{dataTexts.userConfigurations.features.deleteAccount}}</mat-card-title>
       </mat-card>

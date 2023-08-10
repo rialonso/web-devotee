@@ -67,6 +67,15 @@ export class UserConfigurationsComponent implements OnInit {
     localStorage.clear();
     window.location.href = this.enumRoutes.LOGIN;
   }
+  deleteAccount() {
+    this.dialogService
+    .openDeleteAccount()
+    .afterClosed()
+    .pipe(takeUntil(this.destroy$))
+    .subscribe((closed: any) => {
+
+    })
+  }
   changePassword() {
     this.dialogService
       .openChangePassword()

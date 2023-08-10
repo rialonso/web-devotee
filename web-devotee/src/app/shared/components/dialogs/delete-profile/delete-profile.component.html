@@ -1,0 +1,27 @@
+<main class="dp-flex-column-initial">
+  <mat-card-title
+  class="color-blue-dark font-booster-next-bold">
+  {{dataTexts.userConfigurations.features.deleteAccount}}
+</mat-card-title>
+  <p>
+    {{dataTexts.deleteAccount.text}}
+  </p>
+  <section class="contianer-btns">
+    <button
+      class="button-stroke-primary"
+      mat-stroked-button
+      color="primary"
+      (click)="closeModal()"
+      >
+      {{ dataTexts.buttons.btnCancel }}
+    </button>
+    <button
+      mat-flat-button
+      color="primary"
+      (click)="deleteAccount()"
+
+      >
+      {{ dataTexts.buttons.btnConfirmDelete }}
+    </button>
+  </section>
+</main>

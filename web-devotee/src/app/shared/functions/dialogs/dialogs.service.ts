@@ -13,6 +13,7 @@ import { ChangePasswordComponent } from '../../components/dialogs/change-passwor
 import { UseOfTermsComponent } from '../../components/dialogs/use-of-terms/use-of-terms.component';
 import { PrivacyPolicyComponent } from '../../components/dialogs/privacy-policy/privacy-policy.component';
 import { DevoteePlusComponent } from '../../components/dialogs/devotee-plus/devotee-plus.component';
+import { DeleteProfileComponent } from '../../components/dialogs/delete-profile/delete-profile.component';
 
 @Injectable({
   providedIn: 'root'
@@ -124,6 +125,20 @@ export class DialogsService {
         width: 'calc(60%)',
         maxWidth: '800px',
         panelClass: 'container-change-password',
+      },
+    );
+    const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
+      size.matches ? modal.updateSize('100vw', ''): undefined ;
+    });
+    return modal;
+  }
+  openDeleteAccount() {
+    const modal =  this.dialog.open(
+      DeleteProfileComponent,
+      {
+        width: 'calc(60%)',
+        maxWidth: '400px',
+        panelClass: 'container-delete-account',
       },
     );
     const smallDialogSubscription = this.isExtraSmall.subscribe(size => {
