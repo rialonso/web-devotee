@@ -75,7 +75,9 @@
       "btnEntry" : "Entrar",
       "btnAccess": "Acesse",
       "btnRegisterSe": "Cadastre-se",
-      "btnShop": "Loja"
+      "btnShop": "Loja",
+      "btnConfirmDelete": "Sim, certeza"
+
     },
     "inputs": {
       "genericErrors": {
@@ -494,7 +496,6 @@
         "changePassword": "Alterar senha",
         "deleteAccount": "Deletar perfil",
         "logout": "Sair"
-
       }
     },
     "profileUser": {
@@ -569,12 +570,15 @@
     "hours" : "horas",
     "hour" : "hora",
     "minutes": "minutos",
-    "minute": "minuto"
-
+    "minute": "minuto",
+    "deleteAccount": {
+      "text": "Que pena que vc quer deletar sua conta! Tem certeza que quer fazer isso?"
+    }
 
 
   },
   "us": {
+
     "firstPage": {
       "title": "The best relationship app made for special people"
     },
@@ -650,7 +654,8 @@
       "btnEntry" : "Login",
       "btnAccess": "Sign in",
       "btnRegisterSe": "Register",
-      "btnShop": "Shop"
+      "btnShop": "Shop",
+      "btnConfirmDelete": "Yes, i`am"
 
     },
     "inputs": {
@@ -1153,7 +1158,9 @@
     "hours" : "hours",
     "hour" : "hour",
     "minutes": "minutes",
-    "minute": "minute"
-
+    "minute": "minute",
+    "deleteAccount": {
+      "text": "Too bad you want to delete your account! Are you sure you want to do that?"
+    }
   }
 }

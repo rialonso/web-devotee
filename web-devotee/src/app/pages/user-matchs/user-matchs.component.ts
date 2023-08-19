@@ -5,6 +5,7 @@ import { takeUntil } from 'rxjs/operators';
 import { GetSugestionMatchsService } from 'src/app/core/services/get-sugestion-matchs/get-sugestion-matchs.service';
 import { LikeDislikeService } from 'src/app/core/services/like-dislike/like-dislike.service';
 import { TranslateService } from 'src/app/core/services/translate/translate.service';
+import { UserProfileService } from 'src/app/core/services/user-profile/user-profile.service';
 import { EnumLikeDislikeActions } from 'src/app/shared/enum/like-dislike/likes-dislike.enum';
 import { EnumRoutesApplication } from 'src/app/shared/enum/routes.enum';
 import { DialogsService } from 'src/app/shared/functions/dialogs/dialogs.service';
@@ -54,6 +55,8 @@ export class UserMatchsComponent implements OnInit, AfterViewInit {
     private dialogsService: DialogsService,
     private stateManagementFuncService: StateManagementFuncService,
     private transformAgeService: TransformAgeService,
+    private userProfileService: UserProfileService,
+
   ) {
 
 
@@ -249,7 +252,9 @@ export class UserMatchsComponent implements OnInit, AfterViewInit {
   getDistance(distanceFull: number) {
     return Math.trunc(distanceFull);
   }
-  viewProfile(id) {
-    this.dialogsService.openProfile(id);
+  async viewProfile(id) {
+    const userData  = await this.userProfileService.get(id).toPromise();
+
+    this.dialogsService.openProfile(userData.data);
   }
 }

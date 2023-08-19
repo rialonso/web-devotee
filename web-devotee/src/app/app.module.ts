@@ -28,7 +28,6 @@ const maskConfig: Partial<IConfig> = {
     BrowserAnimationsModule,
     StoreModule.forRoot(rootReducer),
     NgxMaskModule.forRoot(maskConfig),
-    SocialLoginModule,
   ],
   exports:[
     AppRoutingModule,

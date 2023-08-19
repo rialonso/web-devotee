@@ -19,6 +19,7 @@ import { GoogleLoginProvider, SocialAuthService } from '@abacritt/angularx-socia
 import { ISignInGoogle } from 'src/app/shared/model/others-sign-in/sign-in.model';
 import { LoginGoogleService } from 'src/app/core/services/others-sign-in/login-google/login-google.service';
 import { VerifyStageRegisterDataService } from 'src/app/shared/functions/verify-stage-register-data/verify-stage-register-data.service';
+import jwt_decode from 'jwt-decode';
 
 @Component({
   selector: 'app-sign-in',
@@ -58,11 +59,78 @@ export class SignInComponent implements OnInit {
         this.changeOpenMenuMobile(controlsApp.openSingIn);
       });
   }
+  handleCredentialResponse(response) {
 
+    console.log("Encoded JWT ID token: " + response.credential);
+    let jwtDecoded = jwt_decode(response.credential);
+    console.log(jwtDecoded)
+    // const dataToLoginGoogle = new ISignInGoogle(
+    //   res.email,
+    //   res.response.idpId,
+    //   res.response.id_token
+    // );
+    // const userData = await this.loginGoogleService.post(dataToLoginGoogle).toPromise();
+    // this.stateManagementFuncServices.funcAddDataRegister(userData.data);
+    // this.verifyStageRegisterDataService.redirectRouteWithDataRegistered();
+
+  }
   ngOnInit(): void {
     this.dataTexts = this.translateService?.textTranslate;
     this.initiForm();
+    // this.socialAuthService.refreshAuthToken(GoogleLoginProvider.PROVIDER_ID);
+
+    this.socialAuthService.authState.subscribe(async (user) => {
+      console.log(user);
+      if(user != null){
+
+        const dataToLoginGoogle = new ISignInGoogle(
+          user.email,
+          user.provider.toLowerCase(),
+          user.idToken
+        );
+        const userData = await this.loginGoogleService.post(dataToLoginGoogle).toPromise();
+        this.stateManagementFuncServices.funcAddDataRegister(userData.data);
+        this.verifyStageRegisterDataService.redirectRouteWithDataRegistered();
+      }
+    });
+    // this.socialAuthService.getAccessToken(GoogleLoginProvider.PROVIDER_ID).then(accessToken => {
+    //   console.log(accessToken);
+    // });
+
+    // this.initiGoogleSignin();
   }
+  initiGoogleSignin() {
+    // @ts-ignore
+    let auth2 = google.accounts.id.initialize({
+      client_id: '670097540184-3liid93hjkcib38idqtrnvrgfa6drm69.apps.googleusercontent.com',
+      callback: this.handleCredentialResponse.bind(this),
+      auto_select: false,
+      cancel_on_tap_outside: true,
+
+    });
+    // @ts-ignore
+    // google.accounts.id.
+    google.accounts.id.renderButton(
+      // @ts-ignore
+      document.getElementById("google-button"),
+      {
+        theme: "none",
+        size: "large",
+        width: "100%",
+        type: 'standard',
+        shape: 'pill',
+        logo_alignment: 'left'
+      }
+    );
+    //@ts-ignore
+    google.accounts.id.prompt((notification: PromptMomentNotification) => { });
+
+  }
+  attachSignin(element) {
+    console.log(element.id);
+
+  }
+
   changeOpenMenuMobile(actionClicked: boolean): void {
     this.openMobileSignIn = actionClicked;
   }
@@ -81,14 +149,14 @@ export class SignInComponent implements OnInit {
       const signInData: IUserData.RootObject = await this.signInService.post(this.formGroup.value).toPromise();
       if (signInData?.status) {
         const userProfile: IUserData.RootObject = await this.userProfileService.get(signInData.data.id).toPromise();
-        this.stateManagementFuncServices.funcAddAllDataUser({access_token: signInData.access_token, ...userProfile});
+        this.stateManagementFuncServices.funcAddAllDataUser({ access_token: signInData.access_token, ...userProfile });
         this.verifyStageRegisterDataService.redirectRouteWithDataRegistered();
       } else {
         this.showErrorCredentials
-        = new ModelErrors(
-          !signInData.status,
-           this.dataTexts.errors.credentials
-        );
+          = new ModelErrors(
+            !signInData.status,
+            this.dataTexts.errors.credentials
+          );
       }
       this.loading = false;
     }
@@ -111,18 +179,20 @@ export class SignInComponent implements OnInit {
       ]
     })
   }
-async loginWithGoogle() {
+
+  async loginWithGoogle() {
     this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID)
-    .then(async (res) => {
-      const dataToLoginGoogle = new ISignInGoogle(
-        res.email,
-        res.response.idpId,
-        res.response.id_token
-      );
-      const userData = await this.loginGoogleService.post(dataToLoginGoogle).toPromise();
-      this.stateManagementFuncServices.funcAddDataRegister(userData.data);
-      this.verifyStageRegisterDataService.redirectRouteWithDataRegistered();
-    });
+      .then(async (res) => {
+        console.log(res);
+        const dataToLoginGoogle = new ISignInGoogle(
+          res.email,
+          res.response.idpId,
+          res.response.id_token
+        );
+        const userData = await this.loginGoogleService.post(dataToLoginGoogle).toPromise();
+        this.stateManagementFuncServices.funcAddDataRegister(userData.data);
+        this.verifyStageRegisterDataService.redirectRouteWithDataRegistered();
+      });
   }
   openTerms() {
     this.dialogsService.openTerms();
