@@ -1,14 +1,14 @@
 export class ISignInGoogle  {
   email: string;
-  type: string;
+  login_type: string;
   token: string;
   constructor(
     email: string,
-    type: string,
+    login_type: string,
     token: string,
   ) {
     this.email = email;
-    this.type = type;
+    this.login_type = login_type;
     this.token = token;
 
   }

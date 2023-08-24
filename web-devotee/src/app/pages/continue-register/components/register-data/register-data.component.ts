@@ -218,12 +218,9 @@ export class RegisterDataComponent implements OnInit {
     this.routeService.navigateToURL(route);
   }
   openModalActivateLocation() {
-    if (this.state.getValue()?.userData.data.lat && this.state.getValue()?.userData.data.lat) {
-      this.activeLocation = true;
-      return true;
-    }
-    if (!this.state.getValue()?.registerData.lat
-      && !this.state.getValue()?.registerData.lng) {
+
+    if ((!this.state.getValue()?.registerData.lat
+      && !this.state.getValue()?.registerData.lng) || this.state.getValue()?.registerData.address_description == null) {
 
       this.dialogsService
       .openActivateLocation()
@@ -238,17 +235,20 @@ export class RegisterDataComponent implements OnInit {
     } else {
       this.activeLocation = true;
     }
-
+    if (this.state.getValue()?.userData.data.lat && this.state.getValue()?.userData.data.lat) {
+      this.activeLocation = true;
+      return true;
+    }
   }
   async continueRegister() {
     if (this.formGroup.valid) {
       this.loading = true;
       let updateData;
       const disabilitys = {
-        cid: this.addKeyInDisabilitys(this.formGroup.get(EnumControlsSpecialPerson.MY_CIDS).value),
-        medical_procedures: this.addKeyInDisabilitys(this.formGroup.get(EnumControlsSpecialPerson.MEDICAL_PROCEDURES).value),
-        drugs: this.addKeyInDisabilitys(this.formGroup.get(EnumControlsSpecialPerson.MY_DRUGS).value),
-        hospitals: this.addKeyInDisabilitys(this.formGroup.get(EnumControlsSpecialPerson.MY_HOSPTALS).value),
+        cid: this.addKeyInDisabilitys(this.formGroup.get(EnumControlsSpecialPerson.MY_CIDS)?.value),
+        medical_procedures: this.addKeyInDisabilitys(this.formGroup.get(EnumControlsSpecialPerson.MEDICAL_PROCEDURES)?.value),
+        drugs: this.addKeyInDisabilitys(this.formGroup.get(EnumControlsSpecialPerson.MY_DRUGS)?.value),
+        hospitals: this.addKeyInDisabilitys(this.formGroup.get(EnumControlsSpecialPerson.MY_HOSPTALS)?.value),
       }
       //
       await this.removeControlsIputSearchSpecialThings();
@@ -257,7 +257,9 @@ export class RegisterDataComponent implements OnInit {
         ...this.formGroup.value,
         lat: this.state.getValue()?.registerData?.lat,
         lng: this.state.getValue()?.registerData?.lng,
-        target_gender: this.changeTargetGender()
+        target_gender: this.changeTargetGender(),
+        birthdate: moment(new Date(this.formGroup.get('birthdate')?.value)).format('YYYY-MM-DD'),
+        address_description: this.state.getValue()?.registerData?.address_description
       }
 
       if (this.state.getValue()?.registerData?.account_type === EnumUserType.SPECIAL) {

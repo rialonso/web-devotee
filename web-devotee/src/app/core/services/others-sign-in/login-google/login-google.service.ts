@@ -18,7 +18,7 @@ export class LoginGoogleService extends HttpService<any>{
     super(
       httpClient,
       environment.api,
-      environment.urls.login,
+      environment.urls.registerUser,
       new LoginGoogleSerializer());
   }
 }
