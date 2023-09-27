@@ -31,9 +31,11 @@ export class DeleteProfileComponent {
     this.matDialogRef.close();
   }
   async deleteAccount() {
-    await this.userProfileService.delete(this.state.getValue().userData.data.id).pipe(takeUntil(this.destroy$)).toPromise();
-    this.closeModal();
-    localStorage.clear();
-    window.location.href = this.enumRoutes.LOGIN;
+    debugger;
+    console.log(this.state.getValue().userData.data.id);
+    await this.userProfileService.delete(this.state.getValue().userData.data.id, {reason_cancel_account: "cancel"}).toPromise();
+    // this.closeModal();
+    // localStorage.clear();
+    // window.location.href = this.enumRoutes.LOGIN;
   }
 }
